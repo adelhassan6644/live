@@ -1,14 +1,13 @@
 import 'package:live/app/core/utils/dimensions.dart';
-import 'package:live/features/auth/provider/firebase_auth_provider.dart';
 import 'package:live/features/notifications/provider/notifications_provider.dart';
 import 'package:live/navigation/custom_navigation.dart';
 import 'package:live/navigation/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../data/config/di.dart';
+import '../../auth/login/provider/auth_provider.dart';
 import '../../profile/provider/profile_provider.dart';
 import 'more_button.dart';
 
@@ -90,7 +89,7 @@ class MoreOptions extends StatelessWidget {
               icon: SvgImages.logout,
               withBorder: false,
               isLogout: true,
-              onTap: sl<FirebaseAuthProvider>().logOut,
+              onTap: sl<AuthProvider>().logOut,
             ),
           ],
         ),

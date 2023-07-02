@@ -50,7 +50,7 @@ class CustomButton extends StatelessWidget {
         },
         child: AnimatedContainer(
           width: isLoading ? 90.w : width ?? context.width,
-          height: height ?? 50.h,
+          height: height ?? 60.h,
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           decoration: BoxDecoration(
             color: backgroundColor,
@@ -58,7 +58,7 @@ class CustomButton extends StatelessWidget {
                 color: withBorderColor
                     ? ColorResources.PRIMARY_COLOR
                     : Colors.transparent),
-            borderRadius: BorderRadius.circular(radius ?? 10),
+            borderRadius: BorderRadius.circular(radius ?? 30),
           ),
           duration: const Duration(
             milliseconds: 600,

@@ -6,7 +6,7 @@ class AppStorageKey {
   static const String notFirstTime = "not_first_time";
   static const String isCompleteProfile = "is_complete_profile";
   static const String isLogin = "is_login";
-  static const String phone = "phone";
+  static const String mail = "mail";
   static const String location = "location";
   static const String cityName = "city_name";
   static const String cityId = "city_id";

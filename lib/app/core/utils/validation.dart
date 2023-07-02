@@ -19,6 +19,14 @@ class Validations {
       return null;
     }
   }
+  static String? password(String? password) {
+    if (password!.length < 8 ) {
+      return getTranslated("please_enter_valid_password",
+          CustomNavigator.navigatorState.currentContext!);
+    } else {
+      return null;
+    }
+  }
 
   static String? phone(String? value) {
     if (value!.isEmpty || value.length < 7) {

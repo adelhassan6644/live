@@ -2,6 +2,8 @@ class Routes {
   static const APP = "APP";
   static const SPLASH = "SPLASH";
   static const ON_BOARDING = "ON_BOARDING";
+  static const LOGIN = "LOGIN";
+  static const REGISTER = "REGISTER";
   static const DASHBOARD = "DASHBOARD";
   static const OFFER_DETAILS = "OFFER_DETAILS";
   static const EDIT_PROFILE = "EDIT_PROFILE";

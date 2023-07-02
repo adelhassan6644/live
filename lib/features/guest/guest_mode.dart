@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../../app/core/utils/dimensions.dart';
 import '../../components/custom_button.dart';
 import '../../components/custom_show_model_bottom_sheet.dart';
-import '../auth/pages/login.dart';
+import '../auth/login/page/login.dart';
 
 class GuestMode extends StatelessWidget {
   const GuestMode({Key? key}) : super(key: key);

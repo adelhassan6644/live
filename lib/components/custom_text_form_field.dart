@@ -23,6 +23,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color? pIconColor;
   final FocusNode? focus;
   final bool? read;
+  final bool withPadding;
   final VoidCallback? edit;
 
   final List<TextInputFormatter>? formatter;
@@ -38,6 +39,7 @@ class CustomTextFormField extends StatelessWidget {
 
   const CustomTextFormField({
     super.key,
+    this.withPadding=true,
     this.edge,
     this.keyboardAction = TextInputAction.next,
     this.autoValidateMode = AutovalidateMode.onUserInteraction,
@@ -70,151 +72,154 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onFieldSubmitted: onSaved,
-      textAlign: textAlign ?? TextAlign.start,
-      autovalidateMode: autoValidateMode,
-      textInputAction: keyboardAction,
-      onTap: onTap,
-      validator: valid,
-      controller: controller,
-      initialValue: initialValue,
-      maxLength: maxLength,
-      focusNode: focus,
-      readOnly: read == true ? true : false,
-      maxLines: maxLine,
-      minLines: minLine ?? 1,
-      keyboardType: inputType,
-      inputFormatters: inputType == TextInputType.phone
-          ? [FilteringTextInputFormatter.allow(RegExp('[0-9]'))]
-          : formatter,
-      style: AppTextStyles.w500
-          .copyWith(color: ColorResources.SECOUND_PRIMARY_COLOR, fontSize: 14),
-      cursorColor: ColorResources.SECOUND_PRIMARY_COLOR,
-      onChanged: onChanged,
-      decoration: InputDecoration(
-        counterText: "",
-        prefixIcon: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 8.w,
+    return Padding(
+      padding:  EdgeInsets.symmetric(vertical:withPadding? 5.h:0),
+      child: TextFormField(
+        onFieldSubmitted: onSaved,
+        textAlign: textAlign ?? TextAlign.start,
+        autovalidateMode: autoValidateMode,
+        textInputAction: keyboardAction,
+        onTap: onTap,
+        validator: valid,
+        controller: controller,
+        initialValue: initialValue,
+        maxLength: maxLength,
+        focusNode: focus,
+        readOnly: read == true ? true : false,
+        maxLines: maxLine,
+        minLines: minLine ?? 1,
+        keyboardType: inputType,
+        inputFormatters: inputType == TextInputType.phone
+            ? [FilteringTextInputFormatter.allow(RegExp('[0-9]'))]
+            : formatter,
+        style: AppTextStyles.w500
+            .copyWith(color: ColorResources.HEADER, fontSize: 14),
+        cursorColor: ColorResources.HEADER,
+        onChanged: onChanged,
+        decoration: InputDecoration(
+          counterText: "",
+          prefixIcon: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 8.w,
+            ),
+            child: prefixWidget ??
+                (pAssetIcon != null
+                    ? Image.asset(
+                        pAssetIcon!,
+                        height: 22.h,
+                        color: pIconColor ?? ColorResources.DISABLED,
+                      )
+                    : pSvgIcon != null
+                        ? customImageIconSVG(
+                            imageName: pSvgIcon!,
+                            color: pIconColor ?? Colors.black,
+                            height: 22.h,
+                          )
+                        : null),
           ),
-          child: prefixWidget ??
-              (pAssetIcon != null
-                  ? Image.asset(
-                      pAssetIcon!,
-                      height: 22.h,
-                      color: pIconColor ?? ColorResources.DISABLED,
-                    )
-                  : pSvgIcon != null
-                      ? customImageIconSVG(
-                          imageName: pSvgIcon!,
-                          color: pIconColor ?? Colors.black,
-                          height: 22.h,
-                        )
-                      : null),
-        ),
-        focusedBorder: read == true
-            ? OutlineInputBorder(
-                borderRadius: edge ??
-                    const BorderRadius.all(
-                      Radius.circular(
-                        Dimensions.RADIUS_DEFAULT,
+          focusedBorder: read == true
+              ? OutlineInputBorder(
+                  borderRadius: edge ??
+                      const BorderRadius.all(
+                        Radius.circular(
+                          Dimensions.RADIUS_DEFAULT,
+                        ),
                       ),
-                    ),
-                borderSide: BorderSide(
-                    color: ColorResources.LIGHT_BORDER_COLOR,
-                    width: 1,
-                    style: BorderStyle.solid),
-              )
-            : OutlineInputBorder(
-                borderRadius: edge ??
-                    const BorderRadius.all(
-                      Radius.circular(
-                        Dimensions.RADIUS_DEFAULT,
+                  borderSide: const BorderSide(
+                      color: ColorResources.LIGHT_BORDER_COLOR,
+                      width: 1,
+                      style: BorderStyle.solid),
+                )
+              : OutlineInputBorder(
+                  borderRadius: edge ??
+                      const BorderRadius.all(
+                        Radius.circular(
+                          Dimensions.RADIUS_DEFAULT,
+                        ),
                       ),
-                    ),
-                borderSide: const BorderSide(
-                    color: ColorResources.SECOUND_PRIMARY_COLOR,
-                    width: 1,
-                    style: BorderStyle.solid),
-              ),
-        border: OutlineInputBorder(
-          borderRadius: edge ??
-              const BorderRadius.all(
-                Radius.circular(
-                  Dimensions.RADIUS_DEFAULT,
+                  borderSide: const BorderSide(
+                      color: ColorResources.SECOUND_PRIMARY_COLOR,
+                      width: 1,
+                      style: BorderStyle.solid),
                 ),
-              ),
-          borderSide: const BorderSide(
-              color: ColorResources.LIGHT_BORDER_COLOR,
-              width: 1,
-              style: BorderStyle.solid),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderRadius: edge ??
-              const BorderRadius.all(
-                Radius.circular(
-                  Dimensions.RADIUS_DEFAULT,
+          border: OutlineInputBorder(
+            borderRadius: edge ??
+                const BorderRadius.all(
+                  Radius.circular(
+                    Dimensions.RADIUS_DEFAULT,
+                  ),
                 ),
-              ),
-          borderSide: const BorderSide(
-              color: ColorResources.LIGHT_BORDER_COLOR,
-              width: 1,
-              style: BorderStyle.solid),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: edge ??
-              const BorderRadius.all(
-                Radius.circular(
-                  Dimensions.RADIUS_DEFAULT,
+            borderSide: const BorderSide(
+                color: ColorResources.LIGHT_BORDER_COLOR,
+                width: 1,
+                style: BorderStyle.solid),
+          ),
+          disabledBorder: OutlineInputBorder(
+            borderRadius: edge ??
+                const BorderRadius.all(
+                  Radius.circular(
+                    Dimensions.RADIUS_DEFAULT,
+                  ),
                 ),
-              ),
-          borderSide: const BorderSide(
-              color: ColorResources.LIGHT_BORDER_COLOR,
-              width: 1,
-              style: BorderStyle.solid),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: edge ??
-              const BorderRadius.all(
-                Radius.circular(
-                  Dimensions.RADIUS_DEFAULT,
+            borderSide: const BorderSide(
+                color: ColorResources.LIGHT_BORDER_COLOR,
+                width: 1,
+                style: BorderStyle.solid),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: edge ??
+                const BorderRadius.all(
+                  Radius.circular(
+                    Dimensions.RADIUS_DEFAULT,
+                  ),
                 ),
-              ),
-          borderSide: const BorderSide(
-              color: ColorResources.FAILED_COLOR,
-              width: 1,
-              style: BorderStyle.solid),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: edge ??
-              const BorderRadius.all(
-                Radius.circular(
-                  Dimensions.RADIUS_DEFAULT,
+            borderSide: const BorderSide(
+                color: ColorResources.LIGHT_BORDER_COLOR,
+                width: 1,
+                style: BorderStyle.solid),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: edge ??
+                const BorderRadius.all(
+                  Radius.circular(
+                    Dimensions.RADIUS_DEFAULT,
+                  ),
                 ),
-              ),
-          borderSide: const BorderSide(
-              color: ColorResources.FAILED_COLOR,
-              width: 1,
-              style: BorderStyle.solid),
+            borderSide: const BorderSide(
+                color: ColorResources.FAILED_COLOR,
+                width: 1,
+                style: BorderStyle.solid),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: edge ??
+                const BorderRadius.all(
+                  Radius.circular(
+                    Dimensions.RADIUS_DEFAULT,
+                  ),
+                ),
+            borderSide: const BorderSide(
+                color: ColorResources.FAILED_COLOR,
+                width: 1,
+                style: BorderStyle.solid),
+          ),
+          contentPadding: EdgeInsets.symmetric(
+              vertical: 16.h, horizontal: sufWidget != null ? 0 : 24.w),
+          isDense: true,
+          alignLabelWithHint: true,
+          hintText: hint,
+          labelStyle: AppTextStyles.w400
+              .copyWith(color: ColorResources.DISABLED, fontSize: 14),
+          hintStyle: AppTextStyles.w400
+              .copyWith(color: ColorResources.DISABLED, fontSize: 14),
+          labelText: label ? hint : null,
+          fillColor: ColorResources.FILL_COLOR,
+          floatingLabelStyle: AppTextStyles.w400.copyWith(
+              color: ColorResources.HEADER, fontSize: 12),
+          filled: true,
+          errorStyle: AppTextStyles.w400
+              .copyWith(color: ColorResources.FAILED_COLOR, fontSize: 11),
+          prefixIconConstraints: BoxConstraints(maxHeight: 25.h),
         ),
-        contentPadding: EdgeInsets.symmetric(
-            vertical: 10.h, horizontal: sufWidget != null ? 0 : 8.w),
-        isDense: true,
-        alignLabelWithHint: true,
-        hintText: hint,
-        labelStyle: AppTextStyles.w400
-            .copyWith(color: ColorResources.DISABLED, fontSize: 14),
-        hintStyle: AppTextStyles.w400
-            .copyWith(color: ColorResources.DISABLED, fontSize: 14),
-        labelText: label ? hint : null,
-        fillColor: ColorResources.FILL_COLOR,
-        floatingLabelStyle: AppTextStyles.w400.copyWith(
-            color: ColorResources.SECOUND_PRIMARY_COLOR, fontSize: 11),
-        filled: true,
-        errorStyle: AppTextStyles.w400
-            .copyWith(color: ColorResources.FAILED_COLOR, fontSize: 11),
-        prefixIconConstraints: BoxConstraints(maxHeight: 25.h),
       ),
     );
   }

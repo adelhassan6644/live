@@ -61,7 +61,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:105813324547:android:5b6b00aaf8b2cc3e90af36",
         "android_client_info": {
-          "package_name": "com.softwarelive.live"
+          "package_name": "com.example.live"
         }
       },
       "oauth_client": [
