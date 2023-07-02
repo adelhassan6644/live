@@ -2,6 +2,7 @@ import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/app/core/utils/images.dart';
+import 'package:live/app/core/utils/svg_images.dart';
 import 'package:live/app/core/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:live/components/custom_images.dart';
@@ -80,7 +81,7 @@ class _LoginState extends State<Login> {
                                       hint: getTranslated("mail", context),
                                       inputType: TextInputType.emailAddress,
                                       valid: Validations.mail,
-
+                                      pSvgIcon: SvgImages.mailIcon,
                                     ),
                                     CustomTextFormField(
                                       keyboardAction: TextInputAction.done,

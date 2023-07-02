@@ -43,6 +43,8 @@ class SvgImages {
   static const String notSeen = 'assets/svgs/not_seen.svg';
   static const String saved = 'assets/svgs/saved.svg';
 
+  static const String mailIcon = 'assets/svgs/mail.svg';
+  static const String lockIcon = 'assets/svgs/lock.svg';
   static const String phoneIcon = 'assets/svgs/phone.svg';
   static const String phoneCallIcon = 'assets/svgs/phone_call.svg';
   static const String arrowRightIcon = 'assets/svgs/arrow_right.svg';

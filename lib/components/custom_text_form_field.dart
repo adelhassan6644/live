@@ -100,20 +100,20 @@ class CustomTextFormField extends StatelessWidget {
           counterText: "",
           prefixIcon: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 8.w,
+              horizontal: 24.w,
             ),
             child: prefixWidget ??
                 (pAssetIcon != null
                     ? Image.asset(
                         pAssetIcon!,
                         height: 22.h,
-                        color: pIconColor ?? ColorResources.DISABLED,
+                        color: pIconColor,
                       )
                     : pSvgIcon != null
                         ? customImageIconSVG(
                             imageName: pSvgIcon!,
-                            color: pIconColor ?? Colors.black,
-                            height: 22.h,
+                            color: pIconColor ,
+                            height: 16.h,
                           )
                         : null),
           ),
