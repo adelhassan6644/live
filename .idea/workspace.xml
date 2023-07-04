@@ -5,52 +5,103 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="drhg">
-      <change afterPath="$PROJECT_DIR$/assets/images/signup_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/eye.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/hidden_eye.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/user.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/auth_app_bar.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/custom_pin_code_field.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/forget_password.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/login.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/register.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/reset_password.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/verification.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/features/auth/provider/auth_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/live.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/live.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/language/ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/ar.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/language/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/svgs/phone.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svgs/phone.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_native_splash.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_native_splash.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/color_resources.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/color_resources.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/images.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/images.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/svg_images.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/svg_images.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/validation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/validation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/components/count_down.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/count_down.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/drawable/background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/FMDB.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/Firebase.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/FirebaseAnalytics.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/FirebaseAuth.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/FirebaseCore.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/FirebaseCoreInternal.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/FirebaseDynamicLinks.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/FirebaseInstallations.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/FirebaseMessaging.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/Flutter.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/GTMSessionFetcher.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/GoogleAppMeasurement.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/GoogleDataTransport.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/GoogleMaps.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/GoogleUtilities.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/OrderedSet.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/Pods-Runner.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/PromisesObjC.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/Reachability.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/Toast.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/app_settings.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/connectivity.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/firebase_analytics.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/firebase_auth.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/firebase_core.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/firebase_dynamic_links.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/firebase_messaging.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/flutter_inappwebview.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/flutter_keyboard_visibility.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/flutter_local_notifications.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/flutter_native_splash.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/fluttertoast.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/geolocator_apple.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/google_maps_flutter_ios.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/image_picker_ios.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/map_launcher.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/nanopb.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/path_provider_foundation.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/shared_preferences_foundation.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/sqflite.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/url_launcher_ios.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/video_player_avfoundation.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/wakelock.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ios/Pods.build/Release-iphonesimulator/webview_flutter_wkwebview.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/auth_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/auth_app_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/custom_app_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/custom_pin_code_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/custom_pin_code_field.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/components/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/custom_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/api/end_points.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/api/end_points.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/config/di.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/config/di.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/config/provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/config/provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/login/page/login.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/login/provider/auth_provider.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/login/repo/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/repo/auth_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/verification/page/verification.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/verification/provider/firebase_auth_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/provider/firebase_auth_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/verification/repo/firebase_auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/repo/firebase_auth_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/guest/guest_mode.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/guest/guest_mode.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/pages/forget_password.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/forget_password.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/pages/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/pages/register.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/register.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/pages/reset_password.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/reset_password.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/pages/verification.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/verification.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/home/page/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/home/page/home.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/more/widgets/more_options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/more/widgets/more_options.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/splash/page/splash.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/splash/page/splash.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/splash/provider/splash_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/splash/provider/splash_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/navigation/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/ephemeral/.plugin_symlinks/flutter_keyboard_visibility_linux" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/ephemeral/.plugin_symlinks/flutter_keyboard_visibility_linux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/ephemeral/.plugin_symlinks/shared_preferences_linux" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/ephemeral/.plugin_symlinks/shared_preferences_linux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/ephemeral/Flutter-Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/ephemeral/Flutter-Generated.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/ephemeral/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/ephemeral/flutter_export_environment.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,11 +139,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
     "last_opened_file_path": "/Users/user/SoftweareCloud2/live/assets/images",
+    "settings.editor.selected.configurable": "flutter.settings",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -103,11 +154,11 @@
       <recent name="$PROJECT_DIR$/assets/fonts/ar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adelh\Documents\GitHub\live\android\app\src\main\res\drawable" />
       <recent name="$PROJECT_DIR$/lib/features/auth/pages" />
       <recent name="$PROJECT_DIR$/lib/features/auth/provider" />
       <recent name="$PROJECT_DIR$/lib/features/auth/repo" />
       <recent name="$PROJECT_DIR$/assets" />
-      <recent name="$PROJECT_DIR$/lib/features/auth/login_with_firebase" />
     </key>
   </component>
   <component name="RunManager">

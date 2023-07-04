@@ -27,7 +27,7 @@ class CustomPinCodeField extends StatelessWidget {
       child: PinCodeTextField(
         validator: validation,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        cursorColor: Colors.black,
+        cursorColor: Colors.white,
         backgroundColor: Colors.transparent,
         autoDisposeControllers: false,
         autoDismissKeyboard: true,
@@ -36,8 +36,9 @@ class CustomPinCodeField extends StatelessWidget {
         enablePinAutofill: true,
         keyboardType: TextInputType.number,
         inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9]'))],
-        textStyle: AppTextStyles.w600.copyWith(color: Colors.black),
-        pastedTextStyle: AppTextStyles.w600.copyWith(color: Colors.black),
+        textStyle: AppTextStyles.w600.copyWith(color: Colors.white),
+        pastedTextStyle: AppTextStyles.w600.copyWith(color: Colors.white),
+        textInputAction: TextInputAction.done,
         pinTheme: PinTheme(
           borderWidth: 1,
           shape: PinCodeFieldShape.box,

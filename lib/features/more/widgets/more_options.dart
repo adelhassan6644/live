@@ -45,44 +45,30 @@ class MoreOptions extends StatelessWidget {
               child: MoreButton(
                 title: getTranslated("followers", context),
                 icon: SvgImages.addFollower,
-                onTap: () {
-                  CustomNavigator.push(Routes.FOLLOWERS);
-                },
+
               ),
             ),
             MoreButton(
               title: getTranslated("archives", context),
               icon: SvgImages.bookMark,
-              onTap: () => CustomNavigator.push(Routes.WISHLIST),
+
             ),
             MoreButton(
               title: getTranslated("notifications", context),
               icon: SvgImages.notifications,
-              onTap: () {
-                sl<NotificationsProvider>().getNotifications();
-                CustomNavigator.push(Routes.NOTIFICATIONS);
-              },
+
             ),
-            // MoreButton(
-            //   title: getTranslated("bank_data", context),
-            //   icon: SvgImages.card,
-            // ),
+
             MoreButton(
               title: sl<ProfileProvider>().isDriver
                   ? getTranslated("clients_evaluation", context)
                   : getTranslated("captain_evaluation", context),
               icon: SvgImages.rate,
-              onTap: () {
-                CustomNavigator.push(
-                  Routes.FEEDBACK,
-                );
-                // CustomNavigator.push(Routes.RATE_USER,arguments: 20);
-              },
+
             ),
             MoreButton(
               title: getTranslated("contact_with_us", context),
               icon: SvgImages.call,
-              onTap: () => CustomNavigator.push(Routes.CONTACT_WITH_US),
             ),
             MoreButton(
               title: getTranslated("log_out", context),

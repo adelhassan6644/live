@@ -1,5 +1,7 @@
+import 'package:live/features/auth/pages/reset_password.dart';
 import 'package:live/main_models/base_model.dart';
 import 'package:flutter/material.dart';
+import '../features/auth/pages/forget_password.dart';
 import '../features/auth/pages/login.dart';
 import '../features/auth/pages/register.dart';
 import '../features/auth/pages/verification.dart';
@@ -28,10 +30,15 @@ abstract class CustomNavigator {
         return _pageRoute(const Splash());
       case Routes.LOGIN:
         return _pageRoute(const Login());
-        case Routes.REGISTER:
+      case Routes.FORGET_PASSWORD:
+        return _pageRoute(const ForgetPassword());
+      case Routes.RESET_PASSWORD:
+        return _pageRoute(const ResetPassword());
+      case Routes.REGISTER:
         return _pageRoute(const Register());
       case Routes.VERIFICATION:
-        return _pageRoute( Verification(fromRegister:settings.arguments as bool));
+        return _pageRoute(
+            Verification(fromRegister: settings.arguments as bool));
       case Routes.EDIT_PROFILE:
         return _pageRoute(ProfilePage(
           fromLogin: settings.arguments as bool,

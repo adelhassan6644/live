@@ -14,12 +14,7 @@ import 'data/config/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'app/core/utils/app_strings.dart';
-import 'features/auth/pages/forget_password.dart';
-import 'features/auth/pages/login.dart';
 import 'features/auth/pages/reset_password.dart';
-import 'features/auth/pages/register.dart';
-import 'features/auth/pages/verification.dart';
-import 'features/splash/page/splash.dart';
 import 'navigation/custom_navigation.dart';
 import 'navigation/routes.dart';
 import 'package:live/data/config/di.dart' as di;
@@ -73,7 +68,6 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: CustomNavigator.onCreateRoute,
       navigatorObservers: [CustomNavigator.routeObserver],
       title: AppStrings.appName,
-      home:  Splash(),
       scaffoldMessengerKey: CustomNavigator.scaffoldState,
       debugShowCheckedModeBanner: false,
       theme: Provider.of<ThemeProvider>(
