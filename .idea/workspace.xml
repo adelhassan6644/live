@@ -4,18 +4,66 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="drh">
-      <change afterPath="$PROJECT_DIR$/assets/svgs/lock.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/svgs/mail.svg" afterDir="false" />
+    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="drhg">
+      <change afterPath="$PROJECT_DIR$/assets/images/signup_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/eye.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/hidden_eye.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/user.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/auth_app_bar.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/components/custom_pin_code_field.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/forget_password.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/login.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/register.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/reset_password.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/verification.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/auth/provider/auth_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/language/ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/ar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/language/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/svgs/phone.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svgs/phone.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_native_splash.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_native_splash.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/color_resources.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/color_resources.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/images.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/images.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/core/utils/svg_images.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/svg_images.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/validation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/validation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/count_down.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/count_down.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/components/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/custom_text_form_field.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/login/page/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/login/page/login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/api/end_points.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/api/end_points.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/config/di.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/config/di.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/config/provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/config/provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/login/page/login.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/login/provider/auth_provider.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/login/repo/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/repo/auth_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/verification/page/verification.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/verification/provider/firebase_auth_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/provider/firebase_auth_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/verification/repo/firebase_auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/repo/firebase_auth_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/guest/guest_mode.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/guest/guest_mode.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/more/widgets/more_options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/more/widgets/more_options.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/splash/page/splash.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/splash/page/splash.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/splash/provider/splash_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/splash/provider/splash_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/routes.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -44,22 +92,22 @@
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "/Users/user/SoftweareCloud2/live/assets/svgs",
+    "last_opened_file_path": "/Users/user/SoftweareCloud2/live/assets/images",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/assets/svgs" />
       <recent name="$PROJECT_DIR$/assets/fonts/ar" />
-      <recent name="$PROJECT_DIR$/assets/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/features/auth/pages" />
+      <recent name="$PROJECT_DIR$/lib/features/auth/provider" />
+      <recent name="$PROJECT_DIR$/lib/features/auth/repo" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/lib/features/auth/login_with_firebase" />
-      <recent name="$PROJECT_DIR$/lib/features/auth/login/repo" />
-      <recent name="$PROJECT_DIR$/lib/features/auth/login/provider" />
-      <recent name="$PROJECT_DIR$/lib/features/auth/login/page" />
     </key>
   </component>
   <component name="RunManager">
@@ -112,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688339186476</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="drhg">
+      <created>1688339949208</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688339949208</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,6 +186,7 @@
     <MESSAGE value="mf" />
     <MESSAGE value="mfc" />
     <MESSAGE value="drh" />
-    <option name="LAST_COMMIT_MESSAGE" value="drh" />
+    <MESSAGE value="drhg" />
+    <option name="LAST_COMMIT_MESSAGE" value="drhg" />
   </component>
 </project>

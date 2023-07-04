@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class ColorResources {
-  static const Color BORDER_COLOR = Color(0xffCECECE);
+  static const Color BORDER_COLOR = Color(0xFF9C6FBF);
   static const Color SECOUND_PRIMARY_COLOR = Color(0xff000000);
   static const Color PRIMARY_COLOR = Color(0xffFF4F65);
   static const Color APP_BAR_BACKGROUND_COLOR = Color(0xffFFF9F9);
@@ -26,13 +26,17 @@ abstract class ColorResources {
   static const Color LIGHT_GREY_BORDER = Color(0xffF3F3F3);
   static const Color LIGHT_BORDER_COLOR = Color(0xffE8ECF4);
   static const Color ALERT_COLOR = Color(0xffDBAB02);
-  static const Color FAILED_COLOR = Color(0xffFFFFFF);
+  static const Color FAILED_COLOR = Colors.black;
   static const Color RED_COLOR = Color(0xffFF3B30);
   static const Color HEADER = Color(0xFF000000);
   static const Color TITLE = Color(0xFF000000);
   static const Color SUBTITLE = Color(0xff373737);
   static const Color DETAILS_COLOR = Color(0xff737373);
   static const Color HINT_COLOR = Color(0xffA5B7B8);
+
+
+  static const Color SPLASH_BACKGROUND_COLOR = Color(0xff530B8B);
+
 
   static tripStatus(status) {
     if (status == "pending") {

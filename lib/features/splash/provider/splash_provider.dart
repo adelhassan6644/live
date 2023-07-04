@@ -9,13 +9,14 @@ class SplashProvider extends ChangeNotifier {
 
   startTheApp() {
     Future.delayed(const Duration(milliseconds: 4500), () {
-      if (splashRepo.isFirstTime()) {
-        CustomNavigator.push(Routes.LOGIN, clean: true);
-      } else if (splashRepo.isLogin() && !splashRepo.isCompleteProfile()) {
-        CustomNavigator.push(Routes.EDIT_PROFILE, clean: true, arguments: true);
-      } else {
-        CustomNavigator.push(Routes.DASHBOARD, clean: true, arguments: 0);
-      }
+      // if (splashRepo.isFirstTime()) {
+      //  CustomNavigator.push(Routes.LOGIN, clean: true);
+      // } else if (splashRepo.isLogin() && !splashRepo.isCompleteProfile()) {
+      //   CustomNavigator.push(Routes.EDIT_PROFILE, clean: true, arguments: true);
+      // } else {
+      //   CustomNavigator.push(Routes.DASHBOARD, clean: true, arguments: 0);
+      // }
+      CustomNavigator.push(Routes.LOGIN, clean: true);
       splashRepo.setFirstTime();
     });
   }

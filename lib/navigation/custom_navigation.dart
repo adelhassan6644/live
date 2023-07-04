@@ -1,8 +1,8 @@
 import 'package:live/main_models/base_model.dart';
 import 'package:flutter/material.dart';
-import 'package:live/features/on_boarding/pages/on_boarding.dart';
-import '../features/auth/login/page/login.dart';
-import '../features/auth/verification/page/verification.dart';
+import '../features/auth/pages/login.dart';
+import '../features/auth/pages/register.dart';
+import '../features/auth/pages/verification.dart';
 import '../features/contact_with_us/page/contact_with_us.dart';
 import '../features/maps/pages/pick_map_screen.dart';
 import '../features/notifications/page/notifications.dart';
@@ -28,8 +28,10 @@ abstract class CustomNavigator {
         return _pageRoute(const Splash());
       case Routes.LOGIN:
         return _pageRoute(const Login());
+        case Routes.REGISTER:
+        return _pageRoute(const Register());
       case Routes.VERIFICATION:
-        return _pageRoute(const Verification());
+        return _pageRoute( Verification(fromRegister:settings.arguments as bool));
       case Routes.EDIT_PROFILE:
         return _pageRoute(ProfilePage(
           fromLogin: settings.arguments as bool,

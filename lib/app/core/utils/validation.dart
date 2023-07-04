@@ -4,8 +4,8 @@ import '../../localization/localization/language_constant.dart';
 class Validations {
   static String? name(String? value) {
     if (value!.isEmpty) {
-      return getTranslated(
-          "required", CustomNavigator.navigatorState.currentContext!);
+      return getTranslated("please_enter_your_name",
+          CustomNavigator.navigatorState.currentContext!);
     } else {
       return null;
     }
@@ -19,13 +19,42 @@ class Validations {
       return null;
     }
   }
+
   static String? password(String? password) {
-    if (password!.length < 8 ) {
+    if (password!.length < 8) {
       return getTranslated("please_enter_valid_password",
           CustomNavigator.navigatorState.currentContext!);
     } else {
       return null;
     }
+  }
+
+  static String? firstPassword(String? password) {
+    if (password == null || password.isEmpty) {
+      return getTranslated("please_enter_valid_password",
+          CustomNavigator.navigatorState.currentContext!);
+    } else if (password.length < 8) {
+      return getTranslated("password_length_validation",
+          CustomNavigator.navigatorState.currentContext!);
+    } else {
+      return null;
+    }
+  }
+
+  static String? confirmPassword(String? password, String? confirmPassword) {
+    if (confirmPassword == null || confirmPassword.isEmpty) {
+      return getTranslated("please_enter_valid_confirm_password",
+          CustomNavigator.navigatorState.currentContext!);
+    } else if (confirmPassword.length < 8) {
+      return getTranslated("password_length_validation",
+          CustomNavigator.navigatorState.currentContext!);
+    } else if (password != null) {
+      if (password != confirmPassword) {
+        return getTranslated("confirm_password_match_validation",
+            CustomNavigator.navigatorState.currentContext!);
+      }
+    }
+    return null;
   }
 
   static String? phone(String? value) {
@@ -38,7 +67,7 @@ class Validations {
   }
 
   static String? code(String? value) {
-    if (value!.isEmpty || value.length < 6) {
+    if (value!.isEmpty || value.length < 4) {
       return getTranslated("please_enter_valid_code",
           CustomNavigator.navigatorState.currentContext!);
     } else {

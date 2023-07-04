@@ -28,6 +28,7 @@ class SvgImages {
   static const String editor = 'assets/svgs/editor.svg';
   static const String map = 'assets/svgs/map.svg';
   static const String down = 'assets/svgs/down.svg';
+  static const String userIcon = 'assets/svgs/user.svg';
   static const String userNumber = 'assets/svgs/user_number.svg';
   static const String delivered = 'assets/svgs/delivered.svg';
   static const String completed = 'assets/svgs/completed.svg';
@@ -45,6 +46,8 @@ class SvgImages {
 
   static const String mailIcon = 'assets/svgs/mail.svg';
   static const String lockIcon = 'assets/svgs/lock.svg';
+  static const String eyeIcon = 'assets/svgs/eye.svg';
+  static const String hiddenEyeIcon = 'assets/svgs/hidden_eye.svg';
   static const String phoneIcon = 'assets/svgs/phone.svg';
   static const String phoneCallIcon = 'assets/svgs/phone_call.svg';
   static const String arrowRightIcon = 'assets/svgs/arrow_right.svg';

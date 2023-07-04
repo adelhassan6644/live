@@ -3,11 +3,13 @@ class Routes {
   static const SPLASH = "SPLASH";
   static const ON_BOARDING = "ON_BOARDING";
   static const LOGIN = "LOGIN";
+  static const FORGET_PASSWORD = "FORGET_PASSWORD";
+  static const VERIFICATION = "VERIFICATION";
+  static const RESET_PASSWORD = "RESET_PASSWORD";
   static const REGISTER = "REGISTER";
   static const DASHBOARD = "DASHBOARD";
   static const OFFER_DETAILS = "OFFER_DETAILS";
   static const EDIT_PROFILE = "EDIT_PROFILE";
-  static const VERIFICATION = "VERIFICATION_CODE";
   static const PICK_LOCATION = "PICK_LOCATION";
   static const SUCCESS = "SUCCESS";
   static const FOLLOWERS = "FOLLOWERS";

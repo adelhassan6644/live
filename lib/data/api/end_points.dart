@@ -5,6 +5,9 @@ class EndPoints {
   static const String apiKey = 'eGvviZ/npgc2Blb4/PSymh1tyb/UIt3aq82W6f+Wn4=';
   static const String topic = 'live';
   static const String logIn = 'auth/login';
+  static const String forgetPassword = 'auth/forget-password';
+  static const String resetPassword = 'auth/reset-password';
+  static const String register = 'auth/register';
   static const String verifyPhone = 'auth/verify_phone';
   static const String getProfile = 'profile/profile';
   static const String getCountries = '/app/countries';

@@ -14,7 +14,12 @@ import 'data/config/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'app/core/utils/app_strings.dart';
-import 'features/auth/login/page/login.dart';
+import 'features/auth/pages/forget_password.dart';
+import 'features/auth/pages/login.dart';
+import 'features/auth/pages/reset_password.dart';
+import 'features/auth/pages/register.dart';
+import 'features/auth/pages/verification.dart';
+import 'features/splash/page/splash.dart';
 import 'navigation/custom_navigation.dart';
 import 'navigation/routes.dart';
 import 'package:live/data/config/di.dart' as di;
@@ -63,12 +68,12 @@ class _MyAppState extends State<MyApp> {
       builder: (context, child) => MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
           child: UnFocus(child: child!)),
-      // initialRoute: Routes.SPLASH,
+      initialRoute: Routes.SPLASH,
       navigatorKey: CustomNavigator.navigatorState,
-      // onGenerateRoute: CustomNavigator.onCreateRoute,
+      onGenerateRoute: CustomNavigator.onCreateRoute,
       navigatorObservers: [CustomNavigator.routeObserver],
       title: AppStrings.appName,
-      home: const Login(),
+      home:  Splash(),
       scaffoldMessengerKey: CustomNavigator.scaffoldState,
       debugShowCheckedModeBanner: false,
       theme: Provider.of<ThemeProvider>(

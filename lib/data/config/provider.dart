@@ -5,8 +5,8 @@ import 'package:live/data/config/di.dart' as di;
 
 import '../../app/localization/provider/localization_provider.dart';
 import '../../app/theme/theme_provider/theme_provider.dart';
-import '../../features/auth/login/provider/auth_provider.dart';
-import '../../features/auth/verification/provider/firebase_auth_provider.dart';
+import '../../features/auth/provider/auth_provider.dart';
+import '../../features/auth/provider/firebase_auth_provider.dart';
 import '../../features/contact_with_us/provider/contact_provider.dart';
 import '../../features/home/provider/home_provider.dart';
 import '../../features/notifications/provider/notifications_provider.dart';

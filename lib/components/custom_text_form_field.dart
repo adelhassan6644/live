@@ -1,11 +1,12 @@
 import 'package:live/app/core/utils/dimensions.dart';
-import 'package:live/app/core/utils/text_styles.dart';
+import 'package:live/app/core/utils/svg_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:live/app/core/utils/text_styles.dart';
 import '../../app/core/utils/color_resources.dart';
 import 'custom_images.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   final String? hint;
   final String? initialValue;
   final Widget? sufWidget;
@@ -17,13 +18,13 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final VoidCallback? onTap;
   final void Function(String)? onChanged;
-  final String? sIcon;
+  final String? sufSvgIcon, sufAssetIcon;
   final String? pAssetIcon;
   final String? pSvgIcon;
-  final Color? pIconColor;
+  final Color? pIconColor, sIconColor;
   final FocusNode? focus;
   final bool? read;
-  final bool withPadding;
+  final bool withPadding, isPassword, addBorder;
   final VoidCallback? edit;
 
   final List<TextInputFormatter>? formatter;
@@ -35,12 +36,11 @@ class CustomTextFormField extends StatelessWidget {
   final AutovalidateMode autoValidateMode;
   final TextAlign? textAlign;
   final void Function(String?)? onSaved;
-  final BorderRadius? edge;
 
   const CustomTextFormField({
     super.key,
-    this.withPadding=true,
-    this.edge,
+    this.withPadding = true,
+    this.addBorder = true,
     this.keyboardAction = TextInputAction.next,
     this.autoValidateMode = AutovalidateMode.onUserInteraction,
     this.prefixWidget,
@@ -55,8 +55,10 @@ class CustomTextFormField extends StatelessWidget {
     this.valid,
     this.controller,
     this.focus,
-    this.sIcon,
+    this.sufSvgIcon,
+    this.sufAssetIcon,
     this.label = false,
+    this.isPassword = false,
     this.read,
     this.edit,
     this.validationMode,
@@ -65,160 +67,175 @@ class CustomTextFormField extends StatelessWidget {
     this.pAssetIcon,
     this.pSvgIcon,
     this.pIconColor,
+    this.sIconColor,
     this.fieldColor,
     this.textAlign,
     this.onSaved,
   });
 
   @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  final InputBorder _borders = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(30),
+    borderSide: const BorderSide(
+      style: BorderStyle.solid,
+      color: ColorResources.BORDER_COLOR,
+      width: 1,
+    ),
+  );
+  bool _isHidden = true;
+
+  void _visibility() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(vertical:withPadding? 5.h:0),
+      padding: EdgeInsets.symmetric(vertical: widget.withPadding ? 5.h : 0),
       child: TextFormField(
-        onFieldSubmitted: onSaved,
-        textAlign: textAlign ?? TextAlign.start,
-        autovalidateMode: autoValidateMode,
-        textInputAction: keyboardAction,
-        onTap: onTap,
-        validator: valid,
-        controller: controller,
-        initialValue: initialValue,
-        maxLength: maxLength,
-        focusNode: focus,
-        readOnly: read == true ? true : false,
-        maxLines: maxLine,
-        minLines: minLine ?? 1,
-        keyboardType: inputType,
-        inputFormatters: inputType == TextInputType.phone
+        onFieldSubmitted: widget.onSaved,
+        textAlign: widget.textAlign ?? TextAlign.start,
+        autovalidateMode: widget.autoValidateMode,
+        textInputAction: widget.keyboardAction,
+        onTap: widget.onTap,
+        validator: widget.valid,
+        controller: widget.controller,
+        initialValue: widget.initialValue,
+        maxLength: widget.maxLength,
+        focusNode: widget.focus,
+        readOnly: widget.read == true ? true : false,
+        maxLines: widget.maxLine,
+        minLines: widget.minLine ?? 1,
+        keyboardType: widget.inputType,
+        inputFormatters: widget.inputType == TextInputType.phone
             ? [FilteringTextInputFormatter.allow(RegExp('[0-9]'))]
-            : formatter,
+            : widget.formatter,
         style: AppTextStyles.w500
             .copyWith(color: ColorResources.HEADER, fontSize: 14),
         cursorColor: ColorResources.HEADER,
-        onChanged: onChanged,
+        onChanged: widget.onChanged,
+        obscureText: widget.isPassword == true ? _isHidden : false,
         decoration: InputDecoration(
           counterText: "",
-          prefixIcon: Padding(
+          prefixIcon: Row(
+            children: [
+              SizedBox(
+                width: 24.w,
+              ),
+              widget.prefixWidget ??
+                  (widget.pAssetIcon != null
+                      ? Image.asset(
+                          widget.pAssetIcon!,
+                          height: 16.h,
+                          width: 16.w,
+                          color: widget.pIconColor,
+                        )
+                      : widget.pSvgIcon != null
+                          ? customImageIconSVG(
+                              imageName: widget.pSvgIcon!,
+                              color: widget.pIconColor,
+                              height: 16.h,
+                              width: 16.w,
+                            )
+                          : const SizedBox()),
+              const Expanded(child: SizedBox()),
+              Container(
+                height: 100,
+                width: 1,
+                decoration: BoxDecoration(
+                    color: ColorResources.DISABLED,
+                    borderRadius: BorderRadius.circular(100)),
+                child: SizedBox(),
+              ),
+              const Expanded(child: SizedBox()),
+            ],
+          ),
+          suffixIcon: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 24.w,
+              horizontal: 8.w,
             ),
-            child: prefixWidget ??
-                (pAssetIcon != null
+            child: widget.sufWidget ??
+                (widget.sufAssetIcon != null
                     ? Image.asset(
-                        pAssetIcon!,
+                        widget.sufAssetIcon!,
                         height: 22.h,
-                        color: pIconColor,
+                        color: widget.sIconColor,
                       )
-                    : pSvgIcon != null
+                    : widget.sufSvgIcon != null
                         ? customImageIconSVG(
-                            imageName: pSvgIcon!,
-                            color: pIconColor ,
+                            imageName: widget.sufSvgIcon!,
+                            color: widget.sIconColor,
                             height: 16.h,
                           )
-                        : null),
+                        : widget.isPassword == true
+                            ? IconButton(
+                                padding: const EdgeInsets.all(0),
+                                onPressed: _visibility,
+                                alignment: Alignment.center,
+                                icon: _isHidden
+                                    ? customImageIconSVG(
+                                        imageName: SvgImages.hiddenEyeIcon,
+                                        height: 16.55.h,
+                                        width: 19.59.w,
+                                        color: const Color(0xFF8B97A3),
+                                      )
+                                    : customImageIconSVG(
+                                        imageName: SvgImages.eyeIcon,
+                                        height: 16.55.h,
+                                        width: 19.59.w,
+                                        color: ColorResources.PRIMARY_COLOR,
+                                      ),
+                              )
+                            : null),
           ),
-          focusedBorder: read == true
-              ? OutlineInputBorder(
-                  borderRadius: edge ??
-                      const BorderRadius.all(
-                        Radius.circular(
-                          Dimensions.RADIUS_DEFAULT,
-                        ),
-                      ),
+          enabledBorder: !widget.addBorder ? null : _borders,
+          disabledBorder: !widget.addBorder
+              ? null
+              : _borders.copyWith(
                   borderSide: const BorderSide(
-                      color: ColorResources.LIGHT_BORDER_COLOR,
-                      width: 1,
-                      style: BorderStyle.solid),
-                )
-              : OutlineInputBorder(
-                  borderRadius: edge ??
-                      const BorderRadius.all(
-                        Radius.circular(
-                          Dimensions.RADIUS_DEFAULT,
-                        ),
-                      ),
-                  borderSide: const BorderSide(
-                      color: ColorResources.SECOUND_PRIMARY_COLOR,
-                      width: 1,
-                      style: BorderStyle.solid),
-                ),
-          border: OutlineInputBorder(
-            borderRadius: edge ??
-                const BorderRadius.all(
-                  Radius.circular(
-                    Dimensions.RADIUS_DEFAULT,
-                  ),
-                ),
-            borderSide: const BorderSide(
-                color: ColorResources.LIGHT_BORDER_COLOR,
-                width: 1,
-                style: BorderStyle.solid),
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderRadius: edge ??
-                const BorderRadius.all(
-                  Radius.circular(
-                    Dimensions.RADIUS_DEFAULT,
-                  ),
-                ),
-            borderSide: const BorderSide(
-                color: ColorResources.LIGHT_BORDER_COLOR,
-                width: 1,
-                style: BorderStyle.solid),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: edge ??
-                const BorderRadius.all(
-                  Radius.circular(
-                    Dimensions.RADIUS_DEFAULT,
-                  ),
-                ),
-            borderSide: const BorderSide(
-                color: ColorResources.LIGHT_BORDER_COLOR,
-                width: 1,
-                style: BorderStyle.solid),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: edge ??
-                const BorderRadius.all(
-                  Radius.circular(
-                    Dimensions.RADIUS_DEFAULT,
-                  ),
-                ),
-            borderSide: const BorderSide(
-                color: ColorResources.FAILED_COLOR,
-                width: 1,
-                style: BorderStyle.solid),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: edge ??
-                const BorderRadius.all(
-                  Radius.circular(
-                    Dimensions.RADIUS_DEFAULT,
-                  ),
-                ),
-            borderSide: const BorderSide(
-                color: ColorResources.FAILED_COLOR,
-                width: 1,
-                style: BorderStyle.solid),
-          ),
-          contentPadding: EdgeInsets.symmetric(
-              vertical: 16.h, horizontal: sufWidget != null ? 0 : 24.w),
+                  color: ColorResources.DISABLED,
+                )),
+          focusedBorder: _borders.copyWith(
+              borderSide: widget.addBorder
+                  ? null
+                  : BorderSide(
+                      color: widget.read == true
+                          ? ColorResources.DISABLED
+                          : ColorResources.PRIMARY_COLOR)),
+          errorBorder: !widget.addBorder
+              ? null
+              : _borders.copyWith(
+                  borderSide:
+                      const BorderSide(color: ColorResources.FAILED_COLOR)),
+          border: !widget.addBorder ? null : _borders,
+          contentPadding:
+              EdgeInsets.symmetric(vertical: 16.h, horizontal: 24.w),
           isDense: true,
           alignLabelWithHint: true,
-          hintText: hint,
+          hintText: widget.hint,
           labelStyle: AppTextStyles.w400
               .copyWith(color: ColorResources.DISABLED, fontSize: 14),
           hintStyle: AppTextStyles.w400
               .copyWith(color: ColorResources.DISABLED, fontSize: 14),
-          labelText: label ? hint : null,
+          labelText: widget.label ? widget.hint : null,
           fillColor: ColorResources.FILL_COLOR,
-          floatingLabelStyle: AppTextStyles.w400.copyWith(
-              color: ColorResources.HEADER, fontSize: 12),
+          floatingLabelStyle: AppTextStyles.w400
+              .copyWith(color: ColorResources.HEADER, fontSize: 12),
           filled: true,
-          errorStyle: AppTextStyles.w400
-              .copyWith(color: ColorResources.FAILED_COLOR, fontSize: 11),
-          prefixIconConstraints: BoxConstraints(maxHeight: 25.h),
+          errorStyle: AppTextStyles.w400.copyWith(
+            color: ColorResources.FAILED_COLOR,
+            fontSize: 11,
+          ),
+          errorMaxLines: 2,
+          prefixIconConstraints:
+              BoxConstraints(maxHeight: 25.h, maxWidth: 70.w),
+          suffixIconConstraints: BoxConstraints(maxHeight: 25.h),
         ),
       ),
     );

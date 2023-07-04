@@ -7,7 +7,7 @@ import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../data/config/di.dart';
-import '../../auth/login/provider/auth_provider.dart';
+import '../../auth/provider/auth_provider.dart';
 import '../../profile/provider/profile_provider.dart';
 import 'more_button.dart';
 
