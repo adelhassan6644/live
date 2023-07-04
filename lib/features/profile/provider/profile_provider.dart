@@ -26,16 +26,8 @@ class ProfileProvider extends ChangeNotifier {
   ProfileProvider({
     required this.profileRepo,
     required this.scheduleProvider,
-  }) {
-    if (isLogin && isCompleteProfile) {
-      getProfile();
-    }
-    getBanks();
-    getCountries();
-  }
-
+  });
   bool get isLogin => profileRepo.isLoggedIn();
-  bool get isCompleteProfile => profileRepo.isCompleteProfile();
   bool get isDriver => profileRepo.isDriver();
 
   ///Car Data
@@ -608,7 +600,6 @@ class ProfileProvider extends ChangeNotifier {
           isLoading = false;
           notifyListeners();
         }, (response) {
-          profileRepo.completedProfile();
           if (!fromLogin) {
             CustomNavigator.push(Routes.DASHBOARD, arguments: 0, clean: true);
           } else {

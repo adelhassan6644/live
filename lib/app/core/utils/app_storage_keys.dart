@@ -4,7 +4,6 @@ class AppStorageKey {
   static const String role = "role";
   static const String feedbacks = "feedbacks";
   static const String notFirstTime = "not_first_time";
-  static const String isCompleteProfile = "is_complete_profile";
   static const String isLogin = "is_login";
   static const String mail = "mail";
   static const String location = "location";

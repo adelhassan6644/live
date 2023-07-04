@@ -84,6 +84,7 @@ class _RegisterState extends State<Register> {
                                           child: Text(
                                             getTranslated(
                                                 "signup_header", context),
+                                            textAlign: TextAlign.center,
                                             style: AppTextStyles.w600.copyWith(
                                                 fontSize: 28,
                                                 color:

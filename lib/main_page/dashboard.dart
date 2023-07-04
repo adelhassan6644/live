@@ -10,7 +10,6 @@ import '../data/network/netwok_info.dart';
 import '../features/home/page/home.dart';
 import '../features/more/page/more.dart';
 
-
 class DashBoard extends StatefulWidget {
   const DashBoard({this.index, Key? key}) : super(key: key);
   final int? index;
@@ -102,14 +101,13 @@ class _DashBoardState extends State<DashBoard> {
                   ),
                 ])),
       ),
-
       body: Column(
         children: [
           Expanded(
             child: PageView(
                 controller: _pageController,
                 physics: const NeverScrollableScrollPhysics(),
-                children:  [Home(), Container(), Container(), More()]),
+                children: [Home(), Container(), Container(), More()]),
           ),
         ],
       ),

@@ -1,6 +1,8 @@
 {
   "login_header" : "تسعدنا عودتك مجددا",
   "forget_password_header" : "نسيت كلمة المرور",
+  "on_boarding_header" : "دليلك أصبح في جوالك",
+  "on_boarding_description" : "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص",
   "reset_password_header" : "إعادة تعيين كلمة المرور",
   "signup_header" : "تسعدنا خدمتك",
   "welcome_description": "اكمل بياناتك حتى تكون نسب توافق مشوارك\nاليومي مع الكباتن دقيقة!",

@@ -24,9 +24,6 @@ class FirebaseAuthRepo {
     sharedPreferences.setBool(AppStorageKey.isLogin, true);
   }
 
-  completedProfile() {
-    sharedPreferences.setBool(AppStorageKey.isCompleteProfile, true);
-  }
 
   // getPhone() {
   //   if (sharedPreferences.containsKey(AppStorageKey.phone,)) {

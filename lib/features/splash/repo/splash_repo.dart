@@ -9,9 +9,6 @@ class SplashRepo {
     return !sharedPreferences.containsKey(AppStorageKey.notFirstTime);
   }
 
-  bool isCompleteProfile() {
-    return sharedPreferences.containsKey(AppStorageKey.isCompleteProfile);
-  }
 
   bool isLogin() {
     return sharedPreferences.containsKey(AppStorageKey.isLogin);

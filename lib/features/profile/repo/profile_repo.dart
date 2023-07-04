@@ -22,14 +22,6 @@ class ProfileRepo {
     return sharedPreferences.containsKey(AppStorageKey.isLogin);
   }
 
-  bool isCompleteProfile() {
-    return sharedPreferences.containsKey(AppStorageKey.isCompleteProfile);
-  }
-
-  completedProfile() {
-    sharedPreferences.setBool(AppStorageKey.isCompleteProfile, true);
-  }
-
   Future<String?> saveDeviceToken() async {
     String? deviceToken;
     if (Platform.isIOS) {

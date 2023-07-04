@@ -8,6 +8,7 @@ import '../features/auth/pages/verification.dart';
 import '../features/contact_with_us/page/contact_with_us.dart';
 import '../features/maps/pages/pick_map_screen.dart';
 import '../features/notifications/page/notifications.dart';
+import '../features/on_boarding/pages/on_boarding.dart';
 import '../features/profile/page/profile_page.dart';
 import '../features/splash/page/splash.dart';
 import '../main.dart';
@@ -28,6 +29,8 @@ abstract class CustomNavigator {
         return _pageRoute(const MyApp());
       case Routes.SPLASH:
         return _pageRoute(const Splash());
+      case Routes.ON_BOARDING:
+        return _pageRoute(const OnBoarding());
       case Routes.LOGIN:
         return _pageRoute(const Login());
       case Routes.FORGET_PASSWORD:

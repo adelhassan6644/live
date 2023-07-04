@@ -84,6 +84,7 @@ class _LoginState extends State<Login> {
                                           child: Text(
                                             getTranslated(
                                                 "login_header", context),
+                                            textAlign: TextAlign.center,
                                             style: AppTextStyles.w600.copyWith(
                                                 fontSize: 28,
                                                 color:
