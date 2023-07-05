@@ -176,9 +176,8 @@ class _LoginState extends State<Login> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      getTranslated(
-                                                          "do_not_have_acc",
-                                                          context),
+                                                      getTranslated("do_not_have_acc", context),
+                                                      textAlign: TextAlign.end,
                                                       style: AppTextStyles.w500
                                                           .copyWith(
                                                               color: ColorResources
@@ -195,14 +194,16 @@ class _LoginState extends State<Login> {
                                                             clean: true);
                                                       },
                                                       child: Text(
-                                                        getTranslated(
-                                                            "signup_now",
-                                                            context),
+                                                        " ${getTranslated("signup_now", context)}",
+                                                        textAlign:
+                                                            TextAlign.start,
                                                         style: AppTextStyles
                                                             .w500
                                                             .copyWith(
                                                           color: ColorResources
                                                               .WHITE_COLOR,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
                                                           fontSize: 16,
                                                           decorationColor:
                                                               ColorResources

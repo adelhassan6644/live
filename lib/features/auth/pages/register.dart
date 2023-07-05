@@ -161,6 +161,7 @@ class _RegisterState extends State<Register> {
                                                         getTranslated(
                                                             "have_acc",
                                                             context),
+                                                        textAlign: TextAlign.end,
                                                         style: AppTextStyles.w500.copyWith(
                                                             color: ColorResources
                                                                 .SECOUND_PRIMARY_COLOR,
@@ -170,25 +171,28 @@ class _RegisterState extends State<Register> {
                                                                     .ellipsis),
                                                       ),
                                                     ),
-                                                    InkWell(
-                                                      onTap: () {
-                                                        CustomNavigator.push(
-                                                            Routes.LOGIN,
-                                                            clean: true);
-                                                      },
-                                                      child: Text(
-                                                        getTranslated(
-                                                            "login_now",
-                                                            context),
-                                                        style: AppTextStyles
-                                                            .w500
-                                                            .copyWith(
-                                                          color: ColorResources
-                                                              .WHITE_COLOR,
-                                                          fontSize: 16,
-                                                          decorationColor:
-                                                              ColorResources
-                                                                  .WHITE_COLOR,
+                                                    Expanded(
+                                                      child: InkWell(
+                                                        onTap: () {
+                                                          CustomNavigator.push(
+                                                              Routes.LOGIN,
+                                                              clean: true);
+                                                        },
+                                                        child: Text(
+                                                          getTranslated(
+                                                              "login_now",
+                                                              context),
+                                                          style: AppTextStyles
+                                                              .w500
+                                                              .copyWith(
+                                                            color: ColorResources
+                                                                .WHITE_COLOR,
+                                                            overflow: TextOverflow.ellipsis,
+                                                            fontSize: 16,
+                                                            decorationColor:
+                                                                ColorResources
+                                                                    .WHITE_COLOR,
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
