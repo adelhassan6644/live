@@ -226,7 +226,6 @@ class FirebaseAuthProvider extends ChangeNotifier {
               clean: true, arguments: true);
         } else {
           CustomNavigator.push(Routes.DASHBOARD, arguments: 0, clean: true);
-          sl<ProfileProvider>().getProfile();
         }
         CustomSnackBar.showSnackBar(
             notification: AppNotification(
@@ -251,7 +250,6 @@ class FirebaseAuthProvider extends ChangeNotifier {
       Future.delayed(Duration.zero, () async {
         await FirebaseAuth.instance.signOut();
         await firebaseAuthRepo.clearSharedData();
-        sl<ProfileProvider>().clear();
         sl<HomeProvider>().onSelectRole(0);
       });
       CustomNavigator.push(Routes.SPLASH, clean: true);

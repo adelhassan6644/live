@@ -7,6 +7,7 @@ class Routes {
   static const VERIFICATION = "VERIFICATION";
   static const RESET_PASSWORD = "RESET_PASSWORD";
   static const REGISTER = "REGISTER";
+  static const MAIN_PAGE = "MAIN_PAGE";
   static const DASHBOARD = "DASHBOARD";
   static const EDIT_PROFILE = "EDIT_PROFILE";
   static const PICK_LOCATION = "PICK_LOCATION";

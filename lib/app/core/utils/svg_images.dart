@@ -1,18 +1,20 @@
 class SvgImages {
+  static const String liveLocationIcon = 'assets/svgs/live_location.svg';
   static const String whiteBlackLogo = 'assets/svgs/white_black_logo.svg';
   static const String lightLogo = 'assets/svgs/light_logo.svg';
   static const String navLogoIcon = 'assets/svgs/nav_logo_icon.svg';
-  static const String car = 'assets/svgs/car.svg';
+  static const String homeIcon = 'assets/svgs/home.svg';
+  static const String heartIcon = 'assets/svgs/heart.svg';
+  static const String aboutUsIcon = 'assets/svgs/building.svg';
+  static const String location = 'assets/svgs/location.svg';
+  static const String moreIcon = 'assets/svgs/more.svg';
   static const String search = 'assets/svgs/search.svg';
   static const String profileIcon = 'assets/svgs/profile.svg';
   static const String file = 'assets/svgs/file.svg';
-  static const String carModel = 'assets/svgs/car_model.svg';
   static const String sparkles = 'assets/svgs/sparkles.svg';
   static const String seat = 'assets/svgs/seat.svg';
   static const String searchIcon = 'assets/svgs/search_icon.svg';
   static const String filter = 'assets/svgs/filter.svg';
-  static const String bookMark = 'assets/svgs/book_mark.svg';
-  static const String location = 'assets/svgs/location.svg';
   static const String calendar = 'assets/svgs/calendar.svg';
   static const String wallet = 'assets/svgs/wallet.svg';
   static const String roadLine = 'assets/svgs/road_line.svg';

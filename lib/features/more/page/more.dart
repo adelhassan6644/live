@@ -1,57 +1,76 @@
-import 'package:live/app/core/utils/dimensions.dart';
-import 'package:live/components/animated_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:live/app/core/utils/dimensions.dart';
+import 'package:live/app/core/utils/extensions.dart';
+import 'package:live/features/more/widgets/logout_button.dart';
 import 'package:provider/provider.dart';
-
+import '../../../app/core/utils/svg_images.dart';
 import '../../../app/localization/localization/language_constant.dart';
-import '../../../components/custom_app_bar.dart';
-import '../../guest/guest_mode.dart';
-import '../../profile/provider/profile_provider.dart';
-import '../widgets/more_options.dart';
-import '../widgets/wallet_card.dart';
+import '../../../main_page/provider/main_page_provider.dart';
+import '../widgets/more_button.dart';
 
 class More extends StatelessWidget {
-  const More({Key? key}) : super(key: key);
+  const More({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+  final ZoomDrawerController controller;
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProfileProvider>(
-      builder: (context, provider, child) {
-        return provider.isLogin
-            ? Column(
-                children: [
-                  Expanded(
-                    child: ListAnimator(
-                      customPadding: EdgeInsets.symmetric(horizontal: 16.w),
-                      data: [
-                        Visibility(
-                          visible: provider.isDriver,
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 24.h,
-                              ),
-                              WalletCard(availableBalance: provider.wallet),
-                            ],
-                          ),
-                        ),
-                        const MoreOptions(),
-                      ],
-                    ),
-                  ),
-                ],
-              )
-            : Column(
-                children: [
-                  CustomAppBar(
-                    title: getTranslated("profile", context),
-                    withBorder: true,
-                    withBack: false,
-                  ),
-                  const Expanded(child: GuestMode()),
-                ],
-              );
-      },
-    );
+    return Consumer<MainPageProvider>(builder: (_, provider, child) {
+      return Padding(
+        padding: EdgeInsets.fromLTRB(
+            Dimensions.PADDING_SIZE_DEFAULT,
+            (Dimensions.PADDING_SIZE_DEFAULT + context.toPadding),
+            Dimensions.PADDING_SIZE_DEFAULT,
+            Dimensions.PADDING_SIZE_DEFAULT),
+        child: Column(
+          children: [
+            MoreButton(
+              title: getTranslated("profile", context),
+              icon: SvgImages.userIcon,
+              onTap: () {
+                controller.toggle!();
+                provider.updateDashboardIndex(1);
+              },
+            ),
+            MoreButton(
+              title: getTranslated("dashboard", context),
+              icon: SvgImages.homeIcon,
+              onTap: () {
+                controller.toggle!();
+                provider.updateDashboardIndex(0);
+              },
+            ),
+            MoreButton(
+              title: getTranslated("favourites", context),
+              icon: SvgImages.heartIcon,
+              onTap: () {
+                controller.toggle!();
+                provider.updateDashboardIndex(3);
+                },
+            ),
+            MoreButton(
+              title: getTranslated("contact_with_us", context),
+              icon: SvgImages.mailIcon,
+              onTap: () {
+                controller.toggle!();
+              },
+            ),
+            MoreButton(
+              title: getTranslated("about_us", context),
+              icon: SvgImages.aboutUsIcon,
+              onTap: () {
+                controller.toggle!();
+              },
+            ),
+            const Expanded(child: SizedBox()),
+            const LogoutButton(),
+            const Expanded(child: SizedBox()),
+          ],
+        ),
+      );
+    });
   }
 }

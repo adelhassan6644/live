@@ -1,6 +1,7 @@
 import 'package:live/features/auth/pages/reset_password.dart';
 import 'package:live/main_models/base_model.dart';
 import 'package:flutter/material.dart';
+import 'package:live/main_page/pages/main_page.dart';
 import '../features/auth/pages/forget_password.dart';
 import '../features/auth/pages/login.dart';
 import '../features/auth/pages/register.dart';
@@ -9,10 +10,8 @@ import '../features/contact_with_us/page/contact_with_us.dart';
 import '../features/maps/pages/pick_map_screen.dart';
 import '../features/notifications/page/notifications.dart';
 import '../features/on_boarding/pages/on_boarding.dart';
-import '../features/profile/page/profile_page.dart';
 import '../features/splash/page/splash.dart';
 import '../main.dart';
-import '../main_page/dashboard.dart';
 import 'routes.dart';
 
 abstract class CustomNavigator {
@@ -40,16 +39,15 @@ abstract class CustomNavigator {
       case Routes.REGISTER:
         return _pageRoute(const Register());
       case Routes.VERIFICATION:
-        return _pageRoute(
-            Verification(fromRegister: settings.arguments as bool));
-      case Routes.EDIT_PROFILE:
-        return _pageRoute(ProfilePage(
-          fromLogin: settings.arguments as bool,
-        ));
+        return _pageRoute(Verification(fromRegister: settings.arguments as bool));
+
       case Routes.DASHBOARD:
-        return _pageRoute(DashBoard(
-          index: settings.arguments as int,
-        ));
+        return _pageRoute(const MainPage());
+
+        // case Routes.DASHBOARD:
+        // return _pageRoute(DashBoard(
+        //   index: settings.arguments as int,
+        // ));
 
       case Routes.PICK_LOCATION:
         return _pageRoute(PickMapScreen(

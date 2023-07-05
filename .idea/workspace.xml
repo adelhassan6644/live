@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf0599f4-45dc-4dcd-9c40-4be290b78809" name="Changes" comment="add(on boarding)">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/building.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/heart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/home.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/live_location.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/svgs/more.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/more/widgets/logout_button.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/profile/page/profile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/main_page/pages/main_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/main_page/provider/main_page_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/main_page/widget/nav_bar.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
@@ -15,17 +24,43 @@
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/language/ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/ar.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/pages/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/login.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/auth/pages/register.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/register.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/splash/provider/splash_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/splash/provider/splash_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/language/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/svgs/logout.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/svgs/logout.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/svgs/medal.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/color_resources.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/color_resources.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/svg_images.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/svg_images.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/config/di.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/config/di.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/config/provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/config/provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/provider/firebase_auth_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/provider/firebase_auth_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/home/page/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/home/page/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/more/page/more.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/more/page/more.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/more/widgets/more_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/more/widgets/more_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/more/widgets/more_options.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/more/widgets/profile_card.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/more/widgets/wallet_card.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/page/profile_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/provider/profile_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/provider/profile_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/widgets/bank_data_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/widgets/car_data_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/widgets/personal_information_widget.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_page/dashboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_page/pages/dashboard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_page/widget/nav_bar_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_page/widget/nav_bar_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/routes.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Concept" />
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,10 +82,19 @@
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "/Users/user/SoftweareCloud2/live/assets/svgs",
     "settings.editor.selected.configurable": "flutter.settings",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/svgs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/main_page/pages" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
@@ -78,7 +122,14 @@
       <option name="presentableId" value="Default" />
       <updated>1688516389160</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add(on boarding)">
+      <created>1688517392092</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688517392092</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

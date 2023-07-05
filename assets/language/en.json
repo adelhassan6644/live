@@ -27,6 +27,7 @@
   "as_a_guest": "as a guest",
   "forget_password": "Forget Password?",
   "login": "Login",
+  "logout": "Logout",
   "signup": "Sign up",
   "signup_now": "Sign up Now",
   "login_now": "Login Now",
@@ -50,5 +51,10 @@
   "choose_your_new_city": "choose your new city",
   "city": "city",
   "delivery_to": "Delivery to",
-  "sections": "Sections"
+  "sections": "Sections",
+  "profile": "Profile",
+  "dashboard": "Dashboard",
+  "favourites": "Favourites",
+  "contact_with_us": "Contact with us",
+  "about_us": "About us"
 }

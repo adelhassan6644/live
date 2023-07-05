@@ -1,7 +1,6 @@
 import 'package:live/features/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import '../../../data/config/di.dart';
-import 'package:live/features/home/widgets/search_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -24,7 +23,6 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
     super.build(context);
     return  Column(
       children: [
-        SearchBarWidget(),
       ],
     );
   }
