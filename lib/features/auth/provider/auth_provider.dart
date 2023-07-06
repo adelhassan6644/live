@@ -223,7 +223,7 @@ class AuthProvider extends ChangeNotifier {
       }, (success) {
         if (fromRegister) {
           CustomNavigator.push(
-            Routes.DASHBOARD,
+            Routes.MAIN_PAGE,
             clean: true,
           );
         } else {

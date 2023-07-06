@@ -165,7 +165,11 @@ class _LoginState extends State<Login> {
                                                         if (_formKey
                                                             .currentState!
                                                             .validate()) {
-                                                          provider.logIn();
+                                                          // provider.logIn();
+                                                          CustomNavigator.push(
+                                                            Routes.MAIN_PAGE,
+                                                            clean: true,
+                                                          );
                                                         }
                                                       },
                                                       isLoading:

@@ -214,7 +214,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                   borderSide:
                       const BorderSide(color: ColorResources.FAILED_COLOR)),
           border: !widget.addBorder ? null : _borders,
-          contentPadding: EdgeInsets.symmetric(vertical: 16.h),
+          contentPadding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
           isDense: true,
           alignLabelWithHint: true,
           hintText: widget.hint,

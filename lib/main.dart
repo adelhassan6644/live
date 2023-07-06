@@ -63,10 +63,9 @@ class _MyAppState extends State<MyApp> {
       builder: (context, child) => MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
           child: UnFocus(child: child!)),
-      // initialRoute: Routes.SPLASH,
-      // navigatorKey: CustomNavigator.navigatorState,
-      // onGenerateRoute: CustomNavigator.onCreateRoute,
-      home: MainPage(),
+      initialRoute: Routes.SPLASH,
+      navigatorKey: CustomNavigator.navigatorState,
+      onGenerateRoute: CustomNavigator.onCreateRoute,
       navigatorObservers: [CustomNavigator.routeObserver],
       title: AppStrings.appName,
       scaffoldMessengerKey: CustomNavigator.scaffoldState,

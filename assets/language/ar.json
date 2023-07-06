@@ -7,6 +7,7 @@
   "signup_header" : "تسعدنا خدمتك",
   "welcome_description": "اكمل بياناتك حتى تكون نسب توافق مشوارك\nاليومي مع الكباتن دقيقة!",
   "mail": "البريد الإلكتروني",
+  "change_password": "تغير كلمة المرور",
   "please_enter_valid_email": "عفوًا! الرجاء إدخال بريد إلكتروني صحيح",
   "please_enter_valid_password": "عفوًا! الرجاء إدخال كلمة مرور صحيحة",
   "please_enter_valid_new_password": "عفوًا! الرجاء إدخال كلمة مرور جديدة صحيحة",
@@ -56,5 +57,6 @@
   "dashboard": "الرئيسية",
   "favourites": "المفضلة",
   "contact_with_us": "تواصل معنا",
-  "about_us": "نبذة عنا"
+  "about_us": "نبذة عنا",
+  "terms_conditions": "الشروط والاحكام"
 }

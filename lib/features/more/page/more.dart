@@ -8,6 +8,7 @@ import '../../../app/core/utils/svg_images.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../main_page/provider/main_page_provider.dart';
 import '../widgets/more_button.dart';
+import '../widgets/profile_card.dart';
 
 class More extends StatelessWidget {
   const More({
@@ -27,14 +28,7 @@ class More extends StatelessWidget {
             Dimensions.PADDING_SIZE_DEFAULT),
         child: Column(
           children: [
-            MoreButton(
-              title: getTranslated("profile", context),
-              icon: SvgImages.userIcon,
-              onTap: () {
-                controller.toggle!();
-                provider.updateDashboardIndex(1);
-              },
-            ),
+            const ProfileCard(),
             MoreButton(
               title: getTranslated("dashboard", context),
               icon: SvgImages.homeIcon,
@@ -44,16 +38,36 @@ class More extends StatelessWidget {
               },
             ),
             MoreButton(
+              title: getTranslated("profile", context),
+              icon: SvgImages.userIcon,
+              onTap: () {
+                controller.toggle!();
+                provider.updateDashboardIndex(1);
+              },
+            ),
+            MoreButton(
+              title: getTranslated("change_password", context),
+              icon: SvgImages.lockIcon,
+              onTap: () {},
+            ),
+            MoreButton(
               title: getTranslated("favourites", context),
               icon: SvgImages.heartIcon,
               onTap: () {
                 controller.toggle!();
                 provider.updateDashboardIndex(3);
-                },
+              },
             ),
             MoreButton(
               title: getTranslated("contact_with_us", context),
               icon: SvgImages.mailIcon,
+              onTap: () {
+                controller.toggle!();
+              },
+            ),
+            MoreButton(
+              title: getTranslated("terms_conditions", context),
+              icon: SvgImages.file,
               onTap: () {
                 controller.toggle!();
               },

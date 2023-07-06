@@ -39,15 +39,16 @@ abstract class CustomNavigator {
       case Routes.REGISTER:
         return _pageRoute(const Register());
       case Routes.VERIFICATION:
-        return _pageRoute(Verification(fromRegister: settings.arguments as bool));
+        return _pageRoute(
+            Verification(fromRegister: settings.arguments as bool));
 
-      case Routes.DASHBOARD:
+      case Routes.MAIN_PAGE:
         return _pageRoute(const MainPage());
 
-        // case Routes.DASHBOARD:
-        // return _pageRoute(DashBoard(
-        //   index: settings.arguments as int,
-        // ));
+      // case Routes.DASHBOARD:
+      // return _pageRoute(DashBoard(
+      //   index: settings.arguments as int,
+      // ));
 
       case Routes.PICK_LOCATION:
         return _pageRoute(PickMapScreen(
