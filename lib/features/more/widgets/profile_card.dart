@@ -12,7 +12,7 @@ class ProfileCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Row(
+        Row(
           children: [
             ProfileImageWidget(
               withEdit: false,
@@ -24,10 +24,11 @@ class ProfileCard extends StatelessWidget {
         const SizedBox(height: 16),
         Text(
           "live - tester",
-          style: AppTextStyles.w700.copyWith(color: ColorResources.WHITE_COLOR, fontSize: 16,height: 1),
+          style: AppTextStyles.w700.copyWith(
+              color: ColorResources.WHITE_COLOR, fontSize: 16, height: 1),
         ),
         Text(
-          "live@actl.com",
+          "live@live.com",
           style: AppTextStyles.w400
               .copyWith(color: ColorResources.WHITE_COLOR, fontSize: 12),
         ),
