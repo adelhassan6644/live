@@ -164,7 +164,7 @@ class _RegisterState extends State<Register> {
                                                         textAlign: TextAlign.end,
                                                         style: AppTextStyles.w500.copyWith(
                                                             color: ColorResources
-                                                                .SECOUND_PRIMARY_COLOR,
+                                                                .TITLE,
                                                             fontSize: 16,
                                                             overflow:
                                                                 TextOverflow

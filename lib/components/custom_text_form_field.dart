@@ -117,8 +117,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             ? [FilteringTextInputFormatter.allow(RegExp('[0-9]'))]
             : widget.formatter,
         style: AppTextStyles.w500
-            .copyWith(color: ColorResources.HEADER, fontSize: 14),
-        cursorColor: ColorResources.HEADER,
+            .copyWith(color: ColorResources.TITLE, fontSize: 14),
+        cursorColor: ColorResources.TITLE,
         onChanged: widget.onChanged,
         obscureText: widget.isPassword == true ? _isHidden : false,
         decoration: InputDecoration(
@@ -225,7 +225,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           labelText: widget.label ? widget.hint : null,
           fillColor: ColorResources.FILL_COLOR,
           floatingLabelStyle: AppTextStyles.w400
-              .copyWith(color: ColorResources.HEADER, fontSize: 12),
+              .copyWith(color: ColorResources.TITLE, fontSize: 12),
           filled: true,
           errorStyle: AppTextStyles.w400.copyWith(
             color: ColorResources.FAILED_COLOR,

@@ -185,7 +185,7 @@ class _LoginState extends State<Login> {
                                                       style: AppTextStyles.w500
                                                           .copyWith(
                                                               color: ColorResources
-                                                                  .SECOUND_PRIMARY_COLOR,
+                                                                  .TITLE,
                                                               fontSize: 16,
                                                               overflow:
                                                                   TextOverflow

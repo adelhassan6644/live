@@ -2,6 +2,8 @@ class SvgImages {
   static const String liveLocationIcon = 'assets/svgs/live_location.svg';
   static const String whiteBlackLogo = 'assets/svgs/white_black_logo.svg';
   static const String lightLogo = 'assets/svgs/light_logo.svg';
+  static const String fillCloseCircle = 'assets/svgs/fill-close-circle.svg';
+  static const String cameraIcon = 'assets/svgs/camera.svg';
   static const String navLogoIcon = 'assets/svgs/nav_logo_icon.svg';
   static const String homeIcon = 'assets/svgs/home.svg';
   static const String heartIcon = 'assets/svgs/heart.svg';

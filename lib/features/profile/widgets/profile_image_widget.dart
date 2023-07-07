@@ -10,8 +10,7 @@ import '../../../components/image_pop_up_viewer.dart';
 import '../../../helpers/image_picker_helper.dart';
 
 class ProfileImageWidget extends StatelessWidget {
-  const ProfileImageWidget(
-      {required this.withEdit, this.radius = 57.5, Key? key})
+  const ProfileImageWidget({required this.withEdit, this.radius = 68, Key? key})
       : super(key: key);
   final bool withEdit;
   final double radius;
@@ -23,76 +22,73 @@ class ProfileImageWidget extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                if (withEdit) {
-                  ImagePickerHelper.showOptionSheet(
-                      onGet: provider.onSelectImage);
-                } else {
-                  if (provider.profileImage != null || provider.image != null) {
-                    showDialog(
-                        context: context,
-                        barrierColor: Colors.black.withOpacity(0.75),
-                        builder: (context) {
-                          return ImagePopUpViewer(
-                            image: provider.profileImage ?? provider.image,
-                            isFromInternet:
-                                provider.profileImage != null ? false : true,
-                            title: "",
-                          );
-                        });
-                  }
+                if (provider.profileImage != null ||
+                    provider.profileModel?.image != null) {
+                  showDialog(
+                      context: context,
+                      barrierColor: Colors.black.withOpacity(0.75),
+                      builder: (context) {
+                        return ImagePopUpViewer(
+                          image: provider.profileImage ??
+                              provider.profileModel?.image ??
+                              "",
+                          isFromInternet:
+                              provider.profileImage != null ? false : true,
+                          title: "",
+                        );
+                      });
                 }
               },
               child: Stack(
-                alignment: Alignment.center,
+                alignment: Alignment.bottomRight,
                 children: [
                   provider.profileImage != null
                       ? ClipRRect(
                           borderRadius: BorderRadius.circular(100),
-                          child: Container(
+                          child: Image.file(
+                            provider.profileImage!,
                             height: radius * 2,
                             width: radius * 2,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                border: Border.all(
-                                    color: ColorResources.PRIMARY_COLOR,
-                                    width: 1)),
-                            child: Image.file(
-                              provider.profileImage!,
-                              height: radius * 2,
-                              width: radius * 2,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) =>
-                                  Center(
-                                      child: Container(
-                                          height: radius * 2,
-                                          width: radius * 2,
-                                          color: Colors.grey,
-                                          child: const Center(
-                                              child: Icon(Icons.replay,
-                                                  color: Colors.green)))),
-                            ),
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) =>
+                                Center(
+                                    child: Container(
+                                        height: radius * 2,
+                                        width: radius * 2,
+                                        color: Colors.grey,
+                                        child: const Center(
+                                            child: Icon(Icons.replay,
+                                                color: Colors.green)))),
                           ),
                         )
                       : CustomNetworkImage.circleNewWorkImage(
-                          color: ColorResources.PRIMARY_COLOR,
-                          image: provider.image,
+                          color: ColorResources.HINT_COLOR,
+                          image: provider.profileModel?.image ?? "",
                           radius: radius),
                   if (withEdit)
-                    Container(
-                        height: radius * 2,
-                        width: radius * 2,
-                        padding: const EdgeInsets.all(47),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: ColorResources.PRIMARY_COLOR,
-                            ),
-                            color: ColorResources.HINT_COLOR.withOpacity(0.7),
-                            borderRadius: BorderRadius.circular(100)),
-                        child: customImageIconSVG(
-                            imageName: SvgImages.editor,
-                            height: 24,
-                            width: 24,
-                            color: ColorResources.WHITE_COLOR)),
+                    InkWell(
+                      highlightColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onTap: () {
+                        if (withEdit) {
+                          ImagePickerHelper.showOptionSheet(
+                              onGet: provider.onSelectImage);
+                        }
+                      },
+                      child: Container(
+                          height: 35,
+                          width: 35,
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              boxShadow: kElevationToShadow[1],
+                              color: ColorResources.WHITE_COLOR,
+                              borderRadius: BorderRadius.circular(100)),
+                          child: customImageIconSVG(
+                            imageName: SvgImages.cameraIcon,
+                          )),
+                    ),
                 ],
               ),
             ),

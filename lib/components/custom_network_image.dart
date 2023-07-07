@@ -105,7 +105,7 @@ class CustomNetworkImage {
       errorWidget: (a, c, b) => Container(
         height: radius! * 2,
         width: radius * 2,
-        padding: const EdgeInsets.all(2),
+        padding: const EdgeInsets.all(0),
         decoration: BoxDecoration(
             border: color != null ? Border.all(color: color, width: 1) : null,
             shape: BoxShape.circle),
@@ -120,7 +120,7 @@ class CustomNetworkImage {
       placeholder: (context, url) => Container(
         height: radius! * 2,
         width: radius * 2,
-        padding: const EdgeInsets.all(2),
+        padding: const EdgeInsets.all(0),
         decoration: BoxDecoration(
             border: color != null ? Border.all(color: color, width: 1) : null,
             shape: BoxShape.circle),
