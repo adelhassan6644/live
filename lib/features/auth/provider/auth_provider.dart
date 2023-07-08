@@ -24,6 +24,7 @@ class AuthProvider extends ChangeNotifier {
 
   final TextEditingController nameTEC = TextEditingController();
   final TextEditingController phoneTEC = TextEditingController();
+  final TextEditingController currentPasswordTEC = TextEditingController();
   final TextEditingController passwordTEC = TextEditingController();
   final TextEditingController confirmPasswordTEC = TextEditingController();
   final TextEditingController codeTEC = TextEditingController();
@@ -117,6 +118,46 @@ class AuthProvider extends ChangeNotifier {
               backgroundColor: ColorResources.IN_ACTIVE,
               borderColor: Colors.transparent));
       _isReset = false;
+      notifyListeners();
+    }
+  }
+
+  bool _isChange = false;
+  bool get isChange => _isChange;
+  changePassword() async {
+    try {
+      _isChange = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response =
+          await authRepo.change(password: passwordTEC.text.trim());
+      response.fold((fail) {
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: fail.error,
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: getTranslated("your_password_changed_successfully",
+                    CustomNavigator.navigatorState.currentContext!),
+                isFloating: true,
+                backgroundColor: ColorResources.ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      });
+      _isChange = false;
+      notifyListeners();
+    } catch (e) {
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: ApiErrorHandler.getMessage(e),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      _isChange = false;
       notifyListeners();
     }
   }

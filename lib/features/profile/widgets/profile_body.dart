@@ -108,7 +108,7 @@ class ProfileBody extends StatelessWidget {
                 valid: Validations.mail,
                 pSvgIcon: SvgImages.mailIcon,
                 read: true,
-                addBorder: false,
+                addBorder: true,
               ),
             ],
           ),

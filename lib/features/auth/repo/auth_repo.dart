@@ -117,6 +117,23 @@ class AuthRepo {
     }
   }
 
+  Future<Either<ServerFailure, Response>> change(
+      {required String password}) async {
+    try {
+      Response response = await dioClient.post(
+          uri: EndPoints.changePassword,
+          data: {"password": password, "fcm_token": await saveDeviceToken()});
+
+      if (response.statusCode == 200) {
+        return Right(response);
+      } else {
+        return left(ServerFailure(response.data['message']));
+      }
+    } catch (error) {
+      return left(ServerFailure(ApiErrorHandler.getMessage(error)));
+    }
+  }
+
   Future<Either<ServerFailure, Response>> forgetPassword(
       {required String mail}) async {
     try {

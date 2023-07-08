@@ -89,7 +89,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                               child: Column(
                                                 children: [
                                                   CustomTextFormField(
-                                                    keyboardAction: TextInputAction.done,
+                                                    keyboardAction: TextInputAction.next,
                                                     controller: provider.passwordTEC,
                                                     hint: getTranslated(
                                                         "password", context),

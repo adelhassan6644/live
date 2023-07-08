@@ -151,7 +151,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 decoration: BoxDecoration(
                     color: ColorResources.DISABLED,
                     borderRadius: BorderRadius.circular(100)),
-                child: SizedBox(),
+                child: const SizedBox(),
               ),
               const Expanded(child: SizedBox()),
             ],
@@ -194,34 +194,21 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                               )
                             : null),
           ),
-          enabledBorder: !widget.addBorder ? null : _borders,
-          disabledBorder: !widget.addBorder
-              ? null
-              : _borders.copyWith(
-                  borderSide: const BorderSide(
-                  color: ColorResources.DISABLED,
-                )),
-          focusedBorder: _borders.copyWith(
-              borderSide: widget.addBorder
-                  ? null
-                  : BorderSide(
-                      color: widget.read == true
-                          ? ColorResources.DISABLED
-                          : ColorResources.PRIMARY_COLOR)),
-          errorBorder: !widget.addBorder
-              ? null
-              : _borders.copyWith(
-                  borderSide:
-                      const BorderSide(color: ColorResources.FAILED_COLOR)),
-          border: !widget.addBorder ? null : _borders,
+          enabledBorder:_borders.copyWith(borderSide: widget.addBorder ?BorderSide(color: widget.read == true ? ColorResources.DISABLED : ColorResources.BORDER_COLOR ):null),
+          disabledBorder:  _borders.copyWith(borderSide: widget.addBorder ? const BorderSide(
+                  color: ColorResources.DISABLED):null),
+          focusedBorder: _borders.copyWith(borderSide: widget.addBorder ? BorderSide(color: widget.read == true ? ColorResources.DISABLED : ColorResources.PRIMARY_COLOR):null),
+          errorBorder: _borders.copyWith(borderSide: widget.addBorder? const BorderSide(color:ColorResources.FAILED_COLOR):null),
+          border:  _borders.copyWith(borderSide: widget.addBorder? BorderSide(
+                  color: widget.read == true
+                      ? ColorResources.DISABLED
+                      : ColorResources.BORDER_COLOR):null),
           contentPadding: EdgeInsets.symmetric(vertical: 16.h,horizontal: 16.w),
           isDense: true,
           alignLabelWithHint: true,
           hintText: widget.hint,
-          labelStyle: AppTextStyles.w400
-              .copyWith(color: ColorResources.DISABLED, fontSize: 14),
-          hintStyle: AppTextStyles.w400
-              .copyWith(color: ColorResources.DISABLED, fontSize: 14),
+          labelStyle: AppTextStyles.w400.copyWith(color: ColorResources.DISABLED, fontSize: 14),
+          hintStyle: AppTextStyles.w400.copyWith(color: ColorResources.DISABLED, fontSize: 14),
           labelText: widget.label ? widget.hint : null,
           fillColor: ColorResources.FILL_COLOR,
           floatingLabelStyle: AppTextStyles.w400

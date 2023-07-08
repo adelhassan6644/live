@@ -1,3 +1,4 @@
+import 'package:live/features/auth/pages/change_password.dart';
 import 'package:live/features/auth/pages/reset_password.dart';
 import 'package:live/main_models/base_model.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,8 @@ abstract class CustomNavigator {
         return _pageRoute(const ResetPassword());
       case Routes.REGISTER:
         return _pageRoute(const Register());
+        case Routes.CHANGE_PASSWORD:
+        return _pageRoute(const ChangePassword());
       case Routes.VERIFICATION:
         return _pageRoute(
             Verification(fromRegister: settings.arguments as bool));

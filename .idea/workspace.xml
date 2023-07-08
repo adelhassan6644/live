@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf0599f4-45dc-4dcd-9c40-4be290b78809" name="Changes" comment="update(profile):&#10;-update profile ui" />
+    <list default="true" id="bf0599f4-45dc-4dcd-9c40-4be290b78809" name="Changes" comment="update(profile):&#10;-update profile ui">
+      <change afterPath="$PROJECT_DIR$/lib/features/auth/pages/change_password.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/language/ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/ar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/language/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/core/utils/validation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/core/utils/validation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/custom_text_form_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/custom_text_form_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/api/end_points.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/api/end_points.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/pages/reset_password.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/reset_password.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/provider/auth_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/provider/auth_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/auth/repo/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/repo/auth_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/more/page/more.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/more/page/more.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/page/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/page/profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/widgets/profile_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/widgets/profile_body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/routes.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
