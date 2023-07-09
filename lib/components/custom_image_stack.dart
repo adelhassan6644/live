@@ -45,7 +45,7 @@ class CustomImageStack extends StatelessWidget {
                             borderRadius: BorderRadius.circular(100)),
                         child: Text(
                           "+${images.length - 3}",
-                          style: AppTextStyles.w500
+                          style: AppTextStyles.medium
                               .copyWith(color: Colors.white, fontSize: 10),
                         ))
                 ],

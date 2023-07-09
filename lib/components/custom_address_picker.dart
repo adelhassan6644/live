@@ -36,7 +36,7 @@ class CustomAddressPicker extends StatelessWidget {
               child: MarqueeWidget(
                 child: Text(
                   location?.address ?? hint,
-                  style: AppTextStyles.w400.copyWith(
+                  style: AppTextStyles.regular.copyWith(
                       color: location?.address == null
                           ? ColorResources.DISABLED
                           : ColorResources.SECOUND_PRIMARY_COLOR,

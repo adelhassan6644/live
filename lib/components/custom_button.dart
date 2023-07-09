@@ -75,37 +75,31 @@ class CustomButton extends StatelessWidget {
                 : Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      Text(
+                        text,
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.medium.copyWith(
+                          fontSize: textSize ?? 16,
+                          overflow: TextOverflow.ellipsis,
+                          color: textColor ?? ColorResources.WHITE_COLOR,
+                        ),
+                      ),
+                      if (assetIcon != null || svgIcon != null)
+                        SizedBox(
+                          width: 8.w,
+                        ),
                       if (assetIcon != null)
                         customImageIcon(
                             imageName: assetIcon!,
                             color: iconColor,
-                            width: 24.w,
-                            height: 24.w),
-                      if (assetIcon != null)
-                        SizedBox(
-                          width: 8.w,
-                        ),
+                            width: 20.w,
+                            height: 20.w),
                       if (svgIcon != null)
                         customImageIconSVG(
                             imageName: svgIcon!,
                             color: iconColor,
-                            width: 18.w,
-                            height: 18.w),
-                      if (svgIcon != null)
-                        SizedBox(
-                          width: 8.w,
-                        ),
-                      Expanded(
-                        child: Text(
-                          text,
-                          textAlign: TextAlign.center,
-                          style: AppTextStyles.w500.copyWith(
-                            fontSize: textSize ?? 16,
-                            overflow: TextOverflow.ellipsis,
-                            color: textColor ?? ColorResources.WHITE_COLOR,
-                          ),
-                        ),
-                      ),
+                            width: 20.w,
+                            height: 20.w),
                     ],
                   ),
           ),

@@ -85,7 +85,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                                                   "change_password_header",
                                                   context),
                                               textAlign: TextAlign.center,
-                                              style: AppTextStyles.w600
+                                              style: AppTextStyles.semiBold
                                                   .copyWith(
                                                       fontSize: 22,
                                                       color: ColorResources

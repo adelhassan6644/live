@@ -71,7 +71,7 @@ class OnBoarding extends StatelessWidget {
                                           getTranslated(
                                               "on_boarding_header", context),
                                           textAlign: TextAlign.center,
-                                          style: AppTextStyles.w600.copyWith(
+                                          style: AppTextStyles.semiBold.copyWith(
                                               fontSize: 28,
                                               color:
                                                   ColorResources.WHITE_COLOR),
@@ -83,7 +83,7 @@ class OnBoarding extends StatelessWidget {
                                         getTranslated(
                                             "on_boarding_description", context),
                                         textAlign: TextAlign.center,
-                                        style: AppTextStyles.w500.copyWith(
+                                        style: AppTextStyles.medium.copyWith(
                                             fontSize: 16,
                                             color: ColorResources.WHITE_COLOR),
                                       ),
@@ -110,7 +110,7 @@ class OnBoarding extends StatelessWidget {
                                           Text(
                                             getTranslated(
                                                 "do_not_have_acc", context),
-                                            style: AppTextStyles.w500.copyWith(
+                                            style: AppTextStyles.medium.copyWith(
                                                 color: ColorResources
                                                     .SECOUND_PRIMARY_COLOR,
                                                 fontSize: 16,
@@ -127,7 +127,7 @@ class OnBoarding extends StatelessWidget {
                                               getTranslated(
                                                   "signup_now", context),
                                               style:
-                                                  AppTextStyles.w500.copyWith(
+                                                  AppTextStyles.medium.copyWith(
                                                 color:
                                                     ColorResources.WHITE_COLOR,
                                                 fontSize: 16,

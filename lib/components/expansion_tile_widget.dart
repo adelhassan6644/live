@@ -17,7 +17,7 @@ class ExpansionTileWidget extends StatelessWidget {
     return ExpansionTile(
       title: Text(
         title,
-        style: AppTextStyles.w600.copyWith(
+        style: AppTextStyles.semiBold.copyWith(
             fontSize: 14, color: ColorResources.SECOUND_PRIMARY_COLOR),
       ),
       tilePadding: const EdgeInsets.all(0),

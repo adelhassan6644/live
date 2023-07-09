@@ -102,6 +102,8 @@ flutter:
 
     - family: ar
       fonts:
+        - asset: assets/fonts/ar/ExpoArabic-Light.ttf
+          weight: 300
         - asset: assets/fonts/ar/ExpoArabic-regular.ttf
           weight: 400
         - asset: assets/fonts/ar/ExpoArabic-Medium.ttf

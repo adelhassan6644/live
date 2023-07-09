@@ -35,7 +35,7 @@ class ConfirmationDialog extends StatelessWidget {
           Text(
             description!,
             textAlign: TextAlign.center,
-            style: AppTextStyles.w400.copyWith(
+            style: AppTextStyles.regular.copyWith(
               fontSize: 14,
               // color: ColorResources.DETAILS_COLOR
             ),

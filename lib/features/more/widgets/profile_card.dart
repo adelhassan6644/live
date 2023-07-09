@@ -24,11 +24,11 @@ class ProfileCard extends StatelessWidget {
         const SizedBox(height: 16),
         Text(
           "live - tester",
-          style: AppTextStyles.w700.copyWith(color: ColorResources.WHITE_COLOR, fontSize: 16,height: 1),
+          style: AppTextStyles.bold.copyWith(color: ColorResources.WHITE_COLOR, fontSize: 16,height: 1),
         ),
         Text(
           "live@actl.com",
-          style: AppTextStyles.w400
+          style: AppTextStyles.regular
               .copyWith(color: ColorResources.WHITE_COLOR, fontSize: 12),
         ),
         const SizedBox(

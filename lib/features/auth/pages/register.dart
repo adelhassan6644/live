@@ -85,7 +85,7 @@ class _RegisterState extends State<Register> {
                                             getTranslated(
                                                 "signup_header", context),
                                             textAlign: TextAlign.center,
-                                            style: AppTextStyles.w600.copyWith(
+                                            style: AppTextStyles.semiBold.copyWith(
                                                 fontSize: 28,
                                                 color:
                                                     ColorResources.WHITE_COLOR),
@@ -162,7 +162,7 @@ class _RegisterState extends State<Register> {
                                                             "have_acc",
                                                             context),
                                                         textAlign: TextAlign.end,
-                                                        style: AppTextStyles.w500.copyWith(
+                                                        style: AppTextStyles.medium.copyWith(
                                                             color: ColorResources
                                                                 .TITLE,
                                                             fontSize: 16,
@@ -183,7 +183,7 @@ class _RegisterState extends State<Register> {
                                                               "login_now",
                                                               context),
                                                           style: AppTextStyles
-                                                              .w500
+                                                              .medium
                                                               .copyWith(
                                                             color: ColorResources
                                                                 .WHITE_COLOR,

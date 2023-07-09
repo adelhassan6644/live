@@ -250,7 +250,6 @@ class FirebaseAuthProvider extends ChangeNotifier {
       Future.delayed(Duration.zero, () async {
         await FirebaseAuth.instance.signOut();
         await firebaseAuthRepo.clearSharedData();
-        sl<HomeProvider>().onSelectRole(0);
       });
       CustomNavigator.push(Routes.SPLASH, clean: true);
       notifyListeners();

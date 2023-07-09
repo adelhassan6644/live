@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 import '../../../app/core/utils/images.dart';
 import '../provider/profile_provider.dart';
+import '../widgets/change_password_button.dart';
 import '../widgets/profile_body.dart';
 
 class Profile extends StatelessWidget {
@@ -46,14 +47,15 @@ class Profile extends StatelessWidget {
                 Center(
                   child: Text(
                     provider.profileModel?.name ?? "Mohamed Ahmed",
-                    style: AppTextStyles.w500
+                    style: AppTextStyles.medium
                         .copyWith(color: Colors.black, fontSize: 16),
                   ),
                 ),
                 SizedBox(
                   height: 30.h,
                 ),
-                const ProfileBody()
+                const ProfileBody(),
+                const ChangePasswordButton()
               ],
             ))
           ],

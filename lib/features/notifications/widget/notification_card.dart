@@ -61,7 +61,7 @@ class _NotificationCardState extends State<NotificationCard> {
                 child: Text(
                   widget.notificationItem.notificationData?.message ?? "",
                   maxLines: 1,
-                  style: AppTextStyles.w400
+                  style: AppTextStyles.regular
                       .copyWith(fontSize: 14, overflow: TextOverflow.ellipsis),
                 ),
               ),

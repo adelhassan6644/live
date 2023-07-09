@@ -41,7 +41,7 @@ class BottomNavBarItem extends StatelessWidget {
                 ? customImageIconSVG(
                     imageName: svgIcon!,
                     color: isSelected
-                        ? const Color(0xFFB48DD2)
+                        ? ColorResources.SECOUND_PRIMARY_COLOR
                         : withIconColor
                             ? ColorResources.DISABLED
                             : null,

@@ -116,7 +116,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         inputFormatters: widget.inputType == TextInputType.phone
             ? [FilteringTextInputFormatter.allow(RegExp('[0-9]'))]
             : widget.formatter,
-        style: AppTextStyles.w500
+        style: AppTextStyles.medium
             .copyWith(color: ColorResources.TITLE, fontSize: 14),
         cursorColor: ColorResources.TITLE,
         onChanged: widget.onChanged,
@@ -207,14 +207,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           isDense: true,
           alignLabelWithHint: true,
           hintText: widget.hint,
-          labelStyle: AppTextStyles.w400.copyWith(color: ColorResources.DISABLED, fontSize: 14),
-          hintStyle: AppTextStyles.w400.copyWith(color: ColorResources.DISABLED, fontSize: 14),
+          labelStyle: AppTextStyles.regular.copyWith(color: ColorResources.DISABLED, fontSize: 14),
+          hintStyle: AppTextStyles.regular.copyWith(color: ColorResources.DISABLED, fontSize: 14),
           labelText: widget.label ? widget.hint : null,
           fillColor: ColorResources.FILL_COLOR,
-          floatingLabelStyle: AppTextStyles.w400
+          floatingLabelStyle: AppTextStyles.regular
               .copyWith(color: ColorResources.TITLE, fontSize: 12),
           filled: true,
-          errorStyle: AppTextStyles.w400.copyWith(
+          errorStyle: AppTextStyles.regular.copyWith(
             color: ColorResources.FAILED_COLOR,
             fontSize: 11,
           ),

@@ -85,7 +85,7 @@ class _LoginState extends State<Login> {
                                             getTranslated(
                                                 "login_header", context),
                                             textAlign: TextAlign.center,
-                                            style: AppTextStyles.w600.copyWith(
+                                            style: AppTextStyles.semiBold.copyWith(
                                                 fontSize: 28,
                                                 color:
                                                     ColorResources.WHITE_COLOR),
@@ -135,7 +135,7 @@ class _LoginState extends State<Login> {
                                                             "forget_password",
                                                             context),
                                                         style: AppTextStyles
-                                                            .w500
+                                                            .medium
                                                             .copyWith(
                                                           color: ColorResources
                                                               .WHITE_COLOR,
@@ -182,7 +182,7 @@ class _LoginState extends State<Login> {
                                                     Text(
                                                       getTranslated("do_not_have_acc", context),
                                                       textAlign: TextAlign.end,
-                                                      style: AppTextStyles.w500
+                                                      style: AppTextStyles.medium
                                                           .copyWith(
                                                               color: ColorResources
                                                                   .TITLE,
@@ -202,7 +202,7 @@ class _LoginState extends State<Login> {
                                                         textAlign:
                                                             TextAlign.start,
                                                         style: AppTextStyles
-                                                            .w500
+                                                            .medium
                                                             .copyWith(
                                                           color: ColorResources
                                                               .WHITE_COLOR,

@@ -27,7 +27,7 @@ loadingDialog() {
             padding: const EdgeInsets.all(Dimensions.PADDING_SIZE_LARGE),
             child: Text(
               "please wait",
-              style: AppTextStyles.w700.copyWith(
+              style: AppTextStyles.bold.copyWith(
                 fontSize: 18.0,
                 color: ColorResources.DISABLED,
               ),

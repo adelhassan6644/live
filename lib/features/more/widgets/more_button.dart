@@ -40,7 +40,7 @@ class MoreButton extends StatelessWidget {
                   Expanded(
                     child: Text(title,
                         maxLines: 1,
-                        style: AppTextStyles.w400.copyWith(
+                        style: AppTextStyles.regular.copyWith(
                             fontSize: 18,
                             overflow: TextOverflow.ellipsis,
                             color: ColorResources.WHITE_COLOR)),

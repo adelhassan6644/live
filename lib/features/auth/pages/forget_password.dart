@@ -85,7 +85,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                                                   "forget_password_header",
                                                   context),
                                               textAlign: TextAlign.center,
-                                              style: AppTextStyles.w600
+                                              style: AppTextStyles.semiBold
                                                   .copyWith(
                                                       fontSize: 22,
                                                       color: ColorResources

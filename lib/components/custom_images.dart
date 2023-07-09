@@ -51,7 +51,7 @@ Widget customCircleSvgIcon(
               ),
               Text(
                 title ?? "",
-                style: AppTextStyles.w500.copyWith(
+                style: AppTextStyles.medium.copyWith(
                     color: ColorResources.PRIMARY_COLOR, fontSize: 10),
                 overflow: TextOverflow.ellipsis,
               )

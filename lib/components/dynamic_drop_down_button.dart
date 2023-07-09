@@ -53,7 +53,7 @@ class _DynamicDropDownButtonState extends State<DynamicDropDownButton> {
             value: item,
             child: Text(
               item.name,
-              style: AppTextStyles.w500
+              style: AppTextStyles.medium
                   .copyWith(color: ColorResources.TITLE, fontSize: 13),
             ),
           );
@@ -77,9 +77,9 @@ class _DynamicDropDownButtonState extends State<DynamicDropDownButton> {
             const BorderRadius.all(Radius.circular(Dimensions.RADIUS_DEFAULT)),
         decoration: InputDecoration(
           hintStyle: widget.isInitial == true
-              ? AppTextStyles.w500.copyWith(
+              ? AppTextStyles.medium.copyWith(
                   color: ColorResources.SECOUND_PRIMARY_COLOR, fontSize: 14)
-              : AppTextStyles.w400
+              : AppTextStyles.regular
                   .copyWith(color: ColorResources.DISABLED, fontSize: 14),
           hintText: widget.name,
           prefixIcon: Padding(
@@ -174,12 +174,12 @@ class _DynamicDropDownButtonState extends State<DynamicDropDownButton> {
             maxHeight: 25.h,
           ),
           labelText: widget.label,
-          errorStyle: AppTextStyles.w500
+          errorStyle: AppTextStyles.medium
               .copyWith(color: ColorResources.FAILED_COLOR, fontSize: 11),
-          labelStyle: AppTextStyles.w400
+          labelStyle: AppTextStyles.regular
               .copyWith(color: ColorResources.DISABLED, fontSize: 14),
         ),
-        style: AppTextStyles.w500
+        style: AppTextStyles.medium
             .copyWith(color: ColorResources.PRIMARY_COLOR, fontSize: 14),
         name: widget.name,
         elevation: 1,

@@ -47,7 +47,7 @@ class BottomSheetAppBar extends StatelessWidget {
               const Expanded(child: SizedBox()),
               Text(
                 title,
-                style: AppTextStyles.w600.copyWith(
+                style: AppTextStyles.semiBold.copyWith(
                   fontSize: 14,
                 ),
               ),
@@ -59,7 +59,7 @@ class BottomSheetAppBar extends StatelessWidget {
                   child: Text(
                     textBtn,
                     textAlign: TextAlign.end,
-                    style: AppTextStyles.w400.copyWith(
+                    style: AppTextStyles.regular.copyWith(
                         fontSize: 14, color: ColorResources.PRIMARY_COLOR),
                   ),
                 ),

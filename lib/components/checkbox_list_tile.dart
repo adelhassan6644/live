@@ -45,7 +45,7 @@ class CheckBoxListTile extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: AppTextStyles.w500.copyWith(
+              style: AppTextStyles.medium.copyWith(
                   fontSize: 14,
                   color: check
                       ? ColorResources.SECOUND_PRIMARY_COLOR
@@ -55,7 +55,7 @@ class CheckBoxListTile extends StatelessWidget {
           if (description != null)
             Text(
               description!,
-              style: AppTextStyles.w700.copyWith(
+              style: AppTextStyles.bold.copyWith(
                   fontSize: 10,
                   color: check
                       ? ColorResources.SECOUND_PRIMARY_COLOR

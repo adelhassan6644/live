@@ -56,7 +56,7 @@ class ImagePopUpViewer extends StatelessWidget {
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.w600.copyWith(
+                style: AppTextStyles.semiBold.copyWith(
                     fontSize: 12,
                     overflow: TextOverflow.ellipsis,
                     color: ColorResources.WHITE_COLOR),

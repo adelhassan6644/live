@@ -157,13 +157,13 @@ class _PickMapScreenState extends State<PickMapScreen> {
                           ),
                           Text(
                             getTranslated("address", context),
-                            style: AppTextStyles.w600
+                            style: AppTextStyles.semiBold
                                 .copyWith(color: Colors.black, fontSize: 14),
                           ),
                           Text(
                             locationController.pickAddress,
                             maxLines: 2,
-                            style: AppTextStyles.w400.copyWith(
+                            style: AppTextStyles.regular.copyWith(
                                 color: Colors.black,
                                 overflow: TextOverflow.ellipsis,
                                 fontSize: 13),
