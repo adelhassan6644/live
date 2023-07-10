@@ -32,13 +32,7 @@ class _ChangePasswordState extends State<ChangePassword> {
         height: context.height,
         padding: EdgeInsets.symmetric(
             horizontal: Dimensions.PADDING_SIZE_EXTRA_LARGE.w),
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage(
-            Images.loginImage,
-          ),
-          fit: BoxFit.fitWidth,
-        )),
+
         child: Column(
           children: [
             const AuthAppBar(),

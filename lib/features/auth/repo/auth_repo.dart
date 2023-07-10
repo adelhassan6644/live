@@ -99,7 +99,7 @@ class AuthRepo {
       });
 
       if (response.statusCode == 200) {
-        dioClient.updateHeader(token: response.data['data']["api_token"]);
+        // dioClient.updateHeader(token: response.data['data']["api_token"]);
         return Right(response);
       } else {
         return left(ServerFailure(response.data['message']));
@@ -199,9 +199,9 @@ class AuthRepo {
       Response response = await dioClient
           .post(uri: EndPoints.verifyPhone, data: {"email": mail, "otp": code});
       if (response.statusCode == 200) {
-        if(updateHeader) {
-          dioClient.updateHeader(token: response.data['data']["api_token"]);
-        }
+        // if(updateHeader) {
+        //   dioClient.updateHeader(token: response.data['data']["api_token"]);
+        // }
         return Right(response);
       } else {
         return left(ServerFailure(response.data['message']));

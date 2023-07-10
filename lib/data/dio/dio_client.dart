@@ -28,7 +28,8 @@ class DioClient extends ApiClient {
       ..options.headers = {
         'Content-Type': 'application/json; charset=UTF-8',
         "Accept": " application/json",
-        'x-api-key': sharedPreferences.getString(AppStorageKey.apiToken)
+        // if (sharedPreferences.getString(AppStorageKey.apiToken) != null)
+        //   'x-api-key': sharedPreferences.getString(AppStorageKey.apiToken)
       };
     dio.interceptors.add(PrettyDioLogger(
         request: true,
@@ -37,13 +38,13 @@ class DioClient extends ApiClient {
         requestHeader: true));
   }
 
-  Future<void> updateHeader({required String token}) async {
-    dio.options.headers = {
-      'Content-Type': 'application/json; charset=UTF-8',
-      "Accept": " application/json",
-      'x-api-key': token
-    };
-  }
+  // Future<void> updateHeader({required String token}) async {
+  //   dio.options.headers = {
+  //     'Content-Type': 'application/json; charset=UTF-8',
+  //     "Accept": " application/json",
+  //     'x-api-key': token
+  //   };
+  // }
 
   @override
   Future<Response> get({

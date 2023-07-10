@@ -75,16 +75,16 @@ class AuthProvider extends ChangeNotifier {
         } else {
           authRepo.forget();
         }
-
         if (success.data['data']["verified_at"] != null) {
           authRepo.saveUserId(success.data['data']["id"]);
           authRepo.saveUserToken(success.data['data']["api_token"]);
           authRepo.setLoggedIn();
           CustomNavigator.push(Routes.MAIN_PAGE, clean: true);
+          clear();
         } else {
-
           CustomNavigator.push(Routes.VERIFICATION, arguments: true);
         }
+
       });
       _isLogin = false;
       notifyListeners();
@@ -119,6 +119,7 @@ class AuthProvider extends ChangeNotifier {
         notifyListeners();
       }, (success) {
         CustomNavigator.push(Routes.LOGIN, clean: true);
+        clear();
       });
       _isReset = false;
       notifyListeners();
@@ -158,6 +159,7 @@ class AuthProvider extends ChangeNotifier {
                 isFloating: true,
                 backgroundColor: ColorResources.ACTIVE,
                 borderColor: Colors.transparent));
+        clear();
         notifyListeners();
       });
       _isChange = false;
@@ -261,10 +263,9 @@ class AuthProvider extends ChangeNotifier {
       _isVerify = true;
       notifyListeners();
       Either<ServerFailure, Response> response = await authRepo.verifyMail(
-        mail: mailTEC.text.trim(),
-        code: codeTEC.text.trim(),
-        updateHeader: fromRegister
-      );
+          mail: mailTEC.text.trim(),
+          code: codeTEC.text.trim(),
+          updateHeader: fromRegister);
       response.fold((fail) {
         CustomSnackBar.showSnackBar(
             notification: AppNotification(
@@ -288,6 +289,7 @@ class AuthProvider extends ChangeNotifier {
             replace: true,
           );
         }
+        clear();
       });
       _isVerify = false;
       notifyListeners();
