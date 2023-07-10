@@ -1,17 +1,17 @@
 class EndPoints {
   static const String baseUrl = 'https://live-elhemdania.softwarecloud2.com/api/';
   static const String googleMapsBaseUrl = 'https://maps.googleapis.com';
-  static const String imageUrl = 'https://test.live.com/';
-  static const String apiKey = 'uLrOCoRIHVJl3q9K31YuUhP7M8FtoDeWqsog2or0d1tdQl7bBvUX3xODTCXz';
+  static const String imageUrl = 'https://live-elhemdania.softwarecloud2.com/api/';
+  static const String apiKey = 's7xrpFdw4G0F21rfLyD4TaBkjVJYgwGfI3y60OyRnjw9zOggruX30eToVWvs';
   static const String topic = 'live';
-  static const String logIn = 'auth/login';
+  static const String logIn = 'login';
   static const String forgetPassword = 'auth/forget-password';
   static const String resetPassword = 'auth/reset-password';
   static const String changePassword = 'auth/reset-password';
-  static const String register = 'auth/register';
+  static const String register = 'client';
   static const String verifyPhone = 'auth/verify_phone';
-  static const String getProfile = 'profile/profile';
-  static const String updateProfile = 'profile/update';
+  static  getProfile(id) => 'client/$id';
+  static  updateProfile(id) => 'client/$id';
   static const String news = 'news';
   static const String place = 'place';
   static const String categories = 'category';

@@ -30,6 +30,7 @@ class NewsItem {
   String? author;
   String? content;
   String? image;
+  String? address;
   int? status;
   String? createdAt;
   String? updatedAt;
@@ -41,6 +42,7 @@ class NewsItem {
         this.content,
         this.image,
         this.status,
+        this.address,
         this.createdAt,
         this.updatedAt});
 
@@ -51,6 +53,7 @@ class NewsItem {
     content = json['content'];
     image = json['image'];
     status = json['status'];
+    address = json['address'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }

@@ -96,7 +96,8 @@ class CustomNetworkImage {
       String? defaultImage,
       bool isDefaultSvg = true,
       backGroundColor,
-      color}) {
+      color,
+      double? padding}) {
     return CachedNetworkImage(
       imageUrl: image == "" || image == null
           ? "https://"
@@ -134,8 +135,9 @@ class CustomNetworkImage {
         return Container(
           height: radius! * 2,
           width: radius * 2,
+          padding: EdgeInsets.all(padding??0),
           decoration: BoxDecoration(
-              border: color != null ? Border.all(color: color, width: 1) : null,
+            color: backGroundColor,
               shape: BoxShape.circle),
           child: CircleAvatar(
             backgroundImage: provider,

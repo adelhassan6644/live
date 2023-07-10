@@ -15,12 +15,7 @@ import 'package:flutter/rendering.dart';
 
 class HomeProvider extends ChangeNotifier {
   HomeRepo homeRepo;
-  HomeProvider({required this.homeRepo}){
-    getPlaces();
-    getCategories();
-    getOffers();
-    getNews();
-  }
+  HomeProvider({required this.homeRepo});
 
   bool goingDown = false;
   scroll(controller) {
@@ -37,14 +32,53 @@ class HomeProvider extends ChangeNotifier {
 
   bool get isLogin => homeRepo.isLoggedIn();
 
-  CarouselController carouselController= CarouselController();
-  late int _currentIndex = 0;
-  int get currentIndex => _currentIndex;
-  void setCurrentIndex(int index) {
-    _currentIndex = index;
+  CarouselController placesController = CarouselController();
+  late int _placesIndex = 0;
+  int get placesIndex => _placesIndex;
+  void setPlacesIndex(int index) {
+    _placesIndex = index;
     notifyListeners();
   }
 
+  late int _offersIndex = 0;
+  int get offersIndex => _offersIndex;
+  void setOffersIndex(int index) {
+    _offersIndex = index;
+    notifyListeners();
+  }
+
+  PlacesModel? placesModel;
+  bool isGetPlaces = false;
+  getPlaces() async {
+    try {
+      isGetPlaces = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response = await homeRepo.getHomePlaces();
+      response.fold((fail) {
+        isGetPlaces = false;
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: ApiErrorHandler.getMessage(fail),
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        placesModel = PlacesModel.fromJson(success.data);
+        isGetPlaces = false;
+        notifyListeners();
+      });
+    } catch (e) {
+      isGetPlaces = false;
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: e.toString(),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      notifyListeners();
+    }
+  }
 
   CategoriesModel? categoriesModel;
   bool isGetCategories = false;
@@ -52,7 +86,8 @@ class HomeProvider extends ChangeNotifier {
     try {
       isGetCategories = true;
       notifyListeners();
-      Either<ServerFailure, Response> response = await homeRepo.getHomeCategories();
+      Either<ServerFailure, Response> response =
+          await homeRepo.getHomeCategories();
       response.fold((fail) {
         isGetCategories = false;
         CustomSnackBar.showSnackBar(
@@ -79,6 +114,12 @@ class HomeProvider extends ChangeNotifier {
     }
   }
 
+  bool show = false;
+  showAllNews() {
+    show = true;
+    notifyListeners();
+  }
+
   NewsModel? newsModel;
   bool isExploring = false;
   getNews() async {
@@ -102,39 +143,6 @@ class HomeProvider extends ChangeNotifier {
       });
     } catch (e) {
       isExploring = false;
-      CustomSnackBar.showSnackBar(
-          notification: AppNotification(
-              message: e.toString(),
-              isFloating: true,
-              backgroundColor: ColorResources.IN_ACTIVE,
-              borderColor: Colors.transparent));
-      notifyListeners();
-    }
-  }
-
-  PlacesModel? placesModel;
-  bool isGetPlaces = false;
-  getPlaces() async {
-    try {
-      isGetPlaces = true;
-      notifyListeners();
-      Either<ServerFailure, Response> response = await homeRepo.getHomePlaces();
-      response.fold((fail) {
-        isGetPlaces = false;
-        CustomSnackBar.showSnackBar(
-            notification: AppNotification(
-                message: ApiErrorHandler.getMessage(fail),
-                isFloating: true,
-                backgroundColor: ColorResources.IN_ACTIVE,
-                borderColor: Colors.transparent));
-        notifyListeners();
-      }, (success) {
-        placesModel = PlacesModel.fromJson(success.data);
-        isGetPlaces = false;
-        notifyListeners();
-      });
-    } catch (e) {
-      isGetPlaces = false;
       CustomSnackBar.showSnackBar(
           notification: AppNotification(
               message: e.toString(),

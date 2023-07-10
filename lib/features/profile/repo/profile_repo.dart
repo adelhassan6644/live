@@ -18,12 +18,12 @@ class ProfileRepo {
     return sharedPreferences.containsKey(AppStorageKey.isLogin);
   }
 
-
   Future<Either<ServerFailure, Response>> updateProfile(
       {required dynamic body}) async {
     try {
       Response response = await dioClient.post(
-          uri:"",
+          uri: EndPoints.updateProfile(
+              sharedPreferences.getString(AppStorageKey.userId)),
           data: body);
 
       if (response.statusCode == 200) {
@@ -38,7 +38,10 @@ class ProfileRepo {
 
   Future<Either<ServerFailure, Response>> getProfile() async {
     try {
-      Response response = await dioClient.get(uri:"");
+      Response response = await dioClient.get(
+        uri: EndPoints.getProfile(
+            sharedPreferences.getString(AppStorageKey.userId)),
+      );
       if (response.statusCode == 200) {
         return Right(response);
       } else {
@@ -48,5 +51,4 @@ class ProfileRepo {
       return left(ServerFailure(ApiErrorHandler.getMessage(error)));
     }
   }
-
 }

@@ -7,5 +7,5 @@ class Images {
   static const String doneCircle = 'assets/images/done_circle.png';
   static const String cancelCircle = 'assets/images/cancel_circle.png';
   static const String whatsApp = 'assets/images/whatsapp.png';
-  static const String pronzeBG = 'assets/images/pronze_bg.png';
+  static const String megaPhone = 'assets/images/mega_phone.png';
 }

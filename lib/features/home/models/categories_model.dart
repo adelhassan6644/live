@@ -28,6 +28,8 @@ class CategoryItem {
   int? id;
   String? image;
   String? title;
+  String? color;
+  String? textColor;
   String? description;
   String? createdAt;
   String? updatedAt;
@@ -37,6 +39,8 @@ class CategoryItem {
       this.image,
       this.title,
       this.description,
+      this.color,
+      this.textColor,
       this.createdAt,
       this.updatedAt});
 
@@ -44,6 +48,8 @@ class CategoryItem {
     id = json['id'];
     image = json['image'];
     title = json['title'];
+    color = json['color'];
+    textColor = json['text_color'];
     description = json['description'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

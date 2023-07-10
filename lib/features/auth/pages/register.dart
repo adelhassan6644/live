@@ -177,6 +177,7 @@ class _RegisterState extends State<Register> {
                                                           CustomNavigator.push(
                                                               Routes.LOGIN,
                                                               clean: true);
+                                                          provider.clear();
                                                         },
                                                         child: Text(
                                                           getTranslated(

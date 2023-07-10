@@ -33,30 +33,33 @@ class EmptyState extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            const SizedBox(
-              height: 100,
-            ),
             !isSvg
                 ? customImageIcon(
                     imageName: img ?? Images.logo,
                     width: imgWidth ?? 200,
                     height:
-                        imgHeight ?? 150) //width: MediaQueryHelper.width*.8,),
+                        imgHeight ?? 130) //width: MediaQueryHelper.width*.8,),
                 : customImageIconSVG(
-                    imageName: img ?? SvgImages.navLogoIcon,
+                    imageName: img ?? SvgImages.appLogo,
                     width: imgWidth ?? 200,
-                    height: imgHeight ?? 150),
-            SizedBox(height: spaceBtw ?? 35.h),
+                    height: imgHeight ?? 150,
+                    color: ColorResources.PRIMARY_COLOR),
+            SizedBox(
+              height: spaceBtw ?? 12.h,
+            ),
             Text(txt ?? "لا يوجد بيانات !",
                 textAlign: TextAlign.center,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: ColorResources.PRIMARY_COLOR,
+                )),
             SizedBox(height: 8.h),
             Text(subText ?? "",
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     fontSize: 14,
-                    color: ColorResources.DETAILS_COLOR,
+                    color: ColorResources.PRIMARY_COLOR,
                     fontWeight: FontWeight.w400))
           ],
         ),

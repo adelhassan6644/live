@@ -30,7 +30,7 @@ abstract class ColorResources {
   static const Color ERORR_COLOR = Color(0xFFFF4F65);
   static const Color RED_COLOR = Color(0xffFF3B30);
    static const Color HEADER = Color(0xFF530B8B);
-  static const Color TITLE = Color(0xFF000000);
+  static const Color TITLE = Color(0xFF151416);
   static const Color SUBTITLE = Color(0xff373737);
   static const Color DETAILS_COLOR = Color(0xff737373);
   static const Color HINT_COLOR = Color(0xffA5B7B8);

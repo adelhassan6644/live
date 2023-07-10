@@ -85,10 +85,11 @@ class _LoginState extends State<Login> {
                                             getTranslated(
                                                 "login_header", context),
                                             textAlign: TextAlign.center,
-                                            style: AppTextStyles.semiBold.copyWith(
-                                                fontSize: 28,
-                                                color:
-                                                    ColorResources.WHITE_COLOR),
+                                            style: AppTextStyles.semiBold
+                                                .copyWith(
+                                                    fontSize: 28,
+                                                    color: ColorResources
+                                                        .WHITE_COLOR),
                                           ),
                                         ),
                                         Form(
@@ -165,11 +166,7 @@ class _LoginState extends State<Login> {
                                                         if (_formKey
                                                             .currentState!
                                                             .validate()) {
-                                                          // provider.logIn();
-                                                          CustomNavigator.push(
-                                                            Routes.MAIN_PAGE,
-                                                            clean: true,
-                                                          );
+                                                          provider.logIn();
                                                         }
                                                       },
                                                       isLoading:
@@ -180,12 +177,16 @@ class _LoginState extends State<Login> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      getTranslated("do_not_have_acc", context),
+                                                      getTranslated(
+                                                          "do_not_have_acc",
+                                                          context),
                                                       textAlign: TextAlign.end,
-                                                      style: AppTextStyles.medium
+                                                      style: AppTextStyles
+                                                          .medium
                                                           .copyWith(
-                                                              color: ColorResources
-                                                                  .TITLE,
+                                                              color:
+                                                                  ColorResources
+                                                                      .TITLE,
                                                               fontSize: 16,
                                                               overflow:
                                                                   TextOverflow
@@ -196,6 +197,7 @@ class _LoginState extends State<Login> {
                                                         CustomNavigator.push(
                                                             Routes.REGISTER,
                                                             clean: true);
+                                                        provider.clear();
                                                       },
                                                       child: Text(
                                                         " ${getTranslated("signup_now", context)}",
