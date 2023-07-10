@@ -208,7 +208,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           alignLabelWithHint: true,
           hintText: widget.hint,
           labelStyle: AppTextStyles.regular.copyWith(color: ColorResources.DISABLED, fontSize: 14),
-          hintStyle: AppTextStyles.regular.copyWith(color: ColorResources.DISABLED, fontSize: 14),
+          hintStyle: AppTextStyles.regular.copyWith(color: ColorResources.DISABLED, fontSize: 12),
           labelText: widget.label ? widget.hint : null,
           fillColor: ColorResources.FILL_COLOR,
           floatingLabelStyle: AppTextStyles.regular

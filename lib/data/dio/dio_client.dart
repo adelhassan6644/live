@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:live/app/core/utils/app_storage_keys.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../api/end_points.dart';
@@ -28,6 +27,7 @@ class DioClient extends ApiClient {
       ..options.headers = {
         'Content-Type': 'application/json; charset=UTF-8',
         "Accept": " application/json",
+        'x-api-key': EndPoints.apiKey
         // if (sharedPreferences.getString(AppStorageKey.apiToken) != null)
         //   'x-api-key': sharedPreferences.getString(AppStorageKey.apiToken)
       };
