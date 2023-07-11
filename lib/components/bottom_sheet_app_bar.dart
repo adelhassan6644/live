@@ -72,7 +72,7 @@ class BottomSheetAppBar extends StatelessWidget {
           child: Container(
             height: 1,
             width: context.width,
-            color: ColorResources.LIGHT_GREY_BORDER,
+            color: ColorResources.GREY_BORDER,
             child: const SizedBox(),
           ),
         ),

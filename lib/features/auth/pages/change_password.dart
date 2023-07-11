@@ -6,11 +6,10 @@ import 'package:live/app/core/utils/svg_images.dart';
 import 'package:live/app/core/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:live/components/custom_app_bar.dart';
-import 'package:live/components/custom_images.dart';
 import 'package:provider/provider.dart';
-import 'dart:ui' as ui;
 import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
+import '../../../components/animated_widget.dart';
 import '../../../components/custom_button.dart';
 import '../../../components/custom_text_form_field.dart';
 import '../provider/auth_provider.dart';
@@ -27,180 +26,118 @@ class _ChangePasswordState extends State<ChangePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorResources.BACKGROUND_COLOR,
-      body: Container(
-        width: context.width,
-        height: context.height,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage(
-            Images.loginImage,
-          ),
-          fit: BoxFit.fitWidth,
-        )),
+      body: SafeArea(
+        bottom: true,
+        top: false,
         child: Column(
           children: [
-            const CustomAppBar(),
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Container(
+                  height: 160 + context.toPadding,
+                  width: context.width,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(Images.profileBGImage),
+                          fit: BoxFit.fitHeight)),
+                  child: const SizedBox(),
+                ),
+                const CustomAppBar()
+              ],
+            ),
             Expanded(
-              child: Center(
-                child: SingleChildScrollView(
-                  child: Padding(
+                child: ListAnimator(
+              data: [
+                SizedBox(
+                  height: 70.h,
+                ),
+                Consumer<AuthProvider>(builder: (_, provider, child) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
                     padding: EdgeInsets.symmetric(
-                        horizontal: Dimensions.PADDING_SIZE_EXTRA_LARGE.w),
+                      horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+                    ),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18),
+                        color: ColorResources.WHITE_COLOR,
+                        border: Border.all(
+                            color: ColorResources.LIGHT_BORDER_COLOR)),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Center(
-                          child: Stack(
-                            alignment: Alignment.topCenter,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: 75.h),
-                                child: ClipRRect(
-                                  clipBehavior: Clip.antiAlias,
-                                  borderRadius: BorderRadius.circular(25),
-                                  child: BackdropFilter(
-                                    filter: ui.ImageFilter.blur(
-                                        sigmaX: 5.0, sigmaY: 5.0),
-                                    child: Container(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal:
-                                              Dimensions.PADDING_SIZE_DEFAULT.w,
-                                          vertical: 30.h),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.1),
-                                          borderRadius:
-                                              BorderRadius.circular(25)),
-                                      child: Consumer<AuthProvider>(
-                                          builder: (_, provider, child) {
-                                        return Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  0, 30.h, 0, 24.h),
-                                              child: Text(
-                                                getTranslated(
-                                                    "change_password_header",
-                                                    context),
-                                                textAlign: TextAlign.center,
-                                                style: AppTextStyles.semiBold
-                                                    .copyWith(
-                                                        fontSize: 22,
-                                                        color: ColorResources
-                                                            .WHITE_COLOR),
-                                              ),
-                                            ),
-                                            Form(
-                                                key: _formKey,
-                                                child: Column(
-                                                  children: [
-                                                    CustomTextFormField(
-                                                      keyboardAction:
-                                                          TextInputAction.next,
-                                                      controller: provider
-                                                          .currentPasswordTEC,
-                                                      hint: getTranslated(
-                                                          "current_password",
-                                                          context),
-                                                      inputType: TextInputType
-                                                          .visiblePassword,
-                                                      valid:
-                                                          Validations.password,
-                                                      pSvgIcon:
-                                                          SvgImages.lockIcon,
-                                                      isPassword: true,
-                                                    ),
-                                                    CustomTextFormField(
-                                                      keyboardAction:
-                                                          TextInputAction.next,
-                                                      controller:
-                                                          provider.passwordTEC,
-                                                      hint: getTranslated(
-                                                          "new_password",
-                                                          context),
-                                                      inputType: TextInputType
-                                                          .visiblePassword,
-                                                      valid: (v) => Validations
-                                                          .newPassword(
-                                                              provider
-                                                                  .currentPasswordTEC
-                                                                  .text
-                                                                  .trim(),
-                                                              v?.trim()),
-                                                      pSvgIcon:
-                                                          SvgImages.lockIcon,
-                                                      isPassword: true,
-                                                    ),
-                                                    CustomTextFormField(
-                                                      keyboardAction:
-                                                          TextInputAction.done,
-                                                      controller: provider
-                                                          .confirmPasswordTEC,
-                                                      hint: getTranslated(
-                                                          "confirm_password",
-                                                          context),
-                                                      inputType: TextInputType
-                                                          .visiblePassword,
-                                                      valid: (v) => Validations
-                                                          .confirmNewPassword(
-                                                              provider
-                                                                  .passwordTEC
-                                                                  .text
-                                                                  .trim(),
-                                                              v?.trim()),
-                                                      pSvgIcon:
-                                                          SvgImages.lockIcon,
-                                                      isPassword: true,
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                        vertical: 24.h,
-                                                      ),
-                                                      child: CustomButton(
-                                                          text: getTranslated(
-                                                              "confirm",
-                                                              context),
-                                                          onTap: () {
-                                                            if (_formKey
-                                                                .currentState!
-                                                                .validate()) {
-                                                              provider
-                                                                  .changePassword();
-                                                            }
-                                                          },
-                                                          isLoading: provider
-                                                              .isChange),
-                                                    ),
-                                                  ],
-                                                )),
-                                          ],
-                                        );
-                                      }),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              customImageIcon(
-                                  imageName: Images.logo,
-                                  height: 140,
-                                  width: 160),
-                            ],
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
+                          child: Text(
+                            getTranslated("change_password_header", context),
+                            textAlign: TextAlign.center,
+                            style: AppTextStyles.semiBold.copyWith(
+                                fontSize: 22,
+                                color: ColorResources.PRIMARY_COLOR),
                           ),
                         ),
-                        SizedBox(
-                          height: context.toPadding + 24.h,
-                        ),
+                        Form(
+                            key: _formKey,
+                            child: Column(
+                              children: [
+                                CustomTextFormField(
+                                  keyboardAction: TextInputAction.next,
+                                  controller: provider.currentPasswordTEC,
+                                  hint: getTranslated(
+                                      "current_password", context),
+                                  inputType: TextInputType.visiblePassword,
+                                  valid: Validations.password,
+                                  pSvgIcon: SvgImages.lockIcon,
+                                  isPassword: true,
+                                ),
+                                CustomTextFormField(
+                                  keyboardAction: TextInputAction.next,
+                                  controller: provider.passwordTEC,
+                                  hint: getTranslated("new_password", context),
+                                  inputType: TextInputType.visiblePassword,
+                                  valid: (v) => Validations.newPassword(
+                                      provider.currentPasswordTEC.text.trim(),
+                                      v?.trim()),
+                                  pSvgIcon: SvgImages.lockIcon,
+                                  isPassword: true,
+                                ),
+                                CustomTextFormField(
+                                  keyboardAction: TextInputAction.done,
+                                  controller: provider.confirmPasswordTEC,
+                                  hint: getTranslated(
+                                      "confirm_new_password", context),
+                                  inputType: TextInputType.visiblePassword,
+                                  valid: (v) => Validations.confirmNewPassword(
+                                      provider.passwordTEC.text.trim(),
+                                      v?.trim()),
+                                  pSvgIcon: SvgImages.lockIcon,
+                                  isPassword: true,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: 24.h,
+                                  ),
+                                  child: CustomButton(
+                                      text: getTranslated("confirm", context),
+                                      onTap: () {
+                                        if (_formKey.currentState!.validate()) {
+                                          provider.changePassword();
+                                        }
+                                      },
+                                      isLoading: provider.isChange),
+                                ),
+                              ],
+                            )),
                       ],
                     ),
-                  ),
-                ),
-              ),
-            ),
+                  );
+                }),
+              ],
+            ))
           ],
         ),
       ),

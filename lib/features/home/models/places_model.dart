@@ -26,7 +26,9 @@ class PlacesModel {
 
 class PlaceItem {
   int? id;
+  String? category;
   String? name;
+  String? nameColor;
   String? phone;
   String? address;
   String? description;
@@ -35,13 +37,16 @@ class PlaceItem {
   int? status;
   int? agentId;
   int? categoryId;
+  List<String>? images;
   String? image;
   String? createdAt;
   String? updatedAt;
 
   PlaceItem(
       {this.id,
+      this.category,
       this.name,
+      this.nameColor,
       this.phone,
       this.address,
       this.description,
@@ -51,12 +56,15 @@ class PlaceItem {
       this.agentId,
       this.categoryId,
       this.image,
+      this.images,
       this.createdAt,
       this.updatedAt});
 
   PlaceItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    category = json['category'];
     name = json['name'];
+    nameColor = json['name_color'];
     phone = json['phone'];
     address = json['address'];
     description = json['description'];
@@ -66,6 +74,7 @@ class PlaceItem {
     agentId = json['agent_id'];
     categoryId = json['category_id'];
     image = json['image'];
+    images =json['images'] != null?  json['images'].cast<String>():[];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
@@ -74,6 +83,7 @@ class PlaceItem {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
+    data['name_color'] = nameColor;
     data['phone'] = phone;
     data['address'] = address;
     data['description'] = description;
@@ -83,6 +93,7 @@ class PlaceItem {
     data['agent_id'] = agentId;
     data['category_id'] = categoryId;
     data['image'] = image;
+    data['image'] = images;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
     return data;

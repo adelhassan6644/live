@@ -2,8 +2,11 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:live/features/profile/provider/profile_provider.dart';
+import 'package:provider/provider.dart';
 import '../../../data/error/api_error_handler.dart';
 import '../../../data/error/failures.dart';
+import '../../favourite/provider/favourite_provider.dart';
 import '../repo/auth_repo.dart';
 import '../../../../navigation/custom_navigation.dart';
 import '../../../../navigation/routes.dart';
@@ -79,12 +82,19 @@ class AuthProvider extends ChangeNotifier {
           authRepo.saveUserId(success.data['data']["id"]);
           authRepo.saveUserToken(success.data['data']["api_token"]);
           authRepo.setLoggedIn();
+          Provider.of<ProfileProvider>(
+                  CustomNavigator.navigatorState.currentContext!,
+                  listen: false)
+              .getProfile();
+          Provider.of<FavouriteProvider>(
+                  CustomNavigator.navigatorState.currentContext!,
+                  listen: false)
+              .getFavourites();
           CustomNavigator.push(Routes.MAIN_PAGE, clean: true);
           clear();
         } else {
           CustomNavigator.push(Routes.VERIFICATION, arguments: true);
         }
-
       });
       _isLogin = false;
       notifyListeners();
@@ -276,6 +286,14 @@ class AuthProvider extends ChangeNotifier {
         notifyListeners();
       }, (success) {
         if (fromRegister) {
+          Provider.of<ProfileProvider>(
+                  CustomNavigator.navigatorState.currentContext!,
+                  listen: false)
+              .getProfile();
+          Provider.of<FavouriteProvider>(
+                  CustomNavigator.navigatorState.currentContext!,
+                  listen: false)
+              .getFavourites();
           authRepo.saveUserId(success.data['data']["id"]);
           authRepo.saveUserToken(success.data['data']["api_token"]);
           authRepo.setLoggedIn();
@@ -309,6 +327,9 @@ class AuthProvider extends ChangeNotifier {
     CustomNavigator.push(Routes.LOGIN, clean: true);
     await authRepo.clearSharedData();
     clear();
+    Provider.of<ProfileProvider>(CustomNavigator.navigatorState.currentContext!,
+            listen: false)
+        .clear();
     CustomSnackBar.showSnackBar(
         notification: AppNotification(
             message: getTranslated("your_logged_out_successfully",

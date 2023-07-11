@@ -8,7 +8,7 @@ import '../../../app/core/utils/svg_images.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../app/core/utils/validation.dart';
 import '../../../app/localization/localization/language_constant.dart';
-import '../../../components/custom_images.dart';
+import '../../../components/custom_button.dart';
 import '../../../components/custom_text_form_field.dart';
 
 class ProfileBody extends StatelessWidget {
@@ -40,45 +40,18 @@ class ProfileBody extends StatelessWidget {
                         overflow: TextOverflow.ellipsis),
                   ),
                 ),
-                InkWell(
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  onTap: () {
-                    provider.updateProfile();
-                  },
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-                    decoration: BoxDecoration(
-                        color: ColorResources.WHITE_COLOR,
-                        borderRadius: BorderRadius.circular(100),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
-                              spreadRadius: 2,
-                              blurRadius: 2,
-                              offset: const Offset(1, 1))
-                        ]),
-                    child: Row(
-                      children: [
-                        Text(
-                          getTranslated("edit", context),
-                          style: AppTextStyles.medium.copyWith(
-                              color: ColorResources.SECOUND_PRIMARY_COLOR,
-                              fontSize: 14,
-                              overflow: TextOverflow.ellipsis),
-                        ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        customImageIconSVG(
-                          imageName: SvgImages.edit,
-                        )
-                      ],
-                    ),
-                  ),
+                CustomButton(text: getTranslated("edit", context),
+                  width: 100,
+                  height: 35,
+                  withBorderColor: false,
+                  withShadow: true,
+                  iconSize: 15,
+                  textColor: ColorResources.SECOUND_PRIMARY_COLOR,
+                  svgIcon: SvgImages.edit,
+                  backgroundColor: ColorResources.WHITE_COLOR,
+                  textSize: 14,
+                  onTap: ()=>provider.updateProfile(),
+                  isLoading: provider.isUpdate,
                 )
               ],
             ),

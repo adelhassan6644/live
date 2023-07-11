@@ -10,6 +10,7 @@ class CustomButton extends StatelessWidget {
   final String text;
   final double? textSize;
   final Color? textColor;
+  final Color? borderColor;
   final Color backgroundColor;
   final String? svgIcon;
   final String? assetIcon;
@@ -17,9 +18,11 @@ class CustomButton extends StatelessWidget {
   final double? width;
   final double? height;
   final double? radius;
+  final double? iconSize;
   final bool isLoading;
   final bool isError;
   final bool withBorderColor;
+  final bool withShadow;
 
   const CustomButton(
       {Key? key,
@@ -30,10 +33,13 @@ class CustomButton extends StatelessWidget {
       this.assetIcon,
       this.isLoading = false,
       this.textColor,
+      this.borderColor,
       this.width,
       this.iconColor,
+      this.iconSize,
       this.textSize,
       this.withBorderColor = false,
+      this.withShadow = false,
       required this.text,
       this.backgroundColor = ColorResources.PRIMARY_COLOR,
       this.isError = false})
@@ -54,9 +60,16 @@ class CustomButton extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           decoration: BoxDecoration(
             color: backgroundColor,
+              boxShadow: withShadow? [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    spreadRadius: 2,
+                    blurRadius: 2,
+                    offset: const Offset(1, 1))
+              ]:null,
             border: Border.all(
                 color: withBorderColor
-                    ? ColorResources.PRIMARY_COLOR
+                    ? borderColor??ColorResources.PRIMARY_COLOR
                     : Colors.transparent),
             borderRadius: BorderRadius.circular(radius ?? 30),
           ),
@@ -66,10 +79,10 @@ class CustomButton extends StatelessWidget {
           curve: Curves.easeInOutSine,
           child: Center(
             child: isLoading
-                ? const Padding(
-                    padding: EdgeInsets.all(8.0),
+                ?  Padding(
+                    padding: const EdgeInsets.all(8.0),
                     child: CircularProgressIndicator(
-                      color: ColorResources.WHITE_COLOR,
+                      color: textColor ?? ColorResources.WHITE_COLOR,
                     ),
                   )
                 : Row(
@@ -92,14 +105,14 @@ class CustomButton extends StatelessWidget {
                         customImageIcon(
                             imageName: assetIcon!,
                             color: iconColor,
-                            width: 20.w,
-                            height: 20.w),
+                            width: iconSize ?? 20.w,
+                            height:iconSize?? 20.w),
                       if (svgIcon != null)
                         customImageIconSVG(
                             imageName: svgIcon!,
                             color: iconColor,
-                            width: 20.w,
-                            height: 20.w),
+                            width:iconSize?? 20.w,
+                            height: iconSize??20.w),
                     ],
                   ),
           ),

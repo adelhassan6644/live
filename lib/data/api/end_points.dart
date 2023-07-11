@@ -12,13 +12,13 @@ class EndPoints {
   static const String verifyPhone = 'auth/verify_phone';
   static  getProfile(id) => 'client/$id';
   static  updateProfile(id) => 'client/$id';
+  static  getFavourites(id) => 'favorites/$id';
+  static const String postFavourite = 'favorite';
   static const String news = 'news';
   static const String place = 'place';
   static const String categories = 'category';
   static const String offers = 'offer';
   static const String getContact = 'app/contact';
-  static const String getWishList = 'favorites/index';
-  static const String postWishList = 'favorites/addOrDelete';
   static const String notifications = 'notification/notification';
   static const String readNotification = 'notification/read';
   static const String deleteNotification = 'notification/delete';

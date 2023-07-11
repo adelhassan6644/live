@@ -9,6 +9,8 @@ import '../../../app/localization/localization/language_constant.dart';
 import '../../../data/error/api_error_handler.dart';
 import '../../../data/error/failures.dart';
 import '../../../navigation/custom_navigation.dart';
+import '../../home/models/places_model.dart';
+import '../../home/repo/home_repo.dart';
 import '../models/location_model.dart';
 import '../models/prediction_model.dart';
 import '../repo/maps_repo.dart';
@@ -16,8 +18,10 @@ import 'package:geolocator/geolocator.dart';
 
 class LocationProvider extends ChangeNotifier {
   final MapsRepo locationRepo;
+  final HomeRepo homeRepo;
   LocationProvider({
     required this.locationRepo,
+    required this.homeRepo,
   });
 
   List<PredictionModel> _predictionList = [];
@@ -98,6 +102,7 @@ class LocationProvider extends ChangeNotifier {
     } else {
       pickPosition = _myPosition!;
     }
+    getPlaces(_myPosition!);
 
     mapController.animateCamera(CameraUpdate.newCameraPosition(
       CameraPosition(
@@ -153,6 +158,8 @@ class LocationProvider extends ChangeNotifier {
           latitude: position.target.latitude,
           longitude: position.target.longitude);
       isLoading = false;
+      getPlaces(position.target);
+
       notifyListeners();
     } catch (e) {
       CustomSnackBar.showSnackBar(
@@ -166,4 +173,39 @@ class LocationProvider extends ChangeNotifier {
     }
 
   }
+
+
+  PlacesModel? placesModel;
+  bool isGetPlaces = false;
+  getPlaces(position) async {
+    try {
+      isGetPlaces = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response = await homeRepo.getHomePlaces(position: position);
+      response.fold((fail) {
+        isGetPlaces = false;
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: ApiErrorHandler.getMessage(fail),
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        placesModel = PlacesModel.fromJson(success.data);
+        isGetPlaces = false;
+        notifyListeners();
+      });
+    } catch (e) {
+      isGetPlaces = false;
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: e.toString(),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      notifyListeners();
+    }
+  }
+
 }

@@ -37,6 +37,8 @@ class ProfileProvider extends ChangeNotifier {
     profileImage = null;
     nameTEC.clear();
     phoneTEC.clear();
+    emailTEC.clear();
+    profileModel = null;
   }
 
   hasImage() {
@@ -64,16 +66,18 @@ class ProfileProvider extends ChangeNotifier {
 
   bool isUpdate = false;
   updateProfile() async {
+    isUpdate = true;
     Map<String, dynamic> body = {
       "name": profileModel?.name,
       "phone": profileModel?.phone,
+      "email": profileModel?.email,
     };
 
     if (checkData(body) || hasImage()) {
       if (_boolCheckString(phoneTEC.text.trim(), "phone", body)) {
         body["phone"] = phoneTEC.text.trim();
       }
-      if (_boolCheckString(nameTEC.text.trim(), "email", body)) {
+      if (_boolCheckString(nameTEC.text.trim(), "name", body)) {
         body["name"] = nameTEC.text.trim();
       }
       try {
@@ -130,13 +134,16 @@ class ProfileProvider extends ChangeNotifier {
     try {
       isLoading = true;
       notifyListeners();
+
       Either<ServerFailure, Response> response = await profileRepo.getProfile();
+
       response.fold((fail) {
         showToast(ApiErrorHandler.getMessage(fail));
         isLoading = false;
         notifyListeners();
       }, (response) {
         profileModel = ProfileModel.fromJson(response.data['data']);
+        initProfileData();
         isLoading = false;
         notifyListeners();
       });
@@ -150,5 +157,12 @@ class ProfileProvider extends ChangeNotifier {
               isFloating: true));
       notifyListeners();
     }
+  }
+
+
+  initProfileData(){
+    nameTEC.text = profileModel?.name??"";
+     emailTEC.text = profileModel?.email??"";
+     phoneTEC.text =profileModel?.phone??"";
   }
 }

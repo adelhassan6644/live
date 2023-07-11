@@ -21,7 +21,7 @@ class ProfileRepo {
   Future<Either<ServerFailure, Response>> updateProfile(
       {required dynamic body}) async {
     try {
-      Response response = await dioClient.post(
+      Response response = await dioClient.patch(
           uri: EndPoints.updateProfile(
               sharedPreferences.getString(AppStorageKey.userId)),
           data: body);
@@ -39,8 +39,7 @@ class ProfileRepo {
   Future<Either<ServerFailure, Response>> getProfile() async {
     try {
       Response response = await dioClient.get(
-        uri: EndPoints.getProfile(
-            sharedPreferences.getString(AppStorageKey.userId)),
+        uri: EndPoints.getProfile(sharedPreferences.getString(AppStorageKey.userId)),
       );
       if (response.statusCode == 200) {
         return Right(response);

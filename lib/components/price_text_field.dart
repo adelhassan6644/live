@@ -79,7 +79,7 @@ class PriceTextFormField extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
         isDense: true,
         hintText: hint,
-        fillColor: ColorResources.LIGHT_GREY_BORDER,
+        fillColor: ColorResources.GREY_BORDER,
         filled: true,
       ),
     );

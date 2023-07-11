@@ -9,6 +9,8 @@ import '../../app/theme/theme_provider/theme_provider.dart';
 import '../../features/auth/provider/auth_provider.dart';
 import '../../features/contact_with_us/provider/contact_provider.dart';
 import '../../features/contact_with_us/repo/contact_repo.dart';
+import '../../features/favourite/provider/favourite_provider.dart';
+import '../../features/favourite/repo/favourite_repo.dart';
 import '../../features/home/provider/home_provider.dart';
 import '../../features/maps/repo/maps_repo.dart';
 import '../../features/profile/provider/profile_provider.dart';
@@ -36,23 +38,13 @@ Future<void> init() async {
       ));
 
   // Repository
-  sl.registerLazySingleton(() => SplashRepo(
-        sharedPreferences: sl(),
-      ));
-  sl.registerLazySingleton(
-      () => AuthRepo(sharedPreferences: sl(), dioClient: sl()));
-  // sl.registerLazySingleton(
-  //     () => FirebaseAuthRepo(sharedPreferences: sl(), dioClient: sl()));
-  sl.registerLazySingleton(
-      () => ProfileRepo(sharedPreferences: sl(), dioClient: sl()));
-  sl.registerLazySingleton(
-      () => HomeRepo(sharedPreferences: sl(), dioClient: sl()));
-
-  sl.registerLazySingleton(
-      () => MapsRepo(sharedPreferences: sl(), dioClient: sl()));
-
-  sl.registerLazySingleton(
-      () => ContactRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(() => SplashRepo(sharedPreferences: sl()));
+  sl.registerLazySingleton(() => AuthRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(() => ProfileRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(() => HomeRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(() => FavouriteRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(() => MapsRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(() => ContactRepo(sharedPreferences: sl(), dioClient: sl()));
 
   //provider
   sl.registerLazySingleton(() => LocalizationProvider(sharedPreferences: sl()));
@@ -61,8 +53,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => MainPageProvider());
   sl.registerLazySingleton(() => SplashProvider(splashRepo: sl()));
   sl.registerLazySingleton(() => AuthProvider(authRepo: sl()));
-  // sl.registerLazySingleton(() => FirebaseAuthProvider(firebaseAuthRepo: sl()));
-  // sl.registerLazySingleton(() => CalenderProvider());
+   sl.registerLazySingleton(() => FavouriteProvider(favouriteRepo: sl()));
 
   sl.registerLazySingleton(() => HomeProvider(
         homeRepo: sl(),
@@ -72,7 +63,7 @@ Future<void> init() async {
       ));
 
   sl.registerLazySingleton(() => MapProvider());
-  sl.registerLazySingleton(() => LocationProvider(locationRepo: sl()));
+  sl.registerLazySingleton(() => LocationProvider(locationRepo: sl(), homeRepo: sl()));
   sl.registerLazySingleton(() => ContactProvider(
         contactRepo: sl(),
       ));

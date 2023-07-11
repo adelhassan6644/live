@@ -111,6 +111,26 @@ class DioClient extends ApiClient {
   }
 
   @override
+  Future patch(
+      {required String uri,
+        Map<String, dynamic>? queryParameters,
+        data}) async {
+    try {
+      dio.options.baseUrl = baseUrl;
+      var response = await dio.patch(
+        uri,
+        data: data,
+        queryParameters: queryParameters,
+      );
+      return response;
+    } on FormatException catch (_) {
+      throw const FormatException("Unable to process the data");
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
   Future delete(
       {required String uri,
       Map<String, dynamic>? queryParameters,

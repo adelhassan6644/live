@@ -8,7 +8,7 @@ import '../features/auth/pages/login.dart';
 import '../features/auth/pages/register.dart';
 import '../features/auth/pages/verification.dart';
 import '../features/contact_with_us/page/contact_with_us.dart';
-import '../features/maps/pages/pick_map_screen.dart';
+import '../features/maps/page/map_page.dart';
 import '../features/on_boarding/pages/on_boarding.dart';
 import '../features/splash/page/splash.dart';
 import '../main.dart';
@@ -47,9 +47,9 @@ abstract class CustomNavigator {
       case Routes.MAIN_PAGE:
         return _pageRoute(const MainPage());
 
-      case Routes.PICK_LOCATION:
-        return _pageRoute(PickMapScreen(
-          baseModel: settings.arguments as BaseModel,
+      case Routes.MAP:
+        return _pageRoute(MapPage(
+          baseModel:settings.arguments != null? settings.arguments as BaseModel : null,
         ));
 
       case Routes.CONTACT_WITH_US:
