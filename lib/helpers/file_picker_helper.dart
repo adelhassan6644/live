@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:math';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:rxdart/rxdart.dart';
 
 abstract class FilePickerHelper {
   static Future pickFile({
@@ -33,18 +32,13 @@ abstract class FilePickerHelper {
     }
   }
 
-  static final fileSize = BehaviorSubject<String?>();
-  static Function(String?) get updateFileSize => fileSize.sink.add;
-  static Stream<String?> get fileSizeStream =>
-      fileSize.stream.asBroadcastStream();
-
   static getFileSize(File file, int decimals) async {
     int bytes = await file.length();
     if (bytes <= 0) return "0 B";
     const suffixes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
     var i = (log(bytes) / log(1024)).floor();
-    updateFileSize(
-        '${(bytes / pow(1024, i)).toStringAsFixed(decimals)} ${suffixes[i]}');
+    return  "${(bytes / pow(1024, i)).toStringAsFixed(decimals)}"+' '+"${suffixes[i]}";
+
   }
 
   static String getName(String fullName) {

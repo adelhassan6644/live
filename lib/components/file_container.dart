@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/svg_images.dart';
-import 'package:rxdart/rxdart.dart';
 
 import '../../../helpers/file_picker_helper.dart';
 import '../app/core/utils/text_styles.dart';
@@ -65,19 +64,19 @@ class FileContainer extends StatelessWidget {
                             SizedBox(
                               height: 8.h,
                             ),
-                            StreamBuilder<String?>(
-                                stream: FilePickerHelper.fileSizeStream,
-                                builder: (context, snapshot) {
-                                  FilePickerHelper.getFileSize(
-                                      attachments![index], 1);
-                                  return Text(
-                                    "${FilePickerHelper.fileSize.value}",
-                                    style: AppTextStyles.medium.copyWith(
-                                        color: ColorResources.HEADER
-                                            .withOpacity(0.4),
-                                        fontSize: 10),
-                                  );
-                                }),
+                            FutureBuilder(
+                              future: FilePickerHelper.getFileSize(
+                                  attachments![index], 1),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<dynamic> snapshot) {
+                                return Text(
+                                  snapshot.hasData ? "${snapshot.data}" : "",
+                                  style: AppTextStyles.medium.copyWith(
+                                      color: ColorResources.HEADER.withOpacity(0.4),
+                                      fontSize: 10),
+                                );
+                              },
+                            )
                           ],
                         )),
                         customImageIconSVG(
