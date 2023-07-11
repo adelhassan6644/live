@@ -1,6 +1,13 @@
+import 'package:live/app/core/utils/color_resources.dart';
+import 'package:live/components/animated_widget.dart';
 import 'package:live/features/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import '../../../data/config/di.dart';
+import '../widgets/home_categories.dart';
+import '../widgets/home_header.dart';
+import '../widgets/home_news.dart';
+import '../widgets/home_offers.dart';
+import '../widgets/home_places.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,16 +21,48 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
 
   @override
   void initState() {
-    Future.delayed(Duration.zero, sl<HomeProvider>().scroll(controller));
+    Future.delayed(Duration.zero, () {
+      sl<HomeProvider>().scroll(controller);
+      sl<HomeProvider>().getPlaces();
+      sl<HomeProvider>().getCategories();
+      sl<HomeProvider>().getOffers();
+      sl<HomeProvider>().getNews();
+    });
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return  Column(
-      children: [
-      ],
+    return SafeArea(
+      top: true,
+      child: Column(
+        children: [
+          const HomeHeader(),
+          Expanded(
+            child: RefreshIndicator(
+              color: ColorResources.PRIMARY_COLOR,
+              onRefresh: () async {
+                sl<HomeProvider>().show = false;
+                sl<HomeProvider>().getPlaces();
+                sl<HomeProvider>().getCategories();
+                sl<HomeProvider>().getOffers();
+                sl<HomeProvider>().getNews();
+              },
+              child: ListAnimator(
+                controller: controller,
+                data: const [
+                  HomePlaces(),
+                  HomeCategories(),
+                  HomeOffers(),
+                  HomeNews(),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 

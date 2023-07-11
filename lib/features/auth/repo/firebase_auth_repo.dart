@@ -73,13 +73,11 @@ class FirebaseAuthRepo {
 
  saveUserRole({required String id,required String type})  {
      sharedPreferences.setString(AppStorageKey.userId, id);
-     sharedPreferences.setString(AppStorageKey.role, type);
  }
 
 
   Future<bool> clearSharedData() async {
     await sharedPreferences.remove(AppStorageKey.userId);
-    await sharedPreferences.remove(AppStorageKey.role);
     await sharedPreferences.remove(AppStorageKey.isLogin);
     return true;
   }

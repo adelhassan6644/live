@@ -33,7 +33,7 @@ class ShowRate extends StatelessWidget {
         ),
         if (showRateNumber)
           Text("(${rate?.toInt().toDouble() ?? 0.0})",
-              style: AppTextStyles.w400
+              style: AppTextStyles.regular
                   .copyWith(fontSize: 10, color: ColorResources.RATE_COLOR)),
       ],
     );

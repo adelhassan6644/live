@@ -1,21 +1,27 @@
 class EndPoints {
-  static const String baseUrl = 'https://test.live.com/api/v1/';
+  static const String baseUrl = 'https://live-elhemdania.softwarecloud2.com/api/';
   static const String googleMapsBaseUrl = 'https://maps.googleapis.com';
-  static const String imageUrl = 'https://test.live.com/';
-  static const String apiKey = 'eGvviZ/npgc2Blb4/PSymh1tyb/UIt3aq82W6f+Wn4=';
+  static const String imageUrl = 'https://live-elhemdania.softwarecloud2.com/api/';
+  static const String apiKey = 's7xrpFdw4G0F21rfLyD4TaBkjVJYgwGfI3y60OyRnjw9zOggruX30eToVWvs';
   static const String topic = 'live';
-  static const String logIn = 'auth/login';
+  static const String logIn = 'login';
   static const String forgetPassword = 'auth/forget-password';
   static const String resetPassword = 'auth/reset-password';
-  static const String register = 'auth/register';
+  static const String changePassword = 'auth/reset-password';
+  static const String register = 'client';
   static const String verifyPhone = 'auth/verify_phone';
-  static const String getProfile = 'profile/profile';
-  static const String updateProfile = 'profile/update';
+  static  getProfile(id) => 'client/$id';
+  static  updateProfile(id) => 'client/$id';
+  static const String news = 'news';
+  static const String place = 'place';
+  static const String categories = 'category';
+  static const String offers = 'offer';
+  static const String getContact = 'app/contact';
+  static const String getWishList = 'favorites/index';
+  static const String postWishList = 'favorites/addOrDelete';
   static const String notifications = 'notification/notification';
   static const String readNotification = 'notification/read';
   static const String deleteNotification = 'notification/delete';
-  static const String contactWithUs = '';
-  static const String terms = '';
 
   /// maps
   static const String GEOCODE_URI = '/maps/api/geocode/';

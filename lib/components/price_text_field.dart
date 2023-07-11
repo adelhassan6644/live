@@ -36,7 +36,7 @@ class PriceTextFormField extends StatelessWidget {
       inputFormatters: inputType == TextInputType.phone
           ? [FilteringTextInputFormatter.allow(RegExp('[0-9]'))]
           : formatter,
-      style: AppTextStyles.w400
+      style: AppTextStyles.regular
           .copyWith(color: ColorResources.SECOUND_PRIMARY_COLOR, fontSize: 13),
       cursorColor: ColorResources.SECOUND_PRIMARY_COLOR,
       onChanged: onChanged,
@@ -46,7 +46,7 @@ class PriceTextFormField extends StatelessWidget {
           padding: const EdgeInsets.only(top: 4, bottom: 4, left: 10),
           child: Text(
             getTranslated("sar", context),
-            style: AppTextStyles.w400.copyWith(fontSize: 14, height: 1),
+            style: AppTextStyles.regular.copyWith(fontSize: 14, height: 1),
           ),
         ),
         focusedBorder: const OutlineInputBorder(

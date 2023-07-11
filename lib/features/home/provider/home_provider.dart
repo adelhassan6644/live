@@ -1,6 +1,15 @@
+import 'package:carousel_slider/carousel_controller.dart';
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import '../../../app/core/utils/svg_images.dart';
-import '../../maps/models/location_model.dart';
+import 'package:live/data/error/api_error_handler.dart';
+import '../../../app/core/utils/app_snack_bar.dart';
+import '../../../app/core/utils/color_resources.dart';
+import '../../../data/error/failures.dart';
+import '../models/categories_model.dart';
+import '../models/news_model.dart';
+import '../models/offers_model.dart';
+import '../models/places_model.dart';
 import '../repo/home_repo.dart';
 import 'package:flutter/rendering.dart';
 
@@ -21,42 +30,159 @@ class HomeProvider extends ChangeNotifier {
     });
   }
 
-  bool get isDriver => homeRepo.isDriver();
   bool get isLogin => homeRepo.isLoggedIn();
 
-  int roleIndex = 0;
-  List<String> roles = ["client", "driver"];
-  List<String> titles = ["passenger", "captain"];
-  onSelectRole(int value) {
-    roleIndex = value;
-    homeRepo.saveUserRole(roles[roleIndex]);
+  CarouselController placesController = CarouselController();
+  late int _placesIndex = 0;
+  int get placesIndex => _placesIndex;
+  void setPlacesIndex(int index) {
+    _placesIndex = index;
     notifyListeners();
   }
 
-  List<String> genders = ["male", "female"];
-  List<String> genderIcons = [SvgImages.maleIcon, SvgImages.femaleIcon];
-  int gender = 0;
-  selectedGender(int value) {
-    gender = value;
+  late int _offersIndex = 0;
+  int get offersIndex => _offersIndex;
+  void setOffersIndex(int index) {
+    _offersIndex = index;
     notifyListeners();
   }
 
-  LocationModel? startLocation;
-  onSelectStartLocation(v) {
-    startLocation = v;
+  PlacesModel? placesModel;
+  bool isGetPlaces = false;
+  getPlaces() async {
+    try {
+      isGetPlaces = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response = await homeRepo.getHomePlaces();
+      response.fold((fail) {
+        isGetPlaces = false;
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: ApiErrorHandler.getMessage(fail),
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        placesModel = PlacesModel.fromJson(success.data);
+        isGetPlaces = false;
+        notifyListeners();
+      });
+    } catch (e) {
+      isGetPlaces = false;
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: e.toString(),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      notifyListeners();
+    }
+  }
+
+  CategoriesModel? categoriesModel;
+  bool isGetCategories = false;
+  getCategories() async {
+    try {
+      isGetCategories = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response =
+          await homeRepo.getHomeCategories();
+      response.fold((fail) {
+        isGetCategories = false;
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: ApiErrorHandler.getMessage(fail),
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        categoriesModel = CategoriesModel.fromJson(success.data);
+        isGetCategories = false;
+        notifyListeners();
+      });
+    } catch (e) {
+      isGetCategories = false;
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: e.toString(),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      notifyListeners();
+    }
+  }
+
+  bool show = false;
+  showAllNews() {
+    show = true;
     notifyListeners();
   }
 
-  LocationModel? endLocation;
-  onSelectEndLocation(v) {
-    endLocation = v;
-    notifyListeners();
+  NewsModel? newsModel;
+  bool isExploring = false;
+  getNews() async {
+    try {
+      isExploring = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response = await homeRepo.getHomeNews();
+      response.fold((fail) {
+        isExploring = false;
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: ApiErrorHandler.getMessage(fail),
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        newsModel = NewsModel.fromJson(success.data);
+        isExploring = false;
+        notifyListeners();
+      });
+    } catch (e) {
+      isExploring = false;
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: e.toString(),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      notifyListeners();
+    }
   }
 
-  reset() {
-    startLocation = endLocation = null;
-    gender = 0;
-    notifyListeners();
+  OffersModel? offersModel;
+  bool isGetOffers = false;
+  getOffers() async {
+    try {
+      isGetOffers = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response = await homeRepo.getHomeOffers();
+      response.fold((fail) {
+        isGetOffers = false;
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: ApiErrorHandler.getMessage(fail),
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        offersModel = OffersModel.fromJson(success.data);
+        isGetOffers = false;
+        notifyListeners();
+      });
+    } catch (e) {
+      isGetOffers = false;
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: e.toString(),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      notifyListeners();
+    }
   }
-
 }

@@ -9,7 +9,6 @@ import '../../features/auth/provider/auth_provider.dart';
 import '../../features/auth/provider/firebase_auth_provider.dart';
 import '../../features/contact_with_us/provider/contact_provider.dart';
 import '../../features/home/provider/home_provider.dart';
-import '../../features/notifications/provider/notifications_provider.dart';
 import '../../features/profile/provider/profile_provider.dart';
 import '../../features/splash/provider/splash_provider.dart';
 import '../../features/terms_and_conditions/provider/terms_provider.dart';
@@ -38,8 +37,6 @@ abstract class ProviderList {
       create: (_) => di.sl<CalenderProvider>(),
     ),
     ChangeNotifierProvider(create: (_) => di.sl<LocationProvider>()),
-    // ChangeNotifierProvider(create: (_) => di.sl<ScheduleProvider>()),
-    ChangeNotifierProvider(create: (_) => di.sl<NotificationsProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<ContactProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<TermsProvider>()),
   ];

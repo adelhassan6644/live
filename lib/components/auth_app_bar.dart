@@ -43,7 +43,7 @@ class AuthAppBar extends StatelessWidget implements PreferredSizeWidget {
               const Expanded(child: SizedBox()),
               Text(
                 title ?? "",
-                style: AppTextStyles.w600
+                style: AppTextStyles.semiBold
                     .copyWith(color: ColorResources.WHITE_COLOR, fontSize: 14),
               ),
               const Expanded(child: SizedBox()),

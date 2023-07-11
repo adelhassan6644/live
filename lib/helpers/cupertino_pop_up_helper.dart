@@ -24,7 +24,7 @@ abstract class CupertinoPopUpHelper {
             children: [
               Text(
                 description,
-                style: AppTextStyles.w400.copyWith(fontSize: 13),
+                style: AppTextStyles.regular.copyWith(fontSize: 13),
               ),
               CupertinoTextField(
                 controller: controller,
@@ -48,7 +48,7 @@ abstract class CupertinoPopUpHelper {
                 child: Text(
                   getTranslated(
                       "cancel", CustomNavigator.navigatorState.currentContext!),
-                  style: AppTextStyles.w400.copyWith(
+                  style: AppTextStyles.regular.copyWith(
                       fontSize: 17, color: ColorResources.SYSTEM_COLOR),
                 )),
             CupertinoDialogAction(
@@ -56,7 +56,7 @@ abstract class CupertinoPopUpHelper {
                 child: Text(
                   getTranslated(
                       "send", CustomNavigator.navigatorState.currentContext!),
-                  style: AppTextStyles.w600.copyWith(
+                  style: AppTextStyles.semiBold.copyWith(
                       fontSize: 17, color: ColorResources.SYSTEM_COLOR),
                 )),
           ],

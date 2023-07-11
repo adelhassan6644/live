@@ -79,7 +79,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                               getTranslated(
                                                   "reset_password_header", context),
                                               textAlign: TextAlign.center,
-                                              style: AppTextStyles.w600.copyWith(
+                                              style: AppTextStyles.semiBold.copyWith(
                                                   fontSize: 22,
                                                   color: ColorResources.WHITE_COLOR),
                                             ),
@@ -89,7 +89,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                               child: Column(
                                                 children: [
                                                   CustomTextFormField(
-                                                    keyboardAction: TextInputAction.done,
+                                                    keyboardAction: TextInputAction.next,
                                                     controller: provider.passwordTEC,
                                                     hint: getTranslated(
                                                         "password", context),

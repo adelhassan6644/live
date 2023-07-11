@@ -14,11 +14,13 @@ class HomeRepo {
 
   HomeRepo({required this.dioClient, required this.sharedPreferences});
 
-  Future<Either<ServerFailure, Response>> getOffer({var body}) async {
+  bool isLoggedIn() {
+    return sharedPreferences.containsKey(AppStorageKey.isLogin);
+  }
+
+  Future<Either<ServerFailure, Response>> getHomeNews() async {
     try {
-      Response response = await dioClient.get(
-          uri: "",
-          queryParameters: body);
+      Response response = await dioClient.get(uri: EndPoints.news);
       if (response.statusCode == 200) {
         return Right(response);
       } else {
@@ -29,15 +31,44 @@ class HomeRepo {
     }
   }
 
-  bool isLoggedIn() {
-    return sharedPreferences.containsKey(AppStorageKey.isLogin);
+
+
+  Future<Either<ServerFailure, Response>> getHomePlaces() async {
+    try {
+      Response response = await dioClient.get(uri: EndPoints.place);
+      if (response.statusCode == 200) {
+        return Right(response);
+      } else {
+        return left(ServerFailure(response.data['message']));
+      }
+    } catch (error) {
+      return left(ServerFailure(ApiErrorHandler.getMessage(error)));
+    }
   }
 
-  isDriver() {
-    return sharedPreferences.getString(AppStorageKey.role) == "driver";
+  Future<Either<ServerFailure, Response>> getHomeOffers() async {
+    try {
+      Response response = await dioClient.get(uri: EndPoints.offers);
+      if (response.statusCode == 200) {
+        return Right(response);
+      } else {
+        return left(ServerFailure(response.data['message']));
+      }
+    } catch (error) {
+      return left(ServerFailure(ApiErrorHandler.getMessage(error)));
+    }
   }
 
-  saveUserRole(role) {
-    sharedPreferences.setString(AppStorageKey.role, role);
+  Future<Either<ServerFailure, Response>> getHomeCategories() async {
+    try {
+      Response response = await dioClient.get(uri: EndPoints.categories);
+      if (response.statusCode == 200) {
+        return Right(response);
+      } else {
+        return left(ServerFailure(response.data['message']));
+      }
+    } catch (error) {
+      return left(ServerFailure(ApiErrorHandler.getMessage(error)));
+    }
   }
 }

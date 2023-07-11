@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -28,32 +27,35 @@ class DioClient extends ApiClient {
       ..options.headers = {
         'Content-Type': 'application/json; charset=UTF-8',
         "Accept": " application/json",
-        'X-Api-Key': EndPoints.apiKey
+        'x-api-key': EndPoints.apiKey
+        // if (sharedPreferences.getString(AppStorageKey.apiToken) != null)
+        //   'x-api-key': sharedPreferences.getString(AppStorageKey.apiToken)
       };
     dio.interceptors.add(PrettyDioLogger(
-      request: true,
-      responseBody: true,requestBody: true,requestHeader: true
-    ));
+        request: true,
+        responseBody: true,
+        requestBody: true,
+        requestHeader: true));
   }
 
-  // void updateHeader({required String token}) {
+  // Future<void> updateHeader({required String token}) async {
   //   dio.options.headers = {
   //     'Content-Type': 'application/json; charset=UTF-8',
   //     "Accept": " application/json",
-  //     'X-Authorization': EndPoints.apiKey
+  //     'x-api-key': token
   //   };
   // }
 
   @override
   Future<Response> get({
     required String uri,
-    bool useGoogleUri=false,
+    bool useGoogleUri = false,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
-      if(useGoogleUri) {
-        dio.options.baseUrl=EndPoints.googleMapsBaseUrl;
-      }else{
+      if (useGoogleUri) {
+        dio.options.baseUrl = EndPoints.googleMapsBaseUrl;
+      } else {
         dio.options.baseUrl = baseUrl;
       }
       var response = await dio.get(uri, queryParameters: queryParameters);

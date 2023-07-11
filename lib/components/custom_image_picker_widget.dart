@@ -44,7 +44,7 @@ class CustomButtonImagePicker extends StatelessWidget {
                     child: MarqueeWidget(
                       child: Text(
                         title,
-                        style: AppTextStyles.w400.copyWith(
+                        style: AppTextStyles.regular.copyWith(
                             color: ColorResources.DISABLED,
                             fontSize: 14,
                             overflow: TextOverflow.ellipsis),
@@ -120,7 +120,7 @@ class CustomButtonImagePicker extends StatelessWidget {
                     onTap: onTap,
                     child: Text(getTranslated("edit", context),
                         textAlign: TextAlign.center,
-                        style: AppTextStyles.w400.copyWith(
+                        style: AppTextStyles.regular.copyWith(
                             fontSize: 10,
                             overflow: TextOverflow.ellipsis,
                             color: ColorResources.SYSTEM_COLOR)),

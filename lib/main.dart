@@ -14,7 +14,6 @@ import 'data/config/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'app/core/utils/app_strings.dart';
-import 'main_page/pages/main_page.dart';
 import 'navigation/custom_navigation.dart';
 import 'navigation/routes.dart';
 import 'package:live/data/config/di.dart' as di;

@@ -1,35 +1,36 @@
-import 'client_model.dart';
-import 'driver_model.dart';
-
 class ProfileModel {
-  DriverModel? driver;
-  ClientModel? client;
+  int? id;
+  String? name;
+  String? email;
+  String? phone;
+  String? image;
+  DateTime? createdAt;
 
-  ProfileModel({
-    this.driver,
-    this.client,
-  });
-
-  ProfileModel copyWith({
-    DriverModel? driver,
-    ClientModel? client,
-  }) =>
-      ProfileModel(
-        driver: driver ?? this.driver,
-        client: client ?? this.client,
-      );
+  ProfileModel(
+      {this.id,
+      this.name,
+      this.email,
+      this.phone,
+      this.image,
+      this.createdAt});
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
-        driver: json["driver"] == null
+        id: json["id"],
+        name: json["first_name"],
+        phone: json["phone"],
+        email: json["email"],
+        image: json["image"],
+        createdAt: json["created_at"] == null
             ? null
-            : DriverModel.fromJson(json["driver"]),
-        client: json["client"] == null
-            ? null
-            : ClientModel.fromJson(json["client"]),
+            : DateTime.parse(json["created_at"]),
       );
 
   Map<String, dynamic> toJson() => {
-        "driver": driver?.toJson(),
-        "client": client?.toJson(),
+        "id": id,
+        "first_name": name,
+        "email": email,
+        "phone": phone,
+        "image": image,
+        "created_at": createdAt?.toIso8601String(),
       };
 }

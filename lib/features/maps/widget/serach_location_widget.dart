@@ -66,7 +66,7 @@ class SearchLocationWidget extends StatelessWidget {
           filled: true,
           hintText: "search location",
           fillColor: Theme.of(context).cardColor,
-          hintStyle: AppTextStyles.w400.copyWith(
+          hintStyle: AppTextStyles.regular.copyWith(
               fontSize: Dimensions.FONT_SIZE_DEFAULT,
               color: ColorResources.DISABLED),
           contentPadding: EdgeInsets.only(
@@ -75,7 +75,7 @@ class SearchLocationWidget extends StatelessWidget {
             left: Dimensions.PADDING_SIZE_EXTRA_SMALL,
           ),
         ),
-        style: AppTextStyles.w400.copyWith(
+        style: AppTextStyles.regular.copyWith(
           color: Theme.of(context).textTheme.bodyText1?.color,
           fontSize: Dimensions.FONT_SIZE_LARGE,
         ),

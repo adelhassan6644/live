@@ -33,18 +33,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       width: context.width,
-      decoration: BoxDecoration(
-        color: withBackGround
-            ? ColorResources.APP_BAR_BACKGROUND_COLOR
-            : Colors.transparent,
-        border: withBorder
-            ? Border(
-                bottom:
-                    BorderSide(color: ColorResources.BORDER_COLOR, width: 1.h))
-            : null,
-      ),
-      padding:
-          EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
+      padding: EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -58,12 +47,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             children: [
                actionChild ??
                       const SizedBox(
-                        width: 18,
+                        width: 42,
                       ),
               const Expanded(child: SizedBox()),
               Text(
                 title ?? "",
-                style: AppTextStyles.w600
+                style: AppTextStyles.semiBold
                     .copyWith(color: Colors.black, fontSize: 13),
               ),
               const Expanded(child: SizedBox()),
@@ -76,21 +65,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       onTap: () {
                         CustomNavigator.pop();
                       },
-                      child: SizedBox(
-                        width: actionWidth ?? 18,
-                        child:  Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 18,
-                              color: Colors.black,
-                            ),
-                          ],
+                      child: Container(
+                        height:actionWidth?? 42,
+                      width:actionWidth?? 42,
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: ColorResources.WHITE_COLOR,
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0XFFFAFAFA))
+
+                        ),
+                        child: const Center(
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            size: 18,
+                            color: ColorResources.SECOUND_PRIMARY_COLOR,
+                          ),
                         ),
                       ))
                   : SizedBox(
-                      width: actionWidth ?? 18,
+                      width: actionWidth ?? 42,
                     ),
             ],
           ),

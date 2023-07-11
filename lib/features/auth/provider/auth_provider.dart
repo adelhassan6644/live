@@ -24,12 +24,20 @@ class AuthProvider extends ChangeNotifier {
 
   final TextEditingController nameTEC = TextEditingController();
   final TextEditingController phoneTEC = TextEditingController();
+  final TextEditingController currentPasswordTEC = TextEditingController();
   final TextEditingController passwordTEC = TextEditingController();
   final TextEditingController confirmPasswordTEC = TextEditingController();
   final TextEditingController codeTEC = TextEditingController();
 
-  String _token = "";
-  String get token => _token;
+  clear() {
+    nameTEC.clear();
+    mailTEC.clear();
+    phoneTEC.clear();
+    passwordTEC.clear();
+    currentPasswordTEC.clear();
+    confirmPasswordTEC.clear();
+    codeTEC.clear();
+  }
 
   bool _isRememberMe = true;
   bool get isRememberMe => _isRememberMe;
@@ -61,17 +69,22 @@ class AuthProvider extends ChangeNotifier {
                 isFloating: true,
                 backgroundColor: ColorResources.IN_ACTIVE,
                 borderColor: Colors.transparent));
-        notifyListeners();
       }, (success) {
         if (_isRememberMe) {
           authRepo.remember(_mailTEC.text.trim());
         } else {
           authRepo.forget();
         }
-        _token = success.data['data']["api_token"];
-        CustomNavigator.push(
-          Routes.VERIFICATION,
-        );
+        if (success.data['data']["verified_at"] != null) {
+          authRepo.saveUserId(success.data['data']["id"]);
+          authRepo.saveUserToken(success.data['data']["api_token"]);
+          authRepo.setLoggedIn();
+          CustomNavigator.push(Routes.MAIN_PAGE, clean: true);
+          clear();
+        } else {
+          CustomNavigator.push(Routes.VERIFICATION, arguments: true);
+        }
+
       });
       _isLogin = false;
       notifyListeners();
@@ -106,6 +119,7 @@ class AuthProvider extends ChangeNotifier {
         notifyListeners();
       }, (success) {
         CustomNavigator.push(Routes.LOGIN, clean: true);
+        clear();
       });
       _isReset = false;
       notifyListeners();
@@ -117,6 +131,47 @@ class AuthProvider extends ChangeNotifier {
               backgroundColor: ColorResources.IN_ACTIVE,
               borderColor: Colors.transparent));
       _isReset = false;
+      notifyListeners();
+    }
+  }
+
+  bool _isChange = false;
+  bool get isChange => _isChange;
+  changePassword() async {
+    try {
+      _isChange = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response =
+          await authRepo.change(password: passwordTEC.text.trim());
+      response.fold((fail) {
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: fail.error,
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: getTranslated("your_password_changed_successfully",
+                    CustomNavigator.navigatorState.currentContext!),
+                isFloating: true,
+                backgroundColor: ColorResources.ACTIVE,
+                borderColor: Colors.transparent));
+        clear();
+        notifyListeners();
+      });
+      _isChange = false;
+      notifyListeners();
+    } catch (e) {
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: ApiErrorHandler.getMessage(e),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      _isChange = false;
       notifyListeners();
     }
   }
@@ -148,8 +203,7 @@ class AuthProvider extends ChangeNotifier {
         } else {
           authRepo.forget();
         }
-        CustomNavigator.push(Routes.VERIFICATION,
-            replace: true, arguments: true);
+        CustomNavigator.push(Routes.VERIFICATION, arguments: true);
       });
       _isRegister = false;
       notifyListeners();
@@ -209,9 +263,9 @@ class AuthProvider extends ChangeNotifier {
       _isVerify = true;
       notifyListeners();
       Either<ServerFailure, Response> response = await authRepo.verifyMail(
-        mail: mailTEC.text.trim(),
-        code: codeTEC.text.trim(),
-      );
+          mail: mailTEC.text.trim(),
+          code: codeTEC.text.trim(),
+          updateHeader: fromRegister);
       response.fold((fail) {
         CustomSnackBar.showSnackBar(
             notification: AppNotification(
@@ -222,6 +276,9 @@ class AuthProvider extends ChangeNotifier {
         notifyListeners();
       }, (success) {
         if (fromRegister) {
+          authRepo.saveUserId(success.data['data']["id"]);
+          authRepo.saveUserToken(success.data['data']["api_token"]);
+          authRepo.setLoggedIn();
           CustomNavigator.push(
             Routes.MAIN_PAGE,
             clean: true,
@@ -232,6 +289,7 @@ class AuthProvider extends ChangeNotifier {
             replace: true,
           );
         }
+        clear();
       });
       _isVerify = false;
       notifyListeners();
@@ -250,6 +308,7 @@ class AuthProvider extends ChangeNotifier {
   logOut() async {
     CustomNavigator.push(Routes.LOGIN, clean: true);
     await authRepo.clearSharedData();
+    clear();
     CustomSnackBar.showSnackBar(
         notification: AppNotification(
             message: getTranslated("your_logged_out_successfully",

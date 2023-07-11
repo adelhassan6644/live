@@ -78,7 +78,7 @@ class _VerificationState extends State<Verification> {
                                             child: Text(
                                               getTranslated("verify_header", context),
                                               textAlign: TextAlign.center,
-                                              style: AppTextStyles.w600.copyWith(
+                                              style: AppTextStyles.semiBold.copyWith(
                                                   fontSize: 22,
                                                   color: ColorResources.WHITE_COLOR),
                                             ),

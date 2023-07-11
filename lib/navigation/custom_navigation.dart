@@ -1,3 +1,4 @@
+import 'package:live/features/auth/pages/change_password.dart';
 import 'package:live/features/auth/pages/reset_password.dart';
 import 'package:live/main_models/base_model.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,6 @@ import '../features/auth/pages/register.dart';
 import '../features/auth/pages/verification.dart';
 import '../features/contact_with_us/page/contact_with_us.dart';
 import '../features/maps/pages/pick_map_screen.dart';
-import '../features/notifications/page/notifications.dart';
 import '../features/on_boarding/pages/on_boarding.dart';
 import '../features/splash/page/splash.dart';
 import '../main.dart';
@@ -38,17 +38,14 @@ abstract class CustomNavigator {
         return _pageRoute(const ResetPassword());
       case Routes.REGISTER:
         return _pageRoute(const Register());
+      case Routes.CHANGE_PASSWORD:
+        return _pageRoute(const ChangePassword());
       case Routes.VERIFICATION:
         return _pageRoute(
             Verification(fromRegister: settings.arguments as bool));
 
       case Routes.MAIN_PAGE:
         return _pageRoute(const MainPage());
-
-      // case Routes.DASHBOARD:
-      // return _pageRoute(DashBoard(
-      //   index: settings.arguments as int,
-      // ));
 
       case Routes.PICK_LOCATION:
         return _pageRoute(PickMapScreen(
@@ -57,9 +54,6 @@ abstract class CustomNavigator {
 
       case Routes.CONTACT_WITH_US:
         return _pageRoute(const ContactWithUs());
-
-      case Routes.NOTIFICATIONS:
-        return _pageRoute(const Notifications());
 
       default:
         return MaterialPageRoute(builder: (_) => const MyApp());

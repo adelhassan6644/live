@@ -36,8 +36,8 @@ class CustomPinCodeField extends StatelessWidget {
         enablePinAutofill: true,
         keyboardType: TextInputType.number,
         inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9]'))],
-        textStyle: AppTextStyles.w600.copyWith(color: Colors.white),
-        pastedTextStyle: AppTextStyles.w600.copyWith(color: Colors.white),
+        textStyle: AppTextStyles.semiBold.copyWith(color: Colors.white),
+        pastedTextStyle: AppTextStyles.semiBold.copyWith(color: Colors.white),
         textInputAction: TextInputAction.done,
         pinTheme: PinTheme(
           borderWidth: 1,

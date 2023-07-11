@@ -21,7 +21,7 @@ ThemeData light = ThemeData(
   textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
     primary: ColorResources.PRIMARY_COLOR,
-    textStyle: AppTextStyles.w400.copyWith(
+    textStyle: AppTextStyles.regular.copyWith(
       color: ColorResources.WHITE_COLOR,
     ),
   )),

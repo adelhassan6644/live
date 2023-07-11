@@ -45,11 +45,14 @@ class More extends StatelessWidget {
                 provider.updateDashboardIndex(1);
               },
             ),
-            MoreButton(
-              title: getTranslated("change_password", context),
-              icon: SvgImages.lockIcon,
-              onTap: () {},
-            ),
+            // MoreButton(
+            //   title: getTranslated("change_password", context),
+            //   icon: SvgImages.lockIcon,
+            //   onTap: () {
+            //     controller.toggle!();
+            //     CustomNavigator.push(Routes.CHANGE_PASSWORD);
+            //   },
+            // ),
             MoreButton(
               title: getTranslated("favourites", context),
               icon: SvgImages.heartIcon,

@@ -24,7 +24,7 @@ class CheckConnectionDialog extends StatelessWidget {
         Text(
           getTranslated(isConnected ? "connected" : "no_connection", context),
           textAlign: TextAlign.center,
-          style: AppTextStyles.w400.copyWith(
+          style: AppTextStyles.regular.copyWith(
             fontSize: 14,
             // color: ColorResources.DETAILS_COLOR
           ),

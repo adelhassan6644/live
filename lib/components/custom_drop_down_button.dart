@@ -53,7 +53,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
             value: item,
             child: Text(
               item,
-              style: AppTextStyles.w500
+              style: AppTextStyles.medium
                   .copyWith(color: ColorResources.TITLE, fontSize: 13),
             ),
           );
@@ -75,7 +75,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
         borderRadius:
             const BorderRadius.all(Radius.circular(Dimensions.RADIUS_DEFAULT)),
         decoration: InputDecoration(
-          hintStyle: AppTextStyles.w400
+          hintStyle: AppTextStyles.regular
               .copyWith(color: ColorResources.DISABLED, fontSize: 14),
           hintText: widget.name,
           prefixIcon: Padding(
@@ -170,12 +170,12 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
             maxHeight: 20.h,
           ),
           labelText: widget.label,
-          errorStyle: AppTextStyles.w500
+          errorStyle: AppTextStyles.medium
               .copyWith(color: ColorResources.FAILED_COLOR, fontSize: 11),
-          labelStyle: AppTextStyles.w400
+          labelStyle: AppTextStyles.regular
               .copyWith(color: ColorResources.DISABLED, fontSize: 14),
         ),
-        style: AppTextStyles.w500
+        style: AppTextStyles.medium
             .copyWith(color: ColorResources.PRIMARY_COLOR, fontSize: 14),
         name: widget.name,
         elevation: 1,

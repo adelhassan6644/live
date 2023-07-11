@@ -57,6 +57,38 @@ class Validations {
     return null;
   }
 
+  static String? newPassword(String? currentPassword, String? newPassword) {
+    if (newPassword == null || newPassword.isEmpty) {
+      return getTranslated("please_enter_valid_new_password",
+          CustomNavigator.navigatorState.currentContext!);
+    } else if (newPassword.length < 8) {
+      return getTranslated("password_length_validation",
+          CustomNavigator.navigatorState.currentContext!);
+    } else if (currentPassword != null) {
+      if (currentPassword == newPassword) {
+        return getTranslated("new_password_match_validation",
+            CustomNavigator.navigatorState.currentContext!);
+      }
+    }
+    return null;
+  }
+
+  static String? confirmNewPassword(String? password, String? confirmPassword) {
+    if (confirmPassword == null || confirmPassword.isEmpty) {
+      return getTranslated("please_enter_valid_confirm_password",
+          CustomNavigator.navigatorState.currentContext!);
+    } else if (confirmPassword.length < 8) {
+      return getTranslated("password_length_validation",
+          CustomNavigator.navigatorState.currentContext!);
+    } else if (password != null) {
+      if (password != confirmPassword) {
+        return getTranslated("confirm_new_password_match_validation",
+            CustomNavigator.navigatorState.currentContext!);
+      }
+    }
+    return null;
+  }
+
   static String? phone(String? value) {
     if (value!.isEmpty || value.length < 7) {
       return getTranslated("please_enter_valid_number",

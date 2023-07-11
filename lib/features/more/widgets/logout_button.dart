@@ -41,7 +41,7 @@ class LogoutButton extends StatelessWidget {
                   Expanded(
                     child: Text(getTranslated("logout", context),
                         maxLines: 1,
-                        style: AppTextStyles.w500.copyWith(
+                        style: AppTextStyles.medium.copyWith(
                             fontSize: 18,
                             overflow: TextOverflow.ellipsis,
                             color: ColorResources.ERORR_COLOR)),

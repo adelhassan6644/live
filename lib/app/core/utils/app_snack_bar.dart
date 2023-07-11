@@ -63,7 +63,7 @@ class CustomSnackBar {
                 Expanded(
                   child: Text(
                     notification.message,
-                    style: AppTextStyles.w600.copyWith(fontSize: 13),
+                    style: AppTextStyles.semiBold.copyWith(fontSize: 13),
                   ),
                 ),
                 if (notification.withAction)
@@ -100,12 +100,12 @@ successMotionToast(msg,
   return MotionToast.success(
     title: Text(
       getTranslated("success", CustomNavigator.navigatorState.currentContext!),
-      style: AppTextStyles.w600
+      style: AppTextStyles.semiBold
           .copyWith(fontSize: 13, color: ColorResources.ACTIVE),
     ),
     description: Text(
       msg,
-      style: AppTextStyles.w400
+      style: AppTextStyles.regular
           .copyWith(fontSize: 11, color: ColorResources.ACTIVE),
     ),
     height: 70.h,
@@ -121,12 +121,12 @@ errorMotionToast(msg,
   return MotionToast.error(
     title: Text(
       getTranslated("error", CustomNavigator.navigatorState.currentContext!),
-      style: AppTextStyles.w600
+      style: AppTextStyles.semiBold
           .copyWith(fontSize: 13, color: ColorResources.IN_ACTIVE),
     ),
     description: Text(
       msg,
-      style: AppTextStyles.w400
+      style: AppTextStyles.regular
           .copyWith(fontSize: 11, color: ColorResources.IN_ACTIVE),
     ),
     height: 70.h,
