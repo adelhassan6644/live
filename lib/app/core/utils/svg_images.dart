@@ -12,6 +12,8 @@ class SvgImages {
   static const String search = 'assets/svgs/search.svg';
   static const String profileIcon = 'assets/svgs/profile.svg';
   static const String file = 'assets/svgs/file.svg';
+  static const String documentFile = 'assets/svgs/document_text.svg';
+  static const String uploadDocument = 'assets/svgs/document_upload.svg';
   static const String sparkles = 'assets/svgs/sparkles.svg';
   static const String seat = 'assets/svgs/seat.svg';
   static const String searchIcon = 'assets/svgs/search_icon.svg';
@@ -37,7 +39,6 @@ class SvgImages {
   static const String completed = 'assets/svgs/completed.svg';
   static const String medal = 'assets/svgs/medal.svg';
   static const String notifications = 'assets/svgs/alert.svg';
-  static const String addFollower = 'assets/svgs/add_follower.svg';
   static const String card = 'assets/svgs/card.svg';
   static const String rate = 'assets/svgs/rate.svg';
   static const String call = 'assets/svgs/call.svg';
@@ -71,5 +72,5 @@ class SvgImages {
   static const String edit = 'assets/svgs/edit.svg';
   static const String login = 'assets/svgs/login.svg';
   static const String send = 'assets/svgs/send.svg';
-  static const String delete = 'assets/svgs/delete.svg';
+  static const String trash = 'assets/svgs/trash.svg';
 }

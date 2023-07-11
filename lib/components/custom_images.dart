@@ -64,11 +64,14 @@ Widget customCircleSvgIcon(
 }
 
 Widget customImageIconSVG(
-    {required String imageName, Color? color, double? height, double? width}) {
-  return SvgPicture.asset(
-    imageName,
-    color: color,
-    height: height,
-    width: width,
+    {required String imageName, Color? color, double? height, double? width,Function()? onTap}) {
+  return GestureDetector(
+    onTap: onTap,
+    child: SvgPicture.asset(
+      imageName,
+      color: color,
+      height: height,
+      width: width,
+    ),
   );
 }
