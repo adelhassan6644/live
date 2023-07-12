@@ -7,12 +7,16 @@ import '../../app/localization/provider/language_provider.dart';
 import '../../app/localization/provider/localization_provider.dart';
 import '../../app/theme/theme_provider/theme_provider.dart';
 import '../../features/auth/provider/auth_provider.dart';
+import '../../features/category_details/provider/category_details_provider.dart';
+import '../../features/category_details/repo/category_details_repo.dart';
 import '../../features/contact_with_us/provider/contact_provider.dart';
 import '../../features/contact_with_us/repo/contact_repo.dart';
 import '../../features/favourite/provider/favourite_provider.dart';
 import '../../features/favourite/repo/favourite_repo.dart';
 import '../../features/home/provider/home_provider.dart';
 import '../../features/maps/repo/maps_repo.dart';
+import '../../features/place_details/provider/place_details_provider.dart';
+import '../../features/place_details/repo/place_details_repo.dart';
 import '../../features/profile/provider/profile_provider.dart';
 import '../../features/profile/repo/profile_repo.dart';
 import '../../main_page/provider/main_page_provider.dart';
@@ -44,6 +48,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => HomeRepo(sharedPreferences: sl(), dioClient: sl()));
   sl.registerLazySingleton(() => FavouriteRepo(sharedPreferences: sl(), dioClient: sl()));
   sl.registerLazySingleton(() => MapsRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(() => CategoryDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(() => PlaceDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
   sl.registerLazySingleton(() => ContactRepo(sharedPreferences: sl(), dioClient: sl()));
 
   //provider
@@ -54,6 +60,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => SplashProvider(splashRepo: sl()));
   sl.registerLazySingleton(() => AuthProvider(authRepo: sl()));
    sl.registerLazySingleton(() => FavouriteProvider(favouriteRepo: sl()));
+   sl.registerLazySingleton(() => CategoryDetailsProvider(repo: sl()));
+   sl.registerLazySingleton(() => PlaceDetailsProvider(repo: sl()));
 
   sl.registerLazySingleton(() => HomeProvider(
         homeRepo: sl(),

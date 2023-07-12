@@ -197,7 +197,7 @@ class AuthRepo {
   }) async {
     try {
       Response response = await dioClient
-          .post(uri: EndPoints.verifyPhone, data: {"email": mail, "otp": code});
+          .post(uri: EndPoints.verifyEmail(sharedPreferences.getString(AppStorageKey.userId)), data: {"otp": code});
       if (response.statusCode == 200) {
         // if(updateHeader) {
         //   dioClient.updateHeader(token: response.data['data']["api_token"]);

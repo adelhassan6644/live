@@ -6,6 +6,8 @@ import 'package:live/app/core/utils/text_styles.dart';
 import 'package:live/components/custom_network_image.dart';
 import 'package:live/components/shimmer/custom_shimmer.dart';
 import 'package:live/features/home/provider/home_provider.dart';
+import 'package:live/navigation/custom_navigation.dart';
+import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
 
 class HomeCategories extends StatelessWidget {
@@ -100,7 +102,9 @@ class _CategoryItem extends StatelessWidget {
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       focusColor: Colors.transparent,
-      onTap: () {},
+      onTap: () {
+        CustomNavigator.push(Routes.CATEGORY_DETAILS, arguments: id);
+      },
       child: Column(
         children: [
           CustomNetworkImage.circleNewWorkImage(

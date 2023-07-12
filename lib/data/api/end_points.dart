@@ -9,14 +9,14 @@ class EndPoints {
   static const String resetPassword = 'auth/reset-password';
   static const String changePassword = 'auth/reset-password';
   static const String register = 'client';
-  static const String verifyPhone = 'auth/verify_phone';
+  static  verifyEmail(id) => 'email/verification/$id';
   static  getProfile(id) => 'client/$id';
   static  updateProfile(id) => 'client/$id';
   static  getFavourites(id) => 'favorites/$id';
   static const String postFavourite = 'favorite';
   static const String news = 'news';
   static const String place = 'place';
-  static const String categories = 'category';
+  static const String category = 'category';
   static const String offers = 'offer';
   static const String getContact = 'app/contact';
   static const String notifications = 'notification/notification';

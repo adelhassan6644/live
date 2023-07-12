@@ -33,7 +33,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       width: context.width,
-      padding: EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
+      padding:
+          EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -45,17 +46,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-               actionChild ??
-                      const SizedBox(
-                        width: 42,
-                      ),
-              const Expanded(child: SizedBox()),
-              Text(
-                title ?? "",
-                style: AppTextStyles.semiBold
-                    .copyWith(color: Colors.black, fontSize: 13),
-              ),
-              const Expanded(child: SizedBox()),
               withBack
                   ? InkWell(
                       splashColor: Colors.transparent,
@@ -66,18 +56,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         CustomNavigator.pop();
                       },
                       child: Container(
-                        height:actionWidth?? 42,
-                      width:actionWidth?? 42,
+                        height: actionWidth ?? 42,
+                        width: actionWidth ?? 42,
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: ColorResources.WHITE_COLOR,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: const Color(0XFFFAFAFA))
-
-                        ),
+                            color: ColorResources.WHITE_COLOR,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: const Color(0XFFFAFAFA))),
                         child: const Center(
                           child: Icon(
-                            Icons.arrow_forward_ios,
+                            Icons.arrow_back_ios,
                             size: 18,
                             color: ColorResources.SECOUND_PRIMARY_COLOR,
                           ),
@@ -86,6 +74,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   : SizedBox(
                       width: actionWidth ?? 42,
                     ),
+              const Expanded(child: SizedBox()),
+              Text(
+                title ?? "",
+                style: AppTextStyles.semiBold
+                    .copyWith(color: Colors.black, fontSize: 13),
+              ),
+              const Expanded(child: SizedBox()),
+              actionChild ??
+                  const SizedBox(
+                    width: 42,
+                  ),
             ],
           ),
           SizedBox(height: Dimensions.PADDING_SIZE_SMALL.h),

@@ -24,7 +24,7 @@ class _MapPageState extends State<MapPage> {
 
   @override
   void initState() {
-    Provider.of<LocationProvider>(context, listen: false).isGetPlaces=true;
+    Provider.of<LocationProvider>(context, listen: false).isGetPlaces = true;
     if (widget.baseModel?.object != null) {
       Provider.of<LocationProvider>(context, listen: false).pickAddress =
           widget.baseModel?.object.address ?? "";
@@ -40,13 +40,16 @@ class _MapPageState extends State<MapPage> {
 
   getInitialPosition() {
     if (widget.baseModel?.object != null) {
-      _initialPosition = LatLng(double.parse(widget.baseModel?.object.latitude ?? AppStrings.defaultLat),
-          double.parse(widget.baseModel?.object.longitude ?? AppStrings.defaultLong));
+      _initialPosition = LatLng(
+          double.parse(
+              widget.baseModel?.object.latitude ?? AppStrings.defaultLat),
+          double.parse(
+              widget.baseModel?.object.longitude ?? AppStrings.defaultLong));
       _mapController!.animateCamera(CameraUpdate.newCameraPosition(
         CameraPosition(target: _initialPosition, zoom: 100),
       ));
-      Provider.of<LocationProvider>(context, listen: false).getPlaces(_initialPosition);
-
+      Provider.of<LocationProvider>(context, listen: false)
+          .getPlaces(_initialPosition);
     }
   }
 

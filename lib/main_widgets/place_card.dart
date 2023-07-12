@@ -3,12 +3,13 @@ import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/features/favourite/widgets/favourite_button.dart';
 import 'package:live/features/home/models/places_model.dart';
-
 import '../app/core/utils/color_resources.dart';
 import '../app/core/utils/svg_images.dart';
 import '../app/core/utils/text_styles.dart';
 import '../components/custom_images.dart';
 import '../components/custom_network_image.dart';
+import '../navigation/custom_navigation.dart';
+import '../navigation/routes.dart';
 
 class PlaceCard extends StatelessWidget {
   const PlaceCard({
@@ -22,7 +23,8 @@ class PlaceCard extends StatelessWidget {
     return Stack(
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () =>
+              CustomNavigator.push(Routes.PLACE_DETAILS, arguments: place.id),
           child: Container(
             width: 210.w,
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
@@ -45,7 +47,9 @@ class PlaceCard extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: AppTextStyles.medium.copyWith(
-                          fontSize: 14, color: place.nameColor?.toColor??ColorResources.PENDING)),
+                          fontSize: 14,
+                          color: place.nameColor?.toColor ??
+                              ColorResources.PENDING)),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -85,7 +89,7 @@ class PlaceCard extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(top: -8, left: 0, child: FavouriteButton(id: place.id))
+        Positioned(top: -10, left: -10, child: FavouriteButton(id: place.id))
       ],
     );
   }

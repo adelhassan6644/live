@@ -48,6 +48,7 @@ class SvgImages {
   static const String notSeen = 'assets/svgs/not_seen.svg';
   static const String favourite = 'assets/svgs/fav.svg';
   static const String disFavourite = 'assets/svgs/dis_fav.svg';
+  static const String share = 'assets/svgs/share.svg';
 
   static const String mailIcon = 'assets/svgs/mail.svg';
   static const String lockIcon = 'assets/svgs/lock.svg';

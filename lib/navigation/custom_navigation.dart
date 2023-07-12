@@ -1,5 +1,6 @@
 import 'package:live/features/auth/pages/change_password.dart';
 import 'package:live/features/auth/pages/reset_password.dart';
+import 'package:live/features/category_details/page/category_details.dart';
 import 'package:live/main_models/base_model.dart';
 import 'package:flutter/material.dart';
 import 'package:live/main_page/pages/main_page.dart';
@@ -10,6 +11,7 @@ import '../features/auth/pages/verification.dart';
 import '../features/contact_with_us/page/contact_with_us.dart';
 import '../features/maps/page/map_page.dart';
 import '../features/on_boarding/pages/on_boarding.dart';
+import '../features/place_details/page/place_details.dart';
 import '../features/splash/page/splash.dart';
 import '../main.dart';
 import 'routes.dart';
@@ -49,8 +51,15 @@ abstract class CustomNavigator {
 
       case Routes.MAP:
         return _pageRoute(MapPage(
-          baseModel:settings.arguments != null? settings.arguments as BaseModel : null,
-        ));
+            baseModel: settings.arguments != null
+                ? settings.arguments as BaseModel
+                : null));
+
+      case Routes.CATEGORY_DETAILS:
+        return _pageRoute(CategoryDetails(id: settings.arguments as int));
+
+        case Routes.PLACE_DETAILS:
+        return _pageRoute(PlaceDetails(id: settings.arguments as int));
 
       case Routes.CONTACT_WITH_US:
         return _pageRoute(const ContactWithUs());

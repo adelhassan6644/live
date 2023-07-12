@@ -78,7 +78,7 @@ class AuthProvider extends ChangeNotifier {
         } else {
           authRepo.forget();
         }
-        if (success.data['data']["verified_at"] != null) {
+        if (success.data['data']["email_verification_code"] != null) {
           authRepo.saveUserId(success.data['data']["id"]);
           authRepo.saveUserToken(success.data['data']["api_token"]);
           authRepo.setLoggedIn();

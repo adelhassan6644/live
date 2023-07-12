@@ -47,7 +47,7 @@ class FavouriteProvider extends ChangeNotifier {
         favouriteId = [];
         if (favouriteModel!.data != null && favouriteModel!.data!.isNotEmpty) {
           for (var e in favouriteModel!.data!) {
-            favouriteId.add(e.id!);
+            favouriteId.add(e.placeId!);
           }
         }
         isLoading = false;
@@ -65,8 +65,7 @@ class FavouriteProvider extends ChangeNotifier {
     }
   }
 
-  updateFavourites(
-      {required int id, bool isExist = false}) async {
+  updateFavourites({required int id, bool isExist = false}) async {
     try {
       if (isExist) {
         favouriteId.remove(id);
@@ -84,7 +83,6 @@ class FavouriteProvider extends ChangeNotifier {
           showToast("تم الازالة من الاماكن المفضلة");
         } else {
           showToast("تم الاضافة الي الاماكن المفضلة");
-
         }
       });
       getFavourites();
