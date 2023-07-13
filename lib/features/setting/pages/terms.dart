@@ -3,6 +3,7 @@ import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:provider/provider.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/dimensions.dart';
+import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/animated_widget.dart';
 import '../../../components/custom_app_bar.dart';
@@ -20,9 +21,13 @@ class Terms extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBar(
-
-                title: getTranslated("terms_and_conditions", context),
+              const CustomAppBar(),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
+                child: Text(getTranslated("terms_conditions", context),
+                    style: AppTextStyles.semiBold
+                        .copyWith(fontSize: 24, color: ColorResources.HEADER)),
               ),
               Consumer<SettingProvider>(builder: (_, provider, child) {
                 return !provider.isLoading
@@ -34,9 +39,12 @@ class Terms extends StatelessWidget {
                           child: ListAnimator(
                             data: [
                               provider.model != null
-                                  ? HtmlWidget(provider.model?.data?.terms??"")
+                                  ? HtmlWidget(
+                                      provider.model?.data?.terms ?? "")
                                   : EmptyState(
-                                      txt: getTranslated("something_went_wrong", context))
+                                      txt: getTranslated(
+                                          "something_went_wrong", context),
+                                    )
                             ],
                           ),
                         ),

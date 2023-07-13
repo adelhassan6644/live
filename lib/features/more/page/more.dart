@@ -66,6 +66,7 @@ class More extends StatelessWidget {
               title: getTranslated("terms_conditions", context),
               icon: SvgImages.file,
               onTap: () {
+                CustomNavigator.push(Routes.TERMS);
                 controller.toggle!();
               },
             ),
