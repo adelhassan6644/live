@@ -63,28 +63,27 @@ Widget customCircleSvgIcon(
   );
 }
 
-
 Widget customContainerSvgIcon(
     {required String imageName,
-      Function? onTap,
-      color,
-      width,
-      height,
-      radius}) {
+    Function? onTap,
+    color,
+    width,
+    height,
+    radius}) {
   return InkWell(
     onTap: () {
       onTap!();
     },
     child: Container(
-      height:height,
+      height: height,
       width: width,
+      padding: const EdgeInsets.all(6),
       decoration: BoxDecoration(
-      color:  color ?? ColorResources.PRIMARY_COLOR.withOpacity(0.1),
-
-      ),
+          color: color ?? ColorResources.PRIMARY_COLOR.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(radius ?? 12)),
       // backgroundColor:
-      // color ?? ColorResources.PRIMARY_COLOR.withOpacity(0.1),
       // radius: radius ?? 24.w,
+
       child: SvgPicture.asset(
         imageName,
       ),
@@ -93,7 +92,11 @@ Widget customContainerSvgIcon(
 }
 
 Widget customImageIconSVG(
-    {required String imageName, Color? color, double? height, double? width,Function()? onTap}) {
+    {required String imageName,
+    Color? color,
+    double? height,
+    double? width,
+    Function()? onTap}) {
   return GestureDetector(
     onTap: onTap,
     child: SvgPicture.asset(
