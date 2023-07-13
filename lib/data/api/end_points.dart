@@ -20,7 +20,7 @@ class EndPoints {
   static const String category = 'category';
   static const String offers = 'offer';
   static const String aboutUs = 'about_us';
-  static const String getContact = 'app/contact';
+  static const String setting = 'contact';
   static const String notifications = 'notification/notification';
   static const String readNotification = 'notification/read';
   static const String deleteNotification = 'notification/delete';
