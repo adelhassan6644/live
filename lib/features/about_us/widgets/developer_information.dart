@@ -13,8 +13,9 @@ class DeveloperInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:
-          EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
+      margin: EdgeInsets.symmetric(
+          horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+          vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
       padding: EdgeInsets.symmetric(
           horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
           vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
@@ -23,9 +24,10 @@ class DeveloperInformation extends StatelessWidget {
           color: ColorResources.WHITE_COLOR,
           border: Border.all(color: ColorResources.LIGHT_BORDER_COLOR)),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            getTranslated("contact_with_us", context),
+            getTranslated("contact_with_us_any_time", context),
             style: AppTextStyles.medium.copyWith(
                 color: ColorResources.HEADER,
                 fontSize: 16,
@@ -42,9 +44,9 @@ class DeveloperInformation extends StatelessWidget {
             addBorder: true,
           ),
           CustomTextFormField(
-            hint: getTranslated("mail", context),
+            hint: getTranslated("phone_number", context),
             inputType: TextInputType.emailAddress,
-            pSvgIcon: SvgImages.phoneCallIcon,
+            pSvgIcon: SvgImages.phoneIcon,
             read: true,
             addBorder: true,
           ),

@@ -47,7 +47,7 @@ class SvgImages {
   static const String disFavourite = 'assets/svgs/dis_fav.svg';
   static const String share = 'assets/svgs/share.svg';
   static const String whatsApp = 'assets/svgs/whats_app_icon.svg';
-  static const String faceBook = 'assets/svgs/facbook.svg';
+  static const String faceBook = 'assets/svgs/facebook.svg';
   static const String twitter = 'assets/svgs/twitter.svg';
   static const String instagram = 'assets/svgs/instagram.svg';
   static const String tiktok = 'assets/svgs/tiktok.svg';

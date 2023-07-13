@@ -15,6 +15,6 @@ class Routes {
   static const CATEGORY_DETAILS = "CATEGORY_DETAILS";
   static const PLACE_DETAILS = "PLACE_DETAILS";
   static const CONTACT_WITH_US = "CONTACT_WITH_US";
-  static const NOTIFICATIONS = "NOTIFICATIONS";
+  static const ABOUT_US = "ABOUT_US";
 
 }

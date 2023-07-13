@@ -12,7 +12,7 @@ class DeveloperDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin:
-      EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
+          EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
       padding: EdgeInsets.symmetric(
           horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
           vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
@@ -32,9 +32,9 @@ class DeveloperDescription extends StatelessWidget {
                     overflow: TextOverflow.ellipsis),
               ),
               Text(
-              "Software Cloud 2",
+                "Software Cloud 2",
                 style: AppTextStyles.medium.copyWith(
-                  color:  const Color(0xFFF8A14E),
+                    color: const Color(0xFFF8A14E),
                     fontSize: 16,
                     overflow: TextOverflow.ellipsis),
               ),
@@ -49,6 +49,7 @@ class DeveloperDescription extends StatelessWidget {
                 color: ColorResources.DETAILS_COLOR,
                 fontSize: 14,
                 overflow: TextOverflow.ellipsis),
+            maxLines: 10,
           ),
         ],
       ),

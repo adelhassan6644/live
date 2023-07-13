@@ -1,3 +1,4 @@
+import 'package:live/features/about_us/about_us.dart';
 import 'package:live/features/auth/pages/change_password.dart';
 import 'package:live/features/auth/pages/reset_password.dart';
 import 'package:live/features/category_details/page/category_details.dart';
@@ -58,11 +59,14 @@ abstract class CustomNavigator {
       case Routes.CATEGORY_DETAILS:
         return _pageRoute(CategoryDetails(id: settings.arguments as int));
 
-        case Routes.PLACE_DETAILS:
+      case Routes.PLACE_DETAILS:
         return _pageRoute(PlaceDetails(id: settings.arguments as int));
 
       case Routes.CONTACT_WITH_US:
         return _pageRoute(const ContactWithUs());
+
+      case Routes.ABOUT_US:
+        return _pageRoute(const AboutUs());
 
       default:
         return MaterialPageRoute(builder: (_) => const MyApp());

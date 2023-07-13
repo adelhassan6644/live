@@ -24,7 +24,10 @@ class AboutUs extends StatelessWidget {
                   DeveloperImage(),
                   DeveloperDescription(),
                   DeveloperInformation(),
-                  DeveloperSocialMedia()
+                  DeveloperSocialMedia(),
+                  SizedBox(
+                    height: 24,
+                  )
                 ],
               ))
             ],

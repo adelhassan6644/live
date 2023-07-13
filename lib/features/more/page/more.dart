@@ -3,6 +3,8 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/features/more/widgets/logout_button.dart';
+import 'package:live/navigation/custom_navigation.dart';
+import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../app/localization/localization/language_constant.dart';
@@ -45,14 +47,6 @@ class More extends StatelessWidget {
                 provider.updateDashboardIndex(1);
               },
             ),
-            // MoreButton(
-            //   title: getTranslated("change_password", context),
-            //   icon: SvgImages.lockIcon,
-            //   onTap: () {
-            //     controller.toggle!();
-            //     CustomNavigator.push(Routes.CHANGE_PASSWORD);
-            //   },
-            // ),
             MoreButton(
               title: getTranslated("favourites", context),
               icon: SvgImages.heartIcon,
@@ -79,6 +73,7 @@ class More extends StatelessWidget {
               title: getTranslated("about_us", context),
               icon: SvgImages.aboutUsIcon,
               onTap: () {
+                CustomNavigator.push(Routes.ABOUT_US);
                 controller.toggle!();
               },
             ),
