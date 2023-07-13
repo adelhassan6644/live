@@ -21,6 +21,7 @@ class Terms extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomAppBar(
+
                 title: getTranslated("terms_and_conditions", context),
               ),
               Consumer<SettingProvider>(builder: (_, provider, child) {
