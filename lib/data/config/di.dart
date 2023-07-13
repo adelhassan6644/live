@@ -43,14 +43,22 @@ Future<void> init() async {
 
   // Repository
   sl.registerLazySingleton(() => SplashRepo(sharedPreferences: sl()));
-  sl.registerLazySingleton(() => AuthRepo(sharedPreferences: sl(), dioClient: sl()));
-  sl.registerLazySingleton(() => ProfileRepo(sharedPreferences: sl(), dioClient: sl()));
-  sl.registerLazySingleton(() => HomeRepo(sharedPreferences: sl(), dioClient: sl()));
-  sl.registerLazySingleton(() => FavouriteRepo(sharedPreferences: sl(), dioClient: sl()));
-  sl.registerLazySingleton(() => MapsRepo(sharedPreferences: sl(), dioClient: sl()));
-  sl.registerLazySingleton(() => CategoryDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
-  sl.registerLazySingleton(() => PlaceDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
-  sl.registerLazySingleton(() => ContactRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(
+      () => AuthRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(
+      () => ProfileRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(
+      () => HomeRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(
+      () => FavouriteRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(
+      () => MapsRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(
+      () => CategoryDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(
+      () => PlaceDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(
+      () => ContactRepo(sharedPreferences: sl(), dioClient: sl()));
 
   //provider
   sl.registerLazySingleton(() => LocalizationProvider(sharedPreferences: sl()));
@@ -59,22 +67,14 @@ Future<void> init() async {
   sl.registerLazySingleton(() => MainPageProvider());
   sl.registerLazySingleton(() => SplashProvider(splashRepo: sl()));
   sl.registerLazySingleton(() => AuthProvider(authRepo: sl()));
-   sl.registerLazySingleton(() => FavouriteProvider(favouriteRepo: sl()));
-   sl.registerLazySingleton(() => CategoryDetailsProvider(repo: sl()));
-   sl.registerLazySingleton(() => PlaceDetailsProvider(repo: sl()));
-
-  sl.registerLazySingleton(() => HomeProvider(
-        homeRepo: sl(),
-      ));
-  sl.registerLazySingleton(() => ProfileProvider(
-        profileRepo: sl(),
-      ));
-
+  sl.registerLazySingleton(() => FavouriteProvider(favouriteRepo: sl()));
+  sl.registerLazySingleton(() => CategoryDetailsProvider(repo: sl()));
+  sl.registerLazySingleton(() => PlaceDetailsProvider(repo: sl()));
+  sl.registerLazySingleton(() => HomeProvider(homeRepo: sl()));
+  sl.registerLazySingleton(() => ProfileProvider(profileRepo: sl()));
   sl.registerLazySingleton(() => MapProvider());
-  sl.registerLazySingleton(() => LocationProvider(locationRepo: sl(), homeRepo: sl()));
-  sl.registerLazySingleton(() => ContactProvider(
-        contactRepo: sl(),
-      ));
+  sl.registerLazySingleton(() => LocationProvider(locationRepo: sl()));
+  sl.registerLazySingleton(() => ContactProvider(contactRepo: sl()));
 
   // External
   final sharedPreferences = await SharedPreferences.getInstance();

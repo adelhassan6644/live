@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:live/data/error/api_error_handler.dart';
+import 'package:live/features/home/models/banner_model.dart';
 import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../data/error/failures.dart';
@@ -32,9 +33,9 @@ class HomeProvider extends ChangeNotifier {
 
   bool get isLogin => homeRepo.isLoggedIn();
 
-  CarouselController placesController = CarouselController();
+  CarouselController bannerController = CarouselController();
   late int _placesIndex = 0;
-  int get placesIndex => _placesIndex;
+  int get bannerIndex => _placesIndex;
   void setPlacesIndex(int index) {
     _placesIndex = index;
     notifyListeners();
@@ -45,6 +46,39 @@ class HomeProvider extends ChangeNotifier {
   void setOffersIndex(int index) {
     _offersIndex = index;
     notifyListeners();
+  }
+
+  BannerModel? bannerModel;
+  bool isGetBanners = false;
+  getBanners() async {
+    try {
+      isGetBanners = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response = await homeRepo.getHomeBanner();
+      response.fold((fail) {
+        isGetBanners = false;
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: ApiErrorHandler.getMessage(fail),
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        bannerModel = BannerModel.fromJson(success.data);
+        isGetBanners = false;
+        notifyListeners();
+      });
+    } catch (e) {
+      isGetBanners = false;
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: e.toString(),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      notifyListeners();
+    }
   }
 
   PlacesModel? placesModel;

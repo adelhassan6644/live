@@ -10,7 +10,6 @@ import '../../../data/error/api_error_handler.dart';
 import '../../../data/error/failures.dart';
 import '../../../navigation/custom_navigation.dart';
 import '../../home/models/places_model.dart';
-import '../../home/repo/home_repo.dart';
 import '../models/location_model.dart';
 import '../models/prediction_model.dart';
 import '../repo/maps_repo.dart';
@@ -18,10 +17,8 @@ import 'package:geolocator/geolocator.dart';
 
 class LocationProvider extends ChangeNotifier {
   final MapsRepo locationRepo;
-  final HomeRepo homeRepo;
   LocationProvider({
     required this.locationRepo,
-    required this.homeRepo,
   });
 
   List<PredictionModel> _predictionList = [];
@@ -181,7 +178,7 @@ class LocationProvider extends ChangeNotifier {
     try {
       isGetPlaces = true;
       notifyListeners();
-      Either<ServerFailure, Response> response = await homeRepo.getHomePlaces(position: position);
+      Either<ServerFailure, Response> response = await locationRepo.getLocationPlaces(position: position);
       response.fold((fail) {
         isGetPlaces = false;
         CustomSnackBar.showSnackBar(

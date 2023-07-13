@@ -1,5 +1,7 @@
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:live/app/core/utils/svg_images.dart';
+import 'package:live/components/custom_images.dart';
 import '../../app/core/utils/color_resources.dart';
 import '../../app/core/utils/dimensions.dart';
 import '../../navigation/custom_navigation.dart';
@@ -56,23 +58,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         CustomNavigator.pop();
                       },
                       child: Container(
-                        height: actionWidth ?? 42,
-                        width: actionWidth ?? 42,
-                        padding: const EdgeInsets.all(12),
+                        height: actionWidth ?? 40,
+                        width: actionWidth ?? 40,
+                        padding: const EdgeInsets.fromLTRB(17,10,14,10),
                         decoration: BoxDecoration(
                             color: ColorResources.WHITE_COLOR,
                             shape: BoxShape.circle,
                             border: Border.all(color: const Color(0XFFFAFAFA))),
-                        child: const Center(
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            size: 18,
-                            color: ColorResources.SECOUND_PRIMARY_COLOR,
-                          ),
-                        ),
+                        child: Center(child: customImageIconSVG(imageName: SvgImages.backArrow)),
                       ))
                   : SizedBox(
-                      width: actionWidth ?? 42,
+                      width: actionWidth ?? 40,
                     ),
               const Expanded(child: SizedBox()),
               Text(
@@ -83,7 +79,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               const Expanded(child: SizedBox()),
               actionChild ??
                   const SizedBox(
-                    width: 42,
+                    width: 40,
                   ),
             ],
           ),

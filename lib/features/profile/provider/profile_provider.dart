@@ -96,6 +96,7 @@ class ProfileProvider extends ChangeNotifier {
           isUpdate = false;
           notifyListeners();
         }, (response) {
+          // getProfile();
           CustomSnackBar.showSnackBar(
               notification: AppNotification(
                   message: getTranslated("your_profile_successfully_updated",

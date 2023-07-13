@@ -27,8 +27,7 @@ Future<void> main() async {
 
   FirebaseNotifications.init();
   await di.init();
-  runApp(
-      MultiProvider(providers: ProviderList.providers, child: const MyApp()));
+  runApp(MultiProvider(providers: ProviderList.providers, child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -51,8 +50,7 @@ class _MyAppState extends State<MyApp> {
       locals.add(Locale(language.languageCode!, language.countryCode));
     }
 
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark,
@@ -69,15 +67,9 @@ class _MyAppState extends State<MyApp> {
       title: AppStrings.appName,
       scaffoldMessengerKey: CustomNavigator.scaffoldState,
       debugShowCheckedModeBanner: false,
-      theme: Provider.of<ThemeProvider>(
-        context,
-      ).darkTheme
-          ? dark
-          : light,
+      theme: Provider.of<ThemeProvider>(context,).darkTheme ? dark : light,
       supportedLocales: locals,
-      locale: Provider.of<LocalizationProvider>(
-        context,
-      ).locale,
+      locale: Provider.of<LocalizationProvider>(context,).locale,
       localizationsDelegates: const [
         AppLocalization.delegate,
         GlobalMaterialLocalizations.delegate,

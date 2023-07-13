@@ -63,6 +63,35 @@ Widget customCircleSvgIcon(
   );
 }
 
+
+Widget customContainerSvgIcon(
+    {required String imageName,
+      Function? onTap,
+      color,
+      width,
+      height,
+      radius}) {
+  return InkWell(
+    onTap: () {
+      onTap!();
+    },
+    child: Container(
+      height:height,
+      width: width,
+      decoration: BoxDecoration(
+      color:  color ?? ColorResources.PRIMARY_COLOR.withOpacity(0.1),
+
+      ),
+      // backgroundColor:
+      // color ?? ColorResources.PRIMARY_COLOR.withOpacity(0.1),
+      // radius: radius ?? 24.w,
+      child: SvgPicture.asset(
+        imageName,
+      ),
+    ),
+  );
+}
+
 Widget customImageIconSVG(
     {required String imageName, Color? color, double? height, double? width,Function()? onTap}) {
   return GestureDetector(

@@ -47,7 +47,9 @@ class FavouriteProvider extends ChangeNotifier {
         favouriteId = [];
         if (favouriteModel!.data != null && favouriteModel!.data!.isNotEmpty) {
           for (var e in favouriteModel!.data!) {
-            favouriteId.add(e.placeId!);
+            if (e.id != null) {
+              favouriteId.add(e.id!);
+            }
           }
         }
         isLoading = false;

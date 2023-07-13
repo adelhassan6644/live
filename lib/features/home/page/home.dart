@@ -24,6 +24,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   void initState() {
     Future.delayed(Duration.zero, () {
       sl<HomeProvider>().scroll(controller);
+      sl<HomeProvider>().getBanners();
       sl<HomeProvider>().getPlaces();
       sl<HomeProvider>().getCategories();
       sl<HomeProvider>().getOffers();

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
-import 'package:live/app/core/utils/text_styles.dart';
 import 'package:live/components/animated_widget.dart';
 import 'package:live/features/profile/widgets/profile_image_widget.dart';
 import 'package:provider/provider.dart';
@@ -41,16 +40,16 @@ class Profile extends StatelessWidget {
                     const ProfileImageWidget(withEdit: true)
                   ],
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Center(
-                  child: Text(
-                    provider.profileModel?.name ?? "Mohamed Ahmed",
-                    style: AppTextStyles.medium
-                        .copyWith(color: Colors.black, fontSize: 16),
-                  ),
-                ),
+                // const SizedBox(
+                //   height: 8,
+                // ),
+                // Center(
+                //   child: Text(
+                //     provider.profileModel?.name ?? "Mohamed Ahmed",
+                //     style: AppTextStyles.medium
+                //         .copyWith(color: Colors.black, fontSize: 16),
+                //   ),
+                // ),
                 SizedBox(
                   height: 30.h,
                 ),

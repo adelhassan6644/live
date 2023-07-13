@@ -26,7 +26,6 @@ class PlacesModel {
 
 class PlaceItem {
   int? id;
-  int? placeId;
   String? category;
   String? name;
   String? nameColor;
@@ -45,7 +44,6 @@ class PlaceItem {
 
   PlaceItem(
       {this.id,
-      this.placeId,
       this.category,
       this.name,
       this.nameColor,
@@ -65,7 +63,6 @@ class PlaceItem {
   PlaceItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     category = json['category'];
-    placeId = json['place_id'];
     name = json['name'];
     nameColor = json['name_color'];
     phone = json['phone'];
@@ -85,7 +82,6 @@ class PlaceItem {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
-    data['place_id'] = placeId;
     data['name'] = name;
     data['name_color'] = nameColor;
     data['phone'] = phone;

@@ -14,10 +14,12 @@ class EndPoints {
   static  updateProfile(id) => 'client/$id';
   static  getFavourites(id) => 'favorites/$id';
   static const String postFavourite = 'favorite';
+  static const String banners = 'banner';
   static const String news = 'news';
   static const String place = 'place';
   static const String category = 'category';
   static const String offers = 'offer';
+  static const String aboutUs = 'about_us';
   static const String getContact = 'app/contact';
   static const String notifications = 'notification/notification';
   static const String readNotification = 'notification/read';

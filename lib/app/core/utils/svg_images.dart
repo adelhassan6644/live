@@ -27,7 +27,7 @@ class SvgImages {
   static const String alarm = 'assets/svgs/alarm.svg';
   static const String emptyStar = 'assets/svgs/empty_star.svg';
   static const String fillStar = 'assets/svgs/fill_star.svg';
-  static const String arrowRightAlt = 'assets/svgs/arrow_right_alt.svg';
+  static const String backArrow = 'assets/svgs/arrow.svg';
   static const String maleIcon = 'assets/svgs/male.svg';
   static const String femaleIcon = 'assets/svgs/female.svg';
   static const String editor = 'assets/svgs/editor.svg';
@@ -35,9 +35,6 @@ class SvgImages {
   static const String down = 'assets/svgs/down.svg';
   static const String userIcon = 'assets/svgs/user.svg';
   static const String userNumber = 'assets/svgs/user_number.svg';
-  static const String delivered = 'assets/svgs/delivered.svg';
-  static const String completed = 'assets/svgs/completed.svg';
-  static const String medal = 'assets/svgs/medal.svg';
   static const String notifications = 'assets/svgs/alert.svg';
   static const String card = 'assets/svgs/card.svg';
   static const String rate = 'assets/svgs/rate.svg';
@@ -49,7 +46,11 @@ class SvgImages {
   static const String favourite = 'assets/svgs/fav.svg';
   static const String disFavourite = 'assets/svgs/dis_fav.svg';
   static const String share = 'assets/svgs/share.svg';
-
+  static const String whatsApp = 'assets/svgs/whats_app_icon.svg';
+  static const String faceBook = 'assets/svgs/facbook.svg';
+  static const String twitter = 'assets/svgs/twitter.svg';
+  static const String instagram = 'assets/svgs/instagram.svg';
+  static const String tiktok = 'assets/svgs/tiktok.svg';
   static const String mailIcon = 'assets/svgs/mail.svg';
   static const String lockIcon = 'assets/svgs/lock.svg';
   static const String eyeIcon = 'assets/svgs/eye.svg';
@@ -64,7 +65,6 @@ class SvgImages {
   static const String stackCartIcon = 'assets/svgs/stack_cart.svg';
   static const String homeSearchIcon = 'assets/svgs/home_search.svg';
   static const String deliciousIcon = 'assets/svgs/delicious.svg';
-  static const String whatsApp = 'assets/svgs/whats_app_icon.svg';
   static const String report = 'assets/svgs/report.svg';
   static const String support = 'assets/icons/technical-support.png';
   static const String information = 'assets/svgs/information.svg';

@@ -4,6 +4,8 @@ import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/components/custom_button.dart';
 import 'package:live/features/home/provider/home_provider.dart';
+import 'package:live/navigation/custom_navigation.dart';
+import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -29,11 +31,11 @@ class HomeBanner extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            provider.isGetPlaces
-                ? const _PlacesShimmer()
-                : provider.placesModel != null &&
-                        provider.placesModel?.data != null &&
-                        provider.placesModel!.data!.isNotEmpty
+            provider.isGetBanners
+                ? const _BannerShimmer()
+                : provider.bannerModel != null &&
+                        provider.bannerModel?.data != null &&
+                        provider.bannerModel!.data!.isNotEmpty
                     ? Column(
                         children: [
                           CarouselSlider.builder(
@@ -41,7 +43,6 @@ class HomeBanner extends StatelessWidget {
                               viewportFraction: 1,
                               autoPlay: false,
                               height: 245.h,
-                              enableInfiniteScroll: false,
                               enlargeCenterPage: false,
                               disableCenter: true,
                               pageSnapping: true,
@@ -50,95 +51,104 @@ class HomeBanner extends StatelessWidget {
                               },
                             ),
                             disableGesture: true,
-                            itemCount: provider.placesModel?.data?.length ?? 0,
+                            itemCount: provider.bannerModel?.data?.length ?? 0,
                             itemBuilder: (context, index, _) {
-                              return Stack(
-                                alignment: Alignment.bottomCenter,
-                                children: [
-                                  CustomNetworkImage.containerNewWorkImage(
-                                      image: provider.placesModel?.data?[index]
-                                              .image ??
-                                          "",
-                                      width: context.width,
-                                      height: 245.h,
-                                      fit: BoxFit.cover,
-                                      radius: 20),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 14.w, vertical: 12.h),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          provider.placesModel?.data?[index]
-                                                  .name ??
-                                              "",
-                                          style: AppTextStyles.medium.copyWith(
+                              return InkWell(
+                                onTap: () {
+                                  CustomNavigator.push(Routes.PLACE_DETAILS,
+                                      arguments: provider.bannerModel
+                                              ?.data?[index].place?.id ??
+                                          0);
+                                },
+                                child: Stack(
+                                  alignment: Alignment.bottomCenter,
+                                  children: [
+                                    CustomNetworkImage.containerNewWorkImage(
+                                        image: provider.bannerModel
+                                                ?.data?[index].image ??
+                                            "",
+                                        width: context.width,
+                                        height: 245.h,
+                                        fit: BoxFit.cover,
+                                        radius: 20),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 14.w, vertical: 12.h),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            provider.bannerModel?.data?[index]
+                                                    .place?.name ??
+                                                "",
+                                            style:
+                                                AppTextStyles.medium.copyWith(
                                               fontSize: 18,
-                                              color: ColorResources.TITLE),
-                                        ),
-                                        SizedBox(
-                                          height: 12.h,
-                                        ),
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            customImageIconSVG(
-                                              imageName: SvgImages.location,
-                                              height: 20,
-                                              width: 20,
-                                              color: const Color(0xFFEBEBEB),
+                                              color: ColorResources.DISABLED,
                                             ),
-                                            SizedBox(
-                                              width: 8.w,
-                                            ),
-                                            Expanded(
-                                              child: Text(
-                                                provider
-                                                        .placesModel
-                                                        ?.data?[index]
-                                                        .address ??
-                                                    "",
-                                                style: AppTextStyles.medium
-                                                    .copyWith(
-                                                        fontSize: 18,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        color: ColorResources
-                                                            .TITLE),
-                                                maxLines: 2,
+                                          ),
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              customImageIconSVG(
+                                                imageName: SvgImages.location,
+                                                height: 20,
+                                                width: 20,
+                                                color: ColorResources.DISABLED,
                                               ),
-                                            ),
-                                            SizedBox(
-                                              width: 8.w,
-                                            ),
-                                            Visibility(
-                                              visible:
-                                                  index == provider.placesIndex,
-                                              child: CustomButton(
-                                                width: 110.w,
-                                                height: 35.h,
-                                                text: "المزيد",
-                                                svgIcon:
-                                                    SvgImages.arrowRightIcon,
-                                                onTap: () {
-                                                  provider.placesController
-                                                      .nextPage();
-                                                },
+                                              SizedBox(
+                                                width: 4.w,
                                               ),
-                                            )
-                                          ],
-                                        ),
-                                      ],
+                                              Expanded(
+                                                child: Text(
+                                                  provider
+                                                          .bannerModel
+                                                          ?.data?[index]
+                                                          .place
+                                                          ?.address ??
+                                                      "",
+                                                  style: AppTextStyles.medium
+                                                      .copyWith(
+                                                          fontSize: 18,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          color: ColorResources
+                                                              .DISABLED),
+                                                  maxLines: 1,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 8.w,
+                                              ),
+                                              Visibility(
+                                                visible: index ==
+                                                    provider.bannerIndex,
+                                                child: CustomButton(
+                                                  width: 110.w,
+                                                  height: 35.h,
+                                                  text: "المزيد",
+                                                  svgIcon:
+                                                      SvgImages.arrowRightIcon,
+                                                  onTap: () {
+                                                    provider.bannerController
+                                                        .nextPage();
+                                                  },
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               );
                             },
-                            carouselController: provider.placesController,
+                            carouselController: provider.bannerController,
                           ),
                           SizedBox(
                             height: 12.h,
@@ -146,18 +156,18 @@ class HomeBanner extends StatelessWidget {
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: provider.placesModel!.data!.map((place) {
+                            children: provider.bannerModel!.data!.map((banner) {
                               int index =
-                                  provider.placesModel!.data!.indexOf(place);
+                                  provider.bannerModel!.data!.indexOf(banner);
                               return AnimatedContainer(
-                                width: index == provider.placesIndex ? 25 : 8,
+                                width: index == provider.bannerIndex ? 25 : 8,
                                 height: 8,
                                 duration: const Duration(
                                   milliseconds: 200,
                                 ),
                                 margin: EdgeInsets.symmetric(horizontal: 2.w),
                                 decoration: BoxDecoration(
-                                    color: index == provider.placesIndex
+                                    color: index == provider.bannerIndex
                                         ? ColorResources.SECOUND_PRIMARY_COLOR
                                         : ColorResources.WHITE_COLOR,
                                     borderRadius: BorderRadius.circular(100.w),
@@ -181,8 +191,8 @@ class HomeBanner extends StatelessWidget {
   }
 }
 
-class _PlacesShimmer extends StatelessWidget {
-  const _PlacesShimmer({Key? key}) : super(key: key);
+class _BannerShimmer extends StatelessWidget {
+  const _BannerShimmer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
