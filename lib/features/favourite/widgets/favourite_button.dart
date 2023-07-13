@@ -21,7 +21,7 @@ class FavouriteButton extends StatelessWidget {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             radius: 10,
-            onTap: () => provider.updateFavourites(id: id!),
+            onTap: () => provider.updateFavourites(id: id!, isExist: isFav),
             child: customImageIconSVG(
                 imageName:
                     isFav ? SvgImages.favourite : SvgImages.disFavourite));
