@@ -7,7 +7,7 @@ class EndPoints {
   static const String logIn = 'login';
   static const String forgetPassword = 'auth/forget-password';
   static const String resetPassword = 'auth/reset-password';
-  static const String changePassword = 'auth/reset-password';
+  static  changePassword(id) => 'client/$id';
   static const String register = 'client';
   static  verifyEmail(id) => 'email/verification/$id';
   static  getProfile(id) => 'client/$id';

@@ -112,11 +112,11 @@ class AuthRepo {
   Future<Either<ServerFailure, Response>> reset(
       {required String password}) async {
     try {
-      Response response = await dioClient.post(
-          uri: EndPoints.resetPassword,
-          data: {"password": password,
-            // "fcm_token": await saveDeviceToken()
-          });
+      Response response =
+          await dioClient.post(uri: EndPoints.resetPassword, data: {
+        "password": password,
+        // "fcm_token": await saveDeviceToken()
+      });
 
       if (response.statusCode == 200) {
         return Right(response);
@@ -132,8 +132,10 @@ class AuthRepo {
       {required String password}) async {
     try {
       Response response = await dioClient.post(
-          uri: EndPoints.changePassword,
-          data: {"password": password,
+          uri: EndPoints.changePassword(
+              sharedPreferences.getString(AppStorageKey.userId)),
+          data: {
+            "password": password,
             // "fcm_token": await saveDeviceToken()
           });
 
@@ -150,11 +152,11 @@ class AuthRepo {
   Future<Either<ServerFailure, Response>> forgetPassword(
       {required String mail}) async {
     try {
-      Response response = await dioClient.post(
-          uri: EndPoints.forgetPassword,
-          data: {"email": mail,
-            // "fcm_token": await saveDeviceToken()
-          });
+      Response response =
+          await dioClient.post(uri: EndPoints.forgetPassword, data: {
+        "email": mail,
+        // "fcm_token": await saveDeviceToken()
+      });
 
       if (response.statusCode == 200) {
         return Right(response);
@@ -190,14 +192,15 @@ class AuthRepo {
     }
   }
 
-  Future<Either<ServerFailure, Response>> verifyMail({
-    required String mail,
-    required String code,
-    bool updateHeader=false
-  }) async {
+  Future<Either<ServerFailure, Response>> verifyMail(
+      {required String mail,
+      required String code,
+      bool updateHeader = false}) async {
     try {
-      Response response = await dioClient
-          .post(uri: EndPoints.verifyEmail(sharedPreferences.getString(AppStorageKey.userId)), data: {"otp": code});
+      Response response = await dioClient.post(
+          uri: EndPoints.verifyEmail(
+              sharedPreferences.getString(AppStorageKey.userId)),
+          data: {"otp": code});
       if (response.statusCode == 200) {
         // if(updateHeader) {
         //   dioClient.updateHeader(token: response.data['data']["api_token"]);
