@@ -81,9 +81,6 @@ Widget customContainerSvgIcon(
       decoration: BoxDecoration(
           color: color ?? ColorResources.PRIMARY_COLOR.withOpacity(0.1),
           borderRadius: BorderRadius.circular(radius ?? 12)),
-      // backgroundColor:
-      // radius: radius ?? 24.w,
-
       child: SvgPicture.asset(
         imageName,
       ),
