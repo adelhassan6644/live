@@ -36,7 +36,10 @@ abstract class CustomNavigator {
       case Routes.ON_BOARDING:
         return _pageRoute(const OnBoarding());
       case Routes.LOGIN:
-        return _pageRoute(const Login());
+        return _pageRoute(Login(
+          fromMain:
+              settings.arguments != null ? settings.arguments as bool : false,
+        ));
       case Routes.FORGET_PASSWORD:
         return _pageRoute(const ForgetPassword());
       case Routes.RESET_PASSWORD:
@@ -52,7 +55,7 @@ abstract class CustomNavigator {
       case Routes.MAIN_PAGE:
         return _pageRoute(const MainPage());
 
-        case Routes.NEWS:
+      case Routes.NEWS:
         return _pageRoute(const News());
 
       case Routes.MAP:

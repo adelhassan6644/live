@@ -27,13 +27,13 @@ class ProfileCard extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              provider.nameTEC.text.trim(),
-              style: AppTextStyles.bold.copyWith(color: ColorResources.WHITE_COLOR, fontSize: 16,height: 1),
+           provider.isLogin?  provider.nameTEC.text.trim(): "Guest",
+              style: AppTextStyles.bold.copyWith(color: ColorResources.SPLASH_BACKGROUND_COLOR, fontSize: 16,height: 1),
             ),
             Text(
-              provider.emailTEC.text.trim(),
+              provider.isLogin? provider.emailTEC.text.trim():"elhemdanih@live.com",
               style: AppTextStyles.regular
-                  .copyWith(color: ColorResources.WHITE_COLOR, fontSize: 12),
+                  .copyWith(color: ColorResources.SPLASH_BACKGROUND_COLOR, fontSize: 12),
             ),
             const SizedBox(
               height: 24,

@@ -74,12 +74,18 @@ class ProfileProvider extends ChangeNotifier {
     };
 
     if (checkData(body) || hasImage()) {
+      if (profileImage != null) {
+        body.addAll({
+          "photo": await MultipartFile.fromFile(profileImage!.path),
+        });
+      }
       if (_boolCheckString(phoneTEC.text.trim(), "phone", body)) {
         body["phone"] = phoneTEC.text.trim();
       }
       if (_boolCheckString(nameTEC.text.trim(), "name", body)) {
         body["name"] = nameTEC.text.trim();
       }
+
       try {
         log(body.entries.toString());
         Either<ServerFailure, Response> response =

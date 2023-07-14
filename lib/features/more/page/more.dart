@@ -8,6 +8,7 @@ import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../app/localization/localization/language_constant.dart';
+import '../../../data/config/di.dart';
 import '../../../main_page/provider/main_page_provider.dart';
 import '../widgets/more_button.dart';
 import '../widgets/profile_card.dart';
@@ -35,24 +36,27 @@ class More extends StatelessWidget {
               title: getTranslated("dashboard", context),
               icon: SvgImages.homeIcon,
               onTap: () {
-                controller.toggle!();
                 provider.updateDashboardIndex(0);
+                sl<MainPageProvider>().updateIsOpen(false);
+                controller.toggle!();
               },
             ),
             MoreButton(
               title: getTranslated("profile", context),
               icon: SvgImages.userIcon,
               onTap: () {
-                controller.toggle!();
                 provider.updateDashboardIndex(1);
+                sl<MainPageProvider>().updateIsOpen(false);
+                controller.toggle!();
               },
             ),
             MoreButton(
               title: getTranslated("favourites", context),
               icon: SvgImages.heartIcon,
               onTap: () {
-                controller.toggle!();
                 provider.updateDashboardIndex(3);
+                sl<MainPageProvider>().updateIsOpen(false);
+                controller.toggle!();
               },
             ),
             MoreButton(
@@ -67,7 +71,6 @@ class More extends StatelessWidget {
               icon: SvgImages.file,
               onTap: () {
                 CustomNavigator.push(Routes.TERMS);
-                controller.toggle!();
               },
             ),
             MoreButton(
@@ -75,11 +78,15 @@ class More extends StatelessWidget {
               icon: SvgImages.aboutUsIcon,
               onTap: () {
                 CustomNavigator.push(Routes.ABOUT_US);
-                controller.toggle!();
               },
             ),
             const Expanded(child: SizedBox()),
-            const LogoutButton(),
+            LogoutButton(
+              onTap: () {
+                sl<MainPageProvider>().updateIsOpen(false);
+                controller.toggle!();
+              },
+            ),
             const Expanded(child: SizedBox()),
           ],
         ),
