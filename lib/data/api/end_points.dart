@@ -8,8 +8,9 @@ class EndPoints {
       's7xrpFdw4G0F21rfLyD4TaBkjVJYgwGfI3y60OyRnjw9zOggruX30eToVWvs';
   static const String topic = 'live';
   static const String logIn = 'login';
-  static const String forgetPassword = 'email/verification';
-  static const String resetPassword = 'auth/reset-password';
+  static const String forgetPassword = 'resetPassword/email';
+  static const String checkMailForResetPassword = 'resetPassword/checkCode';
+  static const String resetPassword = 'resetPassword/newPassword';
   static changePassword(id) => 'client/$id';
   static const String register = 'client';
   static const String verifyEmail = 'check/verificationCode';

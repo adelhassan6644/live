@@ -110,11 +110,12 @@ class AuthRepo {
   }
 
   Future<Either<ServerFailure, Response>> reset(
-      {required String password}) async {
+      {required String password,required String email}) async {
     try {
       Response response =
           await dioClient.post(uri: EndPoints.resetPassword, data: {
-        "password": password,
+        "email": email,
+        "newPassword": password,
         // "fcm_token": await saveDeviceToken()
       });
 
@@ -195,10 +196,11 @@ class AuthRepo {
   Future<Either<ServerFailure, Response>> verifyMail(
       {required String mail,
       required String code,
+      required  bool fromRegister,
       bool updateHeader = false}) async {
     try {
       Response response = await dioClient.post(
-          uri: EndPoints.verifyEmail,
+          uri:fromRegister?EndPoints.verifyEmail : EndPoints.checkMailForResetPassword,
           data: {"code": code,"email":mail});
       if (response.statusCode == 200) {
         // if(updateHeader) {

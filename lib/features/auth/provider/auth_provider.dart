@@ -117,8 +117,8 @@ class AuthProvider extends ChangeNotifier {
     try {
       _isReset = true;
       notifyListeners();
-      Either<ServerFailure, Response> response =
-          await authRepo.reset(password: passwordTEC.text.trim());
+      Either<ServerFailure, Response> response = await authRepo.reset(
+          password: passwordTEC.text.trim(), email: mailTEC.text.trim());
       response.fold((fail) {
         CustomSnackBar.showSnackBar(
             notification: AppNotification(
@@ -275,6 +275,7 @@ class AuthProvider extends ChangeNotifier {
       Either<ServerFailure, Response> response = await authRepo.verifyMail(
           mail: mailTEC.text.trim(),
           code: codeTEC.text.trim(),
+          fromRegister: fromRegister,
           updateHeader: fromRegister);
       response.fold((fail) {
         CustomSnackBar.showSnackBar(
