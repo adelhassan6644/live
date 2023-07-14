@@ -42,9 +42,8 @@ class _RegisterState extends State<Register> {
         )),
         child: Column(
           children: [
-            SizedBox(
-              height: context.toPadding,
-            ),
+            customImageIcon(
+                imageName: Images.logo, height: 140, width: 160),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,

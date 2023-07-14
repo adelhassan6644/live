@@ -11,6 +11,7 @@ import 'dart:ui' as ui;
 import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_button.dart';
+import '../../../components/custom_images.dart';
 import '../../../components/custom_text_form_field.dart';
 import '../provider/auth_provider.dart';
 
@@ -38,7 +39,14 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         )),
         child: Column(
           children: [
-            const CustomAppBar(),
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                const CustomAppBar(),
+                customImageIcon(
+                    imageName: Images.logo, height: 140, width: 160),
+              ],
+            ),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,

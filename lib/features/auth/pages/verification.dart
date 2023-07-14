@@ -39,7 +39,14 @@ class _VerificationState extends State<Verification> {
         )),
         child: Column(
           children: [
-            const CustomAppBar(),
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                const CustomAppBar(),
+                customImageIcon(
+                    imageName: Images.logo, height: 140, width: 160),
+              ],
+            ),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
@@ -58,19 +65,24 @@ class _VerificationState extends State<Verification> {
                                 clipBehavior: Clip.antiAlias,
                                 borderRadius: BorderRadius.circular(25),
                                 child: BackdropFilter(
-                                  filter: ui.ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
+                                  filter: ui.ImageFilter.blur(
+                                      sigmaX: 0.0, sigmaY: 0.0),
                                   child: Container(
                                     padding: EdgeInsets.symmetric(
-                                        horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+                                        horizontal:
+                                            Dimensions.PADDING_SIZE_DEFAULT.w,
                                         vertical: 30.h),
                                     decoration: BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: BorderRadius.circular(25)),
+                                        borderRadius:
+                                            BorderRadius.circular(25)),
                                     child: Consumer<AuthProvider>(
                                         builder: (_, provider, child) {
                                       return Column(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Padding(
@@ -78,11 +90,14 @@ class _VerificationState extends State<Verification> {
                                               bottom: 24.h,
                                             ),
                                             child: Text(
-                                              getTranslated("verify_header", context),
+                                              getTranslated(
+                                                  "verify_header", context),
                                               textAlign: TextAlign.center,
-                                              style: AppTextStyles.semiBold.copyWith(
-                                                  fontSize: 22,
-                                                  color: ColorResources.HEADER),
+                                              style: AppTextStyles.semiBold
+                                                  .copyWith(
+                                                      fontSize: 22,
+                                                      color: ColorResources
+                                                          .HEADER),
                                             ),
                                           ),
                                           Form(
@@ -90,23 +105,33 @@ class _VerificationState extends State<Verification> {
                                               child: Column(
                                                 children: [
                                                   Padding(
-                                                    padding: EdgeInsets.symmetric(
-                                                     vertical: 12.h,
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                      vertical: 12.h,
                                                     ),
                                                     child: Directionality(
-                                                        textDirection: TextDirection.ltr,
-                                                        child: CustomPinCodeField(
-                                                            validation: Validations.code,
-                                                            controller: provider.codeTEC,
-                                                            onChanged: (v) {})),
+                                                        textDirection:
+                                                            TextDirection.ltr,
+                                                        child:
+                                                            CustomPinCodeField(
+                                                                validation:
+                                                                    Validations
+                                                                        .code,
+                                                                controller:
+                                                                    provider
+                                                                        .codeTEC,
+                                                                onChanged:
+                                                                    (v) {})),
                                                   ),
                                                   Row(
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.center,
+                                                        MainAxisAlignment
+                                                            .center,
                                                     children: [
                                                       CountDown(
                                                         onCount: () {
-                                                          provider.forgetPassword();
+                                                          provider
+                                                              .forgetPassword();
                                                         },
                                                       ),
                                                     ],
@@ -119,13 +144,15 @@ class _VerificationState extends State<Verification> {
                                                         text: getTranslated(
                                                             "confirm", context),
                                                         onTap: () {
-                                                          if (_formKey.currentState!
+                                                          if (_formKey
+                                                              .currentState!
                                                               .validate()) {
-                                                            provider.verify(
-                                                                widget.fromRegister);
+                                                            provider.verify(widget
+                                                                .fromRegister);
                                                           }
                                                         },
-                                                        isLoading: provider.isVerify),
+                                                        isLoading:
+                                                            provider.isVerify),
                                                   ),
                                                 ],
                                               )),

@@ -11,6 +11,7 @@ import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_app_bar.dart';
 import '../../../components/custom_button.dart';
+import '../../../components/custom_images.dart';
 import '../../../components/custom_text_form_field.dart';
 import '../../../navigation/custom_navigation.dart';
 import '../../../navigation/routes.dart';
@@ -41,7 +42,14 @@ class _LoginState extends State<Login> {
         )),
         child: Column(
           children: [
-            Visibility(visible: widget.fromMain, child: const CustomAppBar()),
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Visibility(visible: widget.fromMain, child: const CustomAppBar()),
+                customImageIcon(
+                    imageName: Images.logo, height: 140, width: 160),
+              ],
+            ),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
