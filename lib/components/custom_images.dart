@@ -67,6 +67,7 @@ Widget customContainerSvgIcon(
     {required String imageName,
     Function? onTap,
     color,
+      imageColor,
     bool withShadow = false,
     double? width,
     double? height,
@@ -93,6 +94,7 @@ Widget customContainerSvgIcon(
           borderRadius: BorderRadius.circular(radius ?? 12)),
       child: SvgPicture.asset(
         imageName,
+        color: imageColor,
       ),
     ),
   );

@@ -127,25 +127,93 @@ class PlaceDetailsWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "وصف",
-                  style: AppTextStyles.light.copyWith(
-                    fontSize: 16,
-                    color: const Color(0xFF656565),
-                  ),
-                ),
-                SizedBox(
-                  height: 4.w,
-                ),
-                Text(
-                  placeItem.description ?? "",
-                  style: AppTextStyles.medium.copyWith(
-                    fontSize: 16,
-                    overflow: TextOverflow.ellipsis,
-                    color: ColorResources.DETAILS_COLOR,
-                  ),
-                  maxLines: 10,
-                ),
+                Visibility(
+                    visible: placeItem.description != null,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "وصف",
+                          style: AppTextStyles.light.copyWith(
+                            fontSize: 16,
+                            color: const Color(0xFF656565),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 4.w,
+                        ),
+                        Text(
+                          placeItem.description ?? "",
+                          style: AppTextStyles.medium.copyWith(
+                            fontSize: 16,
+                            overflow: TextOverflow.ellipsis,
+                            color: ColorResources.DETAILS_COLOR,
+                          ),
+                          maxLines: 10,
+                        ),
+                        SizedBox(
+                          height: 4.w,
+                        ),
+                      ],
+                    )),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    customContainerSvgIcon(
+                        imageName: SvgImages.faceBook,
+                        imageColor: ColorResources.HEADER,
+                        height: 45.0,
+                        width: 45.0,
+                        radius: 100,
+                        withShadow: true,
+                        color: ColorResources.WHITE_COLOR),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    customContainerSvgIcon(
+                        imageName: SvgImages.instagram,
+                        imageColor: ColorResources.HEADER,
+                        height: 45.0,
+                        width: 45.0,
+                        radius: 100,
+                        withShadow: true,
+                        color: ColorResources.WHITE_COLOR),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    customContainerSvgIcon(
+                        imageName: SvgImages.twitter,
+                        imageColor: ColorResources.HEADER,
+                        height: 45.0,
+                        width: 45.0,
+                        radius: 100,
+                        withShadow: true,
+                        color: ColorResources.WHITE_COLOR),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    customContainerSvgIcon(
+                        imageName: SvgImages.tiktok,
+                        imageColor: ColorResources.HEADER,
+                        height: 45.0,
+                        width: 45.0,
+                        radius: 100,
+                        withShadow: true,
+                        color: ColorResources.WHITE_COLOR),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    customContainerSvgIcon(
+                        imageName: SvgImages.whatsApp,
+                        imageColor: ColorResources.HEADER,
+                        height: 45.0,
+                        width: 45.0,
+                        radius: 100,
+                        withShadow: true,
+                        color: ColorResources.WHITE_COLOR),
+                  ],
+                )
               ],
             ),
           ),
