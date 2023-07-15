@@ -13,6 +13,7 @@ class EndPoints {
   static const String resetPassword = 'resetPassword/newPassword';
   static changePassword(id) => 'client/$id';
   static const String register = 'client';
+  static const String resend = 'email/verification';
   static const String verifyEmail = 'check/verificationCode';
   static getProfile(id) => 'client/$id';
   static updateProfile(id) => 'client/$id';

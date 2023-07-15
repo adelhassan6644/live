@@ -229,6 +229,14 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
+  resend(fromRegister) async {
+    await authRepo.resendCode(
+      mail: mailTEC.text.trim(),
+      fromRegister: fromRegister,
+    );
+  }
+
+
   bool _isForget = false;
   bool get isForget => _isForget;
 

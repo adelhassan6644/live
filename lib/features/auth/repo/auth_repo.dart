@@ -110,7 +110,7 @@ class AuthRepo {
   }
 
   Future<Either<ServerFailure, Response>> reset(
-      {required String password,required String email}) async {
+      {required String password, required String email}) async {
     try {
       Response response =
           await dioClient.post(uri: EndPoints.resetPassword, data: {
@@ -193,15 +193,36 @@ class AuthRepo {
     }
   }
 
+  Future<Either<ServerFailure, Response>> resendCode(
+      {required String mail, required bool fromRegister}) async {
+    try {
+      Response response = await dioClient.post(
+          uri: fromRegister ? EndPoints.resend : EndPoints.forgetPassword,
+          data: {
+            "email": mail,
+          });
+
+      if (response.statusCode == 200) {
+        return Right(response);
+      } else {
+        return left(ServerFailure(response.data['message']));
+      }
+    } catch (error) {
+      return left(ServerFailure(ApiErrorHandler.getMessage(error)));
+    }
+  }
+
   Future<Either<ServerFailure, Response>> verifyMail(
       {required String mail,
       required String code,
-      required  bool fromRegister,
+      required bool fromRegister,
       bool updateHeader = false}) async {
     try {
       Response response = await dioClient.post(
-          uri:fromRegister?EndPoints.verifyEmail : EndPoints.checkMailForResetPassword,
-          data: {"code": code,"email":mail});
+          uri: fromRegister
+              ? EndPoints.verifyEmail
+              : EndPoints.checkMailForResetPassword,
+          data: {"code": code, "email": mail});
       if (response.statusCode == 200) {
         // if(updateHeader) {
         //   dioClient.updateHeader(token: response.data['data']["api_token"]);

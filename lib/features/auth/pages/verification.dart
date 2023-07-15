@@ -129,10 +129,7 @@ class _VerificationState extends State<Verification> {
                                                             .center,
                                                     children: [
                                                       CountDown(
-                                                        onCount: () {
-                                                          provider
-                                                              .forgetPassword();
-                                                        },
+                                                        onCount: ()=> provider.resend(widget.fromRegister),
                                                       ),
                                                     ],
                                                   ),
