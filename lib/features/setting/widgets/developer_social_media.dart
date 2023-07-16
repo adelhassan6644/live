@@ -5,6 +5,7 @@ import 'package:live/app/core/utils/svg_images.dart';
 import 'package:live/components/custom_images.dart';
 import 'package:live/components/shimmer/custom_shimmer.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../provider/setting_provider.dart';
 
@@ -44,7 +45,11 @@ class DeveloperSocialMedia extends StatelessWidget {
                       width: 50.0,
                       radius: 100,
                       withShadow: true,
-                      color: ColorResources.WHITE_COLOR),
+                      color: ColorResources.WHITE_COLOR,
+                      onTap: () async {
+                        await launch(
+                            'fb://facewebmodal/f?href=https://${provider.model?.data?.facebook ?? ""}');
+                      }),
                   const SizedBox(
                     width: 16,
                   ),
@@ -54,7 +59,11 @@ class DeveloperSocialMedia extends StatelessWidget {
                       width: 50.0,
                       radius: 100,
                       withShadow: true,
-                      color: ColorResources.WHITE_COLOR),
+                      color: ColorResources.WHITE_COLOR,
+                      onTap: () async {
+                        await launch(
+                            'in://${provider.model?.data?.instagram ?? ""}');
+                      }),
                   const SizedBox(
                     width: 16,
                   ),
@@ -64,7 +73,11 @@ class DeveloperSocialMedia extends StatelessWidget {
                       width: 50.0,
                       radius: 100,
                       withShadow: true,
-                      color: ColorResources.WHITE_COLOR),
+                      color: ColorResources.WHITE_COLOR,
+                      onTap: () async {
+                        await launch(
+                            "whatsapp://send?phone=${provider.model?.data?.twitter ?? ""}");
+                      }),
                   const SizedBox(
                     width: 16,
                   ),

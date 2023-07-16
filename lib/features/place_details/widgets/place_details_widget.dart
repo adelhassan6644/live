@@ -167,7 +167,10 @@ class PlaceDetailsWidget extends StatelessWidget {
                         width: 42.0,
                         radius: 100,
                         withShadow: true,
-                        color: ColorResources.WHITE_COLOR),
+                        color: ColorResources.WHITE_COLOR,
+                        onTap: () async {
+                          await launch('fb://facewebmodal/f?href=https://${placeItem.facebook!}');
+                        }),
                     const SizedBox(
                       width: 16,
                     ),
@@ -178,7 +181,10 @@ class PlaceDetailsWidget extends StatelessWidget {
                         width: 42.0,
                         radius: 100,
                         withShadow: true,
-                        color: ColorResources.WHITE_COLOR),
+                        color: ColorResources.WHITE_COLOR,
+                        onTap: () async {
+                          await launch('in://${placeItem.instagram!}');
+                        }),
                     const SizedBox(
                       width: 16,
                     ),
@@ -189,7 +195,10 @@ class PlaceDetailsWidget extends StatelessWidget {
                         width: 42.0,
                         radius: 100,
                         withShadow: true,
-                        color: ColorResources.WHITE_COLOR),
+                        color: ColorResources.WHITE_COLOR,
+                        onTap: () async {
+                          await launch('tw://${placeItem.twitter!}');
+                        }),
                     const SizedBox(
                       width: 16,
                     ),
@@ -211,7 +220,11 @@ class PlaceDetailsWidget extends StatelessWidget {
                         width: 42.0,
                         radius: 100,
                         withShadow: true,
-                        color: ColorResources.WHITE_COLOR),
+                        color: ColorResources.WHITE_COLOR,
+                        onTap: () async {
+                          await launch(
+                              "whatsapp://send?phone=${placeItem.whatsapp}");
+                        }),
                   ],
                 )
               ],

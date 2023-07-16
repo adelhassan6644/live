@@ -39,6 +39,11 @@ class PlaceItem {
   int? categoryId;
   List<String>? images;
   String? image;
+  String? twitter;
+  String? whatsapp;
+  String? instagram;
+  String? tiktok;
+  String? facebook;
   String? createdAt;
   String? updatedAt;
 
@@ -57,6 +62,11 @@ class PlaceItem {
       this.categoryId,
       this.image,
       this.images,
+      this.twitter,
+      this.whatsapp,
+      this.instagram,
+      this.tiktok,
+      this.facebook,
       this.createdAt,
       this.updatedAt});
 
@@ -74,7 +84,12 @@ class PlaceItem {
     agentId = json['agent_id'];
     categoryId = json['category_id'];
     image = json['image'];
-    images =json['images'] != null?  json['images'].cast<String>():[];
+    images = json['images'] != null ? json['images'].cast<String>() : [];
+    twitter = json['twitter'];
+    whatsapp = json['whatsapp'];
+    instagram = json['instagram'];
+    tiktok = json['tiktok'];
+    facebook = json['facebook'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
@@ -94,6 +109,11 @@ class PlaceItem {
     data['category_id'] = categoryId;
     data['image'] = image;
     data['image'] = images;
+    data['twitter'] = twitter;
+    data['whatsapp'] = whatsapp;
+    data['instagram'] = instagram;
+    data['tiktok'] = tiktok;
+    data['facebook'] = facebook;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
     return data;
