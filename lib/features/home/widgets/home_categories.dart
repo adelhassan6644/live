@@ -10,6 +10,8 @@ import 'package:live/navigation/custom_navigation.dart';
 import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
 
+import '../../../data/api/end_points.dart';
+
 class HomeCategories extends StatelessWidget {
   const HomeCategories({Key? key}) : super(key: key);
 
@@ -109,7 +111,7 @@ class _CategoryItem extends StatelessWidget {
         children: [
           CustomNetworkImage.circleNewWorkImage(
             radius: 27.5,
-            padding: 12,
+            padding: 10,
             backGroundColor: color?.toColor,
             image: image,
           ),

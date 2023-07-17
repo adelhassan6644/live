@@ -46,8 +46,10 @@ class _LoginState extends State<Login> {
               alignment: Alignment.topCenter,
               children: [
                 Visibility(visible: widget.fromMain, child: const CustomAppBar()),
-                customImageIcon(
-                    imageName: Images.logo, height: 140, width: 160),
+                SafeArea(
+                  child: customImageIcon(
+                      imageName: Images.logo, height: 140, width: 160),
+                ),
               ],
             ),
             Expanded(

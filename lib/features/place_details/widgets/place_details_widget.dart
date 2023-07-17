@@ -169,7 +169,8 @@ class PlaceDetailsWidget extends StatelessWidget {
                         withShadow: true,
                         color: ColorResources.WHITE_COLOR,
                         onTap: () async {
-                          await launch('fb://facewebmodal/f?href=https://${placeItem.facebook!}');
+                          await launch(
+                              'fb://facewebmodal/f?href=https://${placeItem.facebook!}');
                         }),
                     const SizedBox(
                       width: 16,
@@ -209,6 +210,10 @@ class PlaceDetailsWidget extends StatelessWidget {
                         width: 42.0,
                         radius: 100,
                         withShadow: true,
+                        onTap: () async {
+                          launchUrl(Uri.parse(placeItem.tiktok!),
+                              mode: LaunchMode.externalApplication);
+                        },
                         color: ColorResources.WHITE_COLOR),
                     const SizedBox(
                       width: 16,
