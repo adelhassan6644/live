@@ -6,9 +6,11 @@ import 'package:provider/provider.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../app/core/utils/svg_images.dart';
 import '../../components/custom_images.dart';
+import '../../data/config/di.dart';
 import '../../data/network/netwok_info.dart';
 import '../../features/favourite/page/favourites.dart';
 import '../../features/home/page/home.dart';
+import '../../features/home/provider/home_provider.dart';
 import '../../features/maps/page/map_page.dart';
 import '../widget/nav_bar.dart';
 
@@ -22,7 +24,13 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   @override
   void initState() {
-    NetworkInfo.checkConnectivity();
+    NetworkInfo.checkConnectivity(onVisible: (){
+      sl<HomeProvider>().getBanners();
+      sl<HomeProvider>().getPlaces();
+      sl<HomeProvider>().getCategories();
+      sl<HomeProvider>().getOffers();
+      sl<HomeProvider>().getNews();
+    });
     super.initState();
   }
 
