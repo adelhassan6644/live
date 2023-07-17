@@ -148,11 +148,11 @@ class HomeProvider extends ChangeNotifier {
     }
   }
 
-  bool show = false;
-  showAllNews() {
-    show = true;
-    notifyListeners();
-  }
+  // bool show = false;
+  // showAllNews() {
+  //   show = true;
+  //   notifyListeners();
+  // }
 
   NewsModel? newsModel;
   bool isExploring = false;

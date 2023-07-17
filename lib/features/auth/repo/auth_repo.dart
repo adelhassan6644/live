@@ -110,13 +110,14 @@ class AuthRepo {
   }
 
   Future<Either<ServerFailure, Response>> reset(
-      {required String password}) async {
+      {required String password, required String email}) async {
     try {
-      Response response = await dioClient.post(
-          uri: EndPoints.resetPassword,
-          data: {"password": password,
-            // "fcm_token": await saveDeviceToken()
-          });
+      Response response =
+          await dioClient.post(uri: EndPoints.resetPassword, data: {
+        "email": email,
+        "newPassword": password,
+        // "fcm_token": await saveDeviceToken()
+      });
 
       if (response.statusCode == 200) {
         return Right(response);
@@ -132,8 +133,10 @@ class AuthRepo {
       {required String password}) async {
     try {
       Response response = await dioClient.post(
-          uri: EndPoints.changePassword,
-          data: {"password": password,
+          uri: EndPoints.changePassword(
+              sharedPreferences.getString(AppStorageKey.userId)),
+          data: {
+            "password": password,
             // "fcm_token": await saveDeviceToken()
           });
 
@@ -150,11 +153,11 @@ class AuthRepo {
   Future<Either<ServerFailure, Response>> forgetPassword(
       {required String mail}) async {
     try {
-      Response response = await dioClient.post(
-          uri: EndPoints.forgetPassword,
-          data: {"email": mail,
-            // "fcm_token": await saveDeviceToken()
-          });
+      Response response =
+          await dioClient.post(uri: EndPoints.forgetPassword, data: {
+        "email": mail,
+        // "fcm_token": await saveDeviceToken()
+      });
 
       if (response.statusCode == 200) {
         return Right(response);
@@ -190,14 +193,36 @@ class AuthRepo {
     }
   }
 
-  Future<Either<ServerFailure, Response>> verifyMail({
-    required String mail,
-    required String code,
-    bool updateHeader=false
-  }) async {
+  Future<Either<ServerFailure, Response>> resendCode(
+      {required String mail, required bool fromRegister}) async {
     try {
-      Response response = await dioClient
-          .post(uri: EndPoints.verifyEmail(sharedPreferences.getString(AppStorageKey.userId)), data: {"otp": code});
+      Response response = await dioClient.post(
+          uri: fromRegister ? EndPoints.resend : EndPoints.forgetPassword,
+          data: {
+            "email": mail,
+          });
+
+      if (response.statusCode == 200) {
+        return Right(response);
+      } else {
+        return left(ServerFailure(response.data['message']));
+      }
+    } catch (error) {
+      return left(ServerFailure(ApiErrorHandler.getMessage(error)));
+    }
+  }
+
+  Future<Either<ServerFailure, Response>> verifyMail(
+      {required String mail,
+      required String code,
+      required bool fromRegister,
+      bool updateHeader = false}) async {
+    try {
+      Response response = await dioClient.post(
+          uri: fromRegister
+              ? EndPoints.verifyEmail
+              : EndPoints.checkMailForResetPassword,
+          data: {"code": code, "email": mail});
       if (response.statusCode == 200) {
         // if(updateHeader) {
         //   dioClient.updateHeader(token: response.data['data']["api_token"]);

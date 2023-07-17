@@ -2,56 +2,76 @@ import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/svg_images.dart';
 import 'package:live/app/localization/localization/language_constant.dart';
+import 'package:live/navigation/custom_navigation.dart';
+import 'package:live/navigation/routes.dart';
+import 'package:provider/provider.dart';
 
 import '../../../app/core/utils/text_styles.dart';
 import '../../../components/custom_images.dart';
-import '../../../data/config/di.dart';
-import '../../../main_page/provider/main_page_provider.dart';
 import '../../auth/provider/auth_provider.dart';
 
 class LogoutButton extends StatelessWidget {
-  const LogoutButton({Key? key}) : super(key: key);
+  final Function() onTap;
+  const LogoutButton({Key? key, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          color: ColorResources.WHITE_COLOR),
-      child: InkWell(
-        onTap: () {
-          sl<AuthProvider>().logOut();
-          sl<MainPageProvider>().updateIsOpen(false);
-        },
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            customImageIconSVG(
-                imageName: SvgImages.logout,
-                height: 20,
-                width: 20,
-                color: ColorResources.ERORR_COLOR),
-            const SizedBox(
-              width: 16,
-            ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(getTranslated("logout", context),
-                        maxLines: 1,
-                        style: AppTextStyles.medium.copyWith(
-                            fontSize: 18,
-                            overflow: TextOverflow.ellipsis,
-                            color: ColorResources.ERORR_COLOR)),
-                  ),
-                ],
+    return Consumer<AuthProvider>(builder: (_, provider, child) {
+      return Container(
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  spreadRadius: 2,
+                  blurRadius: 10)
+            ],
+            borderRadius: BorderRadius.circular(100),
+            color: ColorResources.WHITE_COLOR),
+        child: InkWell(
+          onTap: () {
+            onTap();
+            if (provider.isLogin) {
+              provider.logOut();
+            } else {
+              CustomNavigator.push(Routes.LOGIN, arguments: true);
+            }
+          },
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              customImageIconSVG(
+                  imageName: SvgImages.logout,
+                  height: 20,
+                  width: 20,
+                  color: provider.isLogin
+                      ? ColorResources.ERORR_COLOR
+                      : ColorResources.ACTIVE),
+              const SizedBox(
+                width: 16,
               ),
-            )
-          ],
+              Expanded(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                          getTranslated(
+                              provider.isLogin ? "logout" : "login", context),
+                          maxLines: 1,
+                          style: AppTextStyles.medium.copyWith(
+                              fontSize: 18,
+                              overflow: TextOverflow.ellipsis,
+                              color: provider.isLogin
+                                  ? ColorResources.ERORR_COLOR
+                                  : ColorResources.ACTIVE)),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

@@ -33,7 +33,7 @@ class _DashBoardState extends State<DashBoard> {
       case 1:
         return const Profile();
       case 2:
-        return MapPage();
+        return const MapPage();
       case 3:
         return const Favourites();
       default:

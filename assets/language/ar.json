@@ -1,11 +1,13 @@
 {
-  "login_header" : "تسعدنا عودتك مجددا",
+  "login_header" : "هلا بك في الحمدانية",
+  "login_description" : "إذا كنت جديد في الحي, خلنا نعرفك علية",
   "forget_password_header" : "نسيت كلمة المرور",
   "on_boarding_header" : "دليلك أصبح في جوالك",
   "on_boarding_description" : "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص",
   "reset_password_header" : "إعادة تعيين كلمة المرور",
   "change_password_header" : "تغيير كلمة المرور",
-  "signup_header" : "تسعدنا خدمتك",
+  "signup_header" : "هلا بك في الحمدانية",
+  "signup_description" : "إذا كنت جديد في الحي, خلنا نعرفك علية",
   "welcome_description": "اكمل بياناتك حتى تكون نسب توافق مشوارك\nاليومي مع الكباتن دقيقة!",
   "mail": "البريد الإلكتروني",
   "change_password": "تغير كلمة المرور",
@@ -45,7 +47,7 @@
   "your_logged_out_successfully": "تم تسجيل الخروج بنجاح",
   "don't_get_the_code": "لم تحصل علي الرمز؟",
   "browse": "تصفح ",
-  "as_a_guest": "كضيف",
+  "login_as_a_guest": "التسجيل لاحقا",
   "submit": "إرسال",
   "confirm": "تأكيد",
   "verify_the_mail": "التحقق من البريد الإلكتروني",
@@ -73,5 +75,7 @@
   "about_us": "نبذة عنا",
   "terms_conditions": "الشروط والاحكام",
   "share": "مشاركة",
-  "location": "الموقع"
+  "location": "الموقع",
+  "register_with_us": "سجل معنا",
+  "and_enjoy_all_the_features_available_in_the_application": "واستمتع بجميع الميزات المتوفرة في التطبيق"
 }

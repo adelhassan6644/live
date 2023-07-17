@@ -55,9 +55,9 @@ class _CountDownState extends State<CountDown> {
           },
           child: Text(
             getTranslated("resend_code", context),
-            style: AppTextStyles.regular.copyWith(
+            style: AppTextStyles.medium.copyWith(
               color: _count == 0
-                  ? ColorResources.WHITE_COLOR
+                  ? ColorResources.HEADER
                   : ColorResources.DISABLED,
               fontSize: 14,
             ),

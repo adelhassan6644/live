@@ -20,13 +20,14 @@ abstract class ColorResources {
   static const Color PROGRASS_BACKGROUND = Color(0xffE7E7E7);
   static const Color DISABLED = Color(0xFF969696);
   static const Color WHITE_COLOR = Color(0xFFFFFFFF);
+  static const Color SMOKED_WHITE_COLOR = Color(0xFFFAFAFA);
   static const Color OFFER_COLOR = Color(0xff22BB55);
   static const Color LOGOUT_COLOR = Color(0xffDF4759);
   static const Color GREEN = Color(0xff34C759);
   static const Color GREY_BORDER = Color(0xFFF5F5F5);
   static const Color LIGHT_BORDER_COLOR = Color(0xffE8ECF4);
   static const Color ALERT_COLOR = Color(0xffDBAB02);
-  static const Color FAILED_COLOR = Colors.black;
+  static const Color FAILED_COLOR = Colors.red;
   static const Color ERORR_COLOR = Color(0xFFFF4F65);
   static const Color RED_COLOR = Color(0xffFF3B30);
    static const Color HEADER = Color(0xFF530B8B);

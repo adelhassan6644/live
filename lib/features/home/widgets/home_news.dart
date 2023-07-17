@@ -10,6 +10,8 @@ import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../components/custom_network_image.dart';
 import '../../../components/empty_widget.dart';
+import '../../../navigation/custom_navigation.dart';
+import '../../../navigation/routes.dart';
 
 class HomeNews extends StatelessWidget {
   const HomeNews({
@@ -42,7 +44,7 @@ class HomeNews extends StatelessWidget {
                       provider.newsModel!.news!.isNotEmpty
                   ? Column(
                       children: List.generate(
-                          provider.show ? provider.newsModel?.news?.length ?? 0 : 1,
+                          provider.newsModel?.news?.length != 0 ? 1 : 0,
                           (index) => Padding(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
@@ -116,7 +118,8 @@ class HomeNews extends StatelessWidget {
                                                   style: AppTextStyles.medium
                                                       .copyWith(
                                                           fontSize: 16,
-                                                          overflow: TextOverflow.ellipsis,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
                                                           color: ColorResources
                                                               .TITLE),
                                                 ),
@@ -141,13 +144,14 @@ class HomeNews extends StatelessWidget {
                                       ),
                                     ),
                                     Visibility(
-                                      visible: !provider.show,
+                                      // visible: !provider.show,
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         hoverColor: Colors.transparent,
                                         focusColor: Colors.transparent,
-                                        onTap: () => provider.showAllNews(),
+                                        onTap: () =>
+                                            CustomNavigator.push(Routes.NEWS),
                                         child: Row(
                                           children: [
                                             const Expanded(child: SizedBox()),

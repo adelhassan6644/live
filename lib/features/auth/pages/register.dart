@@ -42,11 +42,11 @@ class _RegisterState extends State<Register> {
         )),
         child: Column(
           children: [
-            SizedBox(
-              height: context.toPadding,
-            ),
+            customImageIcon(
+                imageName: Images.logo, height: 140, width: 160),
             Expanded(
-              child: Center(
+              child: Align(
+                alignment: Alignment.bottomCenter,
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
@@ -54,20 +54,20 @@ class _RegisterState extends State<Register> {
                         alignment: Alignment.topCenter,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(top: 75.h),
+                            padding: EdgeInsets.only(top: 0.h),
                             child: ClipRRect(
                               clipBehavior: Clip.antiAlias,
                               borderRadius: BorderRadius.circular(25),
                               child: BackdropFilter(
                                 filter: ui.ImageFilter.blur(
-                                    sigmaX: 5.0, sigmaY: 5.0),
+                                    sigmaX: 0.0, sigmaY: 0.0),
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
                                       horizontal:
                                           Dimensions.PADDING_SIZE_DEFAULT.w,
                                       vertical: 30.h),
                                   decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.1),
+                                      color: Colors.white,
                                       borderRadius: BorderRadius.circular(25)),
                                   child: Consumer<AuthProvider>(
                                       builder: (_, provider, child) {
@@ -78,17 +78,27 @@ class _RegisterState extends State<Register> {
                                           MainAxisAlignment.center,
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
+                                        Text(
+                                          getTranslated(
+                                              "signup_header", context),
+                                          textAlign: TextAlign.center,
+                                          style: AppTextStyles.semiBold
+                                              .copyWith(
+                                                  fontSize: 28,
+                                                  color: ColorResources.HEADER),
+                                        ),
                                         Padding(
-                                          padding: EdgeInsets.fromLTRB(
-                                              0, 30.h, 0, 24.h),
+                                          padding:
+                                              EdgeInsets.only(bottom: 24.h),
                                           child: Text(
                                             getTranslated(
-                                                "signup_header", context),
+                                                "signup_description", context),
                                             textAlign: TextAlign.center,
-                                            style: AppTextStyles.semiBold.copyWith(
-                                                fontSize: 28,
-                                                color:
-                                                    ColorResources.WHITE_COLOR),
+                                            style: AppTextStyles.medium
+                                                .copyWith(
+                                                    fontSize: 14,
+                                                    color: ColorResources
+                                                        .HINT_COLOR),
                                           ),
                                         ),
                                         Form(
@@ -161,14 +171,18 @@ class _RegisterState extends State<Register> {
                                                         getTranslated(
                                                             "have_acc",
                                                             context),
-                                                        textAlign: TextAlign.end,
-                                                        style: AppTextStyles.medium.copyWith(
-                                                            color: ColorResources
-                                                                .TITLE,
-                                                            fontSize: 16,
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis),
+                                                        textAlign:
+                                                            TextAlign.end,
+                                                        style: AppTextStyles
+                                                            .medium
+                                                            .copyWith(
+                                                                color:
+                                                                    ColorResources
+                                                                        .TITLE,
+                                                                fontSize: 16,
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis),
                                                       ),
                                                     ),
                                                     Expanded(
@@ -186,18 +200,44 @@ class _RegisterState extends State<Register> {
                                                           style: AppTextStyles
                                                               .medium
                                                               .copyWith(
-                                                            color: ColorResources
-                                                                .WHITE_COLOR,
-                                                            overflow: TextOverflow.ellipsis,
+                                                            color:
+                                                                ColorResources
+                                                                    .HEADER,
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
                                                             fontSize: 16,
                                                             decorationColor:
                                                                 ColorResources
-                                                                    .WHITE_COLOR,
+                                                                    .HEADER,
                                                           ),
                                                         ),
                                                       ),
                                                     ),
                                                   ],
+                                                ),
+                                                InkWell(
+                                                  onTap: () {
+                                                    CustomNavigator.push(
+                                                        Routes.MAIN_PAGE);
+                                                  },
+                                                  child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 12.h),
+                                                    child: Text(
+                                                      getTranslated(
+                                                          "login_as_a_guest",
+                                                          context),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: AppTextStyles
+                                                          .semiBold
+                                                          .copyWith(
+                                                              fontSize: 14,
+                                                              color: ColorResources
+                                                                  .HINT_COLOR),
+                                                    ),
+                                                  ),
                                                 ),
                                               ],
                                             )),
@@ -208,12 +248,12 @@ class _RegisterState extends State<Register> {
                               ),
                             ),
                           ),
-                          customImageIcon(
-                              imageName: Images.logo, height: 140, width: 160),
+                          // customImageIcon(
+                          //     imageName: Images.logo, height: 140, width: 160),
                         ],
                       ),
                       SizedBox(
-                        height: context.toPadding,
+                        height: Dimensions.PADDING_SIZE_DEFAULT.h,
                       ),
                     ],
                   ),

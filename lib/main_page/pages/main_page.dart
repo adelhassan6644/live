@@ -25,7 +25,7 @@ class _MainPageState extends State<MainPage> {
         top: false,
         child: Container(
           decoration: const BoxDecoration(
-            color: ColorResources.SPLASH_BACKGROUND_COLOR,
+            color: ColorResources.WHITE_COLOR,
           ),
           child: Stack(
             alignment: Alignment.topLeft,
@@ -38,10 +38,11 @@ class _MainPageState extends State<MainPage> {
                   isRtl: true,
                   showShadow: true,
                   angle: 0.0,
+                  shadowLayer1Color: Colors.black.withOpacity(0.1),
                   shadowLayer2Color: Colors.transparent,
                   borderRadius: 24,
                   slideWidth: context.width * (0.75),
-                  menuBackgroundColor: ColorResources.SPLASH_BACKGROUND_COLOR,
+                  menuBackgroundColor: ColorResources.WHITE_COLOR,
                   controller: _drawerController,
                   menuScreen: More(controller: _drawerController),
                   mainScreen: DashBoard(controller: _drawerController),
@@ -66,7 +67,7 @@ class _MainPageState extends State<MainPage> {
                         Dimensions.PADDING_SIZE_DEFAULT),
                     icon: const Icon(
                       Icons.close,
-                      color: ColorResources.WHITE_COLOR,
+                      color: ColorResources.SPLASH_BACKGROUND_COLOR,
                       size: 24,
                     ),
                   ),

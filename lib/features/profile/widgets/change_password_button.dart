@@ -33,7 +33,7 @@ class ChangePasswordButton extends StatelessWidget {
               imageName: SvgImages.lockIcon,
               height: 20,
               width: 20,
-              color: ColorResources.SECOUND_PRIMARY_COLOR,
+              color: ColorResources.HEADER,
             ),
             const SizedBox(
               width: 16,
@@ -47,12 +47,12 @@ class ChangePasswordButton extends StatelessWidget {
                         style: AppTextStyles.regular.copyWith(
                             fontSize: 18,
                             overflow: TextOverflow.ellipsis,
-                            color: ColorResources.SECOUND_PRIMARY_COLOR)),
+                            color: ColorResources.HEADER)),
                   ),
                   const Icon(
                     Icons.arrow_forward_ios_rounded,
                     size: 18,
-                    color: ColorResources.SECOUND_PRIMARY_COLOR,
+                    color: ColorResources.HEADER,
                   )
                 ],
               ),

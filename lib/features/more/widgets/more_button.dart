@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../../app/core/utils/text_styles.dart';
 import '../../../components/custom_images.dart';
-import '../../../data/config/di.dart';
-import '../../../main_page/provider/main_page_provider.dart';
 
 class MoreButton extends StatelessWidget {
   const MoreButton(
@@ -21,7 +19,6 @@ class MoreButton extends StatelessWidget {
           if (onTap != null) {
             onTap!();
           }
-          sl<MainPageProvider>().updateIsOpen(false);
         },
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,7 +27,7 @@ class MoreButton extends StatelessWidget {
                 imageName: icon,
                 height: 20,
                 width: 20,
-                color: ColorResources.WHITE_COLOR),
+                color: ColorResources.SPLASH_BACKGROUND_COLOR),
             const SizedBox(
               width: 16,
             ),
@@ -40,10 +37,10 @@ class MoreButton extends StatelessWidget {
                   Expanded(
                     child: Text(title,
                         maxLines: 1,
-                        style: AppTextStyles.regular.copyWith(
+                        style: AppTextStyles.medium.copyWith(
                             fontSize: 18,
                             overflow: TextOverflow.ellipsis,
-                            color: ColorResources.WHITE_COLOR)),
+                            color: ColorResources.SPLASH_BACKGROUND_COLOR)),
                   ),
                 ],
               ),
