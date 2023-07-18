@@ -78,18 +78,16 @@ class AuthProvider extends ChangeNotifier {
         } else {
           authRepo.forget();
         }
-        if (success.data['data']["email_verification_code"] != null) {
+        if (success.data['data']["email_verified_at"] != null) {
           authRepo.saveUserId(success.data['data']["id"]);
           authRepo.saveUserToken(success.data['data']["api_token"]);
           authRepo.setLoggedIn();
           Provider.of<ProfileProvider>(
                   CustomNavigator.navigatorState.currentContext!,
-                  listen: false)
-              .getProfile();
+                  listen: false).getProfile();
           Provider.of<FavouriteProvider>(
                   CustomNavigator.navigatorState.currentContext!,
-                  listen: false)
-              .getFavourites();
+                  listen: false).getFavourites();
           CustomNavigator.push(Routes.MAIN_PAGE, clean: true);
           clear();
         } else {
@@ -299,10 +297,7 @@ class AuthProvider extends ChangeNotifier {
                   CustomNavigator.navigatorState.currentContext!,
                   listen: false)
               .getProfile();
-          Provider.of<FavouriteProvider>(
-                  CustomNavigator.navigatorState.currentContext!,
-                  listen: false)
-              .getFavourites();
+          Provider.of<FavouriteProvider>(CustomNavigator.navigatorState.currentContext!, listen: false).getFavourites();
           authRepo.saveUserId(success.data['data']["id"]);
           authRepo.saveUserToken(success.data['data']["api_token"]);
           authRepo.setLoggedIn();
@@ -310,7 +305,8 @@ class AuthProvider extends ChangeNotifier {
             Routes.MAIN_PAGE,
             clean: true,
           );
-        } else {
+        }
+        else {
           CustomNavigator.push(
             Routes.RESET_PASSWORD,
             replace: true,
