@@ -87,7 +87,7 @@ class LocationProvider extends ChangeNotifier {
   }
 
   getLocation(
-    bool fromAddress, {required GoogleMapController mapController,}) async {
+    bool fromAddress, {required GoogleMapController mapController}) async {
     isLoading = true;
     notifyListeners();
       await Geolocator.requestPermission();

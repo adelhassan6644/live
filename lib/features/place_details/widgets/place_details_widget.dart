@@ -273,7 +273,7 @@ class PlaceDetailsWidgetShimmer extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 4.h),
-            child: const Row(
+            child:  Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomShimmerContainer(
