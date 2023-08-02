@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/dimensions.dart';
+import 'package:live/components/empty_widget.dart';
 import 'package:live/main_widgets/place_card.dart';
 import 'package:provider/provider.dart';
 
+import '../../../app/core/utils/color_resources.dart';
 import '../../../components/shimmer/custom_shimmer.dart';
 import '../provider/location_provider.dart';
 
@@ -62,7 +64,14 @@ class MapPlaces extends StatelessWidget {
             ],
           ),
         )
-            : const SizedBox();
+            : Container(
+          margin: EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT.w*2,vertical:
+          Dimensions.PADDING_SIZE_DEFAULT.h*2),
+            decoration: BoxDecoration(
+              color: ColorResources.WHITE_COLOR,
+              borderRadius: BorderRadius.circular(16)
+            ),
+            child: const EmptyState(emptyHeight: 220,txt: "لا يوجد اماكن قريبة منك",));
       }),
     );
   }

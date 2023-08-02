@@ -10,6 +10,7 @@ import '../../../app/core/utils/svg_images.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../data/config/di.dart';
 import '../../../main_page/provider/main_page_provider.dart';
+import '../../../main_widgets/software_copyRight.dart';
 import '../widgets/more_button.dart';
 import '../widgets/profile_card.dart';
 
@@ -63,6 +64,7 @@ class More extends StatelessWidget {
               title: getTranslated("contact_with_us", context),
               icon: SvgImages.mailIcon,
               onTap: () {
+                CustomNavigator.push(Routes.CONTACT_WITH_US);
                 controller.toggle!();
               },
             ),
@@ -84,10 +86,12 @@ class More extends StatelessWidget {
             LogoutButton(
               onTap: () {
                 sl<MainPageProvider>().updateIsOpen(false);
+                provider.updateDashboardIndex(0);
                 controller.toggle!();
               },
             ),
             const Expanded(child: SizedBox()),
+        SoftwareCloudCopyRight(),
           ],
         ),
       );

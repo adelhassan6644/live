@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
@@ -145,7 +146,10 @@ class OnBoarding extends StatelessWidget {
                             ),
                           ),
                           customImageIcon(
-                              imageName: Images.logo, height: 140, width: 160),
+                              imageName: Images.logo, height: 140, width: 160) .animate()
+                              .slideY(duration: 1000.ms )
+                              .then(delay: 400.ms)
+                              .shimmer(duration: 1000.ms),
                         ],
                       ),
                       SizedBox(

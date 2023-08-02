@@ -49,9 +49,14 @@ class MapsRepo {
   }
 
   Future<Either<ServerFailure, Response>> getLocationPlaces(
-      {var position}) async {
+      {required LatLng position}) async {
     try {
-      Response response = await dioClient.get(uri: EndPoints.place);
+      Response response = await dioClient.post(uri: EndPoints.nearPlace,
+        data: {
+          "client_lat": position.latitude,
+          "client_long":  position.longitude
+        }
+      );
       if (response.statusCode == 200) {
         return Right(response);
       } else {

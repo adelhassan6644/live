@@ -49,7 +49,7 @@ class _MapPageState extends State<MapPage> {
         CameraPosition(target: _initialPosition, zoom: 100),
       ));
       Provider.of<LocationProvider>(context, listen: false)
-          .getPlaces(_initialPosition);
+          .getPlaces( position: _initialPosition);
     }
   }
 
@@ -72,13 +72,14 @@ class _MapPageState extends State<MapPage> {
             myLocationButtonEnabled: false,
             onMapCreated: (GoogleMapController mapController) {
               _mapController = mapController;
-              if (widget.baseModel?.object == null) {
+
                 locationController.getLocation(false,
                     mapController: _mapController!);
-              }
+
             },
             scrollGesturesEnabled: true,
             zoomControlsEnabled: false,
+            markers: locationController.gMapMarkers,
             onCameraMove: (CameraPosition cameraPosition) {
               _cameraPosition = cameraPosition;
             },
@@ -88,14 +89,14 @@ class _MapPageState extends State<MapPage> {
               );
             },
           ),
-          Center(
-              child: !locationController.isLoading
-                  ? const Icon(
-                      Icons.location_on_rounded,
-                      size: 50,
-                      color: ColorResources.PRIMARY_COLOR,
-                    )
-                  : const CupertinoActivityIndicator()),
+          // Center(
+          //     child: !locationController.isLoading
+          //         ? const Icon(
+          //             Icons.location_on_rounded,
+          //             size: 50,
+          //             color: ColorResources.PRIMARY_COLOR,
+          //           )
+          //         : const CupertinoActivityIndicator()),
 
           ////  prediction section
 

@@ -117,9 +117,8 @@ class News extends StatelessWidget {
                                       height: 12.h,
                                     ),
                                     CustomNetworkImage.containerNewWorkImage(
-                                        image: provider.offersModel
-                                                ?.data?[index].image ??
-                                            "",
+                                        image:       provider.newsModel?.news?[index]
+                                            .image ??"",
                                         width: context.width,
                                         height: 180.h,
                                         fit: BoxFit.cover,
