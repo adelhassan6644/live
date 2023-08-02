@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:live/features/favourite/provider/favourite_provider.dart';
 import 'package:provider/provider.dart';
+import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../components/custom_images.dart';
 
@@ -21,7 +22,13 @@ class FavouriteButton extends StatelessWidget {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             radius: 10,
-            onTap: () => provider.updateFavourites(id: id!, isExist: isFav),
+            onTap: () {
+              if (provider.isLogin) {
+                provider.updateFavourites(id: id!, isExist: isFav);
+              } else {
+                showToast("برجاء التسجيل اولا !");
+              }
+            },
             child: customImageIconSVG(
                 imageName:
                     isFav ? SvgImages.favourite : SvgImages.disFavourite));

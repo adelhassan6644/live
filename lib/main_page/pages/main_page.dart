@@ -7,6 +7,7 @@ import 'package:live/main_page/pages/dashboard.dart';
 import 'package:live/main_page/provider/main_page_provider.dart';
 import 'package:provider/provider.dart';
 import '../../features/more/page/more.dart';
+import '../../main_widgets/software_copyRight.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -30,6 +31,8 @@ class _MainPageState extends State<MainPage> {
           child: Stack(
             alignment: Alignment.topLeft,
             children: [
+
+
               SizedBox(
                 height: context.height,
                 width: context.width,
@@ -72,7 +75,8 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                 );
-              })
+              }),
+
             ],
           ),
         ),

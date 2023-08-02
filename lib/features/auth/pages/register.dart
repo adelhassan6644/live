@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
@@ -44,7 +45,10 @@ class _RegisterState extends State<Register> {
           children: [
             SafeArea(
               child: customImageIcon(
-                  imageName: Images.logo, height: 140, width: 160),
+                  imageName: Images.logo, height: 140, width: 160).animate()
+                  .slideX(duration: 500.ms )
+                  .then(delay: 300.ms)
+                  .shimmer(duration: 500.ms),
             ),
             Expanded(
               child: Align(
@@ -221,7 +225,8 @@ class _RegisterState extends State<Register> {
                                                 InkWell(
                                                   onTap: () {
                                                     CustomNavigator.push(
-                                                        Routes.MAIN_PAGE);
+                                                        Routes.MAIN_PAGE,clean: true);
+                                                    provider.clear();
                                                   },
                                                   child: Padding(
                                                     padding: EdgeInsets.only(

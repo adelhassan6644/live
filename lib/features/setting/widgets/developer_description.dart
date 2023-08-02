@@ -67,6 +67,8 @@ class DeveloperDescription extends StatelessWidget {
                         overflow: TextOverflow.ellipsis),
                     maxLines: 10,
                   ),
+                  // Spacer(),
+
                 ],
               ),
             );

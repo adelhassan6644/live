@@ -58,6 +58,7 @@ abstract class CustomNavigator {
       case Routes.NEWS:
         return _pageRoute(const News());
 
+
       case Routes.MAP:
         return _pageRoute(MapPage(
             baseModel: settings.arguments != null

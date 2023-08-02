@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../../components/custom_app_bar.dart';
 import '../../../components/custom_button.dart';
+import '../../../main_widgets/software_copyRight.dart';
 import '../provider/contact_provider.dart';
 
 class ContactWithUs extends StatelessWidget {
@@ -50,17 +51,20 @@ class ContactWithUs extends StatelessWidget {
                 SizedBox(
                   height: 8.h,
                 ),
-                CustomButton(
-                  text: getTranslated("customerـservice", context),
-                  radius: 50,
-                  onTap: () => provider.launchCustomerService(),
-                ),
+                // CustomButton(
+                //   text: getTranslated("customerـservice", context),
+                //   radius: 50,
+                //   onTap: () => provider.launchCustomerService(),
+                // ),
                 SizedBox(
                   height: 8.h,
                 ),
+
               ],
             );
-          }))
+          })),SafeArea(
+              bottom: true,
+              child: SoftwareCloudCopyRight())
         ],
       ),
     );

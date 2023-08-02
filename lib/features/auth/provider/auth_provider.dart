@@ -68,7 +68,8 @@ class AuthProvider extends ChangeNotifier {
       response.fold((fail) {
         CustomSnackBar.showSnackBar(
             notification: AppNotification(
-                message: fail.error,
+                message: getTranslated("invalid_credentials",
+                    CustomNavigator.navigatorState.currentContext!),
                 isFloating: true,
                 backgroundColor: ColorResources.IN_ACTIVE,
                 borderColor: Colors.transparent));
@@ -78,16 +79,18 @@ class AuthProvider extends ChangeNotifier {
         } else {
           authRepo.forget();
         }
+        authRepo.saveUserId(success.data['data']["id"]);
+        authRepo.saveUserToken(success.data['data']["api_token"]);
         if (success.data['data']["email_verified_at"] != null) {
-          authRepo.saveUserId(success.data['data']["id"]);
-          authRepo.saveUserToken(success.data['data']["api_token"]);
           authRepo.setLoggedIn();
           Provider.of<ProfileProvider>(
                   CustomNavigator.navigatorState.currentContext!,
-                  listen: false).getProfile();
+                  listen: false)
+              .getProfile();
           Provider.of<FavouriteProvider>(
                   CustomNavigator.navigatorState.currentContext!,
-                  listen: false).getFavourites();
+                  listen: false)
+              .getFavourites();
           CustomNavigator.push(Routes.MAIN_PAGE, clean: true);
           clear();
         } else {
@@ -127,6 +130,13 @@ class AuthProvider extends ChangeNotifier {
         notifyListeners();
       }, (success) {
         CustomNavigator.push(Routes.LOGIN, clean: true);
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: getTranslated("your_password_reset_successfully",
+                    CustomNavigator.navigatorState.currentContext!),
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
         clear();
       });
       _isReset = false;
@@ -168,6 +178,7 @@ class AuthProvider extends ChangeNotifier {
                 backgroundColor: ColorResources.ACTIVE,
                 borderColor: Colors.transparent));
         clear();
+        CustomNavigator.pop();
         notifyListeners();
       });
       _isChange = false;
@@ -211,6 +222,8 @@ class AuthProvider extends ChangeNotifier {
         } else {
           authRepo.forget();
         }
+        authRepo.saveUserId(success.data['data']["id"]);
+        authRepo.saveUserToken(success.data['data']["api_token"]);
         CustomNavigator.push(Routes.VERIFICATION, arguments: true);
       });
       _isRegister = false;
@@ -233,7 +246,6 @@ class AuthProvider extends ChangeNotifier {
       fromRegister: fromRegister,
     );
   }
-
 
   bool _isForget = false;
   bool get isForget => _isForget;
@@ -297,16 +309,23 @@ class AuthProvider extends ChangeNotifier {
                   CustomNavigator.navigatorState.currentContext!,
                   listen: false)
               .getProfile();
-          Provider.of<FavouriteProvider>(CustomNavigator.navigatorState.currentContext!, listen: false).getFavourites();
-          authRepo.saveUserId(success.data['data']["id"]);
-          authRepo.saveUserToken(success.data['data']["api_token"]);
+          Provider.of<FavouriteProvider>(
+                  CustomNavigator.navigatorState.currentContext!,
+                  listen: false)
+              .getFavourites();
           authRepo.setLoggedIn();
           CustomNavigator.push(
             Routes.MAIN_PAGE,
             clean: true,
           );
-        }
-        else {
+          CustomSnackBar.showSnackBar(
+              notification: AppNotification(
+                  message: getTranslated("register_successfully",
+                      CustomNavigator.navigatorState.currentContext!),
+                  isFloating: true,
+                  backgroundColor: ColorResources.ACTIVE,
+                  borderColor: Colors.transparent));
+        } else {
           CustomNavigator.push(
             Routes.RESET_PASSWORD,
             replace: true,
@@ -329,7 +348,7 @@ class AuthProvider extends ChangeNotifier {
   }
 
   logOut() async {
-    CustomNavigator.push(Routes.LOGIN, clean: true);
+    CustomNavigator.push(Routes.SPLASH, clean: true);
     await authRepo.clearSharedData();
     clear();
     Provider.of<ProfileProvider>(CustomNavigator.navigatorState.currentContext!,

@@ -26,6 +26,7 @@ class LocationProvider extends ChangeNotifier {
   String pickAddress = '';
   LocationModel? addressModel;
   Position? _myPosition;
+  GoogleMapController? googleMapController;
   Position position = Position(
       longitude: 0,
       latitude: 0,
@@ -44,6 +45,13 @@ class LocationProvider extends ChangeNotifier {
       heading: 1,
       speed: 1,
       speedAccuracy: 1);
+
+  Set<Marker> gMapMarkers = {};
+  void onMapCreated(GoogleMapController controller) {
+    googleMapController = controller;
+    notifyListeners();
+
+  }
   Future<List<PredictionModel>> searchLocation(
       BuildContext context, String text) async {
     if (text.isNotEmpty) {
@@ -90,6 +98,7 @@ class LocationProvider extends ChangeNotifier {
     bool fromAddress, {required GoogleMapController mapController}) async {
     isLoading = true;
     notifyListeners();
+    googleMapController=mapController;
       await Geolocator.requestPermission();
       Position newLocalData = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.high,);
@@ -99,7 +108,7 @@ class LocationProvider extends ChangeNotifier {
     } else {
       pickPosition = _myPosition!;
     }
-    getPlaces(_myPosition!);
+    getPlaces( position:LatLng(_myPosition!.latitude,_myPosition!.longitude) );
 
     mapController.animateCamera(CameraUpdate.newCameraPosition(
       CameraPosition(
@@ -107,10 +116,10 @@ class LocationProvider extends ChangeNotifier {
           zoom: 18),
     ));
 
-    await decodeLatLong(
-      latitude: _myPosition!.latitude,
-      longitude: _myPosition!.longitude,
-    );
+    // await decodeLatLong(
+    //   latitude: _myPosition!.latitude,
+    //   longitude: _myPosition!.longitude,
+    // );
 
     isLoading = false;
     notifyListeners();
@@ -151,11 +160,12 @@ class LocationProvider extends ChangeNotifier {
         speedAccuracy: 1,
         speed: 1,
       );
-      decodeLatLong(
-          latitude: position.target.latitude,
-          longitude: position.target.longitude);
+      // decodeLatLong(
+      //     latitude: position.target.latitude,
+      //     longitude: position.target.longitude);
       isLoading = false;
-      getPlaces(position.target);
+
+      // getPlaces(position.target);
 
       notifyListeners();
     } catch (e) {
@@ -174,7 +184,7 @@ class LocationProvider extends ChangeNotifier {
 
   PlacesModel? placesModel;
   bool isGetPlaces = false;
-  getPlaces(position) async {
+  getPlaces({required LatLng position}) async {
     try {
       isGetPlaces = true;
       notifyListeners();
@@ -190,6 +200,25 @@ class LocationProvider extends ChangeNotifier {
         notifyListeners();
       }, (success) {
         placesModel = PlacesModel.fromJson(success.data);
+        if(placesModel!.data!.isNotEmpty) {
+          for (var place in placesModel!.data!) {
+            {
+              gMapMarkers.add(
+                Marker(
+                  markerId: MarkerId(place.id.toString()),
+                  position: LatLng(
+                    place.lat!,
+                    place.long!,
+                  ),
+                  icon: BitmapDescriptor.defaultMarker,
+                  anchor: Offset(0.5, 0.5),
+                ),
+              );
+            }
+          }
+          zoomToLocation(LatLng(
+              placesModel!.data!.first.lat!, placesModel!.data!.first.long!));
+        }
         isGetPlaces = false;
         notifyListeners();
       });
@@ -204,5 +233,17 @@ class LocationProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
-
+  void zoomToLocation(LatLng target, {double zoom = 16}) {
+    if (googleMapController != null) {
+      googleMapController!.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(
+            target: target,
+            zoom: zoom,
+          ),
+        ),
+      );
+      notifyListeners();
+    }
+  }
 }

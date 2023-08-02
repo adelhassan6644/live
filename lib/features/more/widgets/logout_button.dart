@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/svg_images.dart';
 import 'package:live/app/localization/localization/language_constant.dart';
+import 'package:live/features/profile/provider/profile_provider.dart';
 import 'package:live/navigation/custom_navigation.dart';
 import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
 
 import '../../../app/core/utils/text_styles.dart';
 import '../../../components/custom_images.dart';
+import '../../../data/config/di.dart';
 import '../../auth/provider/auth_provider.dart';
 
 class LogoutButton extends StatelessWidget {
@@ -16,7 +18,7 @@ class LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AuthProvider>(builder: (_, provider, child) {
+    return Consumer<ProfileProvider>(builder: (_, provider, child) {
       return Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
         decoration: BoxDecoration(
@@ -32,7 +34,7 @@ class LogoutButton extends StatelessWidget {
           onTap: () {
             onTap();
             if (provider.isLogin) {
-              provider.logOut();
+              sl<AuthProvider>().logOut();
             } else {
               CustomNavigator.push(Routes.LOGIN, arguments: true);
             }

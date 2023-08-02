@@ -2,12 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	</array>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>في طريقي</string>
+	<string>Live</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,6 +26,22 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+
+     <key>CFBundleTypeRole</key>
+     <string>Editor</string>
+     <key>CFBundleURLName</key>
+        <string>softwarecloud.page.link</string>
+     <key>CFBundleURLSchemes</key>
+     <array>
+      <string>https</string>
+     </array>
+
+	<key>FirebaseDynamicLinksCustomDomains</key>
+
+    <array>
+        <string>https://softwarecloud.page.link/qh74</string>
+        <string>https://softwarecloud.link</string>
+    </array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -51,10 +71,6 @@
 		<string>here-location</string>
 		<string>tomtomgo</string>
 	</array>
-	<key>BGTaskSchedulerPermittedIdentifiers</key>
-    <array>
-        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-    </array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

@@ -15,7 +15,7 @@ class ContactRepo {
   Future<Either<ServerFailure, Response>> getContact() async {
     try {
       Response response = await dioClient.get(
-        uri: "",
+        uri:  EndPoints.setting,
       );
       if (response.statusCode == 200) {
         return Right(response);

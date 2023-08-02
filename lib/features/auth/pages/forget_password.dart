@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
@@ -43,8 +44,13 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               alignment: Alignment.topCenter,
               children: [
                 const CustomAppBar(),
-                customImageIcon(
-                    imageName: Images.logo, height: 140, width: 160),
+                SafeArea(
+                  child: customImageIcon(
+                      imageName: Images.logo, height: 140, width: 160).animate()
+                      .slideX(duration: 500.ms )
+                      .then(delay: 300.ms)
+                      .shimmer(duration: 500.ms),
+                ),
               ],
             ),
             Expanded(
@@ -129,7 +135,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                                                         }
                                                       },
                                                       isLoading:
-                                                          provider.isForget),
+                                                      provider.isForget),
                                                 ],
                                               )),
                                         ],

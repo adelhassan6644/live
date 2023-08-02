@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
@@ -43,8 +44,14 @@ class _VerificationState extends State<Verification> {
               alignment: Alignment.topCenter,
               children: [
                 const CustomAppBar(),
-                customImageIcon(
-                    imageName: Images.logo, height: 140, width: 160),
+                SafeArea(
+                  child: customImageIcon(
+                          imageName: Images.logo, height: 140, width: 160)
+                      .animate()
+                      .slideX(duration: 500.ms)
+                      .then(delay: 300.ms)
+                      .shimmer(duration: 500.ms),
+                ),
               ],
             ),
             Expanded(
@@ -114,14 +121,20 @@ class _VerificationState extends State<Verification> {
                                                             TextDirection.ltr,
                                                         child:
                                                             CustomPinCodeField(
-                                                                validation:
-                                                                    Validations
-                                                                        .code,
-                                                                controller:
-                                                                    provider
-                                                                        .codeTEC,
-                                                                onChanged:
-                                                                    (v) {})),
+                                                          validation:
+                                                              Validations.code,
+                                                          controller:
+                                                              provider.codeTEC,
+                                                          onChanged: (v) {},
+                                                          onComplete: (va) {
+                                                            if (_formKey
+                                                                .currentState!
+                                                                .validate()) {
+                                                              provider.verify(widget
+                                                                  .fromRegister);
+                                                            }
+                                                          },
+                                                        )),
                                                   ),
                                                   Row(
                                                     mainAxisAlignment:
@@ -129,7 +142,9 @@ class _VerificationState extends State<Verification> {
                                                             .center,
                                                     children: [
                                                       CountDown(
-                                                        onCount: ()=> provider.resend(widget.fromRegister),
+                                                        onCount: () => provider
+                                                            .resend(widget
+                                                                .fromRegister),
                                                       ),
                                                     ],
                                                   ),

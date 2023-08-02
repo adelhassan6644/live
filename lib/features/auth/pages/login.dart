@@ -1,3 +1,4 @@
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
@@ -48,7 +49,10 @@ class _LoginState extends State<Login> {
                 Visibility(visible: widget.fromMain, child: const CustomAppBar()),
                 SafeArea(
                   child: customImageIcon(
-                      imageName: Images.logo, height: 140, width: 160),
+                      imageName: Images.logo, height: 140, width: 160) .animate()
+                      .slideX(duration: 500.ms )
+                      .then(delay: 300.ms)
+                      .shimmer(duration: 500.ms),
                 ),
               ],
             ),
@@ -250,8 +254,8 @@ class _LoginState extends State<Login> {
                                                   InkWell(
                                                     onTap: () {
                                                       CustomNavigator.push(
-                                                          Routes.MAIN_PAGE,
-                                                          clean: true);
+                                                          Routes.MAIN_PAGE,clean: true);
+                                                      provider.clear();
                                                     },
                                                     child: Padding(
                                                       padding: EdgeInsets.only(

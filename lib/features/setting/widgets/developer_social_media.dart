@@ -21,7 +21,8 @@ class DeveloperSocialMedia extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: provider.isLoading
               ? List.generate(
                   4,
@@ -47,8 +48,9 @@ class DeveloperSocialMedia extends StatelessWidget {
                       withShadow: true,
                       color: ColorResources.WHITE_COLOR,
                       onTap: () async {
-                        await launch(
-                            'fb://facewebmodal/f?href=https://${provider.model?.data?.facebook ?? ""}');
+                        launchUrl(
+                            Uri.parse(provider.model?.data?.facebook ?? ""),
+                            mode: LaunchMode.externalApplication);
                       }),
                   const SizedBox(
                     width: 16,
@@ -61,8 +63,9 @@ class DeveloperSocialMedia extends StatelessWidget {
                       withShadow: true,
                       color: ColorResources.WHITE_COLOR,
                       onTap: () async {
-                        await launch(
-                            'in://${provider.model?.data?.instagram ?? ""}');
+                        launchUrl(
+                            Uri.parse(provider.model?.data?.instagram ?? ""),
+                            mode: LaunchMode.externalApplication);
                       }),
                   const SizedBox(
                     width: 16,
@@ -75,8 +78,9 @@ class DeveloperSocialMedia extends StatelessWidget {
                       withShadow: true,
                       color: ColorResources.WHITE_COLOR,
                       onTap: () async {
-                        await launch(
-                            "whatsapp://send?phone=${provider.model?.data?.twitter ?? ""}");
+                        launchUrl(
+                            Uri.parse(provider.model?.data?.twitter ?? ""),
+                            mode: LaunchMode.externalApplication);
                       }),
                   const SizedBox(
                     width: 16,
@@ -87,7 +91,11 @@ class DeveloperSocialMedia extends StatelessWidget {
                       width: 50.0,
                       radius: 100,
                       withShadow: true,
-                      color: ColorResources.WHITE_COLOR),
+                      color: ColorResources.WHITE_COLOR,
+                      onTap: () async {
+                        launchUrl(Uri.parse(provider.model?.data?.tiktok ?? ""),
+                            mode: LaunchMode.externalApplication);
+                      }),
                 ],
         ),
       );

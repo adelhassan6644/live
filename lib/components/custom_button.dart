@@ -55,7 +55,7 @@ class CustomButton extends StatelessWidget {
           }
         },
         child: AnimatedContainer(
-          // width: isLoading ? 90.w : width ?? context.width,
+          width: isLoading ? 90.w : width ??context.width,
           height: height ?? 60.h,
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           decoration: BoxDecoration(

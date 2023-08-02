@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -43,47 +46,31 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAA6_oQVJoAUiQfGb7aU4MRnkog14w7rPU',
-    appId: '1:105813324547:web:668972909f473f2d90af36',
-    messagingSenderId: '105813324547',
-    projectId: 'live-46646',
-    authDomain: 'live-46646.firebaseapp.com',
-    storageBucket: 'live-46646.appspot.com',
-    measurementId: 'G-QQK112HHXZ',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAOzDx7xIAd_Hdf0GRosngBPeJj3MpUXoI',
-    appId: '1:105813324547:android:5b6b00aaf8b2cc3e90af36',
-    messagingSenderId: '105813324547',
-    projectId: 'live-46646',
-    storageBucket: 'live-46646.appspot.com',
+    apiKey: 'AIzaSyC6HFz2Go3S3Ej8y6fY4jfOQQAHurJKxOk',
+    appId: '1:959079125882:android:2a0338e85713701017fcc3',
+    messagingSenderId: '959079125882',
+    projectId: 'liveelhmdaniaa',
+    storageBucket: 'liveelhmdaniaa.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDuc5q2UyvotvNUmVek3e_o9KhpCt2chdI',
-    appId: '1:105813324547:ios:5e5ceac54f7531cb90af36',
-    messagingSenderId: '105813324547',
-    projectId: 'live-46646',
-    storageBucket: 'live-46646.appspot.com',
-    androidClientId:
-        '105813324547-46hdomo0qffn4vghnu1aj5kl892cmakg.apps.googleusercontent.com',
-    iosClientId:
-        '105813324547-upk6427rl6n04c8b10eol3l3g77ektki.apps.googleusercontent.com',
-    iosBundleId: 'com.example.live',
+    apiKey: 'AIzaSyBvtbL5W_oku7hkTo6MbTTbO6bjTpCAxv8',
+    appId: '1:959079125882:ios:816f9b2b52ec70d417fcc3',
+    messagingSenderId: '959079125882',
+    projectId: 'liveelhmdaniaa',
+    storageBucket: 'liveelhmdaniaa.appspot.com',
+    iosClientId: '959079125882-2alh1qhd949fr7fpr8aocfc3f78jk86o.apps.googleusercontent.com',
+    iosBundleId: 'com.softwareCloud.live',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDuc5q2UyvotvNUmVek3e_o9KhpCt2chdI',
-    appId: '1:105813324547:ios:5e5ceac54f7531cb90af36',
-    messagingSenderId: '105813324547',
-    projectId: 'live-46646',
-    storageBucket: 'live-46646.appspot.com',
-    androidClientId:
-        '105813324547-46hdomo0qffn4vghnu1aj5kl892cmakg.apps.googleusercontent.com',
-    iosClientId:
-        '105813324547-upk6427rl6n04c8b10eol3l3g77ektki.apps.googleusercontent.com',
-    iosBundleId: 'com.example.live',
+    apiKey: 'AIzaSyBvtbL5W_oku7hkTo6MbTTbO6bjTpCAxv8',
+    appId: '1:959079125882:ios:83d389c4ddaa38d617fcc3',
+    messagingSenderId: '959079125882',
+    projectId: 'liveelhmdaniaa',
+    storageBucket: 'liveelhmdaniaa.appspot.com',
+    iosClientId: '959079125882-bb1b6f3n96mm623oc6j7go5muncr63af.apps.googleusercontent.com',
+    iosBundleId: 'y',
   );
 }

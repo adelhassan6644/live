@@ -7,6 +7,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 class CustomPinCodeField extends StatelessWidget {
   final void Function(String?)? onSave;
+  final void Function(String?)? onComplete;
   final void Function(String) onChanged;
   final TextEditingController? controller;
   final String? Function(String?)? validation;
@@ -15,6 +16,7 @@ class CustomPinCodeField extends StatelessWidget {
       {super.key,
       this.onSave,
       this.validation,
+        this.onComplete,
       required this.onChanged,
       this.controller});
 
@@ -23,7 +25,7 @@ class CustomPinCodeField extends StatelessWidget {
     return PinCodeTextField(
       validator: validation,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      cursorColor: Colors.white,
+      cursorColor:  ColorResources.HEADER,
       backgroundColor: Colors.transparent,
       autoDisposeControllers: false,
       autoDismissKeyboard: true,
@@ -42,7 +44,7 @@ class CustomPinCodeField extends StatelessWidget {
         fieldHeight: 60.h,
         fieldWidth: 60.w,
         fieldOuterPadding: EdgeInsets.symmetric(horizontal: 5.w),
-        activeFillColor: Colors.transparent,
+        activeFillColor: ColorResources.HEADER.withOpacity(0.08),
         activeColor: ColorResources.HEADER,
         inactiveColor: ColorResources.LIGHT_BORDER_COLOR,
         inactiveFillColor: Colors.transparent,
@@ -54,6 +56,7 @@ class CustomPinCodeField extends StatelessWidget {
       appContext: context,
       length: 4,
       onSaved: onSave,
+      onCompleted:onComplete ,
       onChanged: onChanged,
       errorTextSpace: 30,
     );

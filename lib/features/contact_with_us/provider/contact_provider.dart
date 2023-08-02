@@ -35,7 +35,7 @@ class ContactProvider extends ChangeNotifier {
         isLoading = false;
         notifyListeners();
       }, (response) {
-        contactModel = ContactModel.fromJson(response.data['data']["contact"]);
+        contactModel = ContactModel.fromJson(response.data['data']);
         isLoading = false;
         notifyListeners();
       });

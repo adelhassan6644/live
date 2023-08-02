@@ -26,23 +26,25 @@ class PlaceDetailsImagesWidget extends StatelessWidget {
             return CarouselSlider.builder(
               options: CarouselOptions(
                 viewportFraction: 1,
-                autoPlay: false,
-                height: context.height,
+                autoPlay:images.length>1? true:false,
+                height: context.height*.8,
                 enlargeCenterPage: false,
                 disableCenter: true,
                 pageSnapping: true,
+
                 onPageChanged: (index, reason) {
                   provider.setPlacesIndex(index);
                 },
               ),
               disableGesture: true,
+
               itemCount: images.length,
               itemBuilder: (context, index, _) {
                 return CustomNetworkImage.containerNewWorkImage(
                     image: images[index],
                     width: context.width,
-                    fit: BoxFit.fitWidth,
-                    height: context.height,
+                    fit: BoxFit.fitHeight,
+                    // height: context.height/10,
                     radius: 0);
               },
             );

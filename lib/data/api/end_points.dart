@@ -7,6 +7,7 @@ class EndPoints {
   static const String apiKey =
       's7xrpFdw4G0F21rfLyD4TaBkjVJYgwGfI3y60OyRnjw9zOggruX30eToVWvs';
   static const String topic = 'live';
+  static const String softwarecloud2 = 'https://www.softwarecloud2.com/';
   static const String logIn = 'login';
   static const String forgetPassword = 'resetPassword/email';
   static const String checkMailForResetPassword = 'resetPassword/checkCode';
@@ -22,6 +23,7 @@ class EndPoints {
   static const String banners = 'banner';
   static const String news = 'news';
   static const String place = 'place';
+  static const String nearPlace = 'near/places';
   static const String category = 'category';
   static const String offers = 'offer';
   static const String aboutUs = 'about_us';

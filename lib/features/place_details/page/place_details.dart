@@ -62,8 +62,11 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                   ? Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
-                        PlaceDetailsImagesWidget(
-                            images: provider.model!.images!),
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: PlaceDetailsImagesWidget(
+                              images: provider.model!.images!),
+                        ),
                         Column(
                           children: [
                             const CustomAppBar(),
