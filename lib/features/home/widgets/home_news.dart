@@ -131,9 +131,9 @@ class HomeNews extends StatelessWidget {
                                           ),
                                           CustomNetworkImage
                                               .containerNewWorkImage(
-                                                  image: provider
-                                                          .offersModel
-                                                          ?.data?[index]
+                                                  image:  provider
+                                                      .newsModel
+                                                      ?.news?[index]
                                                           .image ??
                                                       "",
                                                   width: context.width,
