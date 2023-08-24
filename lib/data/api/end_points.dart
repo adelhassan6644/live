@@ -20,18 +20,25 @@ class EndPoints {
   static updateProfile(id) => 'client/$id';
   static getFavourites(id) => 'favorites/$id';
   static const String postFavourite = 'favorite';
+  static const String search = 'place/search';
   static const String banners = 'banner';
   static const String news = 'news';
   static const String place = 'place';
+  static const String followPlace = 'follow';
+  static const String checkFollowPlace = 'following';
   static const String nearPlace = 'near/places';
   static const String category = 'category';
+  static const String subCategory = 'subCategory';
   static const String offers = 'offer';
+  static placeOffers(id) => 'place/offer/$id';
+  static feedback(id) => 'place/feedback/$id';
+  static const String  postFeedback = 'feedback';
   static const String aboutUs = 'about_us';
   static const String setting = 'contact';
   static const String notifications = 'notification/notification';
-  static const String readNotification = 'notification/read';
-  static const String deleteNotification = 'notification/delete';
-
+  static getNotifications(id) => 'notification/$id';
+  static readNotification(userId,id) => 'notification/read/$userId/$id';
+  static deleteNotification(userId,id) => 'notification/delete/$userId/$id';
   /// maps
   static const String GEOCODE_URI = '/maps/api/geocode/';
   static const String Autocomplete = '/maps/api/place/autocomplete/';

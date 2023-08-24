@@ -11,6 +11,8 @@ import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/api/end_points.dart';
+import '../../category_details/provider/category_details_provider.dart';
+import '../models/categories_model.dart';
 
 class HomeCategories extends StatelessWidget {
   const HomeCategories({Key? key}) : super(key: key);
@@ -58,11 +60,13 @@ class HomeCategories extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             physics: const BouncingScrollPhysics(),
                             itemBuilder: (_, index) => _CategoryItem(
+
                                   id: provider
                                           .categoriesModel?.data?[index].id ??
                                       0,
                                   title: provider
-                                      .categoriesModel?.data?[index].title,
+                                      .categoriesModel?.data?[index].title,     categoryItemd: provider
+                                      .categoriesModel!.data![index],
                                   image: provider
                                       .categoriesModel?.data?[index].image,
                                   color: provider
@@ -87,12 +91,14 @@ class HomeCategories extends StatelessWidget {
 class _CategoryItem extends StatelessWidget {
   final String? title, image, textColor, color;
   final int id;
+  final CategoryItem categoryItemd;
 
   const _CategoryItem(
       {Key? key,
       this.title,
       this.image,
       required this.id,
+      required this.categoryItemd,
       this.textColor,
       this.color})
       : super(key: key);
@@ -105,6 +111,7 @@ class _CategoryItem extends StatelessWidget {
       highlightColor: Colors.transparent,
       focusColor: Colors.transparent,
       onTap: () {
+        Provider.of<CategoryDetailsProvider>(context,listen: false).setCurrentCategory(categoryItemd);
         CustomNavigator.push(Routes.CATEGORY_DETAILS, arguments: id);
       },
       child: Column(
@@ -112,7 +119,7 @@ class _CategoryItem extends StatelessWidget {
           CustomNetworkImage.circleNewWorkImage(
             radius: 27.5,
             padding: 10,
-            backGroundColor: color?.toColor,
+            backGroundColor: color?.toColor??Colors.white,
             image: image,
           ),
           SizedBox(

@@ -28,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -47,30 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC6HFz2Go3S3Ej8y6fY4jfOQQAHurJKxOk',
-    appId: '1:959079125882:android:2a0338e85713701017fcc3',
-    messagingSenderId: '959079125882',
-    projectId: 'liveelhmdaniaa',
-    storageBucket: 'liveelhmdaniaa.appspot.com',
+    apiKey: 'AIzaSyCmj-n5YaEcFbd_HoDzYXnz3x1xIls4aUE',
+    appId: '1:763430146805:android:75d5682d71f4ae7c95abbc',
+    messagingSenderId: '763430146805',
+    projectId: 'live-hemdania',
+    storageBucket: 'live-hemdania.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBvtbL5W_oku7hkTo6MbTTbO6bjTpCAxv8',
-    appId: '1:959079125882:ios:816f9b2b52ec70d417fcc3',
-    messagingSenderId: '959079125882',
-    projectId: 'liveelhmdaniaa',
-    storageBucket: 'liveelhmdaniaa.appspot.com',
-    iosClientId: '959079125882-2alh1qhd949fr7fpr8aocfc3f78jk86o.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCkCBk5LKJRTwsdxllygRkW3MFhADLkiaw',
+    appId: '1:763430146805:ios:88b734376c70278095abbc',
+    messagingSenderId: '763430146805',
+    projectId: 'live-hemdania',
+    storageBucket: 'live-hemdania.appspot.com',
+    iosClientId: '763430146805-fk90m5s2sv8djik5cfi1mbg8h3e16vn8.apps.googleusercontent.com',
     iosBundleId: 'com.softwareCloud.live',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBvtbL5W_oku7hkTo6MbTTbO6bjTpCAxv8',
-    appId: '1:959079125882:ios:83d389c4ddaa38d617fcc3',
-    messagingSenderId: '959079125882',
-    projectId: 'liveelhmdaniaa',
-    storageBucket: 'liveelhmdaniaa.appspot.com',
-    iosClientId: '959079125882-bb1b6f3n96mm623oc6j7go5muncr63af.apps.googleusercontent.com',
-    iosBundleId: 'y',
   );
 }

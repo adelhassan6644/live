@@ -1,3 +1,5 @@
+
+
 import 'package:live/features/auth/pages/change_password.dart';
 import 'package:live/features/auth/pages/reset_password.dart';
 import 'package:live/features/category_details/page/category_details.dart';
@@ -12,8 +14,10 @@ import '../features/auth/pages/verification.dart';
 import '../features/contact_with_us/page/contact_with_us.dart';
 import '../features/home/page/news.dart';
 import '../features/maps/page/map_page.dart';
+import '../features/notifications/page/notifications_page.dart';
 import '../features/on_boarding/pages/on_boarding.dart';
 import '../features/place_details/page/place_details.dart';
+import '../features/search/page/serach_screen.dart';
 import '../features/setting/pages/about_us.dart';
 import '../features/splash/page/splash.dart';
 import '../main.dart';
@@ -57,6 +61,8 @@ abstract class CustomNavigator {
 
       case Routes.NEWS:
         return _pageRoute(const News());
+        case Routes.SEARCH:
+        return _pageRoute(const SearchScreen());
 
 
       case Routes.MAP:
@@ -79,6 +85,8 @@ abstract class CustomNavigator {
 
       case Routes.TERMS:
         return _pageRoute(const Terms());
+        case Routes.Notification:
+        return _pageRoute(const NotificationsPage());
 
       default:
         return MaterialPageRoute(builder: (_) => const MyApp());

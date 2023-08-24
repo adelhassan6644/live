@@ -40,7 +40,13 @@
   "as_a_guest": "as a guest",
   "forget_password": "Forget Password?",
   "login": "Login",
+  "notifications": "Notifications",
+  "no_notifications": "No notifications",
+  "follow": "Follow",
+  "un_follow": "unfollow",
   "logout": "Logout",
+  "rate": "Rate",
+
   "signup": "Sign up",
   "signup_now": "Sign up Now",
   "login_now": "Login Now",

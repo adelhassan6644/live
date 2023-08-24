@@ -25,15 +25,16 @@ abstract class ProviderList {
     ChangeNotifierProvider(create: (_) => di.sl<MainPageProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<SplashProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<AuthProvider>()),
-    ChangeNotifierProvider(create: (_) => di.sl<FavouriteProvider>()),
+
     ChangeNotifierProvider(create: (_) => di.sl<ProfileProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<HomeProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<MapProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<CategoryDetailsProvider>()),
-    ChangeNotifierProvider(create: (_) => di.sl<PlaceDetailsProvider>()),
+    // ChangeNotifierProvider(create: (_) => di.sl<PlaceDetailsProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<CalenderProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<LocationProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<ContactProvider>()),
     ChangeNotifierProvider(create: (_) => di.sl<SettingProvider>()),
+    ChangeNotifierProvider(create: (_) => di.sl<FavouriteProvider>()),
   ];
 }

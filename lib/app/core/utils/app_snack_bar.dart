@@ -12,6 +12,7 @@ import 'color_resources.dart';
 
 class AppNotification {
   final String message;
+  final Color? messageColor;
   final String? iconName;
   final Color backgroundColor;
   final Color borderColor;
@@ -28,6 +29,7 @@ class AppNotification {
       this.borderColor = Colors.transparent,
       this.isFloating = false,
       this.withAction = false,
+      this.messageColor ,
       this.action,
       double? radius}) {
     this.radius = radius ?? (isFloating ? 15 : 0);
@@ -63,7 +65,7 @@ class CustomSnackBar {
                 Expanded(
                   child: Text(
                     notification.message,
-                    style: AppTextStyles.semiBold.copyWith(fontSize: 13),
+                    style: AppTextStyles.semiBold.copyWith(fontSize: 13,color:notification. messageColor),
                   ),
                 ),
                 if (notification.withAction)

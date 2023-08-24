@@ -52,6 +52,15 @@ class More extends StatelessWidget {
               },
             ),
             MoreButton(
+              title: getTranslated("notifications", context),
+              icon: SvgImages.notifications,
+
+              onTap: () {
+                CustomNavigator.push(Routes.Notification);
+
+              },
+            ),
+            MoreButton(
               title: getTranslated("favourites", context),
               icon: SvgImages.heartIcon,
               onTap: () {

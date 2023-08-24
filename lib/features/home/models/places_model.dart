@@ -46,6 +46,7 @@ class PlaceItem {
   String? facebook;
   String? createdAt;
   String? updatedAt;
+  bool? isFollow;
 
   PlaceItem(
       {this.id,
@@ -67,6 +68,7 @@ class PlaceItem {
       this.instagram,
       this.tiktok,
       this.facebook,
+      this.isFollow,
       this.createdAt,
       this.updatedAt});
 
@@ -95,6 +97,7 @@ class PlaceItem {
     facebook = json['facebook'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    isFollow = json['is_follow'];
   }
 
   Map<String, dynamic> toJson() {

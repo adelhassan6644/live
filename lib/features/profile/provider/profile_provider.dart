@@ -166,10 +166,9 @@ class ProfileProvider extends ChangeNotifier {
     }
   }
 
-
-  initProfileData(){
-    nameTEC.text = profileModel?.name??"";
-     emailTEC.text = profileModel?.email??"";
-     phoneTEC.text =profileModel?.phone??"";
+  initProfileData() {
+    nameTEC.text = profileModel?.name ?? "";
+    emailTEC.text = profileModel?.email ?? "";
+    phoneTEC.text = profileModel?.phone ?? "";
   }
 }

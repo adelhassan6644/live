@@ -12,6 +12,7 @@ class CustomTextFormField extends StatefulWidget {
   final Widget? sufWidget;
   final Widget? prefixWidget;
   final bool label;
+  final bool autofocus;
   final TextInputType? inputType;
   final String? Function(String?)? valid;
   final AutovalidateMode? validationMode;
@@ -41,6 +42,7 @@ class CustomTextFormField extends StatefulWidget {
     super.key,
     this.withPadding = true,
     this.addBorder = true,
+    this.autofocus = false,
     this.keyboardAction = TextInputAction.next,
     this.autoValidateMode = AutovalidateMode.onUserInteraction,
     this.prefixWidget,
@@ -105,6 +107,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         textInputAction: widget.keyboardAction,
         onTap: widget.onTap,
         validator: widget.valid,
+        autofocus: widget.autofocus,
         controller: widget.controller,
         initialValue: widget.initialValue,
         maxLength: widget.maxLength,
@@ -123,8 +126,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         obscureText: widget.isPassword == true ? _isHidden : false,
         decoration: InputDecoration(
           counterText: "",
-          prefixIcon: Row(
+          prefixIcon: ( widget.pAssetIcon!=null||widget.pSvgIcon!=null )?Row(
             children: [
+
               SizedBox(
                 width: 24.w,
               ),
@@ -155,7 +159,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               ),
               const Expanded(child: SizedBox()),
             ],
-          ),
+          ):null,
           suffixIcon: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 8.w,
@@ -197,7 +201,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           enabledBorder:_borders.copyWith(borderSide: widget.addBorder ?BorderSide(color: widget.read == true ? ColorResources.DISABLED : ColorResources.BORDER_COLOR ):null),
           disabledBorder:  _borders.copyWith(borderSide: widget.addBorder ? const BorderSide(
                   color: ColorResources.DISABLED):null),
-          focusedBorder: _borders.copyWith(borderSide: widget.addBorder ? BorderSide(color: widget.read == true ? ColorResources.DISABLED : ColorResources.PRIMARY_COLOR):null),
+          focusedBorder: _borders.copyWith(borderSide: widget.addBorder ? BorderSide(color: widget.read == true ? ColorResources.DISABLED : ColorResources.SECOUND_PRIMARY_COLOR):null),
           errorBorder: _borders.copyWith(borderSide: widget.addBorder? const BorderSide(color:ColorResources.FAILED_COLOR):null),
           border:  _borders.copyWith(borderSide: widget.addBorder? BorderSide(
                   color: widget.read == true

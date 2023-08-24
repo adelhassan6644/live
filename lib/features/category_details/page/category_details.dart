@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../components/custom_app_bar.dart';
 import '../../../components/grid_list_animator.dart';
+import '../../../components/tab_widget.dart';
 import '../../../main_widgets/place_card.dart';
 
 class CategoryDetails extends StatefulWidget {
@@ -21,13 +22,24 @@ class CategoryDetails extends StatefulWidget {
   State<CategoryDetails> createState() => _CategoryDetailsState();
 }
 
-class _CategoryDetailsState extends State<CategoryDetails> {
+class _CategoryDetailsState extends State<CategoryDetails>with TickerProviderStateMixin {
+  late TabController _tabController;
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
+      _tabController = TabController(
+          initialIndex: 0,
+          length:   Provider.of<CategoryDetailsProvider>(context, listen: false).currentCategory!.subCategory!.isNotEmpty? Provider.of<CategoryDetailsProvider>(context, listen: false).currentCategory!.subCategory!.length :0,
+          vsync: this);
       Provider.of<CategoryDetailsProvider>(context, listen: false).model = null;
-      Provider.of<CategoryDetailsProvider>(context, listen: false)
+      if(Provider.of<CategoryDetailsProvider>(context, listen: false).currentCategory!.subCategory!.isEmpty) {
+        Provider.of<CategoryDetailsProvider>(context, listen: false)
           .getCategoryDetails(widget.id);
+      }
+      else{
+        Provider.of<CategoryDetailsProvider>(context, listen: false)
+            .getSubCategoryDetails(Provider.of<CategoryDetailsProvider>(context, listen: false).currentCategory!.subCategory!.first.id);
+      }
     });
     super.initState();
   }
@@ -41,6 +53,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
         top: true,
         child: Consumer<CategoryDetailsProvider>(
           builder: (context, provider, child) {
+
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -48,15 +61,33 @@ class _CategoryDetailsState extends State<CategoryDetails> {
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
-                  child: provider.isLoading
-                      ? const CustomShimmerContainer(
-                          width: 150,
-                          height: 30,
-                        )
-                      : Text(provider.model?.data?.title ?? "",
+                  child:  Text(provider.currentCategory?.title ?? "",
                           style: AppTextStyles.semiBold.copyWith(
                               fontSize: 24,
-                              color: provider.model?.data?.textColor?.toColor)),
+                              color: provider.currentCategory!.textColor?.toColor)),
+                ),
+                SizedBox(
+                  height: 50,
+                  width: context.width,
+                  child: TabBar(
+                    labelColor:
+                    Theme.of(context).textTheme.bodyLarge!.color,
+                    unselectedLabelColor: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .color!
+                        .withOpacity(0.5),
+                    controller: _tabController,
+                    isScrollable: true,
+                    tabs: _tabs(provider),
+
+                    onTap: (int index) {
+
+                        provider.selectTab( index);
+
+                    },
+                    // provider.subCategories.map((e) => Tab(text: e.name)).toList(),
+                  ),
                 ),
                 provider.isLoading
                     ? Expanded(
@@ -145,5 +176,17 @@ class _CategoryDetailsState extends State<CategoryDetails> {
         ),
       ),
     );
+  }
+  List<Tab> _tabs(CategoryDetailsProvider category) {
+    List<Tab> tabList = [];
+    if (category.currentCategory!.subCategory!.isNotEmpty) {
+
+      category.currentCategory!.subCategory!
+          .forEach((subCategory) => tabList.add(Tab(text: subCategory.title??"")));
+    } else {
+
+    }
+
+    return tabList;
   }
 }

@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>959079125882-2alh1qhd949fr7fpr8aocfc3f78jk86o.apps.googleusercontent.com</string>
+	<string>763430146805-fk90m5s2sv8djik5cfi1mbg8h3e16vn8.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.959079125882-2alh1qhd949fr7fpr8aocfc3f78jk86o</string>
+	<string>com.googleusercontent.apps.763430146805-fk90m5s2sv8djik5cfi1mbg8h3e16vn8</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBvtbL5W_oku7hkTo6MbTTbO6bjTpCAxv8</string>
+	<string>AIzaSyCkCBk5LKJRTwsdxllygRkW3MFhADLkiaw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>959079125882</string>
+	<string>763430146805</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.softwareCloud.live</string>
 	<key>PROJECT_ID</key>
-	<string>liveelhmdaniaa</string>
+	<string>live-hemdania</string>
 	<key>STORAGE_BUCKET</key>
-	<string>liveelhmdaniaa.appspot.com</string>
+	<string>live-hemdania.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:959079125882:ios:123582bd1f98ff8d17fcc3</string>
+	<string>1:763430146805:ios:88b734376c70278095abbc</string>
 </dict>
 </plist>

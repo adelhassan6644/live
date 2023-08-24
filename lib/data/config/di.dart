@@ -15,10 +15,14 @@ import '../../features/favourite/provider/favourite_provider.dart';
 import '../../features/favourite/repo/favourite_repo.dart';
 import '../../features/home/provider/home_provider.dart';
 import '../../features/maps/repo/maps_repo.dart';
+import '../../features/notifications/provider/notifications_provider.dart';
+import '../../features/notifications/repo/notifications_repo.dart';
 import '../../features/place_details/provider/place_details_provider.dart';
 import '../../features/place_details/repo/place_details_repo.dart';
 import '../../features/profile/provider/profile_provider.dart';
 import '../../features/profile/repo/profile_repo.dart';
+import '../../features/search/provider/search_provider.dart';
+import '../../features/search/repo/search_repo.dart';
 import '../../features/setting/provider/setting_provider.dart';
 import '../../features/setting/repo/setting_repo.dart';
 import '../../main_page/provider/main_page_provider.dart';
@@ -45,6 +49,7 @@ Future<void> init() async {
 
   // Repository
   sl.registerLazySingleton(() => SplashRepo(sharedPreferences: sl()));
+  sl.registerLazySingleton(() => NotificationsRepo(sharedPreferences: sl(), dioClient: sl()));
   sl.registerLazySingleton(
       () => AuthRepo(sharedPreferences: sl(), dioClient: sl()));
   sl.registerLazySingleton(
@@ -62,11 +67,16 @@ Future<void> init() async {
   sl.registerLazySingleton(
       () => SettingRepo(sharedPreferences: sl(), dioClient: sl()));
   sl.registerLazySingleton(
-      () => ContactRepo(sharedPreferences: sl(), dioClient: sl()));
-
+      () => ContactRepo(sharedPreferences: sl(), dioClient: sl())); 
+  sl.registerLazySingleton(
+      () => SearchRepo(sharedPreferences: sl(), dioClient: sl()));
   //provider
   sl.registerLazySingleton(() => LocalizationProvider(sharedPreferences: sl()));
+
+  
   sl.registerLazySingleton(() => LanguageProvider());
+  sl.registerLazySingleton(() => NotificationsProvider(notificationsRepo: sl()));
+  sl.registerLazySingleton(() => SearchProvider(searchRepo: sl()));
   sl.registerLazySingleton(() => ThemeProvider(sharedPreferences: sl()));
   sl.registerLazySingleton(() => MainPageProvider());
   sl.registerLazySingleton(() => SplashProvider(splashRepo: sl()));

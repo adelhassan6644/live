@@ -24,5 +24,16 @@ class CategoryDetailsRepo {
     } catch (error) {
       return left(ServerFailure(ApiErrorHandler.getMessage(error)));
     }
+  }  Future<Either<ServerFailure, Response>> getSubCategoryDetails(id) async {
+    try {
+      Response response = await dioClient.get(uri: "${EndPoints.subCategory}/$id");
+      if (response.statusCode == 200) {
+        return Right(response);
+      } else {
+        return left(ServerFailure(response.data['message']));
+      }
+    } catch (error) {
+      return left(ServerFailure(ApiErrorHandler.getMessage(error)));
+    }
   }
 }

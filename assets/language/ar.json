@@ -28,6 +28,12 @@
   "new_password": "كلمة المرور الجديدة",
   "your_password_changed_successfully": "تم تغير كلمة المرور الخاصة بك بنجاح",
   "name": "الأسم",
+  "rate": "تقيم",
+
+  "notifications": "الأشعارات",
+  "no_notifications": "لا يوجد اشعارات حاليا",
+  "follow": "متابعة",
+  "un_follow": "الغاء المتابعة",
   "personal_information": "البيانات الشخصية",
   "edit": "تعديل",
   "save": "حفظ",

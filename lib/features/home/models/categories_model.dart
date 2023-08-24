@@ -33,6 +33,7 @@ class CategoryItem {
   String? description;
   String? createdAt;
   String? updatedAt;
+  List<SubCategory>? subCategory;
 
   CategoryItem(
       {this.id,
@@ -42,6 +43,7 @@ class CategoryItem {
       this.color,
       this.textColor,
       this.createdAt,
+        this.subCategory,
       this.updatedAt});
 
   CategoryItem.fromJson(Map<String, dynamic> json) {
@@ -53,6 +55,8 @@ class CategoryItem {
     description = json['description'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    subCategory= json["sub_category"] == null ? [] : List<SubCategory>.from(json["sub_category"]!.map((x) => SubCategory.fromJson(x)));
+
   }
 
   Map<String, dynamic> toJson() {
@@ -66,3 +70,51 @@ class CategoryItem {
     return data;
   }
 }
+class SubCategory {
+  int? id;
+  String? title;
+  int? categoryId;
+  String? color;
+  String? textColor;
+  String? description;
+  String? image;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+
+  SubCategory({
+    this.id,
+    this.title,
+    this.categoryId,
+    this.color,
+    this.textColor,
+    this.description,
+    this.image,
+    this.createdAt,
+    this.updatedAt,
+  });
+
+  factory SubCategory.fromJson(Map<String, dynamic> json) => SubCategory(
+    id: json["id"],
+    title: json["title"],
+    categoryId: json["category_id"],
+    color: json["color"],
+    textColor: json["text_color"],
+    description: json["description"],
+    image: json["image"],
+    createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+    updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "title": title,
+    "category_id": categoryId,
+    "color": color,
+    "text_color": textColor,
+    "description": description,
+    "image": image,
+    "created_at": createdAt?.toIso8601String(),
+    "updated_at": updatedAt?.toIso8601String(),
+  };
+}
+

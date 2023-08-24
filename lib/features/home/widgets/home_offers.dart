@@ -11,6 +11,8 @@ import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../components/custom_network_image.dart';
 import '../../../components/empty_widget.dart';
+import '../../../navigation/custom_navigation.dart';
+import '../../../navigation/routes.dart';
 
 class HomeOffers extends StatelessWidget {
   const HomeOffers({
@@ -68,14 +70,22 @@ class HomeOffers extends StatelessWidget {
                             disableGesture: true,
                             itemCount: provider.offersModel?.data?.length ?? 0,
                             itemBuilder: (context, index, _) {
-                              return CustomNetworkImage.containerNewWorkImage(
-                                  image: provider
-                                          .offersModel?.data?[index].image ??
-                                      "",
-                                  width: context.width,
-                                  height: 205.h,
-                                  fit: BoxFit.cover,
-                                  radius: 20);
+                              return InkWell(
+                                onTap: (){
+                                  CustomNavigator.push(Routes.PLACE_DETAILS,
+                                      arguments: provider.offersModel
+                                          ?.data?[index].id ??
+                                          0);
+                                },
+                                child: CustomNetworkImage.containerNewWorkImage(
+                                    image: provider
+                                            .offersModel?.data?[index].image ??
+                                        "",
+                                    width: context.width,
+                                    height: 205.h,
+                                    fit: BoxFit.cover,
+                                    radius: 20),
+                              );
                             },
                           ),
                           SizedBox(

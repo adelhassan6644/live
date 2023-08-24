@@ -1,37 +1,37 @@
 {
   "project_info": {
-    "project_number": "959079125882",
-    "project_id": "liveelhmdaniaa",
-    "storage_bucket": "liveelhmdaniaa.appspot.com"
+    "project_number": "763430146805",
+    "project_id": "live-hemdania",
+    "storage_bucket": "live-hemdania.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:959079125882:android:0340ba46a0e1b76417fcc3",
+        "mobilesdk_app_id": "1:763430146805:android:75d5682d71f4ae7c95abbc",
         "android_client_info": {
           "package_name": "com.softwareCloud.live"
         }
       },
       "oauth_client": [
         {
-          "client_id": "959079125882-h06rfhb6sj51cotpij5upnmq0hh3a7rd.apps.googleusercontent.com",
+          "client_id": "763430146805-7h51dgkqhadas42ul04ij2df87q920br.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC6HFz2Go3S3Ej8y6fY4jfOQQAHurJKxOk"
+          "current_key": "AIzaSyCmj-n5YaEcFbd_HoDzYXnz3x1xIls4aUE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "959079125882-h06rfhb6sj51cotpij5upnmq0hh3a7rd.apps.googleusercontent.com",
+              "client_id": "763430146805-7h51dgkqhadas42ul04ij2df87q920br.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "959079125882-2alh1qhd949fr7fpr8aocfc3f78jk86o.apps.googleusercontent.com",
+              "client_id": "763430146805-fk90m5s2sv8djik5cfi1mbg8h3e16vn8.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.softwareCloud.live"

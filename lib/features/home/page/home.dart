@@ -9,6 +9,7 @@ import '../widgets/home_news.dart';
 import '../widgets/home_offers.dart';
 import '../widgets/home_banners.dart';
 import '../widgets/home_places.dart';
+import '../widgets/home_search.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -55,6 +56,8 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
               child: ListAnimator(
                 controller: controller,
                 data: const [
+
+                  HomeSearch(),
                   HomeBanner(),
                   HomeCategories(),
                   HomePlaces(),

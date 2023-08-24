@@ -1,7 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/extensions.dart';
+import 'package:live/app/core/utils/images.dart';
 import 'package:live/components/shimmer/custom_shimmer.dart';
 import 'package:live/features/home/models/places_model.dart';
+import 'package:live/features/place_details/widgets/place_feed_packs.dart';
+import 'package:live/features/place_details/widgets/place_offers.dart';
+import 'package:live/features/place_details/widgets/post_place_feed_packs.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -22,13 +27,7 @@ class PlaceDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-          horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-          vertical: Dimensions.PADDING_SIZE_SMALL.h),
-      decoration: const BoxDecoration(
-          color: ColorResources.WHITE_COLOR,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(35), topRight: Radius.circular(35))),
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -55,25 +54,54 @@ class PlaceDetailsWidget extends StatelessWidget {
                     maxLines: 1,
                   ),
                 ),
-                Consumer<PlaceDetailsProvider>(
-                  builder: (context,provider,w) {
-                    return CustomButton(
-                      text: getTranslated("share", context),
-                      width: 110,
-                      onTap:(){
-                        provider.sharePlace(placeItem);
-                      } ,
-                      height: 35,
-                      withBorderColor: false,
-                      withShadow: true,
-                      iconSize: 15,
-                      textColor: ColorResources.SECOUND_PRIMARY_COLOR,
-                      svgIcon: SvgImages.share,
-                      backgroundColor: ColorResources.WHITE_COLOR,
-                      textSize: 14,
-                    );
-                  }
-                )
+                Consumer<PlaceDetailsProvider>(builder: (context, provider, w) {
+                  return Container(
+                    decoration: BoxDecoration(
+
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            spreadRadius: 2,
+                            blurRadius: 2,
+                            offset: const Offset(1, 1))
+                      ],
+
+                      borderRadius: BorderRadius.circular(  30),
+                    ),
+                    child: customContainerSvgIcon(
+
+                        imageName:  SvgImages.share,
+                        imageColor: ColorResources.SECOUND_PRIMARY_COLOR,
+                        color: Colors.white,
+                        width: 40,
+                        height: 40,
+                        onTap: (){
+                          provider.sharePlace(placeItem);
+                        }),
+                  );
+
+
+                }),
+                const SizedBox(width: 5,),
+                Consumer<PlaceDetailsProvider>(builder: (context, provider, w) {
+                  return CustomButton(
+                    text:!provider.isFollow?getTranslated("follow", context): getTranslated("un_follow", context),
+                    width:provider.isFollow? 150:115,
+                    onTap: () {
+                      provider.followPlace(placeItem.id);
+                    },
+                    height: 35,
+                    withBorderColor: false,
+                    withShadow: true,
+                    iconSize: 15,
+                    textColor: ColorResources.SECOUND_PRIMARY_COLOR,
+                    assetIcon: Images.add,
+                    iconColor: ColorResources.SECOUND_PRIMARY_COLOR,
+                    backgroundColor: ColorResources.WHITE_COLOR,
+                    textSize: 14,
+                  );
+                }),
+
               ],
             ),
           ),
@@ -104,7 +132,6 @@ class PlaceDetailsWidget extends StatelessWidget {
               ],
             ),
           ),
-
           Padding(
             padding: EdgeInsets.symmetric(vertical: 4.h),
             child: Row(
@@ -171,90 +198,101 @@ class PlaceDetailsWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    if(placeItem.facebook!=null)
-                    customContainerSvgIcon(
-                        imageName: SvgImages.faceBook,
-                        imageColor: ColorResources.HEADER,
-                        height: 42.0,
-                        width: 42.0,
-                        radius: 100,
-                        withShadow: true,
-                        color: ColorResources.WHITE_COLOR,
-                        onTap: () async {
-                          launchUrl(Uri.parse(placeItem.facebook!),
-                              mode: LaunchMode.externalApplication);
-
-                        }),
-                    if(placeItem.instagram!=null)
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    if(placeItem.instagram!=null)
-                    customContainerSvgIcon(
-                        imageName: SvgImages.instagram,
-                        imageColor: ColorResources.HEADER,
-                        height: 42.0,
-                        width: 42.0,
-                        radius: 100,
-                        withShadow: true,
-                        color: ColorResources.WHITE_COLOR,
-                        onTap: () async {
-                          launchUrl(Uri.parse(placeItem.instagram!),
-                              mode: LaunchMode.externalApplication);
-                        }),
-                    if(placeItem.twitter!=null)
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    if(placeItem.twitter!=null)
-                    customContainerSvgIcon(
-                        imageName: SvgImages.twitter,
-                        imageColor: ColorResources.HEADER,
-                        height: 42.0,
-                        width: 42.0,
-                        radius: 100,
-                        withShadow: true,
-                        color: ColorResources.WHITE_COLOR,
-                        onTap: () async {
-                          launchUrl(Uri.parse(placeItem.twitter!),
-                              mode: LaunchMode.externalApplication);
-                        }),
-                    if(placeItem.tiktok!=null)
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    if(placeItem.tiktok!=null)
-                    customContainerSvgIcon(
-                        imageName: SvgImages.tiktok,
-                        imageColor: ColorResources.HEADER,
-                        height: 42.0,
-                        width: 42.0,
-                        radius: 100,
-                        withShadow: true,
-                        onTap: () async {
-                          launchUrl(Uri.parse(placeItem.tiktok!),
-                              mode: LaunchMode.externalApplication);
-                        },
-                        color: ColorResources.WHITE_COLOR),
-                    if(placeItem.whatsapp!=null)
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    if(placeItem.whatsapp!=null)
-                    customContainerSvgIcon(
-                        imageName: SvgImages.whatsApp,
-                        imageColor: ColorResources.HEADER,
-                        height: 42.0,
-                        width: 42.0,
-                        radius: 100,
-                        withShadow: true,
-                        color: ColorResources.WHITE_COLOR,
-                        onTap: () async {
-                          await launch(
-                              "whatsapp://send?phone=${placeItem.whatsapp}");
-                        }),
+                    if (placeItem.facebook != null)
+                      customContainerSvgIcon(
+                          imageName: SvgImages.faceBook,
+                          imageColor: ColorResources.HEADER,
+                          height: 42.0,
+                          width: 42.0,
+                          radius: 100,
+                          withShadow: true,
+                          color: ColorResources.WHITE_COLOR,
+                          onTap: () async {
+                            launchUrl(Uri.parse(placeItem.facebook!),
+                                mode: LaunchMode.externalApplication);
+                          }),
+                    if (placeItem.instagram != null)
+                      const SizedBox(
+                        width: 16,
+                      ),
+                    if (placeItem.instagram != null)
+                      customContainerSvgIcon(
+                          imageName: SvgImages.instagram,
+                          imageColor: ColorResources.HEADER,
+                          height: 42.0,
+                          width: 42.0,
+                          radius: 100,
+                          withShadow: true,
+                          color: ColorResources.WHITE_COLOR,
+                          onTap: () async {
+                            launchUrl(Uri.parse(placeItem.instagram!),
+                                mode: LaunchMode.externalApplication);
+                          }),
+                    if (placeItem.twitter != null)
+                      const SizedBox(
+                        width: 16,
+                      ),
+                    if (placeItem.twitter != null)
+                      customContainerSvgIcon(
+                          imageName: SvgImages.twitter,
+                          imageColor: ColorResources.HEADER,
+                          height: 42.0,
+                          width: 42.0,
+                          radius: 100,
+                          withShadow: true,
+                          color: ColorResources.WHITE_COLOR,
+                          onTap: () async {
+                            launchUrl(Uri.parse(placeItem.twitter!),
+                                mode: LaunchMode.externalApplication);
+                          }),
+                    if (placeItem.tiktok != null)
+                      const SizedBox(
+                        width: 16,
+                      ),
+                    if (placeItem.tiktok != null)
+                      customContainerSvgIcon(
+                          imageName: SvgImages.tiktok,
+                          imageColor: ColorResources.HEADER,
+                          height: 42.0,
+                          width: 42.0,
+                          radius: 100,
+                          withShadow: true,
+                          onTap: () async {
+                            launchUrl(Uri.parse(placeItem.tiktok!),
+                                mode: LaunchMode.externalApplication);
+                          },
+                          color: ColorResources.WHITE_COLOR),
+                    if (placeItem.whatsapp != null)
+                      const SizedBox(
+                        width: 16,
+                      ),
+                    if (placeItem.whatsapp != null)
+                      customContainerSvgIcon(
+                          imageName: SvgImages.whatsApp,
+                          imageColor: ColorResources.HEADER,
+                          height: 42.0,
+                          width: 42.0,
+                          radius: 100,
+                          withShadow: true,
+                          color: ColorResources.WHITE_COLOR,
+                          onTap: () async {
+                            await launch(
+                                "whatsapp://send?phone=${placeItem.whatsapp}");
+                          }),
                   ],
-                )
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                const PlaceOffers(),
+                SizedBox(
+                  height: 10.h,
+                ),
+                PostPlaceFeedBack(),
+                SizedBox(
+                  height: 10.h,
+                ),
+                const  PlaceFeedBack()
               ],
             ),
           ),
@@ -296,7 +334,7 @@ class PlaceDetailsWidgetShimmer extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 4.h),
-            child:  Row(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomShimmerContainer(

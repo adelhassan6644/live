@@ -9,4 +9,8 @@ class Images {
   static const String cancelCircle = 'assets/images/cancel_circle.png';
   static const String whatsApp = 'assets/images/whatsapp.png';
   static const String megaPhone = 'assets/images/mega_phone.png';
+  static const String search = 'assets/svgs/search.svg';
+  static const String emptySearch = 'assets/images/Empty_search.png';
+  static const String add = 'assets/images/add.png';
+  static const String emptyNotifcations = 'assets/images/empty_notifcations.png';
 }

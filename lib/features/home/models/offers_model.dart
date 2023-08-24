@@ -24,6 +24,7 @@ class OffersModel {
   }
 }
 
+
 class OfferItem {
   int? id;
   String? image;
@@ -49,7 +50,7 @@ class OfferItem {
         this.updatedAt});
 
   OfferItem.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['place_id'];
     image = json['image'];
     description = json['description'];
     title = json['title'];

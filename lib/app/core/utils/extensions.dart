@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -25,8 +26,7 @@ extension StringExtension on String {
       } else if (hexDigit >= 97 && hexDigit <= 102) {
         val += (hexDigit - 87) * (1 << (4 * (len - 1 - i)));
       } else {
-        throw const FormatException(
-            "An error occurred when converting a color");
+        return Colors.white;
       }
     }
     return Color(val);

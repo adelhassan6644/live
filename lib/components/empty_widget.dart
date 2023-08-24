@@ -13,6 +13,7 @@ class EmptyState extends StatelessWidget {
   final bool isSvg;
   final double? spaceBtw;
   final String? txt;
+  final Color? txtColor;
   final String? subText;
 
   const EmptyState({
@@ -24,6 +25,7 @@ class EmptyState extends StatelessWidget {
     this.imgHeight,
     this.imgWidth,
     this.txt,
+    this.txtColor=ColorResources.PRIMARY_COLOR,
     this.subText,
   }) : super(key: key);
   @override
@@ -49,10 +51,10 @@ class EmptyState extends StatelessWidget {
             ),
             Text(txt ?? "لا يوجد بيانات !",
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style:  TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: ColorResources.PRIMARY_COLOR,
+                  color: txtColor,
                 )),
             SizedBox(height: 8.h),
             Text(subText ?? "",
