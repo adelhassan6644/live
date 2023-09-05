@@ -51,6 +51,8 @@
   "have_acc": "لديك حساب بالفعل؟ ",
   "forget_password": "نسيت كلمة المرور؟",
   "your_logged_out_successfully": "تم تسجيل الخروج بنجاح",
+  "your_deleted_successfully": "تم حذف الحساب بنجاح",
+  "delete_account": "حذف الحساب",
   "don't_get_the_code": "لم تحصل علي الرمز؟",
   "browse": "تصفح ",
   "login_as_a_guest": "التسجيل لاحقا",

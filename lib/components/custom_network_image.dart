@@ -96,6 +96,7 @@ class CustomNetworkImage {
       String? defaultImage,
       bool isDefaultSvg = true,
       backGroundColor,
+        fit,
       color,
       double? padding}) {
     return CachedNetworkImage(
@@ -113,7 +114,7 @@ class CustomNetworkImage {
         child: CircleAvatar(
           radius: radius,
           backgroundColor: backGroundColor ?? Colors.white,
-          child: Image.asset(Images.logo),
+          child: Image.asset(Images.logo,fit:fit ,),
         ),
       ),
       fadeInDuration: const Duration(seconds: 1),

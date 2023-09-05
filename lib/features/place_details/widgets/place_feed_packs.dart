@@ -83,14 +83,15 @@ class PlaceFeedBack extends StatelessWidget {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: CustomNetworkImage.circleNewWorkImage(
-                                        radius: 40.5,
-                                        padding: 0,
-                                        backGroundColor: ColorResources.SECOUND_PRIMARY_COLOR,
-                                        image:
-
-                                        provider.feedBacks!.data![index].clientImage,
-                                        ),
+                                    child:
+                                        CustomNetworkImage.circleNewWorkImage(
+                                      radius: 40.5,
+                                      padding: 0,
+                                      backGroundColor:
+                                          ColorResources.SECOUND_PRIMARY_COLOR,
+                                      image: provider
+                                          .feedBacks!.data![index].clientImage,
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 10,
@@ -101,7 +102,8 @@ class PlaceFeedBack extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        provider.feedBacks!.data![index].clientName??
+                                        provider.feedBacks!.data![index]
+                                                .clientName ??
                                             "",
                                         style: AppTextStyles.semiBold
                                             .copyWith(fontSize: 18),
@@ -120,11 +122,27 @@ class PlaceFeedBack extends StatelessWidget {
                                         .toString(),
                                     style: AppTextStyles.semiBold.copyWith(),
                                   ),
-                                  customImageIconSVG(
-                                    imageName: SvgImages.rate,
-                                    color: Colors.amber,
-                                    width: 30
-                                  ),
+                                  if (provider.feedBacks!.data![index].rating ==
+                                      1)
+                                    Icon(
+                                      Icons.sentiment_very_dissatisfied,
+                                      color: Colors.red,
+                                      size: 35,
+                                    ),
+                                  if (provider.feedBacks!.data![index].rating ==
+                                      2)
+                                    Icon(
+                                      Icons.sentiment_satisfied,
+                                      color: Colors.lightGreen,
+                                      size: 35,
+                                    ),
+                                  if (provider.feedBacks!.data![index].rating ==
+                                      3)
+                                    Icon(
+                                      Icons.sentiment_very_satisfied,
+                                      color: Colors.green,
+                                      size: 35,
+                                    ),
                                   SizedBox(
                                     width: 10,
                                   ),

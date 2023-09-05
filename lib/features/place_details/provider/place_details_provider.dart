@@ -86,9 +86,14 @@ class PlaceDetailsProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
-
+  bool get isLogin => repo.isLoggedIn();
   followPlace(id) async {
     try {
+      if(!isLogin)
+        {
+          showToast("سجل الدخول اولاً");
+          return ;
+        }
       Either<ServerFailure, Response> response = await repo.followPlace(id);
       response.fold((fail) {
         isLoading = false;

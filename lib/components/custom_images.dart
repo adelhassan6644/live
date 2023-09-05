@@ -13,7 +13,7 @@ Widget customImageIcon(
   return Image.asset(
     imageName,
     color: color,
-    fit: BoxFit.fill,
+    fit: BoxFit.contain,
     width: width ?? 30,
     height: height ?? 25,
   );

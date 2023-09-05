@@ -12,11 +12,12 @@ class SplashProvider extends ChangeNotifier {
       if (splashRepo.isFirstTime()) {
        CustomNavigator.push(Routes.ON_BOARDING, clean: true);
       } else if (!splashRepo.isLogin() ) {
-        CustomNavigator.push(Routes.LOGIN, clean: true);
+        CustomNavigator.push(Routes.MAIN_PAGE, clean: true);
       } else {
         CustomNavigator.push(Routes.MAIN_PAGE, clean: true, arguments: 0);
       }
       splashRepo.setFirstTime();
     });
+
   }
 }

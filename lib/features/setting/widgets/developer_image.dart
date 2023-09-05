@@ -39,9 +39,10 @@ class DeveloperImage extends StatelessWidget {
                           diameter: 68 * 2,
                         )
                       : CustomNetworkImage.circleNewWorkImage(
+                    fit: BoxFit.cover,
                           color: ColorResources.HINT_COLOR,
                           image: provider.model?.data?.image ?? "",
-                          radius: 68),
+                          radius: 60),
                 ],
               ),
             ],

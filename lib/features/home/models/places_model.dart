@@ -41,6 +41,7 @@ class PlaceItem {
   String? image;
   String? twitter;
   String? whatsapp;
+  String? website;
   String? instagram;
   String? tiktok;
   String? facebook;
@@ -65,6 +66,7 @@ class PlaceItem {
       this.images,
       this.twitter,
       this.whatsapp,
+      this.website,
       this.instagram,
       this.tiktok,
       this.facebook,
@@ -94,6 +96,7 @@ class PlaceItem {
     whatsapp = json['whatsapp'];
     instagram = json['instagram'];
     tiktok = json['tiktok'];
+    website = json['website'];
     facebook = json['facebook'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

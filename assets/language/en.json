@@ -84,6 +84,9 @@
   "and_enjoy_all_the_features_available_in_the_application": "and enjoy all the features available in the application",
   "your_password_reset_successfully": "Your password reset successfully",
   "invalid_credentials": "Invalid Credentials",
+  "your_deleted_successfully": "Your profile deleted ",
+  "delete_account": "Delete account",
   "register_successfully": "Account has been successfully registered"
+
 
 }

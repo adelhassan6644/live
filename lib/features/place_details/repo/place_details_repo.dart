@@ -95,6 +95,10 @@ class PlaceDetailsRepo {
     } catch (error) {
       return left(ServerFailure(ApiErrorHandler.getMessage(error)));
     }
+
+  }
+  bool isLoggedIn() {
+    return sharedPreferences.containsKey(AppStorageKey.isLogin);
   }
   Future<Either<ServerFailure, Response>> getPlaceFeedBacks(id) async {
     try {

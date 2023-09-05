@@ -69,44 +69,28 @@ class PostPlaceFeedBack extends StatelessWidget {
               height: 15.h,
             ),
             RatingBar.builder(
-              initialRating: 3,
+              initialRating: 2,
               minRating: 1,
               direction: Axis.horizontal,
               allowHalfRating: false,
-              itemCount: 4,
+              itemCount: 3,
               itemSize: 50,
               itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
               itemBuilder: (context, index) {
                 switch (index) {
                   case 0:
-                    return Column(
-                      children: [
-                        Icon(
-                          Icons.sentiment_very_dissatisfied,
-                          color: Colors.red,
-                        ),
-                      ],
+                    return Icon(
+                      Icons.sentiment_very_dissatisfied,
+                      color: Colors.red,
                     );
 
+
                   case 1:
-                    return Column(
-                      children: [
-                        Icon(
-                          Icons.sentiment_neutral,
-                          color: Colors.amber,
-                        ),
-                      ],
+                    return Icon(
+                      Icons.sentiment_satisfied,
+                      color: Colors.lightGreen,
                     );
                   case 2:
-                    return Column(
-                      children: [
-                        Icon(
-                          Icons.sentiment_satisfied,
-                          color: Colors.lightGreen,
-                        ),
-                      ],
-                    );
-                  case 3:
                     return Column(
                       children: [
                         Icon(
@@ -164,4 +148,5 @@ class PostPlaceFeedBack extends StatelessWidget {
       );
     });
   }
+
 }

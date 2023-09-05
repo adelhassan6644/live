@@ -11,6 +11,8 @@ import '../../../app/localization/localization/language_constant.dart';
 import '../../../data/config/di.dart';
 import '../../../main_page/provider/main_page_provider.dart';
 import '../../../main_widgets/software_copyRight.dart';
+import '../../auth/provider/auth_provider.dart';
+import '../../profile/provider/profile_provider.dart';
 import '../widgets/more_button.dart';
 import '../widgets/profile_card.dart';
 
@@ -91,6 +93,20 @@ class More extends StatelessWidget {
                 CustomNavigator.push(Routes.ABOUT_US);
               },
             ),
+    Consumer<ProfileProvider>(builder: (_, provider, child) {
+      if(provider.isLogin) {
+        return MoreButton(
+                  title: getTranslated("delete_account", context),
+                  icon: SvgImages.trash,
+                  onTap: () {
+                    sl<AuthProvider>().deleteAccount();
+                  },
+                );
+      } else {
+        return SizedBox();
+      }
+              }
+            ),
             const Expanded(child: SizedBox()),
             LogoutButton(
               onTap: () {
@@ -99,6 +115,7 @@ class More extends StatelessWidget {
                 controller.toggle!();
               },
             ),
+
             const Expanded(child: SizedBox()),
         SoftwareCloudCopyRight(),
           ],

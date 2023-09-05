@@ -24,7 +24,7 @@ class GuestMode extends StatelessWidget {
             child: ListAnimator(
               data: [
                 customImageIcon(
-                    imageName: Images.logo, height: 180, width: 200),
+                    imageName: Images.logo, height: 200, width: 200),
                 SizedBox(
                   height: 24.h,
                 ),

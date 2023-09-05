@@ -27,7 +27,6 @@ class PlaceDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -57,7 +56,6 @@ class PlaceDetailsWidget extends StatelessWidget {
                 Consumer<PlaceDetailsProvider>(builder: (context, provider, w) {
                   return Container(
                     decoration: BoxDecoration(
-
                       boxShadow: [
                         BoxShadow(
                             color: Colors.black.withOpacity(0.1),
@@ -65,28 +63,28 @@ class PlaceDetailsWidget extends StatelessWidget {
                             blurRadius: 2,
                             offset: const Offset(1, 1))
                       ],
-
-                      borderRadius: BorderRadius.circular(  30),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                     child: customContainerSvgIcon(
-
-                        imageName:  SvgImages.share,
+                        imageName: SvgImages.share,
                         imageColor: ColorResources.SECOUND_PRIMARY_COLOR,
                         color: Colors.white,
                         width: 40,
                         height: 40,
-                        onTap: (){
+                        onTap: () {
                           provider.sharePlace(placeItem);
                         }),
                   );
-
-
                 }),
-                const SizedBox(width: 5,),
+                const SizedBox(
+                  width: 5,
+                ),
                 Consumer<PlaceDetailsProvider>(builder: (context, provider, w) {
                   return CustomButton(
-                    text:!provider.isFollow?getTranslated("follow", context): getTranslated("un_follow", context),
-                    width:provider.isFollow? 150:115,
+                    text: !provider.isFollow
+                        ? getTranslated("follow", context)
+                        : getTranslated("un_follow", context),
+                    width: provider.isFollow ? 150 : 115,
                     onTap: () {
                       provider.followPlace(placeItem.id);
                     },
@@ -101,7 +99,6 @@ class PlaceDetailsWidget extends StatelessWidget {
                     textSize: 14,
                   );
                 }),
-
               ],
             ),
           ),
@@ -194,92 +191,116 @@ class PlaceDetailsWidget extends StatelessWidget {
                         ),
                       ],
                     )),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (placeItem.facebook != null)
-                      customContainerSvgIcon(
-                          imageName: SvgImages.faceBook,
-                          imageColor: ColorResources.HEADER,
-                          height: 42.0,
-                          width: 42.0,
-                          radius: 100,
-                          withShadow: true,
-                          color: ColorResources.WHITE_COLOR,
+                Center(
+                  child: Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    runAlignment: WrapAlignment.center,
+                    alignment:WrapAlignment.center,
+                    spacing: 2.w,
+                    runSpacing: 15.w,
+
+                    children: [
+                      if (placeItem.facebook != null)
+                        customContainerSvgIcon(
+                            imageName: SvgImages.faceBook,
+                            imageColor: ColorResources.HEADER,
+                            height: 42.0,
+                            width: 42.0,
+                            radius: 100,
+                            withShadow: true,
+                            color: ColorResources.WHITE_COLOR,
+                            onTap: () async {
+                              launchUrl(Uri.parse(placeItem.facebook!),
+                                  mode: LaunchMode.externalApplication);
+                            }),
+                      if (placeItem.instagram != null)
+                        const SizedBox(
+                          width: 16,
+                        ),
+                      if (placeItem.instagram != null)
+                        customContainerSvgIcon(
+                            imageName: SvgImages.instagram,
+                            imageColor: ColorResources.HEADER,
+                            height: 42.0,
+                            width: 42.0,
+                            radius: 100,
+                            withShadow: true,
+                            color: ColorResources.WHITE_COLOR,
+                            onTap: () async {
+                              launchUrl(Uri.parse(placeItem.instagram!),
+                                  mode: LaunchMode.externalApplication);
+                            }),
+                      if (placeItem.twitter != null)
+                        const SizedBox(
+                          width: 16,
+                        ),
+                      if (placeItem.twitter != null)
+                        customContainerSvgIcon(
+                            imageName: SvgImages.twitter,
+                            imageColor: ColorResources.HEADER,
+                            height: 42.0,
+                            width: 42.0,
+                            radius: 100,
+                            withShadow: true,
+                            color: ColorResources.WHITE_COLOR,
+                            onTap: () async {
+                              launchUrl(Uri.parse(placeItem.twitter!),
+                                  mode: LaunchMode.externalApplication);
+                            }),
+                      if (placeItem.tiktok != null)
+                        const SizedBox(
+                          width: 16,
+                        ),
+                      if (placeItem.tiktok != null)
+                        customContainerSvgIcon(
+                            imageName: SvgImages.tiktok,
+                            imageColor: ColorResources.HEADER,
+                            height: 42.0,
+                            width: 42.0,
+                            radius: 100,
+                            withShadow: true,
+                            onTap: () async {
+                              launchUrl(Uri.parse(placeItem.tiktok!),
+                                  mode: LaunchMode.externalApplication);
+                            },
+                            color: ColorResources.WHITE_COLOR),
+                      if (placeItem.whatsapp != null)
+                        const SizedBox(
+                          width: 16,
+                        ),
+                      if (placeItem.whatsapp != null)
+                        customContainerSvgIcon(
+                            imageName: SvgImages.whatsApp,
+                            imageColor: ColorResources.HEADER,
+                            height: 42.0,
+                            width: 42.0,
+                            radius: 100,
+                            withShadow: true,
+                            color: ColorResources.WHITE_COLOR,
+                            onTap: () async {
+                              await launch(
+                                  "whatsapp://send?phone=${placeItem.whatsapp}");
+                            }),
+                      if (placeItem.website != null)
+                        CustomButton(
+                          text: "webSite",
+                          width: 100,
                           onTap: () async {
-                            launchUrl(Uri.parse(placeItem.facebook!),
-                                mode: LaunchMode.externalApplication);
-                          }),
-                    if (placeItem.instagram != null)
-                      const SizedBox(
-                        width: 16,
-                      ),
-                    if (placeItem.instagram != null)
-                      customContainerSvgIcon(
-                          imageName: SvgImages.instagram,
-                          imageColor: ColorResources.HEADER,
-                          height: 42.0,
-                          width: 42.0,
-                          radius: 100,
-                          withShadow: true,
-                          color: ColorResources.WHITE_COLOR,
-                          onTap: () async {
-                            launchUrl(Uri.parse(placeItem.instagram!),
-                                mode: LaunchMode.externalApplication);
-                          }),
-                    if (placeItem.twitter != null)
-                      const SizedBox(
-                        width: 16,
-                      ),
-                    if (placeItem.twitter != null)
-                      customContainerSvgIcon(
-                          imageName: SvgImages.twitter,
-                          imageColor: ColorResources.HEADER,
-                          height: 42.0,
-                          width: 42.0,
-                          radius: 100,
-                          withShadow: true,
-                          color: ColorResources.WHITE_COLOR,
-                          onTap: () async {
-                            launchUrl(Uri.parse(placeItem.twitter!),
-                                mode: LaunchMode.externalApplication);
-                          }),
-                    if (placeItem.tiktok != null)
-                      const SizedBox(
-                        width: 16,
-                      ),
-                    if (placeItem.tiktok != null)
-                      customContainerSvgIcon(
-                          imageName: SvgImages.tiktok,
-                          imageColor: ColorResources.HEADER,
-                          height: 42.0,
-                          width: 42.0,
-                          radius: 100,
-                          withShadow: true,
-                          onTap: () async {
-                            launchUrl(Uri.parse(placeItem.tiktok!),
+                            launchUrl(Uri.parse(placeItem.website!),
                                 mode: LaunchMode.externalApplication);
                           },
-                          color: ColorResources.WHITE_COLOR),
-                    if (placeItem.whatsapp != null)
-                      const SizedBox(
-                        width: 16,
-                      ),
-                    if (placeItem.whatsapp != null)
-                      customContainerSvgIcon(
-                          imageName: SvgImages.whatsApp,
-                          imageColor: ColorResources.HEADER,
-                          height: 42.0,
-                          width: 42.0,
-                          radius: 100,
+                          height: 35,
+                          withBorderColor: false,
                           withShadow: true,
-                          color: ColorResources.WHITE_COLOR,
-                          onTap: () async {
-                            await launch(
-                                "whatsapp://send?phone=${placeItem.whatsapp}");
-                          }),
-                  ],
+                          iconSize: 15,
+                          textColor: ColorResources.SECOUND_PRIMARY_COLOR,
+
+                          iconColor: ColorResources.SECOUND_PRIMARY_COLOR,
+                          backgroundColor: ColorResources.WHITE_COLOR,
+                          textSize: 14,
+                        ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 10.h,
@@ -292,20 +313,12 @@ class PlaceDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                const  PlaceFeedBack()
+                const PlaceFeedBack()
               ],
             ),
           ),
-          CustomButton(
-            text: getTranslated("location", context),
-            onTap: () async {
-              await launch(
-                  'https://www.google.com/maps/search/?api=1&query=${placeItem.lat},${placeItem.long}');
-            },
-          ),
-          SizedBox(
-            height: 24.h,
-          )
+
+
         ],
       ),
     );

@@ -44,6 +44,7 @@ class DeveloperSocialMedia extends StatelessWidget {
                       imageName: SvgImages.faceBook,
                       height: 50.0,
                       width: 50.0,
+                      imageColor: ColorResources.HEADER,
                       radius: 100,
                       withShadow: true,
                       color: ColorResources.WHITE_COLOR,
@@ -60,6 +61,7 @@ class DeveloperSocialMedia extends StatelessWidget {
                       height: 50.0,
                       width: 50.0,
                       radius: 100,
+                      imageColor: ColorResources.HEADER,
                       withShadow: true,
                       color: ColorResources.WHITE_COLOR,
                       onTap: () async {
@@ -72,6 +74,7 @@ class DeveloperSocialMedia extends StatelessWidget {
                   ),
                   customContainerSvgIcon(
                       imageName: SvgImages.twitter,
+                      imageColor: ColorResources.HEADER,
                       height: 50.0,
                       width: 50.0,
                       radius: 100,
@@ -87,6 +90,7 @@ class DeveloperSocialMedia extends StatelessWidget {
                   ),
                   customContainerSvgIcon(
                       imageName: SvgImages.tiktok,
+                      imageColor: ColorResources.HEADER,
                       height: 50.0,
                       width: 50.0,
                       radius: 100,

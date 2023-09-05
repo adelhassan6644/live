@@ -8,7 +8,7 @@
         <item name="android:forceDarkAllowed">false</item>
         <item name="android:windowFullscreen">false</item>
     </style>
-    <color name="ic_launcher_background">#e2465a</color>
+    <color name="ic_launcher_background">#530B8B</color>
     <!-- Theme applied to the Android Window as soon as the process has started.
          This theme determines the color of the Android Window while your
          Flutter UI initializes, as well as behind your Flutter UI while its

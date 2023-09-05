@@ -13,4 +13,7 @@ class Images {
   static const String emptySearch = 'assets/images/Empty_search.png';
   static const String add = 'assets/images/add.png';
   static const String emptyNotifcations = 'assets/images/empty_notifcations.png';
+  static const String emo1 = 'assets/images/emoji_1.png';
+  static const String emo2 = 'assets/images/emoji_2.png';
+  static const String emo3 = 'assets/images/emoji_3.png';
 }
