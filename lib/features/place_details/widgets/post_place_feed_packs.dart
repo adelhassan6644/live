@@ -18,8 +18,10 @@ import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_button.dart';
 import '../../../components/custom_network_image.dart';
 import '../../../components/empty_widget.dart';
+import '../../../data/config/di.dart';
 import '../../../navigation/custom_navigation.dart';
 import '../../../navigation/routes.dart';
+import '../../auth/provider/auth_provider.dart';
 import '../provider/place_details_provider.dart';
 
 class PostPlaceFeedBack extends StatelessWidget {
@@ -47,24 +49,23 @@ class PostPlaceFeedBack extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      " قيم تجربتك مع المكان  ",
-                      style: AppTextStyles.semiBold.copyWith(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
               ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    " قيم تجربتك مع المكان  ",
+                    style: AppTextStyles.semiBold.copyWith(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+            ),
             SizedBox(
               height: 15.h,
             ),
@@ -83,7 +84,6 @@ class PostPlaceFeedBack extends StatelessWidget {
                       Icons.sentiment_very_dissatisfied,
                       color: Colors.red,
                     );
-
 
                   case 1:
                     return Icon(
@@ -126,11 +126,14 @@ class PostPlaceFeedBack extends StatelessWidget {
               text: getTranslated("rate", context),
               width: 110,
               onTap: () {
-                if(provider.commentTEC.text.trim()=='')
-                  {
-                    showToast("برجاء كتابة تقيم");
-                    return;
-                  }
+                if (!provider.isLogin) {
+                  showToast("برجاء تسجيل الدخول اولاً");
+                  return;
+                }
+                if (provider.commentTEC.text.trim() == '') {
+                  showToast("برجاء كتابة تقيم");
+                  return;
+                }
                 provider.ratePlace();
               },
               height: 45,
@@ -148,5 +151,4 @@ class PostPlaceFeedBack extends StatelessWidget {
       );
     });
   }
-
 }

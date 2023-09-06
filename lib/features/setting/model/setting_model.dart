@@ -29,6 +29,7 @@ class Data {
   String? instagram;
   String? facebook;
   String? tiktok;
+  String? snapchat;
   String? image;
   String? phone;
   String? aboutUs;
@@ -45,6 +46,7 @@ class Data {
       this.instagram,
       this.facebook,
       this.tiktok,
+      this.snapchat,
       this.image,
       this.phone,
       this.aboutUs,
@@ -61,6 +63,7 @@ class Data {
     instagram = json['instagram'];
     facebook = json['facebook'];
     tiktok = json['tiktok'];
+    snapchat = json['snapchat'];
     image = json['image'];
     phone = json['phone'];
     aboutUs = json['aboutUs'];

@@ -56,10 +56,8 @@ class More extends StatelessWidget {
             MoreButton(
               title: getTranslated("notifications", context),
               icon: SvgImages.notifications,
-
               onTap: () {
                 CustomNavigator.push(Routes.Notification);
-
               },
             ),
             MoreButton(
@@ -93,20 +91,19 @@ class More extends StatelessWidget {
                 CustomNavigator.push(Routes.ABOUT_US);
               },
             ),
-    Consumer<ProfileProvider>(builder: (_, provider, child) {
-      if(provider.isLogin) {
-        return MoreButton(
+            Consumer<ProfileProvider>(builder: (_, provider, child) {
+              if (provider.isLogin) {
+                return MoreButton(
                   title: getTranslated("delete_account", context),
                   icon: SvgImages.trash,
                   onTap: () {
                     sl<AuthProvider>().deleteAccount();
                   },
                 );
-      } else {
-        return SizedBox();
-      }
+              } else {
+                return SizedBox();
               }
-            ),
+            }),
             const Expanded(child: SizedBox()),
             LogoutButton(
               onTap: () {
@@ -115,9 +112,8 @@ class More extends StatelessWidget {
                 controller.toggle!();
               },
             ),
-
             const Expanded(child: SizedBox()),
-        SoftwareCloudCopyRight(),
+            SoftwareCloudCopyRight(),
           ],
         ),
       );

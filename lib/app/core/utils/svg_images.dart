@@ -47,6 +47,7 @@ class SvgImages {
   static const String disFavourite = 'assets/svgs/dis_fav.svg';
   static const String share = 'assets/svgs/share.svg';
   static const String whatsApp = 'assets/svgs/whats_app_icon.svg';
+  static const String website = 'assets/svgs/website.svg';
   static const String faceBook = 'assets/svgs/facebook.svg';
   static const String softWareCloud2 = 'assets/svgs/software_cloud_logo.svg';
   static const String twitter = 'assets/svgs/twitter.svg';
@@ -76,4 +77,5 @@ class SvgImages {
   static const String login = 'assets/svgs/login.svg';
   static const String send = 'assets/svgs/send.svg';
   static const String trash = 'assets/svgs/trash.svg';
+  static const String snapchat = 'assets/svgs/snapchat.svg';
 }
