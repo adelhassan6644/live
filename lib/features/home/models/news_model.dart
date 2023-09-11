@@ -31,6 +31,7 @@ class NewsItem {
   String? content;
   String? image;
   String? address;
+  String? link;
   int? status;
   String? createdAt;
   String? updatedAt;
@@ -44,6 +45,7 @@ class NewsItem {
         this.status,
         this.address,
         this.createdAt,
+        this.link,
         this.updatedAt});
 
   NewsItem.fromJson(Map<String, dynamic> json) {
@@ -52,6 +54,7 @@ class NewsItem {
     author = json['author'];
     content = json['content'];
     image = json['image'];
+    link = json['link'];
     status = json['status'];
     address = json['address'];
     createdAt = json['created_at'];

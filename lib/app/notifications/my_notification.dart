@@ -88,6 +88,10 @@ abstract class FirebaseNotifications {
 
   static FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
   static Future<void> initDynamicLinks() async {
+    // final PendingDynamicLinkData? initialLink = await FirebaseDynamicLinks.instance.getInitialLink();
+    // if(initialLink!=null) {
+    //   handleDeepLink(initialLink.link.path);
+    // }
     dynamicLinks.onLink.listen((dynamicLinkData) {
       // Listen and retrieve dynamic links here
       final String deepLink = dynamicLinkData.link.toString(); // Get DEEP LINK

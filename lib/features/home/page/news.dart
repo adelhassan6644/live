@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/features/home/provider/home_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/dimensions.dart';
@@ -41,92 +42,99 @@ class News extends StatelessWidget {
                   child: ListAnimator(
                     data: List.generate(
                         provider.newsModel?.news?.length ?? 0,
-                        (index) => Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                  bottom: 16.h,
-                                  left: Dimensions.PADDING_SIZE_DEFAULT.w,
-                                  right: Dimensions.PADDING_SIZE_DEFAULT.w,
-                                ),
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 10.w, vertical: 16.h),
-                                decoration: BoxDecoration(
-                                    color: ColorResources.WHITE_COLOR,
-                                    borderRadius: BorderRadius.circular(20),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          offset: const Offset(2, 2),
-                                          color: Colors.black.withOpacity(0.1),
-                                          spreadRadius: 3,
-                                          blurRadius: 10)
-                                    ]),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      provider.newsModel?.news?[index].title ??
-                                          "",
-                                      style: AppTextStyles.medium.copyWith(
-                                        fontSize: 22,
-                                        color: ColorResources.TITLE,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10.h,
-                                    ),
-                                    Text(
-                                        provider.newsModel?.news?[index]
-                                                .content ??
+                        (index) => InkWell(
+                          onTap: (){
+                            if(provider.newsModel!.news![index].link!=null)
+                              launchUrl(Uri.parse(         provider.newsModel!.news![index].link!),
+                                  mode: LaunchMode.externalApplication);
+                          },
+                          child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  margin: EdgeInsets.only(
+                                    bottom: 16.h,
+                                    left: Dimensions.PADDING_SIZE_DEFAULT.w,
+                                    right: Dimensions.PADDING_SIZE_DEFAULT.w,
+                                  ),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 10.w, vertical: 16.h),
+                                  decoration: BoxDecoration(
+                                      color: ColorResources.WHITE_COLOR,
+                                      borderRadius: BorderRadius.circular(20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            offset: const Offset(2, 2),
+                                            color: Colors.black.withOpacity(0.1),
+                                            spreadRadius: 3,
+                                            blurRadius: 10)
+                                      ]),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        provider.newsModel?.news?[index].title ??
                                             "",
                                         style: AppTextStyles.medium.copyWith(
-                                          fontSize: 16,
-                                          color: ColorResources.DETAILS_COLOR,
-                                        )),
-                                    SizedBox(
-                                      height: 18.h,
-                                    ),
-                                    Row(
-                                      children: [
-                                        customImageIconSVG(
-                                            imageName: SvgImages.location,
-                                            height: 20,
-                                            width: 20,
-                                            color: ColorResources.TITLE),
-                                        SizedBox(
-                                          width: 8.w,
+                                          fontSize: 22,
+                                          color: ColorResources.TITLE,
                                         ),
-                                        Expanded(
-                                          child: Text(
-                                            provider.newsModel?.news?[index]
-                                                    .address ??
-                                                "address",
-                                            maxLines: 1,
-                                            style: AppTextStyles.medium
-                                                .copyWith(
-                                                    fontSize: 16,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    color:
-                                                        ColorResources.TITLE),
+                                      ),
+                                      SizedBox(
+                                        height: 10.h,
+                                      ),
+                                      Text(
+                                          provider.newsModel?.news?[index]
+                                                  .content ??
+                                              "",
+                                          style: AppTextStyles.medium.copyWith(
+                                            fontSize: 16,
+                                            color: ColorResources.DETAILS_COLOR,
+                                          )),
+                                      SizedBox(
+                                        height: 18.h,
+                                      ),
+                                      Row(
+                                        children: [
+                                          customImageIconSVG(
+                                              imageName: SvgImages.location,
+                                              height: 20,
+                                              width: 20,
+                                              color: ColorResources.TITLE),
+                                          SizedBox(
+                                            width: 8.w,
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 12.h,
-                                    ),
-                                    CustomNetworkImage.containerNewWorkImage(
-                                        image:       provider.newsModel?.news?[index]
-                                            .image ??"",
-                                        width: context.width,
-                                        height: 180.h,
-                                        fit: BoxFit.cover,
-                                        radius: 20),
-                                  ],
+                                          Expanded(
+                                            child: Text(
+                                              provider.newsModel?.news?[index]
+                                                      .address ??
+                                                  "address",
+                                              maxLines: 1,
+                                              style: AppTextStyles.medium
+                                                  .copyWith(
+                                                      fontSize: 16,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      color:
+                                                          ColorResources.TITLE),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 12.h,
+                                      ),
+                                      CustomNetworkImage.containerNewWorkImage(
+                                          image:       provider.newsModel?.news?[index]
+                                              .image ??"",
+                                          width: context.width,
+                                          height: 180.h,
+                                          fit: BoxFit.cover,
+                                          radius: 20),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            )),
+                        )),
                   ),
                 ))
               ],

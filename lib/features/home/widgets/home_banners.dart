@@ -84,10 +84,12 @@ class HomeBanner extends StatelessWidget {
                                             provider.bannerModel?.data?[index]
                                                     .place?.name ??
                                                 "",
+
                                             style:
                                                 AppTextStyles.medium.copyWith(
                                               fontSize: 18,
-                                              color: ColorResources.DISABLED,
+                                              backgroundColor: Colors.white.withOpacity(.5),
+                                              color: ColorResources.HEADER,
                                             ),
                                           ),
                                           Row(
@@ -116,8 +118,8 @@ class HomeBanner extends StatelessWidget {
                                                           fontSize: 18,
                                                           overflow: TextOverflow
                                                               .ellipsis,
-                                                          color: ColorResources
-                                                              .DISABLED),
+                                                    backgroundColor: Colors.white.withOpacity(.5),
+                                                    color: ColorResources.HEADER,),
                                                   maxLines: 1,
                                                 ),
                                               ),

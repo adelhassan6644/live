@@ -79,8 +79,8 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                                 ),
                                 Positioned(top: 0, child: CustomAppBar()),
                                 DraggableScrollableSheet(
-                                    initialChildSize: 0.50,
-                                    minChildSize: 0.45,
+                                    initialChildSize: 0.30,
+                                    minChildSize: 0.30,
                                     maxChildSize: .85,
                                     builder: (BuildContext context,
                                         ScrollController scrollController) {

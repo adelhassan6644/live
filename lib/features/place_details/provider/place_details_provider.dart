@@ -36,6 +36,8 @@ class PlaceDetailsProvider extends ChangeNotifier {
       ),
       iosParameters: const IOSParameters(
         bundleId: "com.softwareCloud.live",
+        appStoreId: "6451453145",
+
       ),
     );
     final dynamicLink = await FirebaseDynamicLinks.instance.buildLink(

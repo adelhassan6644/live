@@ -26,22 +26,14 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-
-     <key>CFBundleTypeRole</key>
-     <string>Editor</string>
-     <key>CFBundleURLName</key>
-        <string>softwarecloud.page.link</string>
-     <key>CFBundleURLSchemes</key>
-     <array>
-      <string>https</string>
-     </array>
-
-	<key>FirebaseDynamicLinksCustomDomains</key>
-
-    <array>
-        <string>https://softwarecloud.page.link/qh74</string>
-        <string>https://softwarecloud.link</string>
-    </array>
+	<key>CFBundleTypeRole</key>
+	<string>Editor</string>
+	<key>CFBundleURLName</key>
+	<string>softwarecloud.page.link</string>
+	<key>CFBundleURLSchemes</key>
+	<array>
+		<string>https</string>
+	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -52,9 +44,23 @@
 				<string>com.googleusercontent.apps.105813324547-upk6427rl6n04c8b10eol3l3g77ektki</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.softwareCloud.live</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>FirebaseDynamicLinksCustomDomains</key>
+	<array>
+		<string>https://softwarecloud.page.link/qh74</string>
+		<string>https://softwarecloud.link</string>
+		<string>https://softwarecloud.page.link</string>
+	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>comgooglemaps</string>

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:live/app/core/utils/color_resources.dart';
 import 'package:provider/provider.dart';
 
 import '../../../navigation/custom_navigation.dart';
@@ -26,7 +27,7 @@ extension StringExtension on String {
       } else if (hexDigit >= 97 && hexDigit <= 102) {
         val += (hexDigit - 87) * (1 << (4 * (len - 1 - i)));
       } else {
-        return Colors.white;
+        return ColorResources.HEADER;
       }
     }
     return Color(val);

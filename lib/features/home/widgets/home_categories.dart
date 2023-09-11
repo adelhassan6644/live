@@ -118,8 +118,8 @@ class _CategoryItem extends StatelessWidget {
         children: [
           CustomNetworkImage.circleNewWorkImage(
             radius: 27.5,
-            padding: 10,
-            backGroundColor: color?.toColor??Colors.white,
+            padding: 1,
+            backGroundColor: color?.toColor??ColorResources.HEADER,
             image: image,
           ),
           SizedBox(

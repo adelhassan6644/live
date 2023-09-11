@@ -281,6 +281,23 @@ class PlaceDetailsWidget extends StatelessWidget {
                               await launch(
                                   "whatsapp://send?phone=${placeItem.whatsapp}");
                             }),
+                      if (placeItem.snapChat != null)
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      if (placeItem.snapChat != null)
+                        customContainerSvgIcon(
+                            imageName: SvgImages.snapchat,
+                            imageColor: ColorResources.HEADER,
+                            height: 42.0,
+                            width: 42.0,
+                            radius: 100,
+                            withShadow: true,
+                            color: ColorResources.WHITE_COLOR,
+                            onTap: () async {
+                              launchUrl(Uri.parse(placeItem.snapChat!),
+                                  mode: LaunchMode.externalApplication);
+                            }),
                       if (placeItem.website != null)
                         CustomButton(
                           text: "webSite",

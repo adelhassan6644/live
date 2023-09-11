@@ -4,5 +4,12 @@
 <dict>
 	<key>aps-environment</key>
 	<string>development</string>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>softwarecloud.page.link</string>
+		<string>softwarecloud.link</string>
+		<string>applinks:softwarecloud.link</string>
+		<string>applinks:softwarecloud.page.link</string>
+	</array>
 </dict>
 </plist>
