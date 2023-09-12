@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/features/home/provider/home_provider.dart';
 import 'package:provider/provider.dart';
@@ -82,14 +83,23 @@ class News extends StatelessWidget {
                                       SizedBox(
                                         height: 10.h,
                                       ),
-                                      Text(
+                                      HtmlWidget(
+                                        provider.newsModel?.news?[index]
+                                            .content ??
+                                            "",
+                                      textStyle: AppTextStyles.medium.copyWith(
+                                            fontSize: 16,
+                                            color: ColorResources.DETAILS_COLOR,
+                                            ),
+                                      ),
+                                  /*    Text(
                                           provider.newsModel?.news?[index]
                                                   .content ??
                                               "",
                                           style: AppTextStyles.medium.copyWith(
                                             fontSize: 16,
                                             color: ColorResources.DETAILS_COLOR,
-                                          )),
+                                          )),*/
                                       SizedBox(
                                         height: 18.h,
                                       ),

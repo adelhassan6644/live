@@ -143,14 +143,24 @@ class PlaceDetailsWidget extends StatelessWidget {
                   width: 8.w,
                 ),
                 Expanded(
-                  child: Text(
-                    placeItem.phone ?? "",
-                    style: AppTextStyles.medium.copyWith(
-                      fontSize: 18,
-                      overflow: TextOverflow.ellipsis,
-                      color: const Color(0xFF656565),
+                  child: InkWell(
+                    onTap: (){
+
+                      final Uri launchUri = Uri(
+                        scheme: 'tel',
+                        path: placeItem.phone ,
+                      );
+                      launchUrl(launchUri);
+                    },
+                    child: Text(
+                      placeItem.phone ?? "",
+                      style: AppTextStyles.medium.copyWith(
+                        fontSize: 18,
+                        overflow: TextOverflow.ellipsis,
+                        color: const Color(0xFF656565),
+                      ),
+                      maxLines: 1,
                     ),
-                    maxLines: 1,
                   ),
                 ),
               ],

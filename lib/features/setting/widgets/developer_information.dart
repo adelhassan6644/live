@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/components/shimmer/custom_shimmer.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/dimensions.dart';
@@ -63,6 +64,14 @@ class DeveloperInformation extends StatelessWidget {
                   CustomTextFormField(
                     initialValue: provider.model?.data?.phone,
                     hint: getTranslated("phone_number", context),
+                    onTap: (){
+
+                      final Uri launchUri = Uri(
+                        scheme: 'tel',
+                        path: provider.model?.data?.phone,
+                      );
+                      launchUrl(launchUri);
+                    },
                     inputType: TextInputType.emailAddress,
                     pSvgIcon: SvgImages.phoneIcon,
                     read: true,

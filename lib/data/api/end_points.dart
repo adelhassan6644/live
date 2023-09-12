@@ -4,6 +4,7 @@ class EndPoints {
   static const String googleMapsBaseUrl = 'https://maps.googleapis.com';
   static const String imageUrl =
       'https://live-elhemdania.softwarecloud2.com/';
+
   static const String apiKey =
       's7xrpFdw4G0F21rfLyD4TaBkjVJYgwGfI3y60OyRnjw9zOggruX30eToVWvs';
   static const String topic = 'live';

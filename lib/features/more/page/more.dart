@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
+import 'package:live/data/api/end_points.dart';
 import 'package:live/features/more/widgets/logout_button.dart';
 import 'package:live/navigation/custom_navigation.dart';
 import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../data/config/di.dart';
@@ -89,6 +91,14 @@ class More extends StatelessWidget {
               icon: SvgImages.aboutUsIcon,
               onTap: () {
                 CustomNavigator.push(Routes.ABOUT_US);
+              },
+            ),
+            MoreButton(
+              title: "انضم الينا",
+              icon: SvgImages.login,
+              onTap: () {
+                launchUrl(Uri.parse("${EndPoints.imageUrl}register"),
+                    mode: LaunchMode.externalApplication);
               },
             ),
             Consumer<ProfileProvider>(builder: (_, provider, child) {
