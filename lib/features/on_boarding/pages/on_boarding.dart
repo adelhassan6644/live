@@ -102,6 +102,18 @@ class OnBoarding extends StatelessWidget {
                                           },
                                         ),
                                       ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          bottom: 10.h,
+                                        ),
+                                        child: CustomButton(
+                                          text: getTranslated("login_as_a_guest", context),
+                                          onTap: () {
+                                            CustomNavigator.push(Routes.MAIN_PAGE,
+                                                clean: true);
+                                          },
+                                        ),
+                                      ),
 
                                       ///to register
                                       Row(

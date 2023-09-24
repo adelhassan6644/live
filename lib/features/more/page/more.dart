@@ -94,7 +94,7 @@ class More extends StatelessWidget {
               },
             ),
             MoreButton(
-              title: "انضم الينا",
+              title: "سجل متجرك",
               icon: SvgImages.login,
               onTap: () {
                 launchUrl(Uri.parse("${EndPoints.imageUrl}register"),

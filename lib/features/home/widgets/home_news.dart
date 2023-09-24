@@ -47,143 +47,136 @@ class HomeNews extends StatelessWidget {
                   ? Column(
                       children: List.generate(
                           provider.newsModel?.news?.length != 0 ? 1 : 0,
-                          (index) => InkWell(
-                            onTap: (){
-                              if(provider.newsModel!.news![index].link!=null)
-                              launchUrl(Uri.parse(         provider.newsModel!.news![index].link!),
-                                  mode: LaunchMode.externalApplication);
-                            },
-                            child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        margin: EdgeInsets.only(bottom: 16.h),
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10.w, vertical: 16.h),
-                                        decoration: BoxDecoration(
-                                            color: ColorResources.WHITE_COLOR,
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  offset: const Offset(2, 2),
-                                                  color: Colors.black
-                                                      .withOpacity(0.1),
-                                                  spreadRadius: 5,
-                                                  blurRadius: 10)
-                                            ]),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              provider.newsModel?.news?[index]
-                                                      .title ??
-                                                  "",
-                                              style:
-                                                  AppTextStyles.medium.copyWith(
-                                                fontSize: 22,
-                                                color: ColorResources.TITLE,
-                                              ),
+                          (index) => Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+                                ),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(bottom: 16.h),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10.w, vertical: 16.h),
+                                      decoration: BoxDecoration(
+                                          color: ColorResources.WHITE_COLOR,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          boxShadow: [
+                                            BoxShadow(
+                                                offset: const Offset(2, 2),
+                                                color: Colors.black
+                                                    .withOpacity(0.1),
+                                                spreadRadius: 5,
+                                                blurRadius: 10)
+                                          ]),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            provider.newsModel?.news?[index]
+                                                    .title ??
+                                                "",
+                                            style:
+                                                AppTextStyles.medium.copyWith(
+                                              fontSize: 22,
+                                              color: ColorResources.TITLE,
                                             ),
-                                            SizedBox(
-                                              height: 10.h,
+                                          ),
+                                          SizedBox(
+                                            height: 10.h,
+                                          ),
+                                          HtmlWidget(
+                                            provider.newsModel?.news?[index]
+                                                .content ??
+                                                "",
+                                            textStyle: AppTextStyles.medium.copyWith(
+                                              fontSize: 16,
+                                              color: ColorResources.DETAILS_COLOR,
                                             ),
-                                            HtmlWidget(
-                                              provider.newsModel?.news?[index]
-                                                  .content ??
-                                                  "",
-                                              textStyle: AppTextStyles.medium.copyWith(
-                                                fontSize: 16,
-                                                color: ColorResources.DETAILS_COLOR,
-                                              ),
-                                            ),
+                                          ),
 
-                                            SizedBox(
-                                              height: 18.h,
-                                            ),
-                                            Row(
-                                              children: [
-                                                customImageIconSVG(
-                                                    imageName: SvgImages.location,
-                                                    height: 20,
-                                                    width: 20,
-                                                    color: ColorResources.TITLE),
-                                                SizedBox(
-                                                  width: 8.w,
+                                          SizedBox(
+                                            height: 18.h,
+                                          ),
+                                          Row(
+                                            children: [
+                                              customImageIconSVG(
+                                                  imageName: SvgImages.location,
+                                                  height: 20,
+                                                  width: 20,
+                                                  color: ColorResources.TITLE),
+                                              SizedBox(
+                                                width: 8.w,
+                                              ),
+                                              Expanded(
+                                                child: Text(
+                                                  provider
+                                                          .newsModel
+                                                          ?.news?[index]
+                                                          .address ??
+                                                      "address",
+                                                  maxLines: 1,
+                                                  style: AppTextStyles.medium
+                                                      .copyWith(
+                                                          fontSize: 16,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          color: ColorResources
+                                                              .TITLE),
                                                 ),
-                                                Expanded(
-                                                  child: Text(
-                                                    provider
-                                                            .newsModel
-                                                            ?.news?[index]
-                                                            .address ??
-                                                        "address",
-                                                    maxLines: 1,
-                                                    style: AppTextStyles.medium
-                                                        .copyWith(
-                                                            fontSize: 16,
-                                                            overflow: TextOverflow
-                                                                .ellipsis,
-                                                            color: ColorResources
-                                                                .TITLE),
-                                                  ),
-                                                ),
-                                              ],
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 12.h,
+                                          ),
+                                          CustomNetworkImage
+                                              .containerNewWorkImage(
+                                                  image:  provider
+                                                      .newsModel
+                                                      ?.news?[index]
+                                                          .image ??
+                                                      "",
+                                                  width: context.width,
+                                                  height: 180.h,
+                                                  fit: BoxFit.cover,
+                                                  radius: 20),
+                                        ],
+                                      ),
+                                    ),
+                                    Visibility(
+                                      // visible: !provider.show,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        onTap: () =>
+                                            CustomNavigator.push(Routes.NEWS),
+                                        child: Row(
+                                          children: [
+                                            const Expanded(child: SizedBox()),
+                                            Text(
+                                              "المزيد من الأخبار",
+                                              style: AppTextStyles.medium
+                                                  .copyWith(
+                                                      fontSize: 16,
+                                                      color: ColorResources
+                                                          .DETAILS_COLOR),
                                             ),
-                                            SizedBox(
-                                              height: 12.h,
-                                            ),
-                                            CustomNetworkImage
-                                                .containerNewWorkImage(
-                                                    image:  provider
-                                                        .newsModel
-                                                        ?.news?[index]
-                                                            .image ??
-                                                        "",
-                                                    width: context.width,
-                                                    height: 180.h,
-                                                    fit: BoxFit.cover,
-                                                    radius: 20),
+                                            customImageIconSVG(
+                                                imageName:
+                                                    SvgImages.arrowRightIcon,
+                                                color: ColorResources
+                                                    .DETAILS_COLOR),
                                           ],
                                         ),
                                       ),
-                                      Visibility(
-                                        // visible: !provider.show,
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          onTap: () =>
-                                              CustomNavigator.push(Routes.NEWS),
-                                          child: Row(
-                                            children: [
-                                              const Expanded(child: SizedBox()),
-                                              Text(
-                                                "المزيد من الأخبار",
-                                                style: AppTextStyles.medium
-                                                    .copyWith(
-                                                        fontSize: 16,
-                                                        color: ColorResources
-                                                            .DETAILS_COLOR),
-                                              ),
-                                              customImageIconSVG(
-                                                  imageName:
-                                                      SvgImages.arrowRightIcon,
-                                                  color: ColorResources
-                                                      .DETAILS_COLOR),
-                                            ],
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    )
+                                  ],
                                 ),
-                          )),
+                              )),
                     )
                   : const EmptyState(
                       emptyHeight: 200,

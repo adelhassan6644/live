@@ -22,24 +22,43 @@ class CategoryDetails extends StatefulWidget {
   State<CategoryDetails> createState() => _CategoryDetailsState();
 }
 
-class _CategoryDetailsState extends State<CategoryDetails>with TickerProviderStateMixin {
+class _CategoryDetailsState extends State<CategoryDetails>
+    with TickerProviderStateMixin {
   late TabController _tabController;
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
       _tabController = TabController(
           initialIndex: 0,
-          length:   Provider.of<CategoryDetailsProvider>(context, listen: false).currentCategory!.subCategory!.isNotEmpty? Provider.of<CategoryDetailsProvider>(context, listen: false).currentCategory!.subCategory!.length :0,
+          length: Provider.of<CategoryDetailsProvider>(context, listen: false)
+                  .currentCategory!
+                  .subCategory!
+                  .isNotEmpty
+              ? Provider.of<CategoryDetailsProvider>(context, listen: false)
+                      .currentCategory!
+                      .subCategory!
+                      .length +
+                  1
+              : 0,
           vsync: this);
       Provider.of<CategoryDetailsProvider>(context, listen: false).model = null;
-      if(Provider.of<CategoryDetailsProvider>(context, listen: false).currentCategory!.subCategory!.isEmpty) {
+      // if (Provider.of<CategoryDetailsProvider>(context, listen: false)
+      //     .currentCategory!
+      //     .subCategory!
+      //     .isEmpty)
+      {
         Provider.of<CategoryDetailsProvider>(context, listen: false)
-          .getCategoryDetails(widget.id);
+            .getCategoryDetails(widget.id);
       }
-      else{
-        Provider.of<CategoryDetailsProvider>(context, listen: false)
-            .getSubCategoryDetails(Provider.of<CategoryDetailsProvider>(context, listen: false).currentCategory!.subCategory!.first.id);
-      }
+      // else {
+      //   Provider.of<CategoryDetailsProvider>(context, listen: false)
+      //       .getSubCategoryDetails(
+      //           Provider.of<CategoryDetailsProvider>(context, listen: false)
+      //               .currentCategory!
+      //               .subCategory!
+      //               .first
+      //               .id);
+      // }
     });
     super.initState();
   }
@@ -53,7 +72,6 @@ class _CategoryDetailsState extends State<CategoryDetails>with TickerProviderSta
         top: true,
         child: Consumer<CategoryDetailsProvider>(
           builder: (context, provider, child) {
-
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -61,17 +79,16 @@ class _CategoryDetailsState extends State<CategoryDetails>with TickerProviderSta
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
-                  child:  Text(provider.currentCategory?.title ?? "",
-                          style: AppTextStyles.semiBold.copyWith(
-                              fontSize: 24,
-                              color: provider.currentCategory!.textColor?.toColor)),
+                  child: Text(provider.currentCategory?.title ?? "",
+                      style: AppTextStyles.semiBold.copyWith(
+                          fontSize: 24,
+                          color: provider.currentCategory!.textColor?.toColor)),
                 ),
                 SizedBox(
                   height: 50,
                   width: context.width,
                   child: TabBar(
-                    labelColor:
-                    Theme.of(context).textTheme.bodyLarge!.color,
+                    labelColor: Theme.of(context).textTheme.bodyLarge!.color,
                     unselectedLabelColor: Theme.of(context)
                         .textTheme
                         .bodyLarge!
@@ -82,9 +99,11 @@ class _CategoryDetailsState extends State<CategoryDetails>with TickerProviderSta
                     tabs: _tabs(provider),
 
                     onTap: (int index) {
-
-                        provider.selectTab( index);
-
+                      if (index == 0) {
+                        provider.getCategoryDetails(widget.id);
+                      } else {
+                        provider.selectTab(index-1);
+                      }
                     },
                     // provider.subCategories.map((e) => Tab(text: e.name)).toList(),
                   ),
@@ -177,15 +196,16 @@ class _CategoryDetailsState extends State<CategoryDetails>with TickerProviderSta
       ),
     );
   }
+
   List<Tab> _tabs(CategoryDetailsProvider category) {
     List<Tab> tabList = [];
     if (category.currentCategory!.subCategory!.isNotEmpty) {
+      tabList.add(const Tab(text: 'الجميع'));
+      for (var subCategory in category.currentCategory!.subCategory!) {
 
-      category.currentCategory!.subCategory!
-          .forEach((subCategory) => tabList.add(Tab(text: subCategory.title??"")));
-    } else {
-
-    }
+        tabList.add(Tab(text: subCategory.title ?? ""));
+      }
+    } else {}
 
     return tabList;
   }

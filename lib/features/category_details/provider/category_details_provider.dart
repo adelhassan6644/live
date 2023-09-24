@@ -89,9 +89,8 @@ class CategoryDetailsProvider extends ChangeNotifier {
   late int currentTab = 0;
   selectTab(v) {
     currentTab = v;
-    print(selectTab);
     getSubCategoryDetails(currentCategory!.subCategory![v].id);
-    // getProducts();
+;
     notifyListeners();
   }
 }
