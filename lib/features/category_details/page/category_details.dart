@@ -200,7 +200,7 @@ class _CategoryDetailsState extends State<CategoryDetails>
   List<Tab> _tabs(CategoryDetailsProvider category) {
     List<Tab> tabList = [];
     if (category.currentCategory!.subCategory!.isNotEmpty) {
-      tabList.add(const Tab(text: 'الجميع'));
+      tabList.add(const Tab(text: 'الكل'));
       for (var subCategory in category.currentCategory!.subCategory!) {
 
         tabList.add(Tab(text: subCategory.title ?? ""));

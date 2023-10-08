@@ -97,7 +97,7 @@ class More extends StatelessWidget {
               title: "سجل متجرك",
               icon: SvgImages.login,
               onTap: () {
-                launchUrl(Uri.parse("${EndPoints.imageUrl}register"),
+                launchUrl(Uri.parse("${EndPoints.imageUrl}login"),
                     mode: LaunchMode.externalApplication);
               },
             ),

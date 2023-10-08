@@ -1,9 +1,9 @@
 class EndPoints {
   static const String baseUrl =
-      'https://live-elhemdania.softwarecloud2.com/api/';
+      'https://app.livealhmdanh.com/api/';
   static const String googleMapsBaseUrl = 'https://maps.googleapis.com';
   static const String imageUrl =
-      'https://live-elhemdania.softwarecloud2.com/';
+      'https://app.livealhmdanh.com/';
 
   static const String apiKey =
       's7xrpFdw4G0F21rfLyD4TaBkjVJYgwGfI3y60OyRnjw9zOggruX30eToVWvs';
