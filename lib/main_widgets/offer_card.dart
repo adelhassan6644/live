@@ -4,7 +4,7 @@ import 'package:live/app/core/utils/extensions.dart';
 import '../app/core/utils/color_resources.dart';
 import '../app/core/utils/text_styles.dart';
 import '../components/custom_network_image.dart';
-import '../features/home/models/offers_model.dart';
+import '../main_models/offers_model.dart';
 
 class OfferCard extends StatelessWidget {
   const OfferCard({required this.offer, super.key});

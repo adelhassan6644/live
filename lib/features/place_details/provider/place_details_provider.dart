@@ -2,15 +2,14 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
-import 'package:live/data/api/end_points.dart';
 import 'package:live/features/place_details/repo/place_details_repo.dart';
 import 'package:share/share.dart';
 import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../data/error/api_error_handler.dart';
 import '../../../data/error/failures.dart';
-import '../../home/models/offers_model.dart';
-import '../../home/models/places_model.dart';
+import '../../../main_models/offers_model.dart';
+import '../../../main_models/places_model.dart';
 import '../models/feed_backs.dart';
 
 class PlaceDetailsProvider extends ChangeNotifier {

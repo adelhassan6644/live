@@ -1,4 +1,4 @@
-import 'package:live/features/home/models/places_model.dart';
+import 'package:live/main_models/places_model.dart';
 
 class BannerModel {
   String? message;

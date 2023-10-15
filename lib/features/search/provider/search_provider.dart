@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../data/error/failures.dart';
-import '../../home/models/places_model.dart';
+import '../../../main_models/places_model.dart';
 import '../repo/search_repo.dart';
 
 class SearchProvider extends ChangeNotifier {

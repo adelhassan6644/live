@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/features/favourite/widgets/favourite_button.dart';
-import 'package:live/features/home/models/places_model.dart';
+import 'package:live/main_models/places_model.dart';
 import '../app/core/utils/color_resources.dart';
 import '../app/core/utils/svg_images.dart';
 import '../app/core/utils/text_styles.dart';

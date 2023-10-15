@@ -4,42 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update auth">
-      <change afterPath="$PROJECT_DIR$/lib/features/home/widgets/offer_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update home offer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/language/ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/ar.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/language/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Manifest.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/config/di.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/config/di.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/home/page/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/home/page/home.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/home/widgets/home_offers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/home/widgets/home_offers.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/maps/provider/location_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/maps/provider/location_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/more/page/more.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/more/page/more.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/on_boarding/pages/on_boarding.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/on_boarding/pages/on_boarding.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/place_details/widgets/place_details_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/place_details/widgets/place_details_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/place_details/widgets/place_offers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/place_details/widgets/place_offers.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_page/provider/main_page_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_page/provider/main_page_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,11 +63,11 @@
       <recent name="$PROJECT_DIR$/lib/features/place_details/widgets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/main_widgets" />
       <recent name="$PROJECT_DIR$/lib/features/place_details/widgets" />
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/ios/Runner" />
       <recent name="$PROJECT_DIR$/android/app" />
-      <recent name="$PROJECT_DIR$/lib/features/setting/pages" />
     </key>
   </component>
   <component name="RunManager">
@@ -422,7 +388,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695587667760</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="update home offer">
+      <created>1697392047048</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1697392047048</updated>
+    </task>
+    <task id="LOCAL-00044" summary="update home offer">
+      <created>1697392073134</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1697392073134</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -468,7 +448,8 @@
     <MESSAGE value="uodate android manfist" />
     <MESSAGE value="pp" />
     <MESSAGE value="V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1" />
+    <MESSAGE value="update home offer" />
+    <option name="LAST_COMMIT_MESSAGE" value="update home offer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

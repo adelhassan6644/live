@@ -1,4 +1,4 @@
-import '../../home/models/places_model.dart';
+import '../../../main_models/places_model.dart';
 
 class CategoryDetailsModel {
   String? message;

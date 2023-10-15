@@ -9,7 +9,7 @@ import '../../../app/localization/localization/language_constant.dart';
 import '../../../data/error/api_error_handler.dart';
 import '../../../data/error/failures.dart';
 import '../../../navigation/custom_navigation.dart';
-import '../../home/models/places_model.dart';
+import '../../../main_models/places_model.dart';
 import '../models/location_model.dart';
 import '../models/prediction_model.dart';
 import '../repo/maps_repo.dart';

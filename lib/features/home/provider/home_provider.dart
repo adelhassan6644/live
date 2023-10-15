@@ -7,10 +7,10 @@ import 'package:live/features/home/models/banner_model.dart';
 import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../data/error/failures.dart';
+import '../../../main_models/offers_model.dart';
 import '../models/categories_model.dart';
 import '../models/news_model.dart';
-import '../models/offers_model.dart';
-import '../models/places_model.dart';
+import '../../../main_models/places_model.dart';
 import '../repo/home_repo.dart';
 import 'package:flutter/rendering.dart';
 

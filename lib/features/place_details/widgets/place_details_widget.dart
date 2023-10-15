@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/app/core/utils/images.dart';
 import 'package:live/components/shimmer/custom_shimmer.dart';
-import 'package:live/features/home/models/places_model.dart';
+import 'package:live/main_models/places_model.dart';
 import 'package:live/features/place_details/widgets/place_feed_packs.dart';
 import 'package:live/features/place_details/widgets/place_offers.dart';
 import 'package:live/features/place_details/widgets/post_place_feed_packs.dart';
