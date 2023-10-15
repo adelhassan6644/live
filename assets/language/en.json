@@ -46,7 +46,7 @@
   "un_follow": "unfollow",
   "logout": "Logout",
   "rate": "Rate",
-
+  "offers": "Offers",
   "signup": "Sign up",
   "signup_now": "Sign up Now",
   "login_now": "Login Now",
@@ -86,7 +86,8 @@
   "invalid_credentials": "Invalid Credentials",
   "your_deleted_successfully": "Your profile deleted ",
   "delete_account": "Delete account",
-  "register_successfully": "Account has been successfully registered"
+  "register_successfully": "Account has been successfully registered",
+  "register_your_store": "Register your store"
 
 
 }

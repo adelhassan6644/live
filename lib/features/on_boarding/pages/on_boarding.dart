@@ -89,10 +89,11 @@ class OnBoarding extends StatelessWidget {
                                             color: ColorResources.WHITE_COLOR),
                                       ),
 
+                                      SizedBox(height: 12.h,),
                                       ///to login
                                       Padding(
                                         padding: EdgeInsets.symmetric(
-                                          vertical: 24.h,
+                                          vertical: 12.h,
                                         ),
                                         child: CustomButton(
                                           text: getTranslated("login", context),
@@ -104,7 +105,7 @@ class OnBoarding extends StatelessWidget {
                                       ),
                                       Padding(
                                         padding: EdgeInsets.only(
-                                          bottom: 10.h,
+                                          bottom: 12.h,
                                         ),
                                         child: CustomButton(
                                           text: getTranslated("login_as_a_guest", context),

@@ -14,7 +14,6 @@ import '../../../data/config/di.dart';
 import '../../../main_page/provider/main_page_provider.dart';
 import '../../../main_widgets/software_copyRight.dart';
 import '../../auth/provider/auth_provider.dart';
-import '../../profile/provider/profile_provider.dart';
 import '../widgets/more_button.dart';
 import '../widgets/profile_card.dart';
 
@@ -55,12 +54,15 @@ class More extends StatelessWidget {
                 controller.toggle!();
               },
             ),
-            MoreButton(
-              title: getTranslated("notifications", context),
-              icon: SvgImages.notifications,
-              onTap: () {
-                CustomNavigator.push(Routes.Notification);
-              },
+            Visibility(
+              visible: provider.isLogin,
+              child: MoreButton(
+                title: getTranslated("notifications", context),
+                icon: SvgImages.notifications,
+                onTap: () {
+                  CustomNavigator.push(Routes.Notification);
+                },
+              ),
             ),
             MoreButton(
               title: getTranslated("favourites", context),
@@ -94,26 +96,22 @@ class More extends StatelessWidget {
               },
             ),
             MoreButton(
-              title: "سجل متجرك",
+              title: getTranslated("register_your_store", context),
               icon: SvgImages.login,
               onTap: () {
                 launchUrl(Uri.parse("${EndPoints.imageUrl}login"),
                     mode: LaunchMode.externalApplication);
               },
             ),
-            Consumer<ProfileProvider>(builder: (_, provider, child) {
-              if (provider.isLogin) {
-                return MoreButton(
+            Visibility(
+                visible: provider.isLogin,
+                child: MoreButton(
                   title: getTranslated("delete_account", context),
                   icon: SvgImages.trash,
                   onTap: () {
                     sl<AuthProvider>().deleteAccount();
                   },
-                );
-              } else {
-                return SizedBox();
-              }
-            }),
+                )),
             const Expanded(child: SizedBox()),
             LogoutButton(
               onTap: () {
@@ -123,7 +121,7 @@ class More extends StatelessWidget {
               },
             ),
             const Expanded(child: SizedBox()),
-            SoftwareCloudCopyRight(),
+            const SoftwareCloudCopyRight(),
           ],
         ),
       );

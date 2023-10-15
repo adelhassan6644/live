@@ -78,7 +78,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => NotificationsProvider(notificationsRepo: sl()));
   sl.registerLazySingleton(() => SearchProvider(searchRepo: sl()));
   sl.registerLazySingleton(() => ThemeProvider(sharedPreferences: sl()));
-  sl.registerLazySingleton(() => MainPageProvider());
+  sl.registerLazySingleton(() => MainPageProvider(repo: sl()));
   sl.registerLazySingleton(() => SplashProvider(splashRepo: sl()));
   sl.registerLazySingleton(() => AuthProvider(authRepo: sl()));
   sl.registerLazySingleton(() => FavouriteProvider(favouriteRepo: sl()));

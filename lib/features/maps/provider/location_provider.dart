@@ -35,7 +35,9 @@ class LocationProvider extends ChangeNotifier {
       altitude: 1,
       heading: 1,
       speed: 1,
-      speedAccuracy: 1);
+      speedAccuracy: 1,
+      altitudeAccuracy: 1,
+      headingAccuracy: 1);
   Position pickPosition = Position(
       longitude: 0,
       latitude: 0,
@@ -44,14 +46,16 @@ class LocationProvider extends ChangeNotifier {
       altitude: 1,
       heading: 1,
       speed: 1,
-      speedAccuracy: 1);
+      speedAccuracy: 1,
+      altitudeAccuracy: 1,
+      headingAccuracy: 1);
 
   Set<Marker> gMapMarkers = {};
   void onMapCreated(GoogleMapController controller) {
     googleMapController = controller;
     notifyListeners();
-
   }
+
   Future<List<PredictionModel>> searchLocation(
       BuildContext context, String text) async {
     if (text.isNotEmpty) {
@@ -94,21 +98,22 @@ class LocationProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  getLocation(
-    bool fromAddress, {required GoogleMapController mapController}) async {
+  getLocation(bool fromAddress,
+      {required GoogleMapController mapController}) async {
     isLoading = true;
     notifyListeners();
-    googleMapController=mapController;
-      await Geolocator.requestPermission();
-      Position newLocalData = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high,);
-      _myPosition = newLocalData;
+    googleMapController = mapController;
+    await Geolocator.requestPermission();
+    Position newLocalData = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+    _myPosition = newLocalData;
     if (fromAddress) {
       position = _myPosition!;
     } else {
       pickPosition = _myPosition!;
     }
-    getPlaces( position:LatLng(_myPosition!.latitude,_myPosition!.longitude) );
+    getPlaces(position: LatLng(_myPosition!.latitude, _myPosition!.longitude));
 
     mapController.animateCamera(CameraUpdate.newCameraPosition(
       CameraPosition(
@@ -159,6 +164,8 @@ class LocationProvider extends ChangeNotifier {
         altitude: 1,
         speedAccuracy: 1,
         speed: 1,
+        altitudeAccuracy: 1,
+        headingAccuracy: 1,
       );
       // decodeLatLong(
       //     latitude: position.target.latitude,
@@ -178,9 +185,7 @@ class LocationProvider extends ChangeNotifier {
       isLoading = false;
       notifyListeners();
     }
-
   }
-
 
   PlacesModel? placesModel;
   bool isGetPlaces = false;
@@ -188,7 +193,8 @@ class LocationProvider extends ChangeNotifier {
     try {
       isGetPlaces = true;
       notifyListeners();
-      Either<ServerFailure, Response> response = await locationRepo.getLocationPlaces(position: position);
+      Either<ServerFailure, Response> response =
+          await locationRepo.getLocationPlaces(position: position);
       response.fold((fail) {
         isGetPlaces = false;
         CustomSnackBar.showSnackBar(
@@ -200,7 +206,7 @@ class LocationProvider extends ChangeNotifier {
         notifyListeners();
       }, (success) {
         placesModel = PlacesModel.fromJson(success.data);
-        if(placesModel!.data!.isNotEmpty) {
+        if (placesModel!.data!.isNotEmpty) {
           for (var place in placesModel!.data!) {
             {
               gMapMarkers.add(
@@ -233,6 +239,7 @@ class LocationProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
   void zoomToLocation(LatLng target, {double zoom = 16}) {
     if (googleMapController != null) {
       googleMapController!.animateCamera(

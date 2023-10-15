@@ -56,7 +56,6 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
               child: ListAnimator(
                 controller: controller,
                 data: const [
-
                   HomeSearch(),
                   HomeBanner(),
                   HomeCategories(),
