@@ -16,7 +16,7 @@ class ProfileCard extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-              Row(
+              const Row(
               children: [
                 ProfileImageWidget(
                   withEdit: false,

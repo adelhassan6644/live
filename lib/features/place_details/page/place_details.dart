@@ -57,7 +57,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                               height: context.height,
                               fit: BoxFit.fitWidth,
                               radius: 0),
-                          Column(
+                          const Column(
                             children: [
                               CustomAppBar(),
                               Expanded(child: SizedBox()),
@@ -77,7 +77,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                                   child: PlaceDetailsImagesWidget(
                                       images: provider.model!.images!),
                                 ),
-                                Positioned(top: 0, child: CustomAppBar()),
+                                const Positioned(top: 0, child: CustomAppBar()),
                                 DraggableScrollableSheet(
                                     initialChildSize: 0.30,
                                     minChildSize: 0.30,
@@ -119,14 +119,12 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                                               );
                                             }).toList(),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 10,
                                           ),
                                           Expanded(
                                             child: Container(
                                               padding: EdgeInsets.symmetric(
-                                                  horizontal: Dimensions
-                                                      .PADDING_SIZE_DEFAULT.w,
                                                   vertical: Dimensions
                                                       .PADDING_SIZE_SMALL.h),
                                               decoration: const BoxDecoration(
@@ -161,12 +159,12 @@ class _PlaceDetailsState extends State<PlaceDetails> {
               }),
             ),
             floatingActionButtonLocation:FloatingActionButtonLocation.centerFloat ,
-            floatingActionButton:     Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20),
+            floatingActionButton:Padding(
+              padding:  const EdgeInsets.symmetric(horizontal: 20),
               child: CustomButton(
                 text: getTranslated("location", context),
                 onTap: () async {
-              final placeItem =    provider2.model;
+              final placeItem = provider2.model;
                   await launch(
                       'https://www.google.com/maps/search/?api=1&query=${placeItem?.lat},${placeItem?.long}');
                 },

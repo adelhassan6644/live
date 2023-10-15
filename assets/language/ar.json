@@ -10,6 +10,7 @@
   "signup_description" : "إذا كنت جديد في الحي, خلنا نعرفك علية",
   "welcome_description": "اكمل بياناتك حتى تكون نسب توافق مشوارك\nاليومي مع الكباتن دقيقة!",
   "mail": "البريد الإلكتروني",
+  "description": "وصف",
   "change_password": "تغير كلمة المرور",
   "you_must_change_something": "عفوًا! يجب عليك تغيير شيء",
   "your_profile_successfully_updated": "تم تحديث الملف الشخصي بنجاح",
@@ -90,5 +91,6 @@
   "invalid_credentials": "بيانات الدخول غير صحيحة",
   "register_successfully": "تم تسجيل الحساب بنجاح",
   "offers": "العروض",
-  "register_your_store": "سجل متجرك"
+  "register_your_store": "سجل متجرك",
+  "sar": "ر.س"
 }

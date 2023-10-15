@@ -87,7 +87,9 @@
   "your_deleted_successfully": "Your profile deleted ",
   "delete_account": "Delete account",
   "register_successfully": "Account has been successfully registered",
-  "register_your_store": "Register your store"
+  "register_your_store": "Register your store",
+  "sar": "sar",
+  "description": "Description"
 
 
 }

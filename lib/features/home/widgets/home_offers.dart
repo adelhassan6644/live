@@ -41,7 +41,7 @@ class HomeOffers extends StatelessWidget {
           child: Consumer<HomeProvider>(builder: (_, provider, child) {
             return provider.isGetOffers
                 ? SizedBox(
-                    height: 232.h,
+                    height: 255.h,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -69,7 +69,7 @@ class HomeOffers extends StatelessWidget {
                         provider.offersModel?.data != null &&
                         provider.offersModel!.data!.isNotEmpty
                     ? SizedBox(
-                        height: 200.h,
+                        height: 255.h,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,

@@ -212,8 +212,7 @@ class PlaceDetailsProvider extends ChangeNotifier {
     try {
       isGetOffers = true;
       notifyListeners();
-      Either<ServerFailure, Response> response =
-          await repo.getPlaceOffers(model?.id);
+      Either<ServerFailure, Response> response = await repo.getPlaceOffers(model?.id);
       response.fold((fail) {
         isGetOffers = false;
         CustomSnackBar.showSnackBar(
