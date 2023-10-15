@@ -49,8 +49,9 @@ class PlaceFeedBacks extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return Container(
                             margin: EdgeInsets.only(bottom: 16.h),
-                            // padding: EdgeInsets.symmetric(
-                            //     horizontal: 10.w, vertical: 6.h),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+                                vertical: Dimensions.PADDING_SIZE_SMALL.h),
                             decoration: BoxDecoration(
                                 color: ColorResources.WHITE_COLOR,
                                 borderRadius: BorderRadius.circular(20),
@@ -65,66 +66,72 @@ class PlaceFeedBacks extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: CustomNetworkImage.circleNewWorkImage(
-                                    radius: 40.5,
-                                    padding: 0,
-                                    backGroundColor:
-                                        ColorResources.SECOUND_PRIMARY_COLOR,
-                                    image: provider
-                                        .feedBacks!.data![index].clientImage,
+                                CustomNetworkImage.circleNewWorkImage(
+                                  radius: 30,
+                                  backGroundColor:
+                                      ColorResources.SECOUND_PRIMARY_COLOR,
+                                  image: provider
+                                      .feedBacks!.data![index].clientImage,
+                                ),
+                                SizedBox(width: 8.w),
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        provider.feedBacks!.data![index]
+                                                .clientName ??
+                                            "",
+                                        style: AppTextStyles.semiBold
+                                            .copyWith(fontSize: 16),
+                                      ),
+                                      Text(
+                                        provider.feedBacks!.data![index]
+                                                .comment ??
+                                            "",
+                                        style: AppTextStyles.regular
+                                            .copyWith(fontSize: 14),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                SizedBox(width: 10.w),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      provider.feedBacks!.data![index]
-                                              .clientName ??
-                                          "",
-                                      style: AppTextStyles.semiBold
-                                          .copyWith(fontSize: 18),
-                                    ),
-                                    Text(
-                                      provider.feedBacks!.data![index]
-                                              .comment ??
-                                          "",
-                                      style: AppTextStyles.regular.copyWith(),
-                                    ),
-                                  ],
-                                ),
-                                const Spacer(),
+                                SizedBox(width: 8.w),
                                 Text(
                                   provider.feedBacks!.data![index].rating
                                       .toString(),
                                   style: AppTextStyles.semiBold.copyWith(),
                                 ),
-                                if (provider.feedBacks!.data![index].rating ==
-                                    1)
-                                  const Icon(
+                                Visibility(
+                                  visible: (provider
+                                          .feedBacks!.data![index].rating ==
+                                      1),
+                                  child: const Icon(
                                     Icons.sentiment_very_dissatisfied,
                                     color: Colors.red,
                                     size: 35,
                                   ),
-                                if (provider.feedBacks!.data![index].rating ==
-                                    2)
-                                  const Icon(
+                                ),
+                                Visibility(
+                                  visible: (provider
+                                          .feedBacks!.data![index].rating ==
+                                      2),
+                                  child: const Icon(
                                     Icons.sentiment_satisfied,
                                     color: Colors.lightGreen,
                                     size: 35,
                                   ),
-                                if (provider.feedBacks!.data![index].rating ==
-                                    3)
-                                  const Icon(
+                                ),
+                                Visibility(
+                                  visible: (provider
+                                          .feedBacks!.data![index].rating ==
+                                      3),
+                                  child: const Icon(
                                     Icons.sentiment_very_satisfied,
                                     color: Colors.green,
                                     size: 35,
                                   ),
-                                SizedBox(
-                                  width: 10.w,
                                 ),
                               ],
                             ),
