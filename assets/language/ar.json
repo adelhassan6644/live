@@ -92,5 +92,7 @@
   "register_successfully": "تم تسجيل الحساب بنجاح",
   "offers": "العروض",
   "register_your_store": "سجل متجرك",
-  "sar": "ر.س"
+  "sar": "ر.س",
+  "expired_at": "تنتهي الصلاحية في",
+  "avail_the_offer": "استفد بالعرض"
 }

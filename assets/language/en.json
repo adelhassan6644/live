@@ -89,7 +89,9 @@
   "register_successfully": "Account has been successfully registered",
   "register_your_store": "Register your store",
   "sar": "sar",
-  "description": "Description"
+  "description": "Description",
+  "expired_at": "Expired Date At",
+  "avail_the_offer": "Avail the offer"
 
 
 }

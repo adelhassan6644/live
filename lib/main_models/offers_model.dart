@@ -28,6 +28,7 @@ class OfferItem {
   int? id;
   int? placeId;
   String? image;
+  String? url;
   String? description;
   String? title;
   String? phone;
@@ -44,11 +45,13 @@ class OfferItem {
   int? agentId;
   String? createdAt;
   String? updatedAt;
+  String? expiredDate;
 
   OfferItem(
       {this.id,
       this.placeId,
       this.image,
+      this.url,
       this.description,
       this.title,
       this.logo,
@@ -62,11 +65,13 @@ class OfferItem {
       this.isPercentage,
       this.agentId,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,
+      this.expiredDate});
 
   OfferItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     image = json['image'];
+    url = json['url'];
     description = json['description'];
     title = json['title'];
 
@@ -86,6 +91,7 @@ class OfferItem {
     agentId = json['agent_id'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    expiredDate = json['expire_date'];
   }
 
   Map<String, dynamic> toJson() {
@@ -100,6 +106,7 @@ class OfferItem {
     data['agent_id'] = agentId;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
+    data['expire_date'] = expiredDate;
     return data;
   }
 }

@@ -5,9 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update home offer">
+      <change afterPath="$PROJECT_DIR$/lib/features/offer_details/page/offer_details.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/offer_details/provider/offer_details_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/offer_details/repo/offer_details_repo.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/offer_details/widget/offer_details_body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/debug_android_application.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/flutter_assets.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/kernel_snapshot.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/place_details/page/place_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/place_details/page/place_details.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/place_details/widgets/place_feedbacks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/place_details/widgets/place_feedbacks.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/language/ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/ar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/language/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/custom_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/custom_app_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/api/end_points.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/api/end_points.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/config/di.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/config/di.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/home/repo/home_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/home/repo/home_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/place_details/repo/place_details_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/place_details/repo/place_details_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/place_details/widgets/rate_place.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/place_details/widgets/rate_place.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_models/offers_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_models/offers_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main_widgets/offer_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_widgets/offer_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/custom_navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/routes.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -418,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697406741163</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="update home offer">
+      <created>1697407319569</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1697407319569</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

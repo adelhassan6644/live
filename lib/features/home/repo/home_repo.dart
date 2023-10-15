@@ -31,7 +31,6 @@ class HomeRepo {
     }
   }
 
-
   Future<Either<ServerFailure, Response>> getHomeNews() async {
     try {
       Response response = await dioClient.get(uri: EndPoints.news);
@@ -45,11 +44,9 @@ class HomeRepo {
     }
   }
 
-
-
   Future<Either<ServerFailure, Response>> getHomePlaces() async {
     try {
-      Response response = await dioClient.get(uri: EndPoints.place);
+      Response response = await dioClient.get(uri: EndPoints.places);
       if (response.statusCode == 200) {
         return Right(response);
       } else {

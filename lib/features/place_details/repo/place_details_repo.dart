@@ -15,12 +15,10 @@ class PlaceDetailsRepo {
 
   Future<Either<ServerFailure, Response>> getPlaceDetails(id) async {
     try {
-      Response response = await dioClient.get(uri: "${EndPoints.place}/$id",
-      queryParameters: {
+      Response response = await dioClient
+          .get(uri: EndPoints.placeDetails(id), queryParameters: {
         "client_id": sharedPreferences.getString(AppStorageKey.userId),
-
-      }
-      );
+      });
       if (response.statusCode == 200) {
         return Right(response);
       } else {
@@ -30,14 +28,15 @@ class PlaceDetailsRepo {
       return left(ServerFailure(ApiErrorHandler.getMessage(error)));
     }
   }
+
   Future<Either<ServerFailure, Response>> followPlace(id) async {
     try {
-      Response response = await dioClient.post(uri: "${EndPoints.followPlace}",data:
-      {
-        "client_id": sharedPreferences.getString(AppStorageKey.userId),
-        "place_id": id
-
-      });
+      Response response = await dioClient.post(
+          uri: EndPoints.followPlace,
+          data: {
+            "client_id": sharedPreferences.getString(AppStorageKey.userId),
+            "place_id": id
+          });
       if (response.statusCode == 200) {
         return Right(response);
       } else {
@@ -47,14 +46,15 @@ class PlaceDetailsRepo {
       return left(ServerFailure(ApiErrorHandler.getMessage(error)));
     }
   }
+
   Future<Either<ServerFailure, Response>> checkFollowPlace(id) async {
     try {
-      Response response = await dioClient.post(uri: EndPoints.checkFollowPlace,data:
-      {
-        "client_id": sharedPreferences.getString(AppStorageKey.userId),
-        "place_id": id
-
-      });
+      Response response = await dioClient.post(
+          uri: EndPoints.checkFollowPlace,
+          data: {
+            "client_id": sharedPreferences.getString(AppStorageKey.userId),
+            "place_id": id
+          });
       if (response.statusCode == 200) {
         return Right(response);
       } else {
@@ -64,15 +64,16 @@ class PlaceDetailsRepo {
       return left(ServerFailure(ApiErrorHandler.getMessage(error)));
     }
   }
-  Future<Either<ServerFailure, Response>> ratePlace(id,{ double? rate, String ?comment }) async {
+
+  Future<Either<ServerFailure, Response>> ratePlace(id,
+      {double? rate, String? comment}) async {
     try {
-      Response response = await dioClient.post(uri: EndPoints.postFeedback,data:
-      {
+      Response response =
+          await dioClient.post(uri: EndPoints.postFeedback, data: {
         "client_id": sharedPreferences.getString(AppStorageKey.userId),
         "place_id": id,
         "rating": rate,
         "comment": comment
-
       });
       if (response.statusCode == 200) {
         return Right(response);
@@ -95,11 +96,12 @@ class PlaceDetailsRepo {
     } catch (error) {
       return left(ServerFailure(ApiErrorHandler.getMessage(error)));
     }
-
   }
+
   bool isLoggedIn() {
     return sharedPreferences.containsKey(AppStorageKey.isLogin);
   }
+
   Future<Either<ServerFailure, Response>> getPlaceFeedBacks(id) async {
     try {
       Response response = await dioClient.get(uri: EndPoints.feedback(id));

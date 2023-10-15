@@ -8,6 +8,8 @@ import '../app/core/utils/color_resources.dart';
 import '../app/core/utils/text_styles.dart';
 import '../components/custom_network_image.dart';
 import '../main_models/offers_model.dart';
+import '../navigation/custom_navigation.dart';
+import '../navigation/routes.dart';
 
 class OfferCard extends StatelessWidget {
   const OfferCard({required this.offer, super.key});
@@ -16,7 +18,8 @@ class OfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      // onTap: () => CustomNavigator.push(Routes., arguments: offer.id),
+      onTap: () =>
+          CustomNavigator.push(Routes.OFFER_DETAILS, arguments: offer.id),
       child: Container(
         width: 220.w,
         decoration: BoxDecoration(
@@ -81,7 +84,7 @@ class OfferCard extends StatelessWidget {
                     ],
                   ),
 
-                  ///Offer
+                  ///Offer Prices
                   Text("${offer.price ?? 0} ${getTranslated("sar", context)}",
                       style: AppTextStyles.regular.copyWith(
                           fontSize: 14,

@@ -18,6 +18,8 @@ class RatePlace extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<PlaceDetailsProvider>(builder: (context, provider, child) {
       return Container(
+        margin:
+            EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
         padding: EdgeInsets.symmetric(
             vertical: 14.h, horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
         decoration: BoxDecoration(

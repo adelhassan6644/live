@@ -15,6 +15,7 @@ import '../features/contact_with_us/page/contact_with_us.dart';
 import '../features/home/page/news.dart';
 import '../features/maps/page/map_page.dart';
 import '../features/notifications/page/notifications_page.dart';
+import '../features/offer_details/page/offer_details.dart';
 import '../features/on_boarding/pages/on_boarding.dart';
 import '../features/place_details/page/place_details.dart';
 import '../features/search/page/serach_screen.dart';
@@ -76,6 +77,9 @@ abstract class CustomNavigator {
 
       case Routes.PLACE_DETAILS:
         return _pageRoute(PlaceDetails(id: settings.arguments as int));
+
+        case Routes.OFFER_DETAILS:
+        return _pageRoute(OfferDetails(id: settings.arguments as int));
 
       case Routes.CONTACT_WITH_US:
         return _pageRoute(const ContactWithUs());
