@@ -22,6 +22,7 @@ class OfferDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: ChangeNotifierProvider(
         create: (_) =>
             OfferDetailsProvider(repo: sl<OfferDetailsRepo>())..getDetails(id),

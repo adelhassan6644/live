@@ -84,7 +84,7 @@ class OfferItem {
     discountPrice = json['price_after_discount'] != null
         ? (json['price_after_discount'].toString())
         : null;
-    percentage = json['percentage'];
+    percentage = json['discount'];
     status = json['status'];
     isPercentage = json['type'] == 0 ? true : false;
 

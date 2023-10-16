@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../data/error/failures.dart';
@@ -16,7 +18,7 @@ class OfferDetailsProvider extends ChangeNotifier {
   OfferItem? model;
   bool isLoading = false;
   getDetails(id) async {
-    try {
+    // try {
       isLoading = true;
       model = null;
       notifyListeners();
@@ -35,15 +37,39 @@ class OfferDetailsProvider extends ChangeNotifier {
       });
       isLoading = false;
       notifyListeners();
-    } catch (e) {
-      CustomSnackBar.showSnackBar(
-          notification: AppNotification(
-              message: e.toString(),
-              isFloating: true,
-              backgroundColor: ColorResources.IN_ACTIVE,
-              borderColor: Colors.transparent));
-      isLoading = false;
-      notifyListeners();
-    }
+    // } catch (e) {
+    //   CustomSnackBar.showSnackBar(
+    //       notification: AppNotification(
+    //           message: e.toString(),
+    //           isFloating: true,
+    //           backgroundColor: ColorResources.IN_ACTIVE,
+    //           borderColor: Colors.transparent));
+    //   isLoading = false;
+    //   notifyListeners();
+    // }
+  }
+
+  shareOffer(OfferItem offer) async {
+    String link = "https://softwarecloud.link/${offer.id}";
+    final dynamicLinkParams = DynamicLinkParameters(
+      link: Uri.parse(link),
+      uriPrefix: "https://softwarecloud.page.link",
+      androidParameters: const AndroidParameters(
+        packageName: "com.softwareCloud.live",
+      ),
+      iosParameters: const IOSParameters(
+        bundleId: "com.softwareCloud.live",
+        appStoreId: "6451453145",
+
+      ),
+    );
+    final dynamicLink = await FirebaseDynamicLinks.instance.buildLink(
+      dynamicLinkParams,
+    );
+
+    String shareLink = Uri.decodeFull(
+      Uri.decodeComponent(dynamicLink.toString()),
+    );
+    await Share.share(shareLink);
   }
 }
