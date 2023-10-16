@@ -10,6 +10,7 @@ import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_images.dart';
 import '../../../components/custom_network_image.dart';
+import '../../place_details/provider/place_details_provider.dart';
 
 class OfferDetailsBody extends StatelessWidget {
   const OfferDetailsBody({super.key});
@@ -54,6 +55,27 @@ class OfferDetailsBody extends StatelessWidget {
                       )
                     ],
                   ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 2,
+                          blurRadius: 2,
+                          offset: const Offset(1, 1))
+                    ],
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: customContainerSvgIcon(
+                      imageName: SvgImages.share,
+                      imageColor: ColorResources.SECOUND_PRIMARY_COLOR,
+                      color: Colors.white,
+                      width: 40,
+                      height: 40,
+                      onTap: () {
+                        provider.shareOffer(provider.model!);
+                      }),
                 ),
               ],
             ),
