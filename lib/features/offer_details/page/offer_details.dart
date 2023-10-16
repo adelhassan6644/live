@@ -21,52 +21,63 @@ class OfferDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-      body: ChangeNotifierProvider(
-        create: (_) =>
-            OfferDetailsProvider(repo: sl<OfferDetailsRepo>())..getDetails(id),
-        child: Consumer<OfferDetailsProvider>(builder: (_, provider, child) {
-          return Column(
-            children: [
-              const CustomAppBar(),
-              SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT.h),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-                  ),
-                  child: provider.isLoading
-                      ? const OfferDetailsShimmer()
-                      : Column(
-                          children: [
-                            CustomNetworkImage.containerNewWorkImage(
-                              image: provider.model?.image ?? "",
-                              height: 220.h,
-                              width: context.width,
-                              fit: BoxFit.cover,
-                              radius: 20,
-                            ),
-                            const OfferDetailsBody(),
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
-                              child: CustomButton(
-                                text: getTranslated("avail_the_offer", context),
-                                onTap: () async {
-                                  await launchUrl(
-                                      Uri.parse(provider.model?.url ?? ""),
-                                      mode: LaunchMode.externalApplication);
-                                },
-                              ),
-                            )
-                          ],
-                        ),
+    return SafeArea(
+      child: Scaffold(
+        body: ChangeNotifierProvider(
+          create: (_) => OfferDetailsProvider(repo: sl<OfferDetailsRepo>())
+            ..getDetails(id),
+          child: Consumer<OfferDetailsProvider>(builder: (_, provider, child) {
+            return Column(
+              children: [
+                CustomAppBar(
+                  title: getTranslated("offer_details", context),
                 ),
-              ),
-            ],
-          );
-        }),
+
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+                    ),
+                    child: provider.isLoading
+                        ? const OfferDetailsShimmer()
+                        : Column(
+                            children: [
+                              AnimatedCrossFade(
+                                crossFadeState: provider.goingDown
+                                    ? CrossFadeState.showFirst
+                                    : CrossFadeState.showSecond,
+                                duration: const Duration(milliseconds: 500),
+                                firstChild: SizedBox(width: context.width),
+                                secondChild:
+                                    CustomNetworkImage.containerNewWorkImage(
+                                  image: provider.model?.image ?? "",
+                                  height: 220.h,
+                                  width: context.width,
+                                  fit: BoxFit.cover,
+                                  radius: 20,
+                                ),
+                              ),
+                              const OfferDetailsBody(),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
+                                child: CustomButton(
+                                  text: getTranslated("avail_the_offer", context),
+                                  onTap: () async {
+                                    await launchUrl(Uri.parse(provider.model?.url ?? ""),
+                                        mode: LaunchMode.externalApplication);
+                                  },
+                                ),
+                              )
+                            ],
+                          ),
+                  ),
+                ),
+
+              ],
+            );
+          }),
+        ),
       ),
     );
   }

@@ -28,7 +28,6 @@ class OfferItem {
   int? id;
   int? placeId;
   String? image;
-  String? url;
   String? description;
   String? title;
   String? phone;
@@ -39,13 +38,28 @@ class OfferItem {
   String? price;
   String? discountPrice;
   String? percentage;
-
+  String? discount;
   int? status;
   bool? isPercentage;
   int? agentId;
   String? createdAt;
   String? updatedAt;
   String? expiredDate;
+
+  ///Location
+  String? address;
+  String? location;
+  double? lat;
+  double? long;
+
+  ///Social Media
+  String? twitter;
+  String? whatsapp;
+  String? snapChat;
+  String? instagram;
+  String? tiktok;
+  String? facebook;
+  String? url;
 
   OfferItem(
       {this.id,
@@ -60,9 +74,20 @@ class OfferItem {
       this.rate,
       this.price,
       this.discountPrice,
+      this.discount,
       this.percentage,
+      this.address,
+      this.location,
+      this.lat,
+      this.long,
       this.status,
       this.isPercentage,
+      this.twitter,
+      this.whatsapp,
+      this.instagram,
+      this.tiktok,
+      this.snapChat,
+      this.facebook,
       this.agentId,
       this.createdAt,
       this.updatedAt,
@@ -84,10 +109,24 @@ class OfferItem {
     discountPrice = json['price_after_discount'] != null
         ? (json['price_after_discount'].toString())
         : null;
-    percentage = json['discount'];
-    status = json['status'];
+    percentage = json['percentage'];
+    discount = json['discount'];
     isPercentage = json['type'] == 0 ? true : false;
+    status = json['status'];
 
+    address = json['address'];
+    location = json['location'];
+    lat = json['lat'] != null ? double.parse(json['lat'].toString()) : null;
+    long = json['long'] != null ? double.parse(json['long'].toString()) : null;
+
+    twitter = json['twitter'];
+    whatsapp = json['whatsapp'];
+    instagram = json['instagram'];
+    tiktok = json['tiktok'];
+    snapChat = json['snapchat'];
+    facebook = json['facebook'];
+
+    status = json['status'];
     agentId = json['agent_id'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

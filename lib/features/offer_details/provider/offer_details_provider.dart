@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:share/share.dart';
 import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/color_resources.dart';
@@ -14,6 +15,20 @@ class OfferDetailsProvider extends ChangeNotifier {
   OfferDetailsProvider({required this.repo});
 
   bool get isLogin => repo.isLoggedIn();
+
+
+  bool goingDown = false;
+  scroll(controller) {
+    controller.addListener(() {
+      if (controller.position.userScrollDirection == ScrollDirection.forward) {
+        goingDown = false;
+      } else {
+        goingDown = true;
+      }
+      notifyListeners();
+    });
+  }
+
 
   OfferItem? model;
   bool isLoading = false;

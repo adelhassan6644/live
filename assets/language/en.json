@@ -91,7 +91,8 @@
   "sar": "sar",
   "description": "Description",
   "expired_at": "Expired Date At",
-  "avail_the_offer": "Avail the offer"
+  "avail_the_offer": "Avail the offer",
+  "offer_details": "Offer Details"
 
 
 }
