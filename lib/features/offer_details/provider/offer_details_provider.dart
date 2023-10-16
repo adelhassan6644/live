@@ -16,7 +16,7 @@ class OfferDetailsProvider extends ChangeNotifier {
   OfferItem? model;
   bool isLoading = false;
   getDetails(id) async {
-    try {
+    // try {
       isLoading = true;
       model = null;
       notifyListeners();
@@ -35,15 +35,15 @@ class OfferDetailsProvider extends ChangeNotifier {
       });
       isLoading = false;
       notifyListeners();
-    } catch (e) {
-      CustomSnackBar.showSnackBar(
-          notification: AppNotification(
-              message: e.toString(),
-              isFloating: true,
-              backgroundColor: ColorResources.IN_ACTIVE,
-              borderColor: Colors.transparent));
-      isLoading = false;
-      notifyListeners();
-    }
+    // } catch (e) {
+    //   CustomSnackBar.showSnackBar(
+    //       notification: AppNotification(
+    //           message: e.toString(),
+    //           isFloating: true,
+    //           backgroundColor: ColorResources.IN_ACTIVE,
+    //           borderColor: Colors.transparent));
+    //   isLoading = false;
+    //   notifyListeners();
+    // }
   }
 }
