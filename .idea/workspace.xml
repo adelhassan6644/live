@@ -5,32 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="mfc">
-      <change afterPath="$PROJECT_DIR$/lib/features/offer_details/widget/offer_details_tabs_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/language/ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/ar.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/language/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/language/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/components/tab_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/tab_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/offer_details/page/offer_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/offer_details/page/offer_details.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/offer_details/provider/offer_details_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/offer_details/provider/offer_details_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/offer_details/widget/offer_details_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/offer_details/widget/offer_details_body.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_models/offers_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_models/offers_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_models/places_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_models/places_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_widgets/offer_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_widgets/offer_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,13 +87,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="add(on boarding)">
-      <created>1688498941640</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1688498941641</updated>
-    </task>
     <task active="true" id="Default" summary="Default task">
       <changelist id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="add file picker" />
       <created>1688516389160</created>
@@ -461,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697465641627</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="mfc">
+      <created>1697531271304</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1697531271304</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -111,8 +111,7 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
 
             ///Offer Prices
             Padding(
-              padding: EdgeInsets.only(
-                  bottom: 8.h, top: Dimensions.PADDING_SIZE_DEFAULT.h),
+              padding: EdgeInsets.only(top: Dimensions.PADDING_SIZE_EXTRA_SMALL.h),
               child: Row(
                 children: [
                   Text(
