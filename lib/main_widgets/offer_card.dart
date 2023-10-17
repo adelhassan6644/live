@@ -47,7 +47,7 @@ class OfferCard extends StatelessWidget {
                 ),
                 CustomNetworkImage.circleNewWorkImage(
                     color: ColorResources.HINT_COLOR,
-                    image: offer.logo ?? "",
+                    image: offer.placeDetails?.image ?? "",
                     radius: 25)
               ],
             ),
@@ -69,7 +69,7 @@ class OfferCard extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("${offer.name ?? "Place name"}  ",
+                      Text("${offer.placeDetails?.name ?? "Place name"}  ",
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: AppTextStyles.regular.copyWith(

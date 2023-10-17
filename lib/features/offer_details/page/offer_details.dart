@@ -32,7 +32,6 @@ class OfferDetails extends StatelessWidget {
                 CustomAppBar(
                   title: getTranslated("offer_details", context),
                 ),
-
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
@@ -60,11 +59,14 @@ class OfferDetails extends StatelessWidget {
                               const OfferDetailsBody(),
                               Padding(
                                 padding: EdgeInsets.symmetric(
-                                    vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
+                                    vertical:
+                                        Dimensions.PADDING_SIZE_DEFAULT.h),
                                 child: CustomButton(
-                                  text: getTranslated("avail_the_offer", context),
+                                  text:
+                                      getTranslated("avail_the_offer", context),
                                   onTap: () async {
-                                    await launchUrl(Uri.parse(provider.model?.url ?? ""),
+                                    await launchUrl(
+                                        Uri.parse(provider.model?.url ?? ""),
                                         mode: LaunchMode.externalApplication);
                                   },
                                 ),
@@ -73,7 +75,6 @@ class OfferDetails extends StatelessWidget {
                           ),
                   ),
                 ),
-
               ],
             );
           }),

@@ -92,7 +92,11 @@
   "description": "Description",
   "expired_at": "Expired Date At",
   "avail_the_offer": "Avail the offer",
-  "offer_details": "Offer Details"
+  "offer_details": "Offer Details",
+  "discount_value": "Discount value in this offer",
+  "contact_information": "Contact information",
+  "address": "Address",
+  "check_location_on_map": "Check location on map"
 
 
 }

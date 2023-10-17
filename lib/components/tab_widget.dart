@@ -76,10 +76,10 @@ class TabWidget extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         overflow: TextOverflow.ellipsis,
                         fontWeight:
-                            isSelected ? FontWeight.w600 : FontWeight.w400,
+                            isSelected ? FontWeight.w500 : FontWeight.w400,
                         color: isSelected
                             ? ColorResources.PRIMARY_COLOR
                             : ColorResources.DETAILS_COLOR,
@@ -92,7 +92,9 @@ class TabWidget extends StatelessWidget {
             LayoutBuilder(builder: (context, constr) {
               return Container(
                 padding: EdgeInsets.zero,
-                width: expand? constr.maxWidth: (width ?? 50 + (2 * innerHPadding)),
+                width: expand
+                    ? constr.maxWidth
+                    : (width ?? 50 + (2 * innerHPadding)),
                 height: 4,
                 margin: const EdgeInsets.only(top: 10),
                 decoration: BoxDecoration(
@@ -100,7 +102,9 @@ class TabWidget extends StatelessWidget {
                     topLeft: Radius.circular(100),
                     topRight: Radius.circular(100),
                   ),
-                  color: isSelected ? ColorResources.PRIMARY_COLOR : Colors.transparent,
+                  color: isSelected
+                      ? ColorResources.PRIMARY_COLOR
+                      : Colors.transparent,
                 ),
               );
             })

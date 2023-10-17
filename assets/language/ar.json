@@ -83,6 +83,7 @@
   "contact_with_us_any_time": "تواصل معنا وقتما تريد",
   "about_us": "نبذة عنا",
   "terms_conditions": "الشروط والاحكام",
+  "contact_information": "معلومات الاتصال",
   "share": "مشاركة",
   "location": "الموقع",
   "register_with_us": "سجل معنا",
@@ -95,5 +96,8 @@
   "sar": "ر.س",
   "expired_at": "تنتهي الصلاحية في",
   "avail_the_offer": "استفد بالعرض",
-  "offer_details": "تفاصيل العرض"
+  "offer_details": "تفاصيل العرض",
+  "discount_value": "قيمة التوفير في هذا العرض",
+  "address": "العنوان",
+  "check_location_on_map": "تفقد الموقع علي الخريطة"
 }

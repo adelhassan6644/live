@@ -1,3 +1,5 @@
+import 'package:live/main_models/places_model.dart';
+
 class OffersModel {
   String? message;
   List<OfferItem>? data;
@@ -26,15 +28,13 @@ class OffersModel {
 
 class OfferItem {
   int? id;
-  int? placeId;
   String? image;
   String? description;
   String? title;
   String? phone;
-  String? name;
-  String? logo;
   String? rate;
 
+  String? terms;
   String? price;
   String? discountPrice;
   String? percentage;
@@ -46,48 +46,25 @@ class OfferItem {
   String? updatedAt;
   String? expiredDate;
 
-  ///Location
-  String? address;
-  String? location;
-  double? lat;
-  double? long;
-
-  ///Social Media
-  String? twitter;
-  String? whatsapp;
-  String? snapChat;
-  String? instagram;
-  String? tiktok;
-  String? facebook;
+  PlaceItem? placeDetails;
   String? url;
 
   OfferItem(
       {this.id,
-      this.placeId,
       this.image,
       this.url,
       this.description,
+      this.terms,
       this.title,
-      this.logo,
-      this.name,
       this.phone,
       this.rate,
       this.price,
       this.discountPrice,
       this.discount,
       this.percentage,
-      this.address,
-      this.location,
-      this.lat,
-      this.long,
+      this.placeDetails,
       this.status,
       this.isPercentage,
-      this.twitter,
-      this.whatsapp,
-      this.instagram,
-      this.tiktok,
-      this.snapChat,
-      this.facebook,
       this.agentId,
       this.createdAt,
       this.updatedAt,
@@ -100,31 +77,22 @@ class OfferItem {
     description = json['description'];
     title = json['title'];
 
-    placeId = json['place_id'];
-    name = json['name'];
-    logo = json['logo'];
+    terms = json['terms'];
     phone = json['phone'];
     rate = json['rate'] != null ? (json['rate'].toString()) : null;
     price = json['price'];
     discountPrice = json['price_after_discount'] != null
         ? (json['price_after_discount'].toString())
         : null;
-    percentage = json['percentage'];
-    discount = json['discount'];
+    percentage = json['discount_percentage'] != null
+        ? (json['discount_percentage'].toString())
+        : null;
+    discount = json['discount_value'];
     isPercentage = json['type'] == 0 ? true : false;
     status = json['status'];
 
-    address = json['address'];
-    location = json['location'];
-    lat = json['lat'] != null ? double.parse(json['lat'].toString()) : null;
-    long = json['long'] != null ? double.parse(json['long'].toString()) : null;
-
-    twitter = json['twitter'];
-    whatsapp = json['whatsapp'];
-    instagram = json['instagram'];
-    tiktok = json['tiktok'];
-    snapChat = json['snapchat'];
-    facebook = json['facebook'];
+    placeDetails =
+        json['place'] != null ? PlaceItem.fromJson(json['place']) : null;
 
     status = json['status'];
     agentId = json['agent_id'];
@@ -146,6 +114,7 @@ class OfferItem {
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
     data['expire_date'] = expiredDate;
+    data['place'] = placeDetails?.toJson();
     return data;
   }
 }

@@ -16,6 +16,12 @@ class OfferDetailsProvider extends ChangeNotifier {
 
   bool get isLogin => repo.isLoggedIn();
 
+  List<String> tabs = ["terms_conditions", "address", "contact_information"];
+  int selectedTab = 0;
+  onSelectTab(v) {
+    selectedTab = v;
+    notifyListeners();
+  }
 
   bool goingDown = false;
   scroll(controller) {
@@ -29,29 +35,28 @@ class OfferDetailsProvider extends ChangeNotifier {
     });
   }
 
-
   OfferItem? model;
   bool isLoading = false;
   getDetails(id) async {
     // try {
-      isLoading = true;
-      model = null;
-      notifyListeners();
-      Either<ServerFailure, Response> response = await repo.getOfferDetails(id);
-      response.fold((fail) {
-        CustomSnackBar.showSnackBar(
-            notification: AppNotification(
-                message: fail.error,
-                isFloating: true,
-                backgroundColor: ColorResources.IN_ACTIVE,
-                borderColor: Colors.transparent));
-      }, (success) {
-        if (success.data["data"] != null) {
-          model = OfferItem.fromJson(success.data["data"]);
-        }
-      });
-      isLoading = false;
-      notifyListeners();
+    isLoading = true;
+    model = null;
+    notifyListeners();
+    Either<ServerFailure, Response> response = await repo.getOfferDetails(id);
+    response.fold((fail) {
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: fail.error,
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+    }, (success) {
+      if (success.data["data"] != null) {
+        model = OfferItem.fromJson(success.data["data"]);
+      }
+    });
+    isLoading = false;
+    notifyListeners();
     // } catch (e) {
     //   CustomSnackBar.showSnackBar(
     //       notification: AppNotification(
@@ -75,7 +80,6 @@ class OfferDetailsProvider extends ChangeNotifier {
       iosParameters: const IOSParameters(
         bundleId: "com.softwareCloud.live",
         appStoreId: "6451453145",
-
       ),
     );
     final dynamicLink = await FirebaseDynamicLinks.instance.buildLink(

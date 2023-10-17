@@ -90,10 +90,12 @@ class PlaceItem {
     agentId = json['agent_id'];
     categoryId = json['category_id'];
     image = json['image'];
-    images = [];
-    json['images'].forEach((v) {
-      images!.add(v['image']);
-    });
+    if(json['images'] != null) {
+      images = [];
+      json['images'].forEach((v) {
+        images!.add(v['image']);
+      });
+    }
     twitter = json['twitter'];
     whatsapp = json['whatsapp'];
     instagram = json['instagram'];

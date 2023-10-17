@@ -10,6 +10,7 @@ import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_images.dart';
 import '../../../components/custom_network_image.dart';
+import 'offer_details_tabs_widget.dart';
 
 class OfferDetailsBody extends StatefulWidget {
   const OfferDetailsBody({super.key});
@@ -44,7 +45,7 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
                 children: [
                   CustomNetworkImage.circleNewWorkImage(
                       color: ColorResources.HINT_COLOR,
-                      image: provider.model?.logo ?? "",
+                      image: provider.model?.placeDetails?.image ?? "",
                       radius: 28),
                   SizedBox(
                     width: 12.w,
@@ -53,7 +54,7 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(provider.model?.name ?? "Store Name",
+                        Text(provider.model?.placeDetails?.name ?? "Place Name",
                             overflow: TextOverflow.ellipsis,
                             style: AppTextStyles.medium.copyWith(
                                 fontSize: 16, color: ColorResources.TITLE)),
@@ -144,11 +145,32 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
               ),
             ),
 
+            ///Discount Value of Offer
+            RichText(
+              text: TextSpan(
+                text: "${getTranslated("discount_value", context)} ",
+                style: AppTextStyles.medium
+                    .copyWith(fontSize: 16, color: ColorResources.TITLE),
+                children: [
+                  TextSpan(
+                    text:
+                        "${provider.model?.discount ?? ""} ${getTranslated("sar", context)}",
+                    style: AppTextStyles.medium
+                        .copyWith(fontSize: 16, color: ColorResources.ACTIVE),
+                  ),
+                ],
+              ),
+            ),
+
             ///Expired Date of Offer
             Text(
                 "${getTranslated("expired_at", context)} ${provider.model?.expiredDate ?? ""}",
                 style: AppTextStyles.medium
                     .copyWith(fontSize: 16, color: ColorResources.TITLE)),
+            SizedBox(height: 16.h),
+
+            ///Expired Date of Offer
+            const OfferDetailsTabsWidget()
           ],
         ),
       );
