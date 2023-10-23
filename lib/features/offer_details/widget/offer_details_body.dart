@@ -10,6 +10,8 @@ import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_images.dart';
 import '../../../components/custom_network_image.dart';
+import '../../../navigation/custom_navigation.dart';
+import '../../../navigation/routes.dart';
 import 'offer_details_tabs_widget.dart';
 
 class OfferDetailsBody extends StatefulWidget {
@@ -51,26 +53,33 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
                     width: 12.w,
                   ),
                   Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(provider.model?.placeDetails?.name ?? "Place Name",
-                            overflow: TextOverflow.ellipsis,
-                            style: AppTextStyles.medium.copyWith(
-                                fontSize: 16, color: ColorResources.TITLE)),
-                        Row(
-                          children: [
-                            customImageIconSVG(
-                                imageName: SvgImages.fillStar,
-                                height: 18,
-                                width: 18),
-                            Text(" ${provider.model?.rate ?? 0}",
-                                style: AppTextStyles.regular.copyWith(
-                                    fontSize: 14,
-                                    color: ColorResources.DETAILS_COLOR)),
-                          ],
-                        )
-                      ],
+                    child: InkWell(
+                      onTap: (){
+                        CustomNavigator.push(Routes.PLACE_DETAILS,
+                            arguments:provider.model?.placeDetails?.id ??
+                                0);
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(provider.model?.placeDetails?.name ?? "Place Name",
+                              overflow: TextOverflow.ellipsis,
+                              style: AppTextStyles.medium.copyWith(
+                                  fontSize: 16, color: ColorResources.TITLE)),
+                          Row(
+                            children: [
+                              customImageIconSVG(
+                                  imageName: SvgImages.fillStar,
+                                  height: 18,
+                                  width: 18),
+                              Text(" ${provider.model?.rate ?? 0}",
+                                  style: AppTextStyles.regular.copyWith(
+                                      fontSize: 14,
+                                      color: ColorResources.DETAILS_COLOR)),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Container(
