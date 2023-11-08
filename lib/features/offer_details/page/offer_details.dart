@@ -27,9 +27,9 @@ class OfferDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     StreamController<Widget> overlayController =
-    StreamController<Widget>.broadcast();
+        StreamController<Widget>.broadcast();
     ImageGalleryController galleryController =
-    ImageGalleryController(initialPage: 0);
+        ImageGalleryController(initialPage: 0);
     return SafeArea(
       child: Scaffold(
         body: ChangeNotifierProvider(
@@ -56,38 +56,40 @@ class OfferDetails extends StatelessWidget {
                                     : CrossFadeState.showSecond,
                                 duration: const Duration(milliseconds: 500),
                                 firstChild: SizedBox(width: context.width),
-                                secondChild:
-                                    InkWell(
-                                      onTap: () async {
-                                        List<Widget> imagesWithUrl = [];
+                                secondChild: InkWell(
+                                  onTap: () async {
+                                    List<Widget> imagesWithUrl = [];
 
-                                        provider.model?.images!.forEach((element) {
-                                          imagesWithUrl.add(CustomNetworkImage.containerNewWorkImage(
+                                    provider.model?.images!.forEach((element) {
+                                      imagesWithUrl.add(CustomNetworkImage
+                                          .containerNewWorkImage(
                                               image: element,
                                               width: context.width,
                                               fit: BoxFit.contain,
                                               // height: context.height/10,
                                               radius: 0));
-                                        });
-                                        await SwipeImageGallery(
-                                          context: context,
-                                          controller: galleryController,
-                                          children: imagesWithUrl,
-                                          hideStatusBar: false,
-                                          onSwipe: (index) {
-
-                                          },
-                                          initialOverlay: GalleryOverlay(
-                                            title: '1/${provider.model?.images?.length}',
-                                          ),
-                                          overlayController: overlayController,
-                                          backgroundOpacity: 0.5,
-                                        ).show();
-                                      },
-                                    child: CarouselSlider.builder(
+                                    });
+                                    await SwipeImageGallery(
+                                      context: context,
+                                      controller: galleryController,
+                                      children: imagesWithUrl,
+                                      hideStatusBar: false,
+                                      onSwipe: (index) {},
+                                      initialOverlay: GalleryOverlay(
+                                        title:
+                                            '1/${provider.model?.images?.length}',
+                                      ),
+                                      overlayController: overlayController,
+                                      backgroundOpacity: 0.5,
+                                    ).show();
+                                  },
+                                  child: CarouselSlider.builder(
                                     options: CarouselOptions(
-                                    viewportFraction: 1,
-                                      autoPlay:  provider.model!.images!.length > 1 ? true : false,
+                                      viewportFraction: 1,
+                                      autoPlay:
+                                          provider.model!.images!.length > 1
+                                              ? true
+                                              : false,
                                       height: 220.h,
                                       enlargeCenterPage: false,
                                       disableCenter: true,
@@ -98,21 +100,20 @@ class OfferDetails extends StatelessWidget {
                                         //     ImageGalleryController(initialPage: index);
                                       },
                                     ),
-                      disableGesture: true,
-                      itemCount:  provider.model?.images!.length,
-                      itemBuilder: (context, index, _) {
-                        return CustomNetworkImage.containerNewWorkImage(
-                            image:  provider.model!.images![index]!,
-                          height: 220.h,
-                          width: context.width,
-                          fit: BoxFit.cover,
-                          radius: 20,
-                        );
-                      },
-                    ),
-
-
-                                    ),
+                                    disableGesture: true,
+                                    itemCount: provider.model?.images!.length,
+                                    itemBuilder: (context, index, _) {
+                                      return CustomNetworkImage
+                                          .containerNewWorkImage(
+                                        image: provider.model!.images![index]!,
+                                        height: 220.h,
+                                        width: context.width,
+                                        fit: BoxFit.cover,
+                                        radius: 20,
+                                      );
+                                    },
+                                  ),
+                                ),
                               ),
                               const OfferDetailsBody(),
                               Padding(

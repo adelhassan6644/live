@@ -35,6 +35,7 @@ class OfferItem {
   String? title;
   String? phone;
   String? rate;
+  String? code;
 
   String? terms;
   String? price;
@@ -66,6 +67,7 @@ class OfferItem {
       this.percentage,
       this.placeDetails,
       this.status,
+      this.code,
       this.isPercentage,
       this.agentId,
       this.createdAt,
@@ -75,6 +77,7 @@ class OfferItem {
 
   OfferItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    code=json['code'];
     image = json['image'];
     if(json['images'] != null) {
       images = [];

@@ -85,13 +85,15 @@ class OfferCard extends StatelessWidget {
                   ),
 
                   ///Offer Prices
+                  if(offer.price!=null)
                   Text("${offer.price ?? 0} ${getTranslated("sar", context)}",
                       style: AppTextStyles.regular.copyWith(
                           fontSize: 14,
                           decoration: TextDecoration.lineThrough,
                           color: ColorResources.IN_ACTIVE)),
+                  if(offer.discountPrice!=null||double.parse(offer.discountPrice.toString())!=0)
                   Text(
-                      "${offer.discountPrice ?? 0} ${getTranslated("sar", context)}",
+                      "${offer.discountPrice } ${getTranslated("sar", context)}",
                       style: AppTextStyles.medium.copyWith(
                           fontSize: 14, color: ColorResources.ACTIVE)),
                 ],
