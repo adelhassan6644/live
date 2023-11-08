@@ -45,10 +45,17 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
                   vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
               child: Row(
                 children: [
-                  CustomNetworkImage.circleNewWorkImage(
-                      color: ColorResources.HINT_COLOR,
-                      image: provider.model?.placeDetails?.image ?? "",
-                      radius: 28),
+                  InkWell(
+                    onTap: (){
+                      CustomNavigator.push(Routes.PLACE_DETAILS,
+                          arguments:provider.model?.placeDetails?.id ??
+                              0);
+                    },
+                    child: CustomNetworkImage.circleNewWorkImage(
+                        color: ColorResources.HINT_COLOR,
+                        image: provider.model?.placeDetails?.image ?? "",
+                        radius: 28),
+                  ),
                   SizedBox(
                     width: 12.w,
                   ),

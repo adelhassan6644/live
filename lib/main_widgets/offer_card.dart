@@ -40,7 +40,7 @@ class OfferCard extends StatelessWidget {
                     image: offer.image ?? "",
                     height: 120.h,
                     width: context.width,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                     edges: true,
                     radius: 12.w,
                   ),

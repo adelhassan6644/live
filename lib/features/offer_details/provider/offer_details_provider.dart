@@ -70,10 +70,10 @@ class OfferDetailsProvider extends ChangeNotifier {
   }
 
   shareOffer(OfferItem offer) async {
-    String link = "https://softwarecloud.link/${offer.id}";
+    String link = "https://livealhmdanh.page.link/${offer.id}";
     final dynamicLinkParams = DynamicLinkParameters(
       link: Uri.parse(link),
-      uriPrefix: "https://softwarecloud.page.link",
+      uriPrefix: "https://livealhmdanh.page.link",
       androidParameters: const AndroidParameters(
         packageName: "com.softwareCloud.live",
       ),

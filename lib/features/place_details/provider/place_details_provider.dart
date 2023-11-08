@@ -26,10 +26,10 @@ class PlaceDetailsProvider extends ChangeNotifier {
   }
 
   sharePlace(PlaceItem place) async {
-    String link = "https://softwarecloud.link/${place.id}";
+    String link = "https://livealhmdanh.page.link/${place.id}";
     final dynamicLinkParams = DynamicLinkParameters(
       link: Uri.parse(link),
-      uriPrefix: "https://softwarecloud.page.link",
+      uriPrefix: "https://livealhmdanh.page.link",
       androidParameters: const AndroidParameters(
         packageName: "com.softwareCloud.live",
       ),

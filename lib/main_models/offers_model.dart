@@ -29,6 +29,8 @@ class OffersModel {
 class OfferItem {
   int? id;
   String? image;
+  List<String>? images;
+
   String? description;
   String? title;
   String? phone;
@@ -51,7 +53,7 @@ class OfferItem {
 
   OfferItem(
       {this.id,
-      this.image,
+      this.images,
       this.url,
       this.description,
       this.terms,
@@ -67,12 +69,22 @@ class OfferItem {
       this.isPercentage,
       this.agentId,
       this.createdAt,
+      this.image,
       this.updatedAt,
       this.expiredDate});
 
   OfferItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     image = json['image'];
+    if(json['images'] != null) {
+      images = [];
+      json['images'].forEach((v) {
+        images!.add(v['image']);
+      });
+    }
+
+
+
     url = json['url'];
     description = json['description'];
     title = json['title'];
@@ -104,7 +116,7 @@ class OfferItem {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
-    data['image'] = image;
+    // data['image'] = image;
     data['description'] = description;
     data['title'] = title;
     data['phone'] = phone;

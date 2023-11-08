@@ -101,8 +101,7 @@ abstract class FirebaseNotifications {
       if (deepLink.isEmpty) return;
       handleDeepLink(path);
     }).onError((error) {
-      print('onLink error');
-      print(error.message);
+
     });
     initUniLinks();
   }

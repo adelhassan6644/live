@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
@@ -7,11 +10,13 @@ import 'package:live/components/custom_button.dart';
 import 'package:live/components/shimmer/custom_shimmer.dart';
 import 'package:live/features/offer_details/repo/offer_details_repo.dart';
 import 'package:provider/provider.dart';
+import 'package:swipe_image_gallery/swipe_image_gallery.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../components/animated_widget.dart';
 import '../../../components/custom_network_image.dart';
 import '../../../data/config/di.dart';
+import '../../place_details/widgets/imagegalleryOverlay.dart';
 import '../provider/offer_details_provider.dart';
 import '../widget/offer_details_body.dart';
 
@@ -21,6 +26,10 @@ class OfferDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    StreamController<Widget> overlayController =
+    StreamController<Widget>.broadcast();
+    ImageGalleryController galleryController =
+    ImageGalleryController(initialPage: 0);
     return SafeArea(
       child: Scaffold(
         body: ChangeNotifierProvider(
@@ -48,13 +57,62 @@ class OfferDetails extends StatelessWidget {
                                 duration: const Duration(milliseconds: 500),
                                 firstChild: SizedBox(width: context.width),
                                 secondChild:
-                                    CustomNetworkImage.containerNewWorkImage(
-                                  image: provider.model?.image ?? "",
-                                  height: 220.h,
-                                  width: context.width,
-                                  fit: BoxFit.cover,
-                                  radius: 20,
-                                ),
+                                    InkWell(
+                                      onTap: () async {
+                                        List<Widget> imagesWithUrl = [];
+
+                                        provider.model?.images!.forEach((element) {
+                                          imagesWithUrl.add(CustomNetworkImage.containerNewWorkImage(
+                                              image: element,
+                                              width: context.width,
+                                              fit: BoxFit.contain,
+                                              // height: context.height/10,
+                                              radius: 0));
+                                        });
+                                        await SwipeImageGallery(
+                                          context: context,
+                                          controller: galleryController,
+                                          children: imagesWithUrl,
+                                          hideStatusBar: false,
+                                          onSwipe: (index) {
+
+                                          },
+                                          initialOverlay: GalleryOverlay(
+                                            title: '1/${provider.model?.images?.length}',
+                                          ),
+                                          overlayController: overlayController,
+                                          backgroundOpacity: 0.5,
+                                        ).show();
+                                      },
+                                    child: CarouselSlider.builder(
+                                    options: CarouselOptions(
+                                    viewportFraction: 1,
+                                      autoPlay:  provider.model!.images!.length > 1 ? true : false,
+                                      height: 220.h,
+                                      enlargeCenterPage: false,
+                                      disableCenter: true,
+                                      pageSnapping: true,
+                                      onPageChanged: (index, reason) {
+                                        // provider.setPlacesIndex(index);
+                                        // galleryController =
+                                        //     ImageGalleryController(initialPage: index);
+                                      },
+                                    ),
+                      disableGesture: true,
+                      itemCount:  provider.model?.images!.length,
+                      itemBuilder: (context, index, _) {
+                        return CustomNetworkImage.containerNewWorkImage(
+                            image:  provider.model!.images![index]!,
+                          height: 220.h,
+                          width: context.width,
+                          fit: BoxFit.cover,
+                          radius: 20,
+                        );
+                      },
+                    ),
+
+
+                                    ),
                               ),
                               const OfferDetailsBody(),
                               Padding(

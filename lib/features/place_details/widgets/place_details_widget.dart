@@ -51,10 +51,10 @@ class PlaceDetailsWidget extends StatelessWidget {
                   child: Text(
                     placeItem.name ?? "",
                     style: AppTextStyles.medium.copyWith(
-                        fontSize: 22,
+                        fontSize: 19,
                         overflow: TextOverflow.ellipsis,
                         color: ColorResources.TITLE),
-                    maxLines: 1,
+                    maxLines: 2,
                   ),
                 ),
                 Consumer<PlaceDetailsProvider>(builder: (context, provider, w) {
@@ -180,13 +180,13 @@ class PlaceDetailsWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      getTranslated("description", context),
-                      style: AppTextStyles.medium.copyWith(
-                        fontSize: 16,
-                        color: ColorResources.TITLE,
-                      ),
-                    ),
+                    // Text(
+                    //   getTranslated("description", context),
+                    //   style: AppTextStyles.medium.copyWith(
+                    //     fontSize: 16,
+                    //     color: ColorResources.TITLE,
+                    //   ),
+                    // ),
                     SizedBox(height: 4.w),
                     Text(
                       placeItem.description ?? "",
