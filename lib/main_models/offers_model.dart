@@ -96,7 +96,7 @@ class OfferItem {
     phone = json['phone'];
     rate = json['rate'] != null ? (json['rate'].toString()) : null;
     price = json['price'];
-    discountPrice = json['price_after_discount'] != null
+    discountPrice =( json['price_after_discount'] != null&&json['price_after_discount'] != 0)
         ? (json['price_after_discount'].toString())
         : null;
     percentage = json['discount_percentage'] != null

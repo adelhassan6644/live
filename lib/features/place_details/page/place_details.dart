@@ -5,6 +5,7 @@ import 'package:live/components/animated_widget.dart';
 import 'package:live/components/custom_network_image.dart';
 import 'package:live/features/place_details/provider/place_details_provider.dart';
 import 'package:live/features/place_details/widgets/place_details_images_widget.dart';
+import 'package:map_launcher/map_launcher.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,6 +15,7 @@ import '../../../components/custom_app_bar.dart';
 import '../../../components/custom_button.dart';
 import '../../../components/empty_widget.dart';
 import '../../../data/config/di.dart';
+import '../../../main_widgets/maps_sheet.dart';
 import '../repo/place_details_repo.dart';
 import '../widgets/place_details_widget.dart';
 
@@ -200,8 +202,17 @@ class _PlaceDetailsState extends State<PlaceDetails> {
               text: getTranslated("location", context),
               onTap: () async {
                 final placeItem = provider2.model;
-                await launch(
-                    'https://www.google.com/maps/search/?api=1&query=${placeItem?.lat},${placeItem?.long}');
+                MapsSheet.show(
+                  context: context,
+                  onMapTap: (map) {
+                    Navigator.pop(context);
+                    map.   showMarker(
+                      coords: Coords(placeItem!.lat!, placeItem!.long!),
+                      title: placeItem.name!,
+                    );
+                  },
+                );
+
               },
             ),
           ),
