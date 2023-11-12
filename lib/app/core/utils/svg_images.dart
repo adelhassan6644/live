@@ -78,4 +78,5 @@ class SvgImages {
   static const String send = 'assets/svgs/send.svg';
   static const String trash = 'assets/svgs/trash.svg';
   static const String snapchat = 'assets/svgs/snapchat.svg';
+  static const String global = 'assets/svgs/global.svg';
 }

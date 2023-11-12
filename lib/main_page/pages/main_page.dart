@@ -21,64 +21,57 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        bottom: true,
-        top: false,
-        child: Container(
-          decoration: const BoxDecoration(
-            color: ColorResources.WHITE_COLOR,
-          ),
-          child: Stack(
-            alignment: Alignment.topLeft,
-            children: [
-
-
-              SizedBox(
-                height: context.height,
-                width: context.width,
-                child: ZoomDrawer(
-                  disableDragGesture: true,
-                  isRtl: true,
-                  showShadow: true,
-                  angle: 0.0,
-                  shadowLayer1Color: Colors.black.withOpacity(0.1),
-                  shadowLayer2Color: Colors.transparent,
-                  borderRadius: 24,
-                  slideWidth: context.width * (0.75),
-                  menuBackgroundColor: ColorResources.WHITE_COLOR,
-                  controller: _drawerController,
-                  menuScreen: More(controller: _drawerController),
-                  mainScreen: DashBoard(controller: _drawerController),
-                ),
+      body: Container(
+        decoration: const BoxDecoration(
+          color: ColorResources.WHITE_COLOR,
+        ),
+        child: Stack(
+          alignment: Alignment.topLeft,
+          children: [
+            SizedBox(
+              height: context.height,
+              width: context.width,
+              child: ZoomDrawer(
+                disableDragGesture: true,
+                isRtl: true,
+                showShadow: true,
+                angle: 0.0,
+                shadowLayer1Color: Colors.black.withOpacity(0.1),
+                shadowLayer2Color: Colors.transparent,
+                borderRadius: 24,
+                slideWidth: context.width * (0.75),
+                menuBackgroundColor: ColorResources.WHITE_COLOR,
+                controller: _drawerController,
+                menuScreen: More(controller: _drawerController),
+                mainScreen: DashBoard(controller: _drawerController),
               ),
-              Consumer<MainPageProvider>(builder: (_, provider, child) {
-                return Visibility(
-                  visible: provider.isOpen == true,
-                  child: IconButton(
-                    onPressed: () {
-                      provider.updateIsOpen(false);
-                      _drawerController.toggle!();
-                    },
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    padding: EdgeInsets.fromLTRB(
-                        Dimensions.PADDING_SIZE_DEFAULT,
-                        (Dimensions.PADDING_SIZE_DEFAULT + context.toPadding),
-                        Dimensions.PADDING_SIZE_DEFAULT,
-                        Dimensions.PADDING_SIZE_DEFAULT),
-                    icon: const Icon(
-                      Icons.close,
-                      color: ColorResources.SPLASH_BACKGROUND_COLOR,
-                      size: 24,
-                    ),
+            ),
+            Consumer<MainPageProvider>(builder: (_, provider, child) {
+              return Visibility(
+                visible: provider.isOpen == true,
+                child: IconButton(
+                  onPressed: () {
+                    provider.updateIsOpen(false);
+                    _drawerController.toggle!();
+                  },
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  padding: EdgeInsets.fromLTRB(
+                      Dimensions.PADDING_SIZE_DEFAULT,
+                      (Dimensions.PADDING_SIZE_DEFAULT + context.toPadding),
+                      Dimensions.PADDING_SIZE_DEFAULT,
+                      Dimensions.PADDING_SIZE_DEFAULT),
+                  icon: const Icon(
+                    Icons.close,
+                    color: ColorResources.SPLASH_BACKGROUND_COLOR,
+                    size: 24,
                   ),
-                );
-              }),
-
-            ],
-          ),
+                ),
+              );
+            }),
+          ],
         ),
       ),
     );

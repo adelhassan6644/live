@@ -25,7 +25,7 @@ class EmptyState extends StatelessWidget {
     this.imgHeight,
     this.imgWidth,
     this.txt,
-    this.txtColor=ColorResources.PRIMARY_COLOR,
+    this.txtColor = ColorResources.PRIMARY_COLOR,
     this.subText,
   }) : super(key: key);
   @override
@@ -51,7 +51,7 @@ class EmptyState extends StatelessWidget {
             ),
             Text(txt ?? "لا يوجد بيانات !",
                 textAlign: TextAlign.center,
-                style:  TextStyle(
+                style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: txtColor,

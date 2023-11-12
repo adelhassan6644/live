@@ -189,16 +189,14 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
                         .copyWith(fontSize: 16, color: ColorResources.TITLE),
                     children: [
                       TextSpan(
-                        text:
-                        "${provider.model?.code  ?? ""} ",
-                        style: AppTextStyles.medium
-                            .copyWith(fontSize: 16, color: ColorResources.ACTIVE),
+                        text: "${provider.model?.code ?? ""} ",
+                        style: AppTextStyles.medium.copyWith(
+                            fontSize: 16, color: ColorResources.ACTIVE),
                       ),
                     ],
                   ),
                 ),
               ),
-
 
             ///Expired Date of Offer
             Text(

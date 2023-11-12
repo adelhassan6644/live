@@ -25,8 +25,8 @@ dependencies:
   flutter_rating_bar:
   get_it:
   http:
-  firebase_messaging: ^14.4.1
-  firebase_core:
+  firebase_messaging: ^14.7.4
+  firebase_core: ^2.18.0
   provider:
   flutter_staggered_animations:
   connectivity:
@@ -37,8 +37,8 @@ dependencies:
   flutter_animate:
   url_launcher: ^6.1.11
   readmore:
-  flutter_svg:
-  flutter_local_notifications: ^9.8.0+1
+  flutter_svg: ^2.0.9
+  flutter_local_notifications: ^16.1.0
   flutter_form_builder:
   equatable:
   pin_code_fields:
@@ -49,7 +49,6 @@ dependencies:
   carousel_slider:
   firebase_auth: ^4.4.0
   whatsapp_unilink: ^2.1.0
-  flutter_html: ^2.2.1
   firebase_dynamic_links: ^5.1.0
   firebase_analytics: ^10.2.1
   flutter_native_splash: ^2.2.0+1
@@ -64,7 +63,7 @@ dependencies:
   share:
   flag:
   flutter_spinkit:
-  app_settings: ^4.2.0
+  app_settings: ^5.1.1
   substring_highlight: ^1.0.33
   motion_toast: ^2.6.8
   flutter_inappwebview:
@@ -73,8 +72,8 @@ dependencies:
       ref: fix-xcode-17
   flutter_zoom_drawer: ^3.1.1
   swipe_image_gallery: ^0.8.3
-  flutter_widget_from_html: ^0.8.0
-  file_picker: ^4.6.1
+  flutter_widget_from_html: ^0.14.3
+  file_picker: ^6.1.1
   permission_handler: ^10.4.3
   path_provider: ^2.0.15
 

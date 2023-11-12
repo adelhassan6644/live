@@ -1,6 +1,9 @@
+import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/dimensions.dart';
+import 'package:live/app/core/utils/svg_images.dart';
 import 'package:live/app/localization/localization/language_constant.dart';
 import 'package:flutter/material.dart';
+import 'package:live/components/animated_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../../components/custom_app_bar.dart';
@@ -21,50 +24,49 @@ class ContactWithUs extends StatelessWidget {
           ),
           Expanded(
               child: Consumer<ContactProvider>(builder: (_, provider, child) {
-            return ListView(
-              padding: EdgeInsets.symmetric(
+            return ListAnimator(
+              customPadding: EdgeInsets.symmetric(
                   horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
                   vertical: 24.h),
-              physics: const BouncingScrollPhysics(),
-              children: [
+              data: [
                 CustomButton(
                   text: getTranslated("mail", context),
+                  svgIcon: SvgImages.mailIcon,
+                  iconColor: ColorResources.WHITE_COLOR,
                   radius: 50,
                   onTap: () => provider.launchMail(),
                 ),
-                SizedBox(
-                  height: 8.h,
-                ),
+                SizedBox(height: 18.h),
+                // CustomButton(
+                //   text: getTranslated("twitter", context),
+                //   radius: 50,
+                //   onTap: () => provider.launchTwitter(),
+                // ),
+                // SizedBox(
+                //   height: 8.h,
+                // ),
                 CustomButton(
-                  text: getTranslated("twitter", context),
+                  text: getTranslated("whatsapp", context),
+                  svgIcon: SvgImages.whatsApp,
+                  iconColor: ColorResources.WHITE_COLOR,
                   radius: 50,
-                  onTap: () => provider.launchTwitter(),
+                  onTap: () => provider.launchWhatsapp(),
                 ),
-                SizedBox(
-                  height: 8.h,
-                ),
-                CustomButton(
-                  text: getTranslated("website", context),
-                  radius: 50,
-                  onTap: () => provider.launchWebsite(),
-                ),
-                SizedBox(
-                  height: 8.h,
-                ),
+                // SizedBox(
+                //   height: 8.h,
+                // ),
                 // CustomButton(
                 //   text: getTranslated("customerـservice", context),
                 //   radius: 50,
                 //   onTap: () => provider.launchCustomerService(),
                 // ),
-                SizedBox(
-                  height: 8.h,
-                ),
-
+                // SizedBox(
+                //   height: 8.h,
+                // ),
               ],
             );
-          })),SafeArea(
-              bottom: true,
-              child: SoftwareCloudCopyRight())
+          })),
+          const SafeArea(bottom: true, child: SoftwareCloudCopyRight())
         ],
       ),
     );

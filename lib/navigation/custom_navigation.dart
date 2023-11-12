@@ -1,5 +1,3 @@
-
-
 import 'package:live/features/auth/pages/change_password.dart';
 import 'package:live/features/auth/pages/reset_password.dart';
 import 'package:live/features/category_details/page/category_details.dart';
@@ -62,9 +60,8 @@ abstract class CustomNavigator {
 
       case Routes.NEWS:
         return _pageRoute(const News());
-        case Routes.SEARCH:
+      case Routes.SEARCH:
         return _pageRoute(const SearchScreen());
-
 
       case Routes.MAP:
         return _pageRoute(MapPage(
@@ -78,7 +75,7 @@ abstract class CustomNavigator {
       case Routes.PLACE_DETAILS:
         return _pageRoute(PlaceDetails(id: settings.arguments as int));
 
-        case Routes.OFFER_DETAILS:
+      case Routes.OFFER_DETAILS:
         return _pageRoute(OfferDetails(id: settings.arguments as int));
 
       case Routes.CONTACT_WITH_US:
@@ -89,7 +86,8 @@ abstract class CustomNavigator {
 
       case Routes.TERMS:
         return _pageRoute(const Terms());
-        case Routes.Notification:
+
+      case Routes.NOTIFICATIONS:
         return _pageRoute(const NotificationsPage());
 
       default:

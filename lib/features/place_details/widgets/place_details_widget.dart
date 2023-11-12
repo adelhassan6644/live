@@ -214,6 +214,7 @@ class PlaceDetailsWidget extends StatelessWidget {
                 spacing: 16.w,
                 runSpacing: 16.h,
                 children: [
+                  ///Facebook
                   if (placeItem.facebook != null)
                     customContainerSvgIcon(
                         imageName: SvgImages.faceBook,
@@ -228,7 +229,8 @@ class PlaceDetailsWidget extends StatelessWidget {
                               mode: LaunchMode.externalApplication);
                         }),
 
-                  if (placeItem.instagram != null)
+                  ///Instagram
+                  if ((placeItem.instagram != null))
                     customContainerSvgIcon(
                         imageName: SvgImages.instagram,
                         imageColor: ColorResources.HEADER,
@@ -242,7 +244,8 @@ class PlaceDetailsWidget extends StatelessWidget {
                               mode: LaunchMode.externalApplication);
                         }),
 
-                  if (placeItem.twitter != null)
+                  ///Twitter
+                  if ((placeItem.twitter != null))
                     customContainerSvgIcon(
                         imageName: SvgImages.twitter,
                         imageColor: ColorResources.HEADER,
@@ -256,7 +259,8 @@ class PlaceDetailsWidget extends StatelessWidget {
                               mode: LaunchMode.externalApplication);
                         }),
 
-                  if (placeItem.tiktok != null)
+                  ///Tiktok
+                  if ((placeItem.tiktok != null))
                     customContainerSvgIcon(
                         imageName: SvgImages.tiktok,
                         imageColor: ColorResources.HEADER,
@@ -270,7 +274,8 @@ class PlaceDetailsWidget extends StatelessWidget {
                         },
                         color: ColorResources.WHITE_COLOR),
 
-                  if (placeItem.whatsapp != null)
+                  ///WhatsApp
+                  if ((placeItem.whatsapp != null))
                     customContainerSvgIcon(
                         imageName: SvgImages.whatsApp,
                         imageColor: ColorResources.HEADER,
@@ -284,7 +289,8 @@ class PlaceDetailsWidget extends StatelessWidget {
                               "whatsapp://send?phone=${placeItem.whatsapp}");
                         }),
 
-                  if (placeItem.snapChat != null)
+                  ///SnapChat
+                  if ((placeItem.snapChat != null))
                     customContainerSvgIcon(
                         imageName: SvgImages.snapchat,
                         imageColor: ColorResources.HEADER,
@@ -297,33 +303,32 @@ class PlaceDetailsWidget extends StatelessWidget {
                           launchUrl(Uri.parse(placeItem.snapChat!),
                               mode: LaunchMode.externalApplication);
                         }),
-                  if (placeItem.website != null)
-                    CustomButton(
-                      text: "webSite",
-                      width: 100,
-                      onTap: () async {
-                        launchUrl(Uri.parse(placeItem.website!),
-                            mode: LaunchMode.externalApplication);
-                      },
-                      height: 35,
-                      withBorderColor: false,
-                      withShadow: true,
-                      iconSize: 15,
-                      textColor: ColorResources.SECOUND_PRIMARY_COLOR,
-                      iconColor: ColorResources.SECOUND_PRIMARY_COLOR,
-                      backgroundColor: ColorResources.WHITE_COLOR,
-                      textSize: 14,
-                    ),
+
+                  ///Website
+                  if ((placeItem.website != null))
+                    customContainerSvgIcon(
+                        imageName: SvgImages.global,
+                        imageColor: ColorResources.HEADER,
+                        height: 42.0,
+                        width: 42.0,
+                        radius: 100,
+                        withShadow: true,
+                        onTap: () async {
+                          launchUrl(Uri.parse(placeItem.website!),
+                              mode: LaunchMode.externalApplication);
+                        },
+                        color: ColorResources.WHITE_COLOR),
                 ],
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 12.h),
-            child: const PlaceOffersWidget(),
-          ),
+
+          const PlaceOffersWidget(),
+
+          ///Rate
           const RatePlace(),
-          SizedBox(height: 12.h),
+
+          ///FeedBacks
           const PlaceFeedBacks()
         ],
       ),

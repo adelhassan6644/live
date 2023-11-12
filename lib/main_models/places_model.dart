@@ -70,7 +70,7 @@ class PlaceItem {
       this.website,
       this.instagram,
       this.tiktok,
-        this.snapChat,
+      this.snapChat,
       this.facebook,
       this.isFollow,
       this.createdAt,
@@ -90,7 +90,7 @@ class PlaceItem {
     agentId = json['agent_id'];
     categoryId = json['category_id'];
     image = json['image'];
-    if(json['images'] != null) {
+    if (json['images'] != null) {
       images = [];
       json['images'].forEach((v) {
         images!.add(v['image']);

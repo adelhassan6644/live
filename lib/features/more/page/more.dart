@@ -60,7 +60,7 @@ class More extends StatelessWidget {
                 title: getTranslated("notifications", context),
                 icon: SvgImages.notifications,
                 onTap: () {
-                  CustomNavigator.push(Routes.Notification);
+                  CustomNavigator.push(Routes.NOTIFICATIONS);
                 },
               ),
             ),
@@ -78,7 +78,6 @@ class More extends StatelessWidget {
               icon: SvgImages.mailIcon,
               onTap: () {
                 CustomNavigator.push(Routes.CONTACT_WITH_US);
-                controller.toggle!();
               },
             ),
             MoreButton(

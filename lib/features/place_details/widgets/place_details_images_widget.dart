@@ -2,16 +2,10 @@ import 'dart:async';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
-import 'package:live/navigation/custom_navigation.dart';
-import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
 import 'package:swipe_image_gallery/swipe_image_gallery.dart';
-
-import '../../../app/core/utils/color_resources.dart';
 import '../../../components/custom_network_image.dart';
-import '../../../data/api/end_points.dart';
 import '../provider/place_details_provider.dart';
 import 'imagegalleryOverlay.dart';
 
@@ -39,22 +33,20 @@ class PlaceDetailsImagesWidget extends StatelessWidget {
               onTap: () async {
                 List<Widget> imagesWithUrl = [];
 
-                images.forEach((element) {
+                for (var element in images) {
                   imagesWithUrl.add(CustomNetworkImage.containerNewWorkImage(
                       image: element,
                       width: context.width,
                       fit: BoxFit.fitHeight,
                       // height: context.height/10,
                       radius: 0));
-                });
+                }
                 await SwipeImageGallery(
                   context: context,
                   controller: galleryController,
                   children: imagesWithUrl,
                   hideStatusBar: false,
-                  onSwipe: (index) {
-
-                  },
+                  onSwipe: (index) {},
                   initialOverlay: GalleryOverlay(
                     title: '1/${imagesWithUrl.length}',
                   ),

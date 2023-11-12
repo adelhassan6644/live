@@ -11,7 +11,6 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../app/core/utils/text_styles.dart';
-import '../../../components/custom_button.dart';
 import '../../../components/custom_images.dart';
 import '../../../main_widgets/maps_sheet.dart';
 
@@ -79,7 +78,8 @@ class OfferDetailsTabsWidget extends StatelessWidget {
                         onMapTap: (map) {
                           Navigator.pop(context);
                           map.showMarker(
-                            coords: Coords(provider.model!.placeDetails!.lat!, provider.model!.placeDetails!.long!),
+                            coords: Coords(provider.model!.placeDetails!.lat!,
+                                provider.model!.placeDetails!.long!),
                             title: provider.model!.placeDetails!.name!,
                           );
                         },
@@ -248,25 +248,23 @@ class OfferDetailsTabsWidget extends StatelessWidget {
                                         .model!.placeDetails!.snapChat!),
                                     mode: LaunchMode.externalApplication);
                               }),
+
+                        ///Website
                         if (provider.model?.placeDetails?.website != null)
-                          CustomButton(
-                            text: "webSite",
-                            width: 100,
-                            onTap: () async {
-                              launchUrl(
-                                  Uri.parse(
-                                      provider.model!.placeDetails!.website!),
-                                  mode: LaunchMode.externalApplication);
-                            },
-                            height: 35,
-                            withBorderColor: false,
-                            withShadow: true,
-                            iconSize: 15,
-                            textColor: ColorResources.SECOUND_PRIMARY_COLOR,
-                            iconColor: ColorResources.SECOUND_PRIMARY_COLOR,
-                            backgroundColor: ColorResources.WHITE_COLOR,
-                            textSize: 14,
-                          ),
+                          customContainerSvgIcon(
+                              imageName: SvgImages.global,
+                              imageColor: ColorResources.HEADER,
+                              height: 42.0,
+                              width: 42.0,
+                              radius: 100,
+                              withShadow: true,
+                              onTap: () async {
+                                launchUrl(
+                                    Uri.parse(
+                                        provider.model!.placeDetails!.website!),
+                                    mode: LaunchMode.externalApplication);
+                              },
+                              color: ColorResources.WHITE_COLOR),
                       ],
                     ),
                   ),
