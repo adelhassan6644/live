@@ -4,6 +4,7 @@ import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/localization/localization/language_constant.dart';
 import 'package:live/components/tab_widget.dart';
 import 'package:live/features/offer_details/provider/offer_details_provider.dart';
+import 'package:map_launcher/map_launcher.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,6 +13,7 @@ import '../../../app/core/utils/svg_images.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../components/custom_button.dart';
 import '../../../components/custom_images.dart';
+import '../../../main_widgets/maps_sheet.dart';
 
 class OfferDetailsTabsWidget extends StatelessWidget {
   const OfferDetailsTabsWidget({super.key});
@@ -71,8 +73,19 @@ class OfferDetailsTabsWidget extends StatelessWidget {
                       vertical: Dimensions.PADDING_SIZE_SMALL.h),
                   child: InkWell(
                     onTap: () async {
-                      await launch(
-                          'https://www.google.com/maps/search/?api=1&query=${provider.model?.placeDetails?.lat},${provider.model?.placeDetails?.long}');
+                      final placeItem = provider.model?.placeDetails;
+                      MapsSheet.show(
+                        context: context,
+                        onMapTap: (map) {
+                          Navigator.pop(context);
+                          map.showMarker(
+                            coords: Coords(provider.model!.placeDetails!.lat!, provider.model!.placeDetails!.long!),
+                            title: provider.model!.placeDetails!.name!,
+                          );
+                        },
+                      );
+                      // await launch(
+                      //     'https://www.google.com/maps/search/?api=1&query=${provider.model?.placeDetails?.lat},${provider.model?.placeDetails?.long}');
                     },
                     child: Text(
                       getTranslated("check_location_on_map", context),

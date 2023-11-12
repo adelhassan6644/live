@@ -40,7 +40,7 @@ class OfferCard extends StatelessWidget {
                     image: offer.image ?? "",
                     height: 120.h,
                     width: context.width,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                     edges: true,
                     radius: 12.w,
                   ),
@@ -85,13 +85,15 @@ class OfferCard extends StatelessWidget {
                   ),
 
                   ///Offer Prices
+                  if(offer.price!=null)
                   Text("${offer.price ?? 0} ${getTranslated("sar", context)}",
                       style: AppTextStyles.regular.copyWith(
                           fontSize: 14,
                           decoration: TextDecoration.lineThrough,
                           color: ColorResources.IN_ACTIVE)),
+                  if(offer.discountPrice!=null)
                   Text(
-                      "${offer.discountPrice ?? 0} ${getTranslated("sar", context)}",
+                      "${offer.discountPrice } ${getTranslated("sar", context)}",
                       style: AppTextStyles.medium.copyWith(
                           fontSize: 14, color: ColorResources.ACTIVE)),
                 ],

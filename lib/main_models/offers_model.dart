@@ -29,10 +29,13 @@ class OffersModel {
 class OfferItem {
   int? id;
   String? image;
+  List<String>? images;
+
   String? description;
   String? title;
   String? phone;
   String? rate;
+  String? code;
 
   String? terms;
   String? price;
@@ -51,7 +54,7 @@ class OfferItem {
 
   OfferItem(
       {this.id,
-      this.image,
+      this.images,
       this.url,
       this.description,
       this.terms,
@@ -64,15 +67,27 @@ class OfferItem {
       this.percentage,
       this.placeDetails,
       this.status,
+      this.code,
       this.isPercentage,
       this.agentId,
       this.createdAt,
+      this.image,
       this.updatedAt,
       this.expiredDate});
 
   OfferItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    code=json['code'];
     image = json['image'];
+    if(json['images'] != null) {
+      images = [];
+      json['images'].forEach((v) {
+        images!.add(v['image']);
+      });
+    }
+
+
+
     url = json['url'];
     description = json['description'];
     title = json['title'];
@@ -81,7 +96,7 @@ class OfferItem {
     phone = json['phone'];
     rate = json['rate'] != null ? (json['rate'].toString()) : null;
     price = json['price'];
-    discountPrice = json['price_after_discount'] != null
+    discountPrice =( json['price_after_discount'] != null&&json['price_after_discount'] != 0)
         ? (json['price_after_discount'].toString())
         : null;
     percentage = json['discount_percentage'] != null
@@ -104,7 +119,7 @@ class OfferItem {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
-    data['image'] = image;
+    // data['image'] = image;
     data['description'] = description;
     data['title'] = title;
     data['phone'] = phone;

@@ -49,24 +49,26 @@ class CustomNetworkImage {
           ),
         ),
         padding: padding,
-        child: imageWidget,
+        child: Center(child: imageWidget),
       ),
       placeholder: (context, url) {
         return isPlaceHolder
             ? Container(
-                width: width ?? 40,
-                height: height ?? 40,
+                width:  40,
+                height:  40,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(radius ?? 15.w),
                   image: DecorationImage(
                     fit: fit ?? BoxFit.cover,
                     image: Image.asset(
                       defaultImage ?? Images.logo,
-                      fit: fit ?? BoxFit.cover,
+                      fit: BoxFit.scaleDown,
+                      width:  40,
+                      height:  40,
                     ).image,
                   ),
                 ),
-                child: imageWidget,
+                child: Center(child: imageWidget),
               )
             : Container();
       },

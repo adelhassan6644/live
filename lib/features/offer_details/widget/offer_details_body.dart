@@ -10,6 +10,8 @@ import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_images.dart';
 import '../../../components/custom_network_image.dart';
+import '../../../navigation/custom_navigation.dart';
+import '../../../navigation/routes.dart';
 import 'offer_details_tabs_widget.dart';
 
 class OfferDetailsBody extends StatefulWidget {
@@ -43,34 +45,48 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
                   vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
               child: Row(
                 children: [
-                  CustomNetworkImage.circleNewWorkImage(
-                      color: ColorResources.HINT_COLOR,
-                      image: provider.model?.placeDetails?.image ?? "",
-                      radius: 28),
+                  InkWell(
+                    onTap: () {
+                      CustomNavigator.push(Routes.PLACE_DETAILS,
+                          arguments: provider.model?.placeDetails?.id ?? 0);
+                    },
+                    child: CustomNetworkImage.circleNewWorkImage(
+                        color: ColorResources.HINT_COLOR,
+                        image: provider.model?.placeDetails?.image ?? "",
+                        radius: 28),
+                  ),
                   SizedBox(
                     width: 12.w,
                   ),
                   Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(provider.model?.placeDetails?.name ?? "Place Name",
-                            overflow: TextOverflow.ellipsis,
-                            style: AppTextStyles.medium.copyWith(
-                                fontSize: 16, color: ColorResources.TITLE)),
-                        Row(
-                          children: [
-                            customImageIconSVG(
-                                imageName: SvgImages.fillStar,
-                                height: 18,
-                                width: 18),
-                            Text(" ${provider.model?.rate ?? 0}",
-                                style: AppTextStyles.regular.copyWith(
-                                    fontSize: 14,
-                                    color: ColorResources.DETAILS_COLOR)),
-                          ],
-                        )
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        CustomNavigator.push(Routes.PLACE_DETAILS,
+                            arguments: provider.model?.placeDetails?.id ?? 0);
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                              provider.model?.placeDetails?.name ??
+                                  "Place Name",
+                              overflow: TextOverflow.ellipsis,
+                              style: AppTextStyles.medium.copyWith(
+                                  fontSize: 16, color: ColorResources.TITLE)),
+                          Row(
+                            children: [
+                              customImageIconSVG(
+                                  imageName: SvgImages.fillStar,
+                                  height: 18,
+                                  width: 18),
+                              Text(" ${provider.model?.rate ?? 0}",
+                                  style: AppTextStyles.regular.copyWith(
+                                      fontSize: 14,
+                                      color: ColorResources.DETAILS_COLOR)),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Container(
@@ -110,56 +126,79 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
                     .copyWith(fontSize: 14, color: ColorResources.TITLE)),
 
             ///Offer Prices
-            Padding(
-              padding: EdgeInsets.only(top: Dimensions.PADDING_SIZE_EXTRA_SMALL.h),
-              child: Row(
-                children: [
-                  Text(
-                      "${provider.model?.price ?? 0} ${getTranslated("sar", context)}",
-                      style: AppTextStyles.regular.copyWith(
-                          fontSize: 14,
-                          decoration: TextDecoration.lineThrough,
-                          color: ColorResources.IN_ACTIVE)),
-                  SizedBox(
-                    width: 4.w,
-                  ),
-                  Expanded(
-                    child: Text(
-                        "${provider.model?.discountPrice ?? 0} ${getTranslated("sar", context)}",
-                        style: AppTextStyles.medium.copyWith(
-                            fontSize: 14, color: ColorResources.ACTIVE)),
-                  ),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    decoration: BoxDecoration(
-                        color: ColorResources.SECOUND_PRIMARY_COLOR
-                            .withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(4)),
-                    child: Text("${provider.model?.percentage ?? 0} %",
-                        style: AppTextStyles.medium.copyWith(
-                            fontSize: 14, color: ColorResources.TITLE)),
-                  )
-                ],
+            if (provider.model?.price != null)
+              Padding(
+                padding:
+                    EdgeInsets.only(top: Dimensions.PADDING_SIZE_EXTRA_SMALL.h),
+                child: Row(
+                  children: [
+                    Text(
+                        "${provider.model?.price ?? 0} ${getTranslated("sar", context)}",
+                        style: AppTextStyles.regular.copyWith(
+                            fontSize: 14,
+                            decoration: TextDecoration.lineThrough,
+                            color: ColorResources.IN_ACTIVE)),
+                    SizedBox(
+                      width: 4.w,
+                    ),
+                    Expanded(
+                      child: Text(
+                          "${provider.model?.discountPrice ?? 0} ${getTranslated("sar", context)}",
+                          style: AppTextStyles.medium.copyWith(
+                              fontSize: 14, color: ColorResources.ACTIVE)),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 2),
+                      decoration: BoxDecoration(
+                          color: ColorResources.SECOUND_PRIMARY_COLOR
+                              .withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(4)),
+                      child: Text("${provider.model?.percentage ?? 0} %",
+                          style: AppTextStyles.medium.copyWith(
+                              fontSize: 14, color: ColorResources.TITLE)),
+                    )
+                  ],
+                ),
               ),
-            ),
 
             ///Discount Value of Offer
-            RichText(
-              text: TextSpan(
-                text: "${getTranslated("discount_value", context)} ",
-                style: AppTextStyles.medium
-                    .copyWith(fontSize: 16, color: ColorResources.TITLE),
-                children: [
-                  TextSpan(
-                    text:
-                        "${provider.model?.discount ?? ""} ${getTranslated("sar", context)}",
-                    style: AppTextStyles.medium
-                        .copyWith(fontSize: 16, color: ColorResources.ACTIVE),
-                  ),
-                ],
+            if (provider.model?.discount != null)
+              RichText(
+                text: TextSpan(
+                  text: "${getTranslated("discount_value", context)} ",
+                  style: AppTextStyles.medium
+                      .copyWith(fontSize: 16, color: ColorResources.TITLE),
+                  children: [
+                    TextSpan(
+                      text:
+                          "${provider.model?.discount ?? ""} ${getTranslated("sar", context)}",
+                      style: AppTextStyles.medium
+                          .copyWith(fontSize: 16, color: ColorResources.ACTIVE),
+                    ),
+                  ],
+                ),
               ),
-            ),
+            if (provider.model?.code != null)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: RichText(
+                  text: TextSpan(
+                    text: "${getTranslated("cobone_code", context)} ",
+                    style: AppTextStyles.bold
+                        .copyWith(fontSize: 16, color: ColorResources.TITLE),
+                    children: [
+                      TextSpan(
+                        text:
+                        "${provider.model?.code  ?? ""} ",
+                        style: AppTextStyles.medium
+                            .copyWith(fontSize: 16, color: ColorResources.ACTIVE),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
 
             ///Expired Date of Offer
             Text(

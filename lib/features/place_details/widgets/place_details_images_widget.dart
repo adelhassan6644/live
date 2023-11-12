@@ -26,6 +26,7 @@ class PlaceDetailsImagesWidget extends StatelessWidget {
         StreamController<Widget>.broadcast();
     ImageGalleryController galleryController =
         ImageGalleryController(initialPage: 0);
+
     return images.isEmpty
         ? CustomNetworkImage.containerNewWorkImage(
             image: "",

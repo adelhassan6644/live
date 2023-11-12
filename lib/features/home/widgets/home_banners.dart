@@ -10,8 +10,10 @@ import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../app/core/utils/color_resources.dart';
+import '../../../app/core/utils/images.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../app/core/utils/text_styles.dart';
+import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_images.dart';
 import '../../../components/custom_network_image.dart';
 import '../../../components/empty_widget.dart';
@@ -31,6 +33,20 @@ class HomeBanner extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Row(
+              children: [
+                Text(
+                  getTranslated("our_partner", context),
+                  style: AppTextStyles.semiBold
+                      .copyWith(fontSize: 24, color: ColorResources.HEADER),
+                ),
+                Image.asset(
+                  Images.megaPhone,
+                  height: 26,
+                  width: 26,
+                )
+              ],
+            ),
             provider.isGetBanners
                 ? const _BannerShimmer()
                 : provider.bannerModel != null &&

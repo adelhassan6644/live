@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:live/features/splash/provider/splash_provider.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/images.dart';
+import '../../../app/core/utils/text_styles.dart';
+import '../../../app/localization/localization/language_constant.dart';
 import '../../../navigation/custom_navigation.dart';
 
 class Splash extends StatefulWidget {
@@ -33,27 +35,37 @@ class _SplashState extends State<Splash> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorResources.SPLASH_BACKGROUND_COLOR,
+        backgroundColor: ColorResources.SPLASH_BACKGROUND_COLOR,
         body: Stack(
-      alignment: Alignment.center,
-      children: [
-        Container(
-            height: context.height,
-            width: context.width,
-            alignment: Alignment.center,
-            decoration:
-                const BoxDecoration(color: ColorResources.SPLASH_BACKGROUND_COLOR),
-            child: const SizedBox()),
-        Image.asset(
-          Images.logo,
-          width: context.width,
-          height: 300,
-        )
-            .animate()
-            .slideX(duration: 600.ms )
-            .then(delay: 400.ms)
-            .shimmer(duration: 600.ms),
-      ],
-    ));
+          alignment: Alignment.center,
+          children: [
+            Container(
+                height: context.height,
+                width: context.width,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                    color: ColorResources.SPLASH_BACKGROUND_COLOR),
+                child: const SizedBox()),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+              Image.asset(
+                Images.logo,
+                width: context.width,
+                height: 250,
+              ),
+              Text(
+                " حمدانيتنا سعادتنا",
+                style: AppTextStyles.semiBold
+                    .copyWith(fontSize: 24, color: ColorResources.WHITE_COLOR),
+              ),
+            ])
+                .animate()
+                .slideX(duration: 600.ms)
+                .then(delay: 400.ms)
+                .shimmer(duration: 600.ms),
+          ],
+        ));
   }
 }
