@@ -188,10 +188,17 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                             ],
                           ),
                         )
-                      : const EmptyState(
-                          emptyHeight: 200,
-                          imgHeight: 110,
-                        );
+                      :  Center(
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.pop(context);
+                          },
+                          child: EmptyState(
+                              emptyHeight: 200,
+                              imgHeight: 110,
+                            ),
+                        ),
+                      );
             }),
           ),
           floatingActionButtonLocation:
