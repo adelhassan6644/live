@@ -4,31 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update auth">
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/.filecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/app.dill" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/debug_android_application.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/flutter_assets.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/gen_dart_plugin_registrant.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/gen_localizations.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/kernel_snapshot.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/kernel_snapshot.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/outputs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/.filecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/android_aot_bundle_release_android-arm64.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/android_aot_release_android-arm64.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/aot_android_asset_bundle.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/app.dill" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/arm64-v8a/app.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/flutter_android_aot_bundle_release_android-arm64.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/flutter_android_aot_release_android-arm64.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/flutter_assets.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/gen_dart_plugin_registrant.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/gen_localizations.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/kernel_snapshot.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/kernel_snapshot.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/outputs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/live_android.iml" afterDir="false" />
+    <list default="true" id="35eb4f89-6a61-46e7-a483-59ebc82f5570" name="Changes" comment=" b">
+      <change afterPath="$PROJECT_DIR$/android/app/appcenter-post-clone.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="v_1.0.8+27" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,18 +58,18 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/user/SoftweareCloud2/live/assets/svgs&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/user/SoftweareCloud2/live/android/app&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android/app" />
       <recent name="$PROJECT_DIR$/assets/svgs" />
       <recent name="$PROJECT_DIR$/lib/app" />
       <recent name="$PROJECT_DIR$/android" />
       <recent name="$PROJECT_DIR$/assets/images" />
-      <recent name="$PROJECT_DIR$/lib/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/main_models" />
@@ -118,25 +97,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="add file picker" />
+      <changelist id="35eb4f89-6a61-46e7-a483-59ebc82f5570" name="Changes" comment=" b" />
       <created>1688516389160</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688516389160</updated>
-    </task>
-    <task id="LOCAL-00027" summary="pp">
-      <created>1690983162568</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1690983162568</updated>
-    </task>
-    <task id="LOCAL-00028" summary="pp">
-      <created>1690983280159</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1690983280159</updated>
     </task>
     <task id="LOCAL-00029" summary="pp">
       <created>1690983568728</created>
@@ -467,7 +432,21 @@
       <option name="project" value="LOCAL" />
       <updated>1700003563379</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary=" b">
+      <created>1700004857320</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1700004857320</updated>
+    </task>
+    <task id="LOCAL-00077" summary=" b">
+      <created>1700004876102</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1700004876102</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -516,7 +495,8 @@
     <MESSAGE value="update home offer" />
     <MESSAGE value="update pods" />
     <MESSAGE value="update auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="update auth" />
+    <MESSAGE value=" b" />
+    <option name="LAST_COMMIT_MESSAGE" value=" b" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
