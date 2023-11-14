@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update auth" />
+    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update auth">
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/.filecache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/app.dill" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/debug_android_application.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/flutter_assets.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/gen_dart_plugin_registrant.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/gen_localizations.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/kernel_snapshot.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/kernel_snapshot.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4f635b31e9e32e3ad3458649f377c287/outputs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/.filecache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/android_aot_bundle_release_android-arm64.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/android_aot_release_android-arm64.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/aot_android_asset_bundle.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/app.dill" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/arm64-v8a/app.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/flutter_android_aot_bundle_release_android-arm64.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/flutter_android_aot_release_android-arm64.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/flutter_assets.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/gen_dart_plugin_registrant.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/gen_localizations.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/kernel_snapshot.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/kernel_snapshot.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/88b6d7118184f7964ea09d2f4c734260/outputs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/live_android.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,41 +123,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688516389160</updated>
-    </task>
-    <task id="LOCAL-00022" summary="update auth">
-      <created>1689773640865</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1689773640865</updated>
-    </task>
-    <task id="LOCAL-00023" summary="update auth">
-      <created>1689775812444</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1689775812444</updated>
-    </task>
-    <task id="LOCAL-00024" summary="uodate android manfist">
-      <created>1690981776422</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1690981776422</updated>
-    </task>
-    <task id="LOCAL-00025" summary="pp">
-      <created>1690982828718</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1690982828718</updated>
-    </task>
-    <task id="LOCAL-00026" summary="pp">
-      <created>1690983147057</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1690983147057</updated>
     </task>
     <task id="LOCAL-00027" summary="pp">
       <created>1690983162568</created>
@@ -442,7 +432,42 @@
       <option name="project" value="LOCAL" />
       <updated>1700002998106</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="update auth">
+      <created>1700003445560</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1700003445560</updated>
+    </task>
+    <task id="LOCAL-00072" summary="update auth">
+      <created>1700003457878</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1700003457878</updated>
+    </task>
+    <task id="LOCAL-00073" summary="update auth">
+      <created>1700003466361</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1700003466361</updated>
+    </task>
+    <task id="LOCAL-00074" summary="update auth">
+      <created>1700003540889</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1700003540889</updated>
+    </task>
+    <task id="LOCAL-00075" summary="update auth">
+      <created>1700003563379</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1700003563379</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
