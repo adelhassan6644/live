@@ -4,62 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update pods">
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/.filecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/App.framework/App" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/app.dill" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/debug_ios_bundle_flutter_assets.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/debug_universal_framework.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/debug_unpack_ios.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/flutter_assets.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/gen_dart_plugin_registrant.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/gen_localizations.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/kernel_snapshot.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/kernel_snapshot.stamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/459d0d83cb007448a05ebaa4490f3cd4/outputs.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/package_info_plus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/wakelock_plus" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Local Podspecs/package_info_plus.podspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Local Podspecs/wakelock_plus.podspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/user.xcuserdatad/xcschemes/package_info_plus.xcscheme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/user.xcuserdatad/xcschemes/wakelock_plus.xcscheme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/package_info_plus/package_info_plus-Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/package_info_plus/package_info_plus-dummy.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/package_info_plus/package_info_plus-prefix.pch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/package_info_plus/package_info_plus-umbrella.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/package_info_plus/package_info_plus.debug.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/package_info_plus/package_info_plus.modulemap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/package_info_plus/package_info_plus.release.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/wakelock_plus/wakelock_plus-Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/wakelock_plus/wakelock_plus-dummy.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/wakelock_plus/wakelock_plus-prefix.pch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/wakelock_plus/wakelock_plus-umbrella.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/wakelock_plus/wakelock_plus.debug.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/wakelock_plus/wakelock_plus.modulemap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Pods/Target Support Files/wakelock_plus/wakelock_plus.release.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/DKImagePickerController-DKImagePickerController.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/DKImagePickerController.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/DKPhotoGallery-DKPhotoGallery.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/DKPhotoGallery.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/FirebaseAppCheckInterop.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/OrderedSet.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/RecaptchaInterop.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/SDWebImage.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/SwiftyGif.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/Toast.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/app_settings.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/audio_session.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/file_picker.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/flutter_inappwebview.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/fluttertoast.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/just_audio.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/map_launcher.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/permission_handler_apple.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/build/ios/Pods.build/Release-iphonesimulator/share.build/dgph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/place_details/widgets/place_details_images_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/place_details/widgets/place_details_images_widget.dart" afterDir="false" />
-    </list>
+    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update auth" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="production_test" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -100,20 +45,20 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "/Users/user/SoftweareCloud2/live/assets/svgs",
-    "settings.editor.selected.configurable": "flutter.settings",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/user/SoftweareCloud2/live/assets/svgs&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/svgs" />
@@ -153,13 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688516389160</updated>
-    </task>
-    <task id="LOCAL-00004" summary="feat(terms):&#10;-add terms">
-      <created>1688636307886</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1688636307886</updated>
     </task>
     <task id="LOCAL-00005" summary="add file picker">
       <created>1689071646243</created>
@@ -497,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699825113131</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="update auth">
+      <created>1700002093186</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1700002093187</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -539,14 +484,14 @@
     <MESSAGE value="design updates" />
     <MESSAGE value="add permissions handler" />
     <MESSAGE value="update splash" />
-    <MESSAGE value="update auth" />
     <MESSAGE value="uodate android manfist" />
     <MESSAGE value="pp" />
     <MESSAGE value="V1" />
     <MESSAGE value="mfc" />
     <MESSAGE value="update home offer" />
     <MESSAGE value="update pods" />
-    <option name="LAST_COMMIT_MESSAGE" value="update pods" />
+    <MESSAGE value="update auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="update auth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
