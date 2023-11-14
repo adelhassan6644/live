@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update auth" />
+    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update auth">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,20 +102,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688516389160</updated>
-    </task>
-    <task id="LOCAL-00026" summary="pp">
-      <created>1690983147057</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1690983147057</updated>
-    </task>
-    <task id="LOCAL-00027" summary="pp">
-      <created>1690983162568</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1690983162568</updated>
     </task>
     <task id="LOCAL-00028" summary="pp">
       <created>1690983280159</created>
@@ -442,7 +432,21 @@
       <option name="project" value="LOCAL" />
       <updated>1699925386350</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="update auth">
+      <created>1699925580988</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1699925580988</updated>
+    </task>
+    <task id="LOCAL-00076" summary="update auth">
+      <created>1699925732696</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1699925732696</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
