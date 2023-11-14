@@ -741,9 +741,9 @@
     },
     {
       "name": "just_audio",
-      "rootUri": "file:///Users/user/.pub-cache/hosted/pub.dev/just_audio-0.9.35",
+      "rootUri": "file:///Users/user/.pub-cache/hosted/pub.dev/just_audio-0.9.36",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.17"
     },
     {
       "name": "just_audio_platform_interface",
@@ -753,9 +753,9 @@
     },
     {
       "name": "just_audio_web",
-      "rootUri": "file:///Users/user/.pub-cache/hosted/pub.dev/just_audio_web-0.4.8",
+      "rootUri": "file:///Users/user/.pub-cache/hosted/pub.dev/just_audio_web-0.4.9",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.17"
     },
     {
       "name": "lints",
@@ -1340,7 +1340,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-11-13T23:46:53.080866Z",
+  "generated": "2023-11-14T00:14:57.269012Z",
   "generator": "pub",
   "generatorVersion": "3.1.3"
 }
