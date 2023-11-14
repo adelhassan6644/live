@@ -126,41 +126,49 @@ class _OfferDetailsBodyState extends State<OfferDetailsBody> {
                     .copyWith(fontSize: 14, color: ColorResources.TITLE)),
 
             ///Offer Prices
-            if (provider.model?.price != null)
-              Padding(
-                padding:
-                    EdgeInsets.only(top: Dimensions.PADDING_SIZE_EXTRA_SMALL.h),
-                child: Row(
-                  children: [
+
+            Padding(
+              padding:
+                  EdgeInsets.only(top: Dimensions.PADDING_SIZE_EXTRA_SMALL.h),
+              child: Row(
+                children: [
+                  if (provider.model?.price != null)
                     Text(
                         "${provider.model?.price ?? 0} ${getTranslated("sar", context)}",
                         style: AppTextStyles.regular.copyWith(
                             fontSize: 14,
                             decoration: TextDecoration.lineThrough,
                             color: ColorResources.IN_ACTIVE)),
-                    SizedBox(
-                      width: 4.w,
-                    ),
+                  SizedBox(
+                    width: 4.w,
+                  ),
+                  if (provider.model?.price != null)
                     Expanded(
                       child: Text(
                           "${provider.model?.discountPrice ?? 0} ${getTranslated("sar", context)}",
                           style: AppTextStyles.medium.copyWith(
                               fontSize: 14, color: ColorResources.ACTIVE)),
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 2),
-                      decoration: BoxDecoration(
-                          color: ColorResources.SECOUND_PRIMARY_COLOR
-                              .withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(4)),
-                      child: Text("${provider.model?.percentage ?? 0} %",
-                          style: AppTextStyles.medium.copyWith(
-                              fontSize: 14, color: ColorResources.TITLE)),
-                    )
-                  ],
-                ),
+                  Spacer(),
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    decoration: BoxDecoration(
+                        color: ColorResources.SECOUND_PRIMARY_COLOR
+                            .withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(4)),
+                    child: provider.model?.percentage != null
+                        ? Text("${provider.model?.percentage ?? 0} %",
+                            style: AppTextStyles.medium.copyWith(
+                                fontSize: 14, color: ColorResources.TITLE))
+                        :provider.model?.discountFrom!=null ?Text(
+                            "${provider.model?.discountFrom} - ${provider.model!.discountTo} %",
+                            style: AppTextStyles.medium.copyWith(
+                                fontSize: 14, color: ColorResources.TITLE)):null,
+                  )
+                ],
               ),
+            ),
 
             ///Discount Value of Offer
             if (provider.model?.discount != null)

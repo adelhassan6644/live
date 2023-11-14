@@ -42,13 +42,14 @@ class OfferItem {
   String? discountPrice;
   String? percentage;
   String? discount;
+  String? discountFrom;
+  String? discountTo;
   int? status;
   bool? isPercentage;
   int? agentId;
   String? createdAt;
   String? updatedAt;
   String? expiredDate;
-
   PlaceItem? placeDetails;
   String? url;
 
@@ -71,6 +72,9 @@ class OfferItem {
       this.isPercentage,
       this.agentId,
       this.createdAt,
+      this.discountTo,
+      this.discountFrom,
+
       this.image,
       this.updatedAt,
       this.expiredDate});
@@ -94,6 +98,8 @@ class OfferItem {
 
     terms = json['terms'];
     phone = json['phone'];
+    discountFrom = json['discount_from'];
+    discountTo = json['discount_to'];
     rate = json['rate'] != null ? (json['rate'].toString()) : null;
     price = json['price'];
     discountPrice =( json['price_after_discount'] != null&&json['price_after_discount'] != 0)
