@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="update auth" />
+    <list default="true" id="6626a0fc-6ed8-40b3-91bb-fe1e68f7c3b0" name="Changes" comment="Add AppCenter Service" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="production_test" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,11 +73,11 @@
       <recent name="$PROJECT_DIR$/lib/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\adelh\Documents\GitHub\live\android\app" />
       <recent name="$PROJECT_DIR$/lib/main_models" />
       <recent name="$PROJECT_DIR$/lib/main_widgets" />
       <recent name="$PROJECT_DIR$/lib/features/place_details/widgets" />
       <recent name="$PROJECT_DIR$/assets/images" />
-      <recent name="$PROJECT_DIR$/ios/Runner" />
     </key>
   </component>
   <component name="RunManager">
@@ -103,13 +103,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688516389160</updated>
-    </task>
-    <task id="LOCAL-00039" summary="V1">
-      <created>1694450625723</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1694450625723</updated>
     </task>
     <task id="LOCAL-00040" summary="V1">
       <created>1694545653864</created>
@@ -447,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699969260735</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Add AppCenter Service">
+      <created>1699971709540</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1699971709540</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -455,19 +455,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="dashboard" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -496,7 +484,8 @@
     <MESSAGE value="update home offer" />
     <MESSAGE value="update pods" />
     <MESSAGE value="update auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="update auth" />
+    <MESSAGE value="Add AppCenter Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add AppCenter Service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
