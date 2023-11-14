@@ -866,7 +866,7 @@
         <entry key="just_audio">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio-0.9.35/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio-0.9.36/lib" />
             </list>
           </value>
         </entry>
@@ -880,7 +880,7 @@
         <entry key="just_audio_web">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio_web-0.4.8/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio_web-0.4.9/lib" />
             </list>
           </value>
         </entry>
@@ -1678,9 +1678,9 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/intl-0.18.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/js-0.6.7/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/js_wrapping-0.7.4/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio-0.9.35/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio-0.9.36/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio_platform_interface-4.2.2/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio_web-0.4.8/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/just_audio_web-0.4.9/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/lints-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/logging-1.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/map_launcher-3.0.1/lib" />
