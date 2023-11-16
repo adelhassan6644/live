@@ -80,6 +80,7 @@ class OfferCard extends StatelessWidget {
                       customImageIconSVG(
                           imageName: SvgImages.fillStar, height: 18, width: 18),
                       Text(" ${offer.rate ?? 0}",
+                          maxLines: 2,
                           style: AppTextStyles.regular.copyWith(
                               fontSize: 14,
                               color: ColorResources.DETAILS_COLOR)),
@@ -87,17 +88,21 @@ class OfferCard extends StatelessWidget {
                   ),
 
                   ///Offer Prices
-                  if(offer.price!=null)
-                  Text("${offer.price ?? 0} ${getTranslated("sar", context)}",
-                      style: AppTextStyles.regular.copyWith(
-                          fontSize: 14,
-                          decoration: TextDecoration.lineThrough,
-                          color: ColorResources.IN_ACTIVE)),
-                  if(offer.discountPrice!=null)
-                  Text(
-                      "${offer.discountPrice } ${getTranslated("sar", context)}",
-                      style: AppTextStyles.medium.copyWith(
-                          fontSize: 14, color: ColorResources.ACTIVE)),
+                  Visibility(
+                    visible: (offer.price!=null),
+                    child: Text("${offer.price ?? 0} ${getTranslated("sar", context)}",
+                        style: AppTextStyles.regular.copyWith(
+                            fontSize: 14,
+                            decoration: TextDecoration.lineThrough,
+                            color: ColorResources.IN_ACTIVE)),
+                  ),
+
+                  Visibility(visible: (offer.discountPrice!=null),
+                    child: Text(
+                        "${offer.discountPrice } ${getTranslated("sar", context)}",
+                        style: AppTextStyles.medium.copyWith(
+                            fontSize: 14, color: ColorResources.ACTIVE)),
+                  ),
                 ],
               ),
             )

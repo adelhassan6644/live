@@ -56,11 +56,11 @@ PODS:
   - Firebase/Messaging (10.17.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 10.17.0)
-  - firebase_analytics (10.6.4):
+  - firebase_analytics (10.7.0):
     - Firebase/Analytics (= 10.17.0)
     - firebase_core
     - Flutter
-  - firebase_auth (4.13.0):
+  - firebase_auth (4.14.0):
     - Firebase/Auth (= 10.17.0)
     - firebase_core
     - Flutter
@@ -372,8 +372,8 @@ SPEC CHECKSUMS:
   DKPhotoGallery: fdfad5125a9fdda9cc57df834d49df790dbb4179
   file_picker: 15fd9539e4eb735dc54bae8c0534a7a9511a03de
   Firebase: f4ac0b02927af9253ae094d23deecf0890da7374
-  firebase_analytics: 9d609f3c43a71319c9112bb01044729305192417
-  firebase_auth: 8b51489f374ea36b8f0aac047738de1d1f02e573
+  firebase_analytics: d6f520c1030d2c1215851f6e332d39a489a30bd2
+  firebase_auth: 6a41305f668ac6f9bcbefdedfcba5aacb8367e92
   firebase_core: efc9455611b8769fa90fbdae5da182600bd6901c
   firebase_dynamic_links: 9b884c33258a6a93182b84804dcfe8a20803a328
   firebase_messaging: 9c697d1ecfe77edf15d995b5048906ffc994c96c
