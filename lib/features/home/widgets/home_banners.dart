@@ -71,10 +71,13 @@ class HomeBanner extends StatelessWidget {
                             itemBuilder: (context, index, _) {
                               return InkWell(
                                 onTap: () {
-                                  CustomNavigator.push(Routes.PLACE_DETAILS,
-                                      arguments: provider.bannerModel
-                                              ?.data?[index].place?.id ??
-                                          0);
+                                  if( provider.bannerModel
+                                      ?.data?[index].place!=null) {
+                                    CustomNavigator.push(Routes.PLACE_DETAILS,
+                                        arguments: provider.bannerModel
+                                                ?.data?[index].place?.id ??
+                                            0);
+                                  }
                                 },
                                 child: Stack(
                                   alignment: Alignment.bottomCenter,
@@ -87,6 +90,8 @@ class HomeBanner extends StatelessWidget {
                                         height: 245.h,
                                         fit: BoxFit.cover,
                                         radius: 20),
+                                    if(provider.bannerModel?.data?[index]
+                                        .place!=null)
                                     Padding(
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 14.w, vertical: 12.h),

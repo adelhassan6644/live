@@ -69,12 +69,14 @@ class OfferCard extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("${offer.placeDetails?.name ?? "Place name"}  ",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: AppTextStyles.regular.copyWith(
-                              fontSize: 14,
-                              color: ColorResources.DETAILS_COLOR)),
+                      Expanded(
+                        child: Text("${offer.placeDetails?.name ?? "Place name"}  ",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: AppTextStyles.regular.copyWith(
+                                fontSize: 14,
+                                color: ColorResources.DETAILS_COLOR)),
+                      ),
                       customImageIconSVG(
                           imageName: SvgImages.fillStar, height: 18, width: 18),
                       Text(" ${offer.rate ?? 0}",
