@@ -1,8 +1,6 @@
 part of 'notification_helper.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  // If you're going to use other Firebase services in the background, such as FireStore,
-  // make sure you call initializeApp before using other Firebase services.
   await Firebase.initializeApp();
   log('on Message background notification ${message.data}');
   log('on Message background data ${message.notification?.body}');
@@ -23,6 +21,7 @@ class FirebaseNotifications {
 
   static Future<void> setUpFirebase() async {
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+    initDynamicLinks();
     _firebaseMessaging = FirebaseMessaging.instance;
     _firebaseMessaging!.setAutoInitEnabled(true);
     FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
