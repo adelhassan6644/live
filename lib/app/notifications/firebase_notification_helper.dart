@@ -21,7 +21,6 @@ class FirebaseNotifications {
 
   static Future<void> setUpFirebase() async {
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-    initDynamicLinks();
     _firebaseMessaging = FirebaseMessaging.instance;
     _firebaseMessaging!.setAutoInitEnabled(true);
     FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
@@ -31,6 +30,7 @@ class FirebaseNotifications {
     );
     localNotification();
     firebaseCloudMessagingListeners();
+    initDynamicLinks();
   }
 
   static Future<void> firebaseCloudMessagingListeners() async {
