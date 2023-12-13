@@ -14,6 +14,8 @@ import '../../data/config/di.dart';
 import '../../features/notifications/provider/notifications_provider.dart';
 import '../../navigation/custom_navigation.dart';
 import '../../navigation/routes.dart';
+@pragma('vm:entry-point')
+
 part 'firebase_notification_helper.dart';
 part 'notification_operation.dart';
 part 'local_notification.dart';
