@@ -7,6 +7,11 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   log('on Message background notification ${message.data}');
   log('on Message background data ${message.notification?.body}');
   log("Handling a background message: ${message.notification!.toMap()}");
+  if (Platform.isAndroid) {
+    scheduleNotification(message.notification!.title ?? "",
+        message.notification!.body ?? "", json.encode(message.data));
+  }
+  handlePath(message.data);
 }
 
 FirebaseMessaging? _firebaseMessaging;
