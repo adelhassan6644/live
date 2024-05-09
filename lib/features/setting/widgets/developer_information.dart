@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/components/shimmer/custom_shimmer.dart';
+import 'package:live/features/contact_with_us/provider/contact_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -60,6 +61,10 @@ class DeveloperInformation extends StatelessWidget {
                     pSvgIcon: SvgImages.mailIcon,
                     read: true,
                     addBorder: true,
+                    onTap: (){
+
+                      Provider.of<ContactProvider>(context,listen: false).launchMail();
+                    },
                   ),
                   CustomTextFormField(
                     initialValue: provider.model?.data?.phone,

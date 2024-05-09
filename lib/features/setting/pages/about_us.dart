@@ -8,6 +8,7 @@ import '../../../app/core/utils/text_styles.dart';
 import '../../../components/animated_widget.dart';
 import '../../../components/custom_images.dart';
 import '../../../main_widgets/software_copyRight.dart';
+import '../widgets/contact_us.dart';
 import '../widgets/developer_description.dart';
 import '../widgets/developer_image.dart';
 import '../widgets/developer_information.dart';
@@ -31,7 +32,9 @@ class AboutUs extends StatelessWidget {
                   DeveloperImage(),
                   DeveloperDescription(),
                   DeveloperInformation(),
+                  // ContactUS(),
                   DeveloperSocialMedia(),
+
                   SizedBox(
                     height: 24,
                   ),

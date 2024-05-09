@@ -40,8 +40,9 @@ class HomeBanner extends StatelessWidget {
                   style: AppTextStyles.semiBold
                       .copyWith(fontSize: 24, color: ColorResources.HEADER),
                 ),
+                SizedBox(width: 10,),
                 Image.asset(
-                  Images.megaPhone,
+                  Images.ourPartner,
                   height: 26,
                   width: 26,
                 )
@@ -57,7 +58,7 @@ class HomeBanner extends StatelessWidget {
                           CarouselSlider.builder(
                             options: CarouselOptions(
                               viewportFraction: 1,
-                              autoPlay: false,
+                              autoPlay: true,
                               height: 245.h,
                               enlargeCenterPage: false,
                               disableCenter: true,
@@ -90,9 +91,9 @@ class HomeBanner extends StatelessWidget {
                                         height: 245.h,
                                         fit: BoxFit.cover,
                                         radius: 20),
-                                    if(provider.bannerModel?.data?[index]
-                                        .place!=null)
-                                    Padding(
+                                    // if(provider.bannerModel?.data?[index]
+                                    //     .place!=null)
+                                   /* Padding(
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 14.w, vertical: 12.h),
                                       child: Column(
@@ -109,11 +110,14 @@ class HomeBanner extends StatelessWidget {
                                             style:
                                                 AppTextStyles.medium.copyWith(
                                               fontSize: 18,
+
                                               backgroundColor: Colors.white.withOpacity(.5),
                                               color: ColorResources.HEADER,
-                                            ),
+
+                                            ),textAlign: TextAlign.start,
+
                                           ),
-                                          Row(
+                                       *//*   Row(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
                                             children: [
@@ -163,10 +167,10 @@ class HomeBanner extends StatelessWidget {
                                                 ),
                                               )
                                             ],
-                                          ),
+                                          ),*//*
                                         ],
                                       ),
-                                    ),
+                                    ),*/
                                   ],
                                 ),
                               );

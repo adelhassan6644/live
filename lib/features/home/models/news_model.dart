@@ -35,6 +35,7 @@ class NewsItem {
   int? status;
   String? createdAt;
   String? updatedAt;
+  List<String>? images;
 
   NewsItem(
       {this.id,
@@ -46,6 +47,7 @@ class NewsItem {
         this.address,
         this.createdAt,
         this.link,
+        this.images,
         this.updatedAt});
 
   NewsItem.fromJson(Map<String, dynamic> json) {
@@ -58,6 +60,11 @@ class NewsItem {
     status = json['status'];
     address = json['address'];
     createdAt = json['created_at'];
+    if(json['images']!=[]) {
+
+     images= List<String>.from(json["images"]!.map((x) => x['image']??json['image']));
+     images!.add(json['image']);
+    }
     updatedAt = json['updated_at'];
   }
 

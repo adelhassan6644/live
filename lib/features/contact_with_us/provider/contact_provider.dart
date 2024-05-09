@@ -65,8 +65,8 @@ class ContactProvider extends ChangeNotifier {
     try {
       launchUrl(Uri(
         scheme: 'mailto',
-        path: contactModel?.email ?? 'adelhassan6644@gmail.com',
-        query: 'subject=Hello&body=Test',
+        path: contactModel?.email ?? '@gmail.com',
+        query: 'subject=""&body=""',
       ));
     } catch (e) {
       log("=====> Exception Mail Launch $e");

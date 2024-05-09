@@ -31,7 +31,7 @@ class HomePlaces extends StatelessWidget {
                       .copyWith(fontSize: 24, color: ColorResources.HEADER),
                 ),
                 Image.asset(
-                  Images.megaPhone,
+                  Images.newPlaces,
                   height: 26,
                   width: 26,
                 )

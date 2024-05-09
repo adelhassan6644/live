@@ -73,13 +73,13 @@ class More extends StatelessWidget {
                 controller.toggle!();
               },
             ),
-            MoreButton(
-              title: getTranslated("contact_with_us", context),
-              icon: SvgImages.mailIcon,
-              onTap: () {
-                CustomNavigator.push(Routes.CONTACT_WITH_US);
-              },
-            ),
+            // MoreButton(
+            //   title: getTranslated("contact_with_us", context),
+            //   icon: SvgImages.mailIcon,
+            //   onTap: () {
+            //     CustomNavigator.push(Routes.CONTACT_WITH_US);
+            //   },
+            // ),
             MoreButton(
               title: getTranslated("terms_conditions", context),
               icon: SvgImages.file,

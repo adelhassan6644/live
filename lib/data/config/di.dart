@@ -15,6 +15,7 @@ import '../../features/favourite/provider/favourite_provider.dart';
 import '../../features/favourite/repo/favourite_repo.dart';
 import '../../features/home/provider/home_provider.dart';
 import '../../features/maps/repo/maps_repo.dart';
+import '../../features/news_details/repo/news_details_repo.dart';
 import '../../features/notifications/provider/notifications_provider.dart';
 import '../../features/notifications/repo/notifications_repo.dart';
 import '../../features/offer_details/repo/offer_details_repo.dart';
@@ -71,7 +72,8 @@ Future<void> init() async {
   sl.registerLazySingleton(
       () => ContactRepo(sharedPreferences: sl(), dioClient: sl()));
   sl.registerLazySingleton(
-      () => OfferDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
+      () => OfferDetailsRepo(sharedPreferences: sl(), dioClient: sl()));  sl.registerLazySingleton(
+      () => NewsDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
 
   sl.registerLazySingleton(
       () => SearchRepo(sharedPreferences: sl(), dioClient: sl()));

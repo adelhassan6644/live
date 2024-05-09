@@ -43,23 +43,21 @@ class MapsSheet {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
                 child: SingleChildScrollView(
-                  child: Container(
-                    child: Wrap(
-                      children: <Widget>[
-                        for (var map in availableMaps)
-                          ListTile(
-                            onTap: () => onMapTap(map),
-                            title: Text(map.mapName),
-                            leading: ClipOval(
-                              child: SvgPicture.asset(
-                                map.icon,
-                                height: 30.0,
-                                width: 30.0,
-                              ),
+                  child: Wrap(
+                    children: <Widget>[
+                      for (var map in availableMaps)
+                        ListTile(
+                          onTap: () => onMapTap(map),
+                          title: Text(map.mapName),
+                          leading: ClipOval(
+                            child: SvgPicture.asset(
+                              map.icon,
+                              height: 30.0,
+                              width: 30.0,
                             ),
                           ),
-                      ],
-                    ),
+                        ),
+                    ],
                   ),
                 ),
               ),

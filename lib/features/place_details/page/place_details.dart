@@ -188,17 +188,17 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                             ],
                           ),
                         )
-                      :  Center(
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.pop(context);
-                          },
-                          child: EmptyState(
+                      : Center(
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: EmptyState(
                               emptyHeight: 200,
                               imgHeight: 110,
                             ),
-                        ),
-                      );
+                          ),
+                        );
             }),
           ),
           floatingActionButtonLocation:
@@ -213,13 +213,12 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                   context: context,
                   onMapTap: (map) {
                     Navigator.pop(context);
-                    map.   showMarker(
+                    map.showMarker(
                       coords: Coords(placeItem!.lat!, placeItem!.long!),
                       title: placeItem.name!,
                     );
                   },
                 );
-
               },
             ),
           ),

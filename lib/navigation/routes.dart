@@ -17,6 +17,7 @@ class Routes {
   static const SEARCH = "SEARCH";
   static const CATEGORY_DETAILS = "CATEGORY_DETAILS";
   static const OFFER_DETAILS = "OFFER_DETAILS";
+  static const News_DETAILS = "News_DETAILS";
   static const PLACE_DETAILS = "PLACE_DETAILS";
   static const CONTACT_WITH_US = "CONTACT_WITH_US";
   static const ABOUT_US = "ABOUT_US";

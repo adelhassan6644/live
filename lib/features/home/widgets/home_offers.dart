@@ -30,8 +30,8 @@ class HomeOffers extends StatelessWidget {
               ),
               Image.asset(
                 Images.megaPhone,
-                height: 26,
-                width: 26,
+                height: 30,
+                width: 30,
               )
             ],
           ),
@@ -41,7 +41,7 @@ class HomeOffers extends StatelessWidget {
           child: Consumer<HomeProvider>(builder: (_, provider, child) {
             return provider.isGetOffers
                 ? SizedBox(
-                    height: 255.h,
+                    height: 245.h,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -69,7 +69,7 @@ class HomeOffers extends StatelessWidget {
                         provider.offersModel?.data != null &&
                         provider.offersModel!.data!.isNotEmpty
                     ? SizedBox(
-                        height: 255.h,
+                        height: 225.h,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,

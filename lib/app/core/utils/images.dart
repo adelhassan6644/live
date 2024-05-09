@@ -9,6 +9,9 @@ class Images {
   static const String cancelCircle = 'assets/images/cancel_circle.png';
   static const String whatsApp = 'assets/images/whatsapp.png';
   static const String megaPhone = 'assets/images/mega_phone.png';
+  static const String news = 'assets/images/news.png';
+  static const String newPlaces = 'assets/images/new_places.png';
+  static const String ourPartner = 'assets/images/our_partner.png';
   static const String search = 'assets/svgs/search.svg';
   static const String emptySearch = 'assets/images/Empty_search.png';
   static const String add = 'assets/images/add.png';

@@ -31,6 +31,7 @@ class EndPoints {
   static const String subCategory = 'subCategory';
   static const String offers = 'offer';
   static String offerDetails(id) => 'offer/$id';
+  static String newsDetails(id) => 'news/$id';
   static placeOffers(id) => 'place/offer/$id';
   static feedback(id) => 'place/feedback/$id';
   static const String postFeedback = 'feedback';

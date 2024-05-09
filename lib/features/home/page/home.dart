@@ -53,9 +53,9 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                 sl<HomeProvider>().getOffers();
                 sl<HomeProvider>().getNews();
               },
-              child: ListAnimator(
+              child: ListView(
                 controller: controller,
-                data: const [
+                children: const [
                   HomeSearch(),
                   HomeBanner(),
                   HomeCategories(),

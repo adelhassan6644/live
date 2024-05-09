@@ -20,8 +20,7 @@ ThemeData light = ThemeData(
   disabledColor: ColorResources.DISABLED,
   textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-    primary: ColorResources.PRIMARY_COLOR,
-    textStyle: AppTextStyles.regular.copyWith(
+    foregroundColor: ColorResources.PRIMARY_COLOR, textStyle: AppTextStyles.regular.copyWith(
       color: ColorResources.WHITE_COLOR,
     ),
   )),

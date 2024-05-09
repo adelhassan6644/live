@@ -21,7 +21,7 @@ class OfferCard extends StatelessWidget {
       onTap: () =>
           CustomNavigator.push(Routes.OFFER_DETAILS, arguments: offer.id),
       child: Container(
-        width: 220.w,
+        width: context.width*.80,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
           color: ColorResources.GREY_BORDER,
@@ -40,7 +40,7 @@ class OfferCard extends StatelessWidget {
                     image: offer.image ?? "",
                     height: 120.h,
                     width: context.width,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                     edges: true,
                     radius: 12.w,
                   ),
@@ -48,7 +48,7 @@ class OfferCard extends StatelessWidget {
                 CustomNetworkImage.circleNewWorkImage(
                     color: ColorResources.HINT_COLOR,
                     image: offer.placeDetails?.image ?? "",
-                    radius: 25)
+                    radius: 38)
               ],
             ),
 

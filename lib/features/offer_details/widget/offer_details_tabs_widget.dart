@@ -230,8 +230,10 @@ class OfferDetailsTabsWidget extends StatelessWidget {
                               withShadow: true,
                               color: ColorResources.WHITE_COLOR,
                               onTap: () async {
-                                await launch(
-                                    "whatsapp://send?phone=${provider.model!.placeDetails!.whatsapp}");
+                                
+                                 launchUrl(Uri.parse(
+                                    "whatsapp://send?phone=${int.parse(provider.model!.placeDetails!.whatsapp!)}"),
+                                    mode: LaunchMode.externalApplication);
                               }),
                         if (provider.model?.placeDetails?.snapChat != null)
                           customContainerSvgIcon(

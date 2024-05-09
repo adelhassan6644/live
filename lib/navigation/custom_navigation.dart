@@ -1,6 +1,7 @@
 import 'package:live/features/auth/pages/change_password.dart';
 import 'package:live/features/auth/pages/reset_password.dart';
 import 'package:live/features/category_details/page/category_details.dart';
+import 'package:live/features/news_details/page/news_details.dart';
 import 'package:live/features/setting/pages/terms.dart';
 import 'package:live/main_models/base_model.dart';
 import 'package:flutter/material.dart';
@@ -77,6 +78,9 @@ abstract class CustomNavigator {
 
       case Routes.OFFER_DETAILS:
         return _pageRoute(OfferDetails(id: settings.arguments as int));
+
+        case Routes.News_DETAILS:
+        return _pageRoute(NewsDetails(id: settings.arguments as int));
 
       case Routes.CONTACT_WITH_US:
         return _pageRoute(const ContactWithUs());

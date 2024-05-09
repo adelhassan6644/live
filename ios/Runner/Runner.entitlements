@@ -8,8 +8,11 @@
 	<array>
 		<string>softwarecloud.page.link</string>
 		<string>softwarecloud.link</string>
-		<string>applinks:softwarecloud.link</string>
+		<string>applinks:livealhmdanh.page.link</string>
 		<string>applinks:softwarecloud.page.link</string>
+		<string>webcredentials:example.com</string>
+		<string>webcredentials:example.com</string>
+		<string>webcredentials:example.com</string>
 	</array>
 </dict>
 </plist>
