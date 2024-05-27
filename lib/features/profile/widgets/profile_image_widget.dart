@@ -3,6 +3,7 @@ import 'package:live/features/profile/provider/profile_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../app/core/utils/color_resources.dart';
+import '../../../app/core/utils/images.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../components/custom_images.dart';
 import '../../../components/custom_network_image.dart';
@@ -62,7 +63,9 @@ class ProfileImageWidget extends StatelessWidget {
                           ),
                         )
                       : CustomNetworkImage.circleNewWorkImage(
-                          color: ColorResources.HINT_COLOR,
+                    placholder: Images.userAvtar,
+                          // placholderColor:ColorResources.HINT_COLOR ,
+                          // color: ColorResources.HINT_COLOR,
                           image: provider.profileModel?.image ?? "",
                           radius: radius),
                   if (withEdit)

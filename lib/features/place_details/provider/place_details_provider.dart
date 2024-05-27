@@ -10,6 +10,7 @@ import '../../../data/error/api_error_handler.dart';
 import '../../../data/error/failures.dart';
 import '../../../main_models/offers_model.dart';
 import '../../../main_models/places_model.dart';
+import '../../../navigation/routes.dart';
 import '../models/feed_backs.dart';
 
 class PlaceDetailsProvider extends ChangeNotifier {
@@ -26,9 +27,9 @@ class PlaceDetailsProvider extends ChangeNotifier {
   }
 
   sharePlace(PlaceItem place) async {
-    String link = "https://livealhmdanh.page.link/${place.id}";
+    String link = "https://livealhmdanh.page.link/${place.id}?Route=${Routes.PLACE_DETAILS}";
     final dynamicLinkParams = DynamicLinkParameters(
-      link: Uri.parse(link),
+      link: Uri.https('livealhmdanh.page.link', '/*${place.id}@${Routes.PLACE_DETAILS}',),
       uriPrefix: "https://livealhmdanh.page.link",
       androidParameters: const AndroidParameters(
         packageName: "com.softwareCloud.live",

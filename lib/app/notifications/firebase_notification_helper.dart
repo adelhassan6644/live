@@ -38,7 +38,7 @@ class FirebaseNotifications {
     );
     localNotification();
     firebaseCloudMessagingListeners();
-    initDynamicLinks();
+
   }
 
   static Future<void> firebaseCloudMessagingListeners() async {

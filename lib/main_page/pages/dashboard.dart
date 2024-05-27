@@ -25,6 +25,7 @@ class _DashBoardState extends State<DashBoard> {
   @override
   void initState() {
     NetworkInfo.checkConnectivity(onVisible: () {
+
       sl<HomeProvider>().getBanners();
       sl<HomeProvider>().getPlaces();
       sl<HomeProvider>().getCategories();

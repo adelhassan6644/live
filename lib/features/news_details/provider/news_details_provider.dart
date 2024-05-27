@@ -8,6 +8,7 @@ import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../data/error/failures.dart';
 import '../../../main_models/offers_model.dart';
+import '../../../navigation/routes.dart';
 import '../../home/models/news_model.dart';
 import '../repo/news_details_repo.dart';
 
@@ -71,7 +72,7 @@ class NEwsDetailsProvider extends ChangeNotifier {
   }
 
   shareOffer(OfferItem offer) async {
-    String link = "https://livealhmdanh.page.link/${offer.id}";
+    String link = "https://livealhmdanh.page.link/${offer.id}?Routs=${Routes.News_DETAILS}";
     final dynamicLinkParams = DynamicLinkParameters(
       link: Uri.parse(link),
       uriPrefix: "https://livealhmdanh.page.link",

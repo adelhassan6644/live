@@ -140,42 +140,47 @@ class _SearchScreenState extends State<SearchScreen> {
                                             },
                                           ),
                                         )
-                                      :provider.searchTEC.text==""? ListAnimator(
-                                data: [
-                                  Center(
-                                    child: EmptyState(
-                                      imgWidth: 215.w,
-                                      imgHeight: 220.h,
-                                      img: Images.emptySearch,
-                                      isSvg: false,
-                                      spaceBtw: 12,
-                                      txtColor:
-                                      ColorResources.DISABLED,
-                                      txt:
-                                      "قم بالبحث عن المكان الذي تريدة",
-                                      subText: "",
-                                    ),
-                                  ),
-                                ],
-                              ): ListAnimator(
-                                          data: [
-                                            Center(
-                                              child: EmptyState(
-                                                imgWidth: 215.w,
-                                                imgHeight: 220.h,
-                                                img: Images.emptySearch,
-                                                isSvg: false,
-                                                spaceBtw: 12,
-                                                txtColor:
-                                                    ColorResources.DISABLED,
-                                                txt:
-                                                    "لا يوجد لدينا مكان بنفس هذا العنوان قم بتجربة كلمة بحث مختلفة",
-                                                subText: "",
+                                      : provider.searchTEC.text == ""
+                                          ? Center(
+                                            child: ListAnimator(
+                                                data: [
+                                                  Center(
+                                                    child: EmptyState(
+                                                      imgWidth: 215.w,
+                                                      imgHeight: 180.h,
+                                                      img: Images.emptySearch2,
+                                                      imgColor: ColorResources
+                                                          .BORDER_COLOR,
+                                                      isSvg: false,
+                                                      spaceBtw: 12,
+                                                      txtColor:
+                                                          ColorResources.DISABLED,
+                                                      txt:
+                                                          "قم بالبحث عن المكان الذي تريدة",
+                                                      subText: "",
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                            ),
-                                          ],
-                                        )
-                          )
+                                          )
+                                          : ListAnimator(
+                                              data: [
+                                                Center(
+                                                  child: EmptyState(
+                                                    imgWidth: 215.w,
+                                                    imgHeight: 220.h,
+                                                    img: Images.emptySearch,
+                                                    isSvg: false,
+                                                    spaceBtw: 12,
+                                                    txtColor:
+                                                        ColorResources.DISABLED,
+                                                    txt:
+                                                        "لا يوجد لدينا مكان بنفس هذا العنوان قم بتجربة كلمة بحث مختلفة",
+                                                    subText: "",
+                                                  ),
+                                                ),
+                                              ],
+                                            ))
                         ],
                       ),
                     ),

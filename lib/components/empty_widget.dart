@@ -7,6 +7,7 @@ import 'custom_images.dart';
 
 class EmptyState extends StatelessWidget {
   final String? img;
+  final Color? imgColor;
   final double? imgHeight;
   final double? emptyHeight;
   final double? imgWidth;
@@ -22,6 +23,7 @@ class EmptyState extends StatelessWidget {
     this.spaceBtw,
     this.isSvg = true,
     this.img,
+    this.imgColor,
     this.imgHeight,
     this.imgWidth,
     this.txt,
@@ -37,8 +39,9 @@ class EmptyState extends StatelessWidget {
           children: [
             !isSvg
                 ? customImageIcon(
-                    imageName: img ?? Images.logo,
+                    imageName: img ?? Images.logo2,
                     width: imgWidth ?? 200,
+                color: imgColor,
                     height:
                         imgHeight ?? 130) //width: MediaQueryHelper.width*.8,),
                 : customImageIconSVG(

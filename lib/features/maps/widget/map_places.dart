@@ -71,7 +71,9 @@ class MapPlaces extends StatelessWidget {
               color: ColorResources.WHITE_COLOR,
               borderRadius: BorderRadius.circular(16)
             ),
-            child: const EmptyState(emptyHeight: 220,txt: "لا يوجد اماكن قريبة منك",));
+            child: const EmptyState(
+              isSvg: false,
+              emptyHeight: 220,txt: "لا يوجد اماكن قريبة منك",));
       }),
     );
   }

@@ -193,10 +193,7 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                             onTap: () {
                               Navigator.pop(context);
                             },
-                            child: EmptyState(
-                              emptyHeight: 200,
-                              imgHeight: 110,
-                            ),
+                            child:SizedBox()
                           ),
                         );
             }),

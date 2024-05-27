@@ -6,6 +6,7 @@ import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/main_page/pages/dashboard.dart';
 import 'package:live/main_page/provider/main_page_provider.dart';
 import 'package:provider/provider.dart';
+import '../../app/notifications/notification_helper.dart';
 import '../../features/more/page/more.dart';
 import '../../main_widgets/software_copyRight.dart';
 
@@ -18,6 +19,11 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final _drawerController = ZoomDrawerController();
+  @override
+  void initState() {
+    initDynamicLinks();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

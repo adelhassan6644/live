@@ -119,6 +119,8 @@ class CustomNetworkImage {
       String? defaultImage,
       bool isDefaultSvg = true,
       backGroundColor,
+        placholder,
+        placholderColor,
       fit,
       color,
       double? padding}) {
@@ -134,11 +136,11 @@ class CustomNetworkImage {
         decoration: BoxDecoration(
             border: color != null ? Border.all(color: color, width: 1) : null,
             shape: BoxShape.circle),
-        child: CircleAvatar(
-          radius: radius,
-          backgroundColor: backGroundColor ?? Colors.white,
+        child: ClipOval(
+
           child: Image.asset(
-            Images.logo,
+            placholder?? Images.logo,
+            color: placholderColor,
             fit: fit,
           ),
         ),

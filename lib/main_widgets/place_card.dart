@@ -49,7 +49,7 @@ class PlaceCard extends StatelessWidget {
                       style: AppTextStyles.medium.copyWith(
                           fontSize: 14,
                           color: place.nameColor?.toColor ??
-                              ColorResources.PENDING)),
+                              ColorResources.SECOUND_PRIMARY_COLOR)),
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,

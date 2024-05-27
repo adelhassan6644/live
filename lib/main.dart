@@ -25,9 +25,11 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  FirebaseNotifications.setUpFirebase();
+  await FirebaseNotifications.setUpFirebase();
+
   await di.init();
   runApp(MultiProvider(providers: ProviderList.providers, child: const MyApp()));
+
 }
 
 class MyApp extends StatefulWidget {
@@ -39,6 +41,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
+  void initState() {
+
+    super.initState();
+  }
+  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
   }
@@ -48,6 +55,7 @@ class _MyAppState extends State<MyApp> {
     List<Locale> locals = [];
     for (var language in AppStorageKey.languages) {
       locals.add(Locale(language.languageCode!, language.countryCode));
+
     }
 
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);

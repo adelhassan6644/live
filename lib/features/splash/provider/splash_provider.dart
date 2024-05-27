@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:live/navigation/custom_navigation.dart';
 import 'package:live/navigation/routes.dart';
+import '../../../app/notifications/notification_helper.dart';
 import '../repo/splash_repo.dart';
 
 class SplashProvider extends ChangeNotifier {
@@ -8,6 +9,7 @@ class SplashProvider extends ChangeNotifier {
   SplashProvider({required this.splashRepo});
 
   startTheApp() {
+
     Future.delayed(const Duration(milliseconds: 1500), () {
       if (splashRepo.isFirstTime()) {
        CustomNavigator.push(Routes.ON_BOARDING, clean: true);

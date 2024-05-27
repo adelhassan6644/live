@@ -8,6 +8,7 @@ import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../data/error/failures.dart';
 import '../../../main_models/offers_model.dart';
+import '../../../navigation/routes.dart';
 import '../repo/offer_details_repo.dart';
 
 class OfferDetailsProvider extends ChangeNotifier {
@@ -70,9 +71,9 @@ class OfferDetailsProvider extends ChangeNotifier {
   }
 
   shareOffer(OfferItem offer) async {
-    String link = "https://livealhmdanh.page.link/${offer.id}";
+    String link = "https://livealhmdanh.page.link/${offer.id}?Route=${Routes.OFFER_DETAILS}";
     final dynamicLinkParams = DynamicLinkParameters(
-      link: Uri.parse(link),
+      link: Uri.https('livealhmdanh.page.link', '/*${offer.id}@${Routes.OFFER_DETAILS}',),
       uriPrefix: "https://livealhmdanh.page.link",
       androidParameters: const AndroidParameters(
         packageName: "com.softwareCloud.live",
