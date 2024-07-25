@@ -87,7 +87,7 @@
     },
     {
       "name": "collection",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/collection-1.17.2",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/collection-1.18.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -323,7 +323,7 @@
       "name": "flutter",
       "rootUri": "file:///Users/mhamedelbaz/Developer/flutter/packages/flutter",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.3"
     },
     {
       "name": "flutter_animate",
@@ -332,22 +332,10 @@
       "languageVersion": "2.17"
     },
     {
-      "name": "flutter_animated_dialog",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_animated_dialog-2.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "flutter_cache_manager",
       "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_cache_manager-3.3.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
-    },
-    {
-      "name": "flutter_calendar_carousel",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_calendar_carousel-2.4.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "flutter_clean_architecture",
@@ -357,9 +345,9 @@
     },
     {
       "name": "flutter_form_builder",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_form_builder-9.1.1",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_form_builder-9.3.0",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.4"
     },
     {
       "name": "flutter_inappwebview",
@@ -437,7 +425,7 @@
       "name": "flutter_localizations",
       "rootUri": "file:///Users/mhamedelbaz/Developer/flutter/packages/flutter_localizations",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_native_splash",
@@ -491,7 +479,7 @@
       "name": "flutter_test",
       "rootUri": "file:///Users/mhamedelbaz/Developer/flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.3"
     },
     {
       "name": "flutter_typeahead",
@@ -503,7 +491,7 @@
       "name": "flutter_web_plugins",
       "rootUri": "file:///Users/mhamedelbaz/Developer/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_widget_from_html",
@@ -723,9 +711,9 @@
     },
     {
       "name": "intl",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/intl-0.18.1",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/intl-0.19.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "js",
@@ -758,6 +746,24 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "leak_tracker",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/leak_tracker-10.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "leak_tracker_flutter_testing",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/leak_tracker_flutter_testing-3.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "leak_tracker_testing",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/leak_tracker_testing-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
@@ -777,19 +783,19 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/matcher-0.12.16",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/matcher-0.12.16+1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/material_color_utilities-0.5.0",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/material_color_utilities-0.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/meta-1.9.1",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/meta-1.12.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -837,9 +843,9 @@
     },
     {
       "name": "path",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/path-1.8.3",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/path-1.9.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "path_parsing",
@@ -1043,7 +1049,7 @@
       "name": "sky_engine",
       "rootUri": "file:///Users/mhamedelbaz/Developer/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "source_span",
@@ -1071,15 +1077,15 @@
     },
     {
       "name": "stack_trace",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/stack_trace-1.11.0",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/stack_trace-1.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "stream_channel",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/stream_channel-2.1.1",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/stream_channel-2.1.2",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.19"
     },
     {
       "name": "stream_transform",
@@ -1107,7 +1113,7 @@
     },
     {
       "name": "syncfusion_flutter_charts",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/syncfusion_flutter_charts-21.2.10",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/syncfusion_flutter_charts-21.2.4",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -1131,9 +1137,9 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/test_api-0.6.0",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/test_api-0.7.0",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "timezone",
@@ -1262,6 +1268,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "vm_service",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/vm_service-14.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "wakelock_plus",
       "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/wakelock_plus-1.1.3",
       "packageUri": "lib/",
@@ -1272,12 +1284,6 @@
       "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/wakelock_plus_platform_interface-1.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
-    },
-    {
-      "name": "web",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/web-0.1.4-beta",
-      "packageUri": "lib/",
-      "languageVersion": "3.1"
     },
     {
       "name": "webview_flutter",
@@ -1340,7 +1346,10 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-12-04T17:22:08.421012Z",
+  "generated": "2024-07-25T13:59:41.022047Z",
   "generator": "pub",
-  "generatorVersion": "3.1.5"
+  "generatorVersion": "3.4.1",
+  "flutterRoot": "file:///Users/mhamedelbaz/Developer/flutter",
+  "flutterVersion": "3.22.1",
+  "pubCache": "file:///Users/mhamedelbaz/.pub-cache"
 }
