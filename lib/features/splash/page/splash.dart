@@ -7,7 +7,9 @@ import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/images.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
+import '../../../data/config/di.dart';
 import '../../../navigation/custom_navigation.dart';
+import '../../contact_with_us/provider/contact_provider.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -20,6 +22,9 @@ class _SplashState extends State<Splash> with WidgetsBindingObserver {
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
+
+
+
     Provider.of<SplashProvider>(CustomNavigator.navigatorState.currentContext!,
             listen: false)
         .startTheApp();

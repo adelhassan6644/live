@@ -60,9 +60,10 @@ class NewsItem {
     status = json['status'];
     address = json['address'];
     createdAt = json['created_at'];
-    if(json['images']!=[]) {
+    if(json['images']!=[]&&json['images']!=null) {
 
      images= List<String>.from(json["images"]!.map((x) => x['image']??json['image']));
+     if(json['image']!=null)
      images!.add(json['image']);
     }
     updatedAt = json['updated_at'];

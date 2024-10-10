@@ -2,6 +2,7 @@ part of 'notification_helper.dart';
 
 FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
 Future<void> initDynamicLinks() async {
+  await   FirebaseMessaging.instance.subscribeToTopic('live');
   final PendingDynamicLinkData? initialLink =
   await FirebaseDynamicLinks.instance.getInitialLink();
 

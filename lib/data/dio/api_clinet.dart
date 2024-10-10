@@ -5,6 +5,7 @@ abstract class ApiClient {
   Future get({
     required String uri,
     Map<String, dynamic> queryParameters,
+    data
   });
 
   Future<dynamic> put(

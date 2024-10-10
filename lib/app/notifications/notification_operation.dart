@@ -8,7 +8,7 @@ scheduleNotification(String title, String subtitle, String data) async {
     importance: Importance.high,
     priority: Priority.high,
     ticker: 'ticker',
-    icon: '@mipmap/ic_launcher',
+
   );
   var iOSPlatformChannelSpecifics = const DarwinNotificationDetails();
   var platformChannelSpecifics = NotificationDetails(
@@ -30,8 +30,8 @@ void iOSPermission() {
 }
 
 void handlePath(Map dataMap) {
-  updateUserFunctions(notify: dataMap);
-  handlePathByRoute(dataMap);
+  // updateUserFunctions(notify: dataMap);
+  // handlePathByRoute(dataMap);
 }
 
 updateUserFunctions({@required notify}) async {

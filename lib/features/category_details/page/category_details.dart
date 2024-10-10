@@ -4,9 +4,11 @@ import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/components/animated_widget.dart';
+import 'package:live/components/custom_button.dart';
 import 'package:live/components/empty_widget.dart';
 import 'package:live/components/shimmer/custom_shimmer.dart';
 import 'package:live/features/category_details/provider/category_details_provider.dart';
+import 'package:live/navigation/custom_navigation.dart';
 import 'package:provider/provider.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../components/custom_app_bar.dart';
@@ -79,10 +81,265 @@ class _CategoryDetailsState extends State<CategoryDetails>
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
-                  child: Text(provider.currentCategory?.title ?? "",
-                      style: AppTextStyles.semiBold.copyWith(
-                          fontSize: 24,
-                          color: provider.currentCategory!.textColor?.toColor)),
+                  child: Row(
+                    children: [
+                      Text(provider.currentCategory?.title ?? "",
+                          style: AppTextStyles.semiBold.copyWith(
+                              fontSize: 24,
+                              color: provider
+                                  .currentCategory!.textColor?.toColor)),
+                      Spacer(),
+                      Container(
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: ColorResources.SECOUND_PRIMARY_COLOR),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: IconButton(
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    backgroundColor: Colors.transparent,
+
+                                    builder: (BuildContext context) {
+                                      return Consumer<CategoryDetailsProvider>(
+                                        builder: (context,provider,_) {
+                                          return Container(
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius: BorderRadius.horizontal(
+                                                  left: Radius.circular(10),
+                                                  right: Radius.circular(10)),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: <Widget>[
+                                                const SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Center(
+                                                  child: Padding(
+                                                    padding: const EdgeInsets
+                                                        .symmetric(vertical: 4),
+                                                    child: Container(
+                                                      height: 5.h,
+                                                      width: 36.w,
+                                                      decoration: BoxDecoration(
+                                                          color: const Color(
+                                                                  0xFF3C3C43)
+                                                              .withOpacity(0.3),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(100)),
+                                                      child: const SizedBox(),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.symmetric(
+                                                          horizontal: 20,
+                                                          vertical: 20),
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.start,
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          Text(
+                                                            "ترتيب العروض",
+                                                            style: TextStyle(
+                                                                fontSize: 20,
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .w600),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Wrap(
+                                                        children: [
+                                                          fillterContainer(
+                                                              icon: false,
+                                                              text: "احدث العروض",
+                                                              isSelect: provider.latestOffer==true,
+                                                              onTap: () {
+                                                                provider.setLatestOffer(true);
+                                                              }),
+                                                          fillterContainer(
+                                                              text: "الجميع",
+                                                              icon: false,
+                                                              isSelect: provider.latestOffer==false,
+                                                              onTap: () {
+                                                                provider.setLatestOffer(false);
+
+                                                              }),
+                                                        ],
+                                                      ),
+                                                      // Row(
+                                                      //   children: [
+                                                      //     Text(
+                                                      //       "العروض",
+                                                      //       style: TextStyle(
+                                                      //           fontSize: 20,
+                                                      //           fontWeight:
+                                                      //               FontWeight
+                                                      //                   .w600),
+                                                      //     ),
+                                                      //   ],
+                                                      // ),
+                                                      // Wrap(
+                                                      //   children: [
+                                                      //     fillterContainer(
+                                                      //       icon: false,
+                                                      //         text: "الاماكن التي لديها عروض",
+                                                      //         isSelect: provider.offer==true,
+                                                      //         onTap: () {
+                                                      //           provider.setOffer(true);
+                                                      //         }),
+                                                      //     fillterContainer(
+                                                      //         text: "الجميع",
+                                                      //         icon: false,
+                                                      //         isSelect: provider.offer==false,
+                                                      //         onTap: () {
+                                                      //           provider.setOffer(false);
+                                                      //
+                                                      //         }),
+                                                      //   ],
+                                                      // ),
+
+                                                      Row(
+                                                        children: [
+                                                          Text(
+                                                            "الموقع",
+                                                            style: TextStyle(
+                                                                fontSize: 20,
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .w600),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Wrap(
+                                                        children: [
+                                                          fillterContainer(
+                                                              text: "الأقرب إلي",
+                                                              icon: false,
+                                                              isSelect: provider.nearset==true,
+                                                              onTap: () {
+                                                                provider.setCurrentUserPosition(true);
+                                                              }),
+                                                          fillterContainer(
+                                                              text: "الجميع",
+                                                              icon: false,
+                                                              isSelect: provider.nearset==false,
+                                                              onTap: () {
+                                                                provider.setCurrentUserPosition(false);
+
+                                                              }),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          Text(
+                                                            "التقيم",
+                                                            style: TextStyle(
+                                                                fontSize: 20,
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .w600),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Wrap(
+                                                        children: [
+                                                          fillterContainer(
+                                                              text: "4 واكثر",
+                                                              isSelect: provider.rate==4,
+                                                              onTap: () {
+                                                                provider.setCurrentRate(4);
+
+                                                              }),
+                                                          fillterContainer(
+                                                              text: "3 واكثر",
+                                                              isSelect: provider.rate==3,
+                                                              onTap: () {
+                                                                provider.setCurrentRate(3);
+                                                              }),
+                                                          fillterContainer(
+                                                              text: "2 واكثر",
+                                                              isSelect: provider.rate==2,
+                                                              onTap: () {
+                                                                provider.setCurrentRate(2);
+                                                              }),
+                                                          fillterContainer(
+                                                              text: "الجميع",
+                                                              isSelect: provider.rate==0,
+                                                              onTap: () {
+                                                                provider.setCurrentRate(0);
+                                                              }),
+                                                        ],
+                                                      ),
+                                                      SizedBox(
+                                                        height: 10,
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          Expanded(
+                                                              child: CustomButton(
+                                                            text: 'تعين',
+                                                                onTap: (){
+                                                                  CustomNavigator
+                                                                      .pop();
+                                                                  provider.submitFilter();
+
+                                                                },
+                                                          )),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .symmetric(
+                                                                    horizontal:
+                                                                        20),
+                                                            child: InkWell(
+                                                              onTap: () {
+                                                                provider.restFilter();
+                                                                CustomNavigator
+                                                                    .pop();
+                                                              },
+                                                              child: Text(
+                                                                "إلغاء",
+                                                                style: TextStyle(
+                                                                    fontSize: 16,
+                                                                    color: ColorResources
+                                                                        .SECOUND_PRIMARY_COLOR,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        }
+                                      );
+                                    },
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.filter_alt_outlined,
+                                  color: Colors.white,
+                                )),
+                          ))
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 50,
@@ -100,9 +357,10 @@ class _CategoryDetailsState extends State<CategoryDetails>
 
                     onTap: (int index) {
                       if (index == 0) {
+                        provider.selectTab(index );
                         provider.getCategoryDetails(widget.id);
                       } else {
-                        provider.selectTab(index-1);
+                        provider.selectTab(index );
                       }
                     },
                     // provider.subCategories.map((e) => Tab(text: e.name)).toList(),
@@ -197,12 +455,43 @@ class _CategoryDetailsState extends State<CategoryDetails>
     );
   }
 
+  fillterContainer({bool icon = true,bool isSelect = true, text, onTap}) {
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(color:isSelect? ColorResources.PRIMARY_COLOR:Colors.transparent),
+              color: Colors.grey.withOpacity(.1),
+              borderRadius: BorderRadius.circular(22)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (icon)
+                  Icon(
+                    Icons.star_border,
+                    color: Colors.amberAccent,
+                  ),
+                Text(
+                  text,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   List<Tab> _tabs(CategoryDetailsProvider category) {
     List<Tab> tabList = [];
     if (category.currentCategory!.subCategory!.isNotEmpty) {
       tabList.add(const Tab(text: 'الكل'));
       for (var subCategory in category.currentCategory!.subCategory!) {
-
         tabList.add(Tab(text: subCategory.title ?? ""));
       }
     } else {}

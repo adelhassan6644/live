@@ -22,4 +22,7 @@ class Images {
   static const String emo2 = 'assets/images/emoji_2.png';
   static const String emo3 = 'assets/images/emoji_3.png';
   static const String userAvtar = 'assets/images/User-avatar.png';
+  static const String offerImage = 'assets/images/offer_image.png';
+  static const String location = 'assets/images/light location.png';
+  static const String user = 'assets/images/light user.png';
 }

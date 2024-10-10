@@ -3,9 +3,9 @@
   "packages": [
     {
       "name": "_flutterfire_internals",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/_flutterfire_internals-1.3.12",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/_flutterfire_internals-1.3.42",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "app_settings",
@@ -231,87 +231,87 @@
     },
     {
       "name": "firebase_analytics",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_analytics-10.7.0",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_analytics-11.3.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_analytics_platform_interface",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_analytics_platform_interface-3.8.0",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_analytics_platform_interface-4.2.3",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_analytics_web",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_analytics_web-0.5.5+7",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_analytics_web-0.5.10",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.4"
     },
     {
       "name": "firebase_auth",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_auth-4.14.0",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_auth-5.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_auth_platform_interface",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_auth_platform_interface-7.0.4",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_auth_platform_interface-7.4.5",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_auth_web",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_auth_web-5.8.7",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_auth_web-5.13.0",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.4"
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_core-2.22.0",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_core-3.4.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_core_platform_interface",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_core_platform_interface-5.0.0",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_core_platform_interface-5.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_core_web-2.8.1",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_core_web-2.18.0",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.4"
     },
     {
       "name": "firebase_dynamic_links",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_dynamic_links-5.4.4",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_dynamic_links-6.0.6",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_dynamic_links_platform_interface",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_dynamic_links_platform_interface-0.2.6+12",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_dynamic_links_platform_interface-0.2.6+42",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_messaging",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_messaging-14.7.4",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_messaging-15.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_messaging_platform_interface",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_messaging_platform_interface-4.5.13",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_messaging_platform_interface-4.5.44",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.2"
     },
     {
       "name": "firebase_messaging_web",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_messaging_web-3.5.13",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/firebase_messaging_web-3.9.0",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.4"
     },
     {
       "name": "flag",
@@ -405,19 +405,19 @@
     },
     {
       "name": "flutter_local_notifications",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_local_notifications-16.1.0",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_local_notifications-17.2.2",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "flutter_local_notifications_linux",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_local_notifications_linux-4.0.0+1",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_local_notifications_linux-4.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "flutter_local_notifications_platform_interface",
-      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_local_notifications_platform_interface-7.0.0+1",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/flutter_local_notifications_platform_interface-7.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -1286,6 +1286,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "web",
+      "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/web-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "webview_flutter",
       "rootUri": "file:///Users/mhamedelbaz/.pub-cache/hosted/pub.dev/webview_flutter-4.4.2",
       "packageUri": "lib/",
@@ -1346,10 +1352,10 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2024-07-25T13:59:41.022047Z",
+  "generated": "2024-09-23T11:07:16.141607Z",
   "generator": "pub",
-  "generatorVersion": "3.4.1",
+  "generatorVersion": "3.4.4",
   "flutterRoot": "file:///Users/mhamedelbaz/Developer/flutter",
-  "flutterVersion": "3.22.1",
+  "flutterVersion": "3.22.3",
   "pubCache": "file:///Users/mhamedelbaz/.pub-cache"
 }

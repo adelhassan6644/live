@@ -1,8 +1,17 @@
 import 'package:live/app/core/utils/color_resources.dart';
+import 'package:live/app/core/utils/svg_images.dart';
 import 'package:live/components/animated_widget.dart';
+import 'package:live/components/custom_images.dart';
 import 'package:live/features/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../app/core/utils/dimensions.dart';
+import '../../../app/core/utils/images.dart';
+import '../../../app/core/utils/text_styles.dart';
+import '../../../app/localization/localization/language_constant.dart';
 import '../../../data/config/di.dart';
+import '../../../navigation/custom_navigation.dart';
+import '../../contact_with_us/provider/contact_provider.dart';
 import '../widgets/home_categories.dart';
 import '../widgets/home_header.dart';
 import '../widgets/home_news.dart';
@@ -24,6 +33,8 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
+      print(
+          "sectioss ${Provider.of<ContactProvider>(CustomNavigator.navigatorState.currentContext!, listen: false).contactModel?.sections}");
       sl<HomeProvider>().scroll(controller);
       sl<HomeProvider>().getBanners();
       sl<HomeProvider>().getPlaces();
@@ -53,23 +64,25 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
                 sl<HomeProvider>().getOffers();
                 sl<HomeProvider>().getNews();
               },
-              child: ListView(
-                controller: controller,
-                children: const [
-                  HomeSearch(),
-                  HomeBanner(),
-                  HomeCategories(),
-                  HomePlaces(),
-                  HomeOffers(),
-                  HomeNews(),
-                ],
-              ),
+              child: Consumer<ContactProvider>(
+                  builder: (context, contactProvider, _) {
+                return ListView(
+                  controller: controller,
+                  children: [
+                    ...?contactProvider.contactModel?.sections,
+
+
+                  ],
+                );
+              }),
             ),
           )
         ],
       ),
     );
   }
+
+
 
   @override
   // TODO: implement wantKeepAlive

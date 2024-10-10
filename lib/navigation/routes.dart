@@ -11,6 +11,8 @@ class Routes {
   static const DASHBOARD = "DASHBOARD";
   static const imageGallery = "imageGallery";
   static const NEWS = "NEWS";
+  static const OffersScreen = "OffersScreen";
+  static const LatestPlacesScreen = "LatestPlacesScreen";
   static const CHANGE_PASSWORD = "CHANGE_PASSWORD";
   static const EDIT_PROFILE = "EDIT_PROFILE";
   static const MAP = "PICK_LOCATION";

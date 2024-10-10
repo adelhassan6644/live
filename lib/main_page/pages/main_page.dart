@@ -21,6 +21,7 @@ class _MainPageState extends State<MainPage> {
   final _drawerController = ZoomDrawerController();
   @override
   void initState() {
+
     initDynamicLinks();
     super.initState();
   }

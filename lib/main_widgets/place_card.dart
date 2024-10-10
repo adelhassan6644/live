@@ -77,13 +77,35 @@ class PlaceCard extends StatelessWidget {
                 SizedBox(
                   height: 14.h,
                 ),
-                CustomNetworkImage.containerNewWorkImage(
-                  image: place.image ?? "",
-                  height: 120.h,
-                  width: context.width,
-                  fit: BoxFit.cover,
-                  edges: true,
-                  radius: 8.w,
+                SizedBox(
+                  height: 130.h,
+                  child: Stack(
+                    children: [
+                      CustomNetworkImage.containerNewWorkImage(
+                        image: place.image ?? "",
+                        height: 140.h,
+                        width: context.width,
+                        fit: BoxFit.cover,
+                        edges: true,
+                        radius: 8.w,
+                      ),
+                      if(place.mostViewed==1)
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xffF1A129),
+                              borderRadius: BorderRadius.circular(10)),
+                  
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("الأكثر مشاهدة",style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white),),
+                          ),),
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),

@@ -8,11 +8,10 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   log('on Message background notification ${message.data}');
   log('on Message background data ${message.notification?.body}');
   log("Handling a background message: ${message.notification!.toMap()}");
-  if (Platform.isAndroid) {
-    scheduleNotification(message.notification!.title ?? "",
-        message.notification!.body ?? "", json.encode(message.data));
-  }
-  handlePath(message.data);
+  // if (Platform.isAndroid) {
+  //   scheduleNotification(message.notification!.title ?? "",
+  //       message.notification!.body ?? "", json.encode(message.data));
+  // }
 }
 
 FirebaseMessaging? _firebaseMessaging;
@@ -28,6 +27,8 @@ class FirebaseNotifications {
   }
 
   static Future<void> setUpFirebase() async {
+    await FirebaseMessaging.instance.setAutoInitEnabled(true);
+
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
     _firebaseMessaging = FirebaseMessaging.instance;
     _firebaseMessaging!.setAutoInitEnabled(true);
@@ -43,6 +44,7 @@ class FirebaseNotifications {
 
   static Future<void> firebaseCloudMessagingListeners() async {
     if (Platform.isIOS) iOSPermission();
+
     FirebaseMessaging.onMessage.listen(
       (RemoteMessage data) {
         log('on Message notification ${data.notification?.toMap()}');
@@ -54,7 +56,7 @@ class FirebaseNotifications {
           scheduleNotification(data.notification!.title ?? "",
               data.notification!.body ?? "", json.encode(notify));
         }
-        updateUserFunctions(notify: notify);
+        // updateUserFunctions(notify: notify);
       },
     );
 

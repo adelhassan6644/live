@@ -48,7 +48,9 @@ class PlaceItem {
   String? facebook;
   String? createdAt;
   String? updatedAt;
+  String? video;
   bool? isFollow;
+  int? mostViewed;
 
   PlaceItem(
       {this.id,
@@ -73,12 +75,14 @@ class PlaceItem {
       this.snapChat,
       this.facebook,
       this.isFollow,
+      this.mostViewed,
+      this.video,
       this.createdAt,
       this.updatedAt});
 
   PlaceItem.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    category = json['category'];
+    category = json['category_name']??"";
     name = json['name'];
     nameColor = json['name_color'];
     phone = json['phone'];
@@ -90,6 +94,7 @@ class PlaceItem {
     agentId = json['agent_id'];
     categoryId = json['category_id'];
     image = json['image'];
+    video = json['video'];
     if (json['images'] != null) {
       images = [];
       json['images'].forEach((v) {
@@ -106,6 +111,7 @@ class PlaceItem {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     isFollow = json['is_follow'];
+    mostViewed = json['most_viewed'];
   }
 
   Map<String, dynamic> toJson() {

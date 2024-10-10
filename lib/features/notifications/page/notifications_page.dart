@@ -77,49 +77,51 @@ class NotificationsPage extends StatelessWidget {
                               },
                               child: Column(
                                 children: [
-                                  ListAnimator(
-                                      data: List.generate(
-                                          provider.model?.data?.length ?? 0,
-                                          (index) => Dismissible(
-                                                background: Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    CustomButton(
-                                                      width: 100.w,
-                                                      height: 30.h,
-                                                      text: getTranslated(
-                                                          "delete", context),
-                                                      svgIcon: SvgImages.card,
-                                                      iconSize: 12,
-                                                      iconColor:
-                                                      ColorResources.IN_ACTIVE,
-                                                      textColor:
-                                                      ColorResources.IN_ACTIVE,
-                                                      backgroundColor: ColorResources
-                                                          .IN_ACTIVE
-                                                          .withOpacity(0.12),
-                                                    ),
-                                                  ],
-                                                ),
-                                                key: ValueKey(index),
-                                                confirmDismiss:
-                                                    (DismissDirection
-                                                        direction) async {
-                                                  provider.deleteNotification(
-                                                      provider
-                                                              .model
-                                                              ?.data?[index]
-                                                              .id ??
-                                                          0);
-                                                  return false;
-                                                },
-                                                child: NotificationCard(
-                                                  withBorder: index != 9,
-                                                  notification: provider
-                                                      .model?.data?[index],
-                                                ),
-                                              ))),
+                                  Expanded(
+                                    child: ListAnimator(
+                                        data: List.generate(
+                                            provider.model?.data?.length ?? 0,
+                                            (index) => Dismissible(
+                                                  background: Row(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.center,
+                                                    children: [
+                                                      CustomButton(
+                                                        width: 100.w,
+                                                        height: 30.h,
+                                                        text: getTranslated(
+                                                            "delete", context),
+                                                        svgIcon: SvgImages.card,
+                                                        iconSize: 12,
+                                                        iconColor:
+                                                        ColorResources.IN_ACTIVE,
+                                                        textColor:
+                                                        ColorResources.IN_ACTIVE,
+                                                        backgroundColor: ColorResources
+                                                            .IN_ACTIVE
+                                                            .withOpacity(0.12),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  key: ValueKey(index),
+                                                  confirmDismiss:
+                                                      (DismissDirection
+                                                          direction) async {
+                                                    provider.deleteNotification(
+                                                        provider
+                                                                .model
+                                                                ?.data?[index]
+                                                                .id ??
+                                                            0);
+                                                    return false;
+                                                  },
+                                                  child: NotificationCard(
+                                                    withBorder: index != 9,
+                                                    notification: provider
+                                                        .model?.data?[index],
+                                                  ),
+                                                ))),
+                                  ),
                                 ],
                               ),
                             )

@@ -11,7 +11,9 @@ import '../features/auth/pages/login.dart';
 import '../features/auth/pages/register.dart';
 import '../features/auth/pages/verification.dart';
 import '../features/contact_with_us/page/contact_with_us.dart';
+import '../features/home/page/latest_places.dart';
 import '../features/home/page/news.dart';
+import '../features/home/page/offers.dart';
 import '../features/maps/page/map_page.dart';
 import '../features/notifications/page/notifications_page.dart';
 import '../features/offer_details/page/offer_details.dart';
@@ -61,6 +63,9 @@ abstract class CustomNavigator {
 
       case Routes.NEWS:
         return _pageRoute(const News());
+        case Routes.OffersScreen:
+        return _pageRoute(const OffersScreen());    case Routes.LatestPlacesScreen:
+        return _pageRoute(const LatestPlacesScreen());
       case Routes.SEARCH:
         return _pageRoute(const SearchScreen());
 

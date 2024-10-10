@@ -10,20 +10,25 @@ import 'package:url_launcher/url_launcher.dart';
 import '../provider/setting_provider.dart';
 
 class DeveloperSocialMedia extends StatelessWidget {
-  const DeveloperSocialMedia({Key? key}) : super(key: key);
+  final bool fromDashBoard;
+  const DeveloperSocialMedia({Key? key, this.fromDashBoard = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Consumer<SettingProvider>(builder: (_, provider, child) {
       return Center(
-        child: SingleChildScrollView(
+        child: Padding(
           padding:
               EdgeInsets.symmetric(vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
-          scrollDirection: Axis.horizontal,
-          physics: const BouncingScrollPhysics(),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+
+          child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment:WrapAlignment.center,
+              runAlignment:WrapAlignment.center,
+
+            runSpacing: 10,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: provider.isLoading
                 ? List.generate(
                     4,
@@ -76,8 +81,6 @@ class DeveloperSocialMedia extends StatelessWidget {
                     customContainerSvgIcon(
                         imageName: SvgImages.twitter,
                         imageColor: ColorResources.HEADER,
-                        height: 50.0,
-                        width: 50.0,
                         radius: 100,
                         withShadow: true,
                         color: ColorResources.WHITE_COLOR,
@@ -92,8 +95,6 @@ class DeveloperSocialMedia extends StatelessWidget {
                     customContainerSvgIcon(
                         imageName: SvgImages.tiktok,
                         imageColor: ColorResources.HEADER,
-                        height: 50.0,
-                        width: 50.0,
                         radius: 100,
                         withShadow: true,
                         color: ColorResources.WHITE_COLOR,
@@ -108,8 +109,6 @@ class DeveloperSocialMedia extends StatelessWidget {
                     customContainerSvgIcon(
                         imageName: SvgImages.snapchat,
                         imageColor: ColorResources.HEADER,
-                        height: 50.0,
-                        width: 50.0,
                         radius: 100,
                         withShadow: true,
                         color: ColorResources.WHITE_COLOR,
@@ -118,9 +117,9 @@ class DeveloperSocialMedia extends StatelessWidget {
                               Uri.parse(provider.model?.data?.snapchat ?? ""),
                               mode: LaunchMode.externalApplication);
                         }),
-              const SizedBox(
-                width: 16,
-              ),
+                    const SizedBox(
+                      width: 16,
+                    ),
                     customContainerSvgIcon(
                         imageName: SvgImages.website,
                         imageColor: ColorResources.HEADER,
@@ -134,9 +133,9 @@ class DeveloperSocialMedia extends StatelessWidget {
                               Uri.parse(provider.model?.data?.website ?? ""),
                               mode: LaunchMode.externalApplication);
                         }),
-              const SizedBox(
-                width: 16,
-              ),
+                    const SizedBox(
+                      width: 16,
+                    ),
                   ],
           ),
         ),

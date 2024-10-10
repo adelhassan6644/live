@@ -51,6 +51,7 @@ class DioClient extends ApiClient {
     required String uri,
     bool useGoogleUri = false,
     Map<String, dynamic>? queryParameters,
+    data
   }) async {
     try {
       if (useGoogleUri) {
@@ -58,7 +59,7 @@ class DioClient extends ApiClient {
       } else {
         dio.options.baseUrl = baseUrl;
       }
-      var response = await dio.get(uri, queryParameters: queryParameters);
+      var response = await dio.get(uri, queryParameters: queryParameters,data: data);
 
       return response;
     } on SocketException catch (e) {

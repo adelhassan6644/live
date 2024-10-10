@@ -6,9 +6,15 @@ import 'package:provider/provider.dart';
 
 import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/images.dart';
+import '../../../app/core/utils/svg_images.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
+import '../../../components/custom_images.dart';
 import '../../../components/shimmer/custom_shimmer.dart';
+import '../../../data/config/di.dart';
+import '../../../navigation/custom_navigation.dart';
+import '../../../navigation/routes.dart';
+import '../../category_details/provider/category_details_provider.dart';
 
 class HomePlaces extends StatelessWidget {
   const HomePlaces({Key? key}) : super(key: key);
@@ -34,6 +40,34 @@ class HomePlaces extends StatelessWidget {
                   Images.newPlaces,
                   height: 26,
                   width: 26,
+                ),
+                Expanded(
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    onTap: () =>
+                        CustomNavigator.push(Routes.LatestPlacesScreen),
+                    child: Row(
+                      children: [
+                        const Expanded(child: SizedBox()),
+                        Text(
+                          "المزيد",
+                          style: AppTextStyles.medium
+                              .copyWith(
+                              fontSize: 16,
+                              color: ColorResources
+                                  .DETAILS_COLOR),
+                        ),
+                        customImageIconSVG(
+                            imageName:
+                            SvgImages.arrowRightIcon,
+                            color: ColorResources
+                                .DETAILS_COLOR),
+                      ],
+                    ),
+                  ),
                 )
               ],
             ),
@@ -82,7 +116,7 @@ class HomePlaces extends StatelessWidget {
                         separatorBuilder: (_, index) => SizedBox(
                           width: 12.w,
                         ),
-                        itemCount: provider.placesModel!.data!.length),
+                        itemCount: provider.placesModel!.data!.length>=10?10:provider.placesModel!.data!.length),
                   ),
                 ],
               ),

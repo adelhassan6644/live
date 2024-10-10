@@ -49,6 +49,10 @@ class SvgImages {
   static const String whatsApp = 'assets/svgs/whats_app_icon.svg';
   static const String website = 'assets/svgs/website.svg';
   static const String faceBook = 'assets/svgs/facebook.svg';
+  static const String faceBook2 = 'assets/svgs/faceboook.svg';
+  static const String x = 'assets/svgs/x.svg';
+  static const String youtube = 'assets/svgs/youtube.svg';
+  static const String snap = 'assets/svgs/snap.svg';
   static const String softWareCloud2 = 'assets/svgs/software_cloud_logo.svg';
   static const String twitter = 'assets/svgs/twitter.svg';
   static const String instagram = 'assets/svgs/instagram.svg';
@@ -79,4 +83,11 @@ class SvgImages {
   static const String trash = 'assets/svgs/trash.svg';
   static const String snapchat = 'assets/svgs/snapchat.svg';
   static const String global = 'assets/svgs/global.svg';
+  static const String download = 'assets/svgs/download.svg';
+  static const String members = 'assets/svgs/members.svg';
+  static const String places = 'assets/svgs/places.svg';
+  static const String visits = 'assets/svgs/visits.svg';
+  static const String newOf = 'assets/svgs/new_of.svg';
+  static const String newPlace = 'assets/svgs/new_palce.svg';
+  static const String newProfile = 'assets/svgs/new_p.svg';
 }

@@ -331,7 +331,7 @@ class AuthProvider extends ChangeNotifier {
             replace: true,
           );
         }
-        clear();
+
       });
       _isVerify = false;
       notifyListeners();

@@ -6,7 +6,7 @@ import '../core/utils/text_styles.dart';
 
 ThemeData light = ThemeData(
   fontFamily: AppStrings.fontFamily,
-  useMaterial3: true,
+  useMaterial3: false,
   primaryColor: ColorResources.PRIMARY_COLOR,
   brightness: Brightness.light,
   // accentColor: Colors.white,

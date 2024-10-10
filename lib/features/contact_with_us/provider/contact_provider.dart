@@ -14,7 +14,7 @@ import '../repo/contact_repo.dart';
 class ContactProvider extends ChangeNotifier {
   ContactRepo contactRepo;
   ContactProvider({required this.contactRepo}) {
-    getContact();
+    // getContact();
   }
 
   ///Get contact Data

@@ -29,10 +29,24 @@ class Data {
   String? instagram;
   String? facebook;
   String? tiktok;
+  String? youtube;
   String? snapchat;
+
+  String? homeTwitter;
+  String? homeWebsite;
+  String? homeWatsApp;
+  String? homeInstagram;
+  String? homeFacebook;
+  String? homeTiktok;
+  String? homeYoutube;
+  String? homeSnapchat;
   String? image;
   String? phone;
   String? aboutUs;
+  String? downloads;
+  String? visits;
+  String? subscribers;
+  String? buildings;
   String? createdAt;
   String? updatedAt;
 
@@ -44,12 +58,25 @@ class Data {
       this.twitter,
       this.website,
       this.instagram,
+      this.youtube,
       this.facebook,
       this.tiktok,
       this.snapchat,
       this.image,
       this.phone,
       this.aboutUs,
+        this.homeTwitter,
+        this.homeWatsApp,
+        this.homeWebsite,
+        this.homeInstagram,
+        this.homeFacebook,
+        this. homeTiktok,
+        this.homeYoutube,
+        this. homeSnapchat,
+        this. downloads,
+        this. visits,
+        this. subscribers,
+        this. buildings,
       this.createdAt,
       this.updatedAt});
 
@@ -64,11 +91,25 @@ class Data {
     facebook = json['facebook'];
     tiktok = json['tiktok'];
     snapchat = json['snapchat'];
+   homeTwitter=json['show_on_home_twitter'];
+    homeWebsite=json['show_on_home_website'];
+   homeInstagram=json['show_on_home_instagram'];
+    homeFacebook=json['show_on_home_facebook'];
+   homeTiktok=json['show_on_home_tiktok'];
+    homeYoutube=json['show_on_home_youtube'];
+    homeWatsApp=json['show_on_home_whatsapp'];
+     homeSnapchat==json['show_on_home_snapchat'];
     image = json['image'];
     phone = json['phone'];
     aboutUs = json['aboutUs'];
+    youtube = json['youtube'];
+    downloads = json['downloads'].toString();
+    visits = json['visits'].toString();
+    subscribers = json['subscribers'].toString();
+    buildings = json['buildings'].toString();
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+
   }
 
   Map<String, dynamic> toJson() {

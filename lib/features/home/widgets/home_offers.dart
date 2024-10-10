@@ -6,8 +6,12 @@ import 'package:live/features/home/provider/home_provider.dart';
 import 'package:live/main_widgets/offer_card.dart';
 import 'package:provider/provider.dart';
 import '../../../app/core/utils/color_resources.dart';
+import '../../../app/core/utils/svg_images.dart';
 import '../../../app/core/utils/text_styles.dart';
+import '../../../components/custom_images.dart';
 import '../../../components/shimmer/custom_shimmer.dart';
+import '../../../navigation/custom_navigation.dart';
+import '../../../navigation/routes.dart';
 
 class HomeOffers extends StatelessWidget {
   const HomeOffers({super.key});
@@ -32,6 +36,34 @@ class HomeOffers extends StatelessWidget {
                 Images.megaPhone,
                 height: 30,
                 width: 30,
+              ),
+              Expanded(
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  onTap: () =>
+                      CustomNavigator.push(Routes.OffersScreen),
+                  child: Row(
+                    children: [
+                      const Expanded(child: SizedBox()),
+                      Text(
+                        "المزيد",
+                        style: AppTextStyles.medium
+                            .copyWith(
+                            fontSize: 16,
+                            color: ColorResources
+                                .DETAILS_COLOR),
+                      ),
+                      customImageIconSVG(
+                          imageName:
+                          SvgImages.arrowRightIcon,
+                          color: ColorResources
+                              .DETAILS_COLOR),
+                    ],
+                  ),
+                ),
               )
             ],
           ),
@@ -88,7 +120,7 @@ class HomeOffers extends StatelessWidget {
                                         width: 12.w,
                                       ),
                                   itemCount:
-                                      provider.offersModel!.data!.length),
+                                      provider.offersModel!.data!.length>=10?10: provider.offersModel!.data!.length),
                             ),
                           ],
                         ),

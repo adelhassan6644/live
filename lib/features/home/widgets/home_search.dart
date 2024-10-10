@@ -26,57 +26,53 @@ class HomeSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(builder: (context, provider, child) {
-      return Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-              vertical: Dimensions.PADDING_SIZE_SMALL.h),
-          child: InkWell(
-            onTap: () {
-              CustomNavigator.push(
-                Routes.SEARCH,
-              );
-            },
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                      height: 27.5 * 2,
-                      width: 27.5 * 2,
-                      padding: const EdgeInsets.all(0),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                              color: ColorResources.SECOUND_PRIMARY_COLOR,
-                              width: 1),
-                          borderRadius: BorderRadius.circular(27.5)),
-                      child: const Row(
-                        children: [
-                          Text(
-                            "        ابحث هنا ",
-                            style: TextStyle(
-                                color: ColorResources.DETAILS_COLOR,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      )),
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Container(
+      return InkWell(
+        onTap: () {
+          CustomNavigator.push(
+            Routes.SEARCH,
+          );
+        },
+        child: Row(
+          children: [
+            Expanded(
+              child: Container(
                   height: 27.5 * 2,
                   width: 27.5 * 2,
                   padding: const EdgeInsets.all(0),
-                  decoration: BoxDecoration(shape: BoxShape.circle),
-                  child: CircleAvatar(
-                    radius: 27.5,
-                    backgroundColor: ColorResources.SECOUND_PRIMARY_COLOR,
-                    child: SvgPicture.asset(Images.search),
-                  ),
-                ),
-              ],
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                          color: ColorResources.SECOUND_PRIMARY_COLOR,
+                          width: 1),
+                      borderRadius: BorderRadius.circular(27.5)),
+                  child: const Row(
+                    children: [
+                      Text(
+                        "        ابحث هنا ",
+                        style: TextStyle(
+                            color: ColorResources.DETAILS_COLOR,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  )),
             ),
-          ));
+            SizedBox(
+              width: 20,
+            ),
+            Container(
+              height: 27.5 * 2,
+              width: 27.5 * 2,
+              padding: const EdgeInsets.all(0),
+              decoration: BoxDecoration(shape: BoxShape.circle),
+              child: CircleAvatar(
+                radius: 27.5,
+                backgroundColor: ColorResources.SECOUND_PRIMARY_COLOR,
+                child: SvgPicture.asset(Images.search),
+              ),
+            ),
+          ],
+        ),
+      );
     });
   }
 }

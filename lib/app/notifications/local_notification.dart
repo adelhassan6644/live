@@ -15,6 +15,8 @@ localNotification() {
           sound: true,
         );
   }
+  _notificationsPlugin?.resolvePlatformSpecificImplementation<
+      AndroidFlutterLocalNotificationsPlugin>()?.requestNotificationsPermission();
   var android = const AndroidInitializationSettings('@mipmap/ic_launcher');
   var ios = const DarwinInitializationSettings(
     defaultPresentBadge: true,

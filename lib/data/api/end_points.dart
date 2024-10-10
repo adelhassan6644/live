@@ -1,7 +1,7 @@
 class EndPoints {
-  static const String baseUrl = 'http://livealhmdanh.net/api/';
+  static const String baseUrl = 'https://livealhmdanh.net/api/';
   static const String googleMapsBaseUrl = 'https://maps.googleapis.com';
-  static const String imageUrl = 'http://livealhmdanh.net/';
+  static const String imageUrl = 'https://livealhmdanh.net/';
 
   static const String apiKey =
       's7xrpFdw4G0F21rfLyD4TaBkjVJYgwGfI3y60OyRnjw9zOggruX30eToVWvs';

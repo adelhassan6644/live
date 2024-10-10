@@ -200,6 +200,34 @@ class PlaceDetailsWidget extends StatelessWidget {
                   ],
                 ),
               )),
+          Visibility(
+              visible: placeItem.video != null,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    vertical: 4.h,
+                    horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 4.w),
+                    InkWell(
+                      onTap: () {
+                        launchUrl(Uri.parse(placeItem.video!));
+                      },
+                      child: Text(
+                        "فديو العرض",
+                        style: AppTextStyles.bold.copyWith(
+                          fontSize: 16,
+                          decoration: TextDecoration.underline,
+                          overflow: TextOverflow.ellipsis,
+                          color: ColorResources.PRIMARY_COLOR,
+                        ),
+                        maxLines: 10,
+                      ),
+                    ),
+                  ],
+                ),
+              )),
           SizedBox(
             height: 6.h,
           ),
