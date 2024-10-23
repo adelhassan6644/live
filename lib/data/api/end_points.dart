@@ -28,6 +28,7 @@ class EndPoints {
   static const String checkFollowPlace = 'following';
   static const String nearPlace = 'near/places';
   static const String category = 'category';
+  static const String homeFeedback = 'home/feedback';
   static const String subCategory = 'subCategory';
   static const String offers = 'offer';
   static String offerDetails(id) => 'offer/$id';

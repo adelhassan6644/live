@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:live/app/localization/localization/language_constant.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -62,58 +61,6 @@ class FirebaseAuthProvider extends ChangeNotifier {
 
   bool get isLogin => firebaseAuthRepo.isLoggedIn();
 
-  signInWithMobileNo({bool? fromVerification}) async {
-    try {
-      _isLoading = true;
-      notifyListeners();
-      await FirebaseAuth.instance.verifyPhoneNumber(
-          phoneNumber: "$countryPhoneCode${_phoneTEC.text.trim()}",
-          timeout: const Duration(seconds: 60),
-          verificationCompleted: (authCredential) =>
-              phoneVerificationCompleted(authCredential),
-          verificationFailed: (authException) =>
-              phoneVerificationFailed(authException),
-          codeSent: (verificationId, code) => phoneCodeSent(
-              verificationId: verificationId,
-              code: code ?? 0,
-              fromVerification: fromVerification ?? false),
-          codeAutoRetrievalTimeout: phoneCodeAutoRetrievalTimeout);
-    } catch (e) {
-      _isLoading = false;
-      CustomSnackBar.showSnackBar(
-          notification: AppNotification(
-              message: ApiErrorHandler.getMessage(e),
-              isFloating: true,
-              backgroundColor: ColorResources.IN_ACTIVE,
-              borderColor: Colors.transparent));
-    }
-  }
-
-  phoneVerificationCompleted(AuthCredential authCredential) {
-    log("====>phoneVerificationCompleted ${authCredential.token}");
-  }
-
-  phoneVerificationFailed(FirebaseException authException) {
-    CustomNavigator.pop();
-    if (authException.code == 'invalid-phone-number') {
-      CustomSnackBar.showSnackBar(
-          notification: AppNotification(
-              message: getTranslated("invalid_phone",
-                  CustomNavigator.navigatorState.currentContext!),
-              backgroundColor: ColorResources.IN_ACTIVE,
-              borderColor: Colors.transparent));
-    } else {
-      CustomSnackBar.showSnackBar(
-          notification: AppNotification(
-              message: authException.message.toString(),
-              backgroundColor: ColorResources.IN_ACTIVE,
-              borderColor: Colors.transparent));
-    }
-    log("======>Fail when Auth with Firebase : ${authException.message}");
-    _isLoading = false;
-    _isSubmit = false;
-    notifyListeners();
-  }
 
   phoneCodeAutoRetrievalTimeout(String verificationCode) {
     log("====>phoneCodeAutoRetrievalTimeout is $firebaseVerificationId");
@@ -138,62 +85,7 @@ class FirebaseAuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  sendOTP({required String code}) async {
-    spinKitDialog();
-    _isSubmit = true;
-    notifyListeners();
-    try {
-      if (firebaseVerificationId != null) {
-        PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(
-          verificationId: firebaseVerificationId!,
-          smsCode: code,
-        );
-        await FirebaseAuth.instance
-            .signInWithCredential(phoneAuthCredential)
-            .then((value) async {
-          ///  to send Device token
-          await userLogin();
-          CustomNavigator.pop();
-          _isSubmit = false;
-          notifyListeners();
-        }).catchError((error) {
-          log(error.toString());
-          CustomNavigator.pop();
-          CustomSnackBar.showSnackBar(
-              notification: AppNotification(
-                  message: getTranslated("invalid_code",
-                      CustomNavigator.navigatorState.currentContext!),
-                  isFloating: true,
-                  backgroundColor: ColorResources.IN_ACTIVE,
-                  borderColor: Colors.transparent));
-          _isSubmit = false;
-          notifyListeners();
-        });
-      } else {
-        log("====>has error in firebaseVerificationId $firebaseVerificationId");
-        CustomNavigator.pop();
-        _isSubmit = false;
-        CustomSnackBar.showSnackBar(
-            notification: AppNotification(
-                message: "has error in firebaseVerificationId",
-                isFloating: true,
-                backgroundColor: ColorResources.IN_ACTIVE,
-                borderColor: Colors.transparent));
-        notifyListeners();
-      }
-    } catch (e) {
-      log("====>$e");
-      CustomNavigator.pop();
-      CustomSnackBar.showSnackBar(
-          notification: AppNotification(
-              message: e.toString(),
-              isFloating: true,
-              backgroundColor: ColorResources.IN_ACTIVE,
-              borderColor: Colors.transparent));
-      _isSubmit = false;
-      notifyListeners();
-    }
-  }
+
 
   userLogin() async {
     try {
@@ -248,7 +140,6 @@ class FirebaseAuthProvider extends ChangeNotifier {
   logOut() async {
     try {
       Future.delayed(Duration.zero, () async {
-        await FirebaseAuth.instance.signOut();
         await firebaseAuthRepo.clearSharedData();
       });
       CustomNavigator.push(Routes.SPLASH, clean: true);

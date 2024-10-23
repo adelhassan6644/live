@@ -12,7 +12,7 @@ import '../../../main_models/offers_model.dart';
 import '../../../main_models/places_model.dart';
 import '../../../navigation/routes.dart';
 import '../models/feed_backs.dart';
-
+import 'dart:io';
 class PlaceDetailsProvider extends ChangeNotifier {
   PlaceDetailsRepo repo;
   PlaceDetailsProvider({required this.repo});
@@ -25,6 +25,20 @@ class PlaceDetailsProvider extends ChangeNotifier {
     placesIndex = index;
     notifyListeners();
   }
+
+
+  List<File?>? rateMedia ;
+
+  setRateMedia(List<File?>? rateMedia){
+    this.rateMedia =rateMedia;
+    notifyListeners();
+
+  }  removeRateMedia(index){
+   rateMedia!.removeAt(index);
+    notifyListeners();
+
+  }
+
 
   sharePlace(PlaceItem place) async {
     String link = "https://livealhmdanh.page.link/${place.id}?Route=${Routes.PLACE_DETAILS}";
@@ -165,7 +179,7 @@ class PlaceDetailsProvider extends ChangeNotifier {
   ratePlace() async {
     try {
       Either<ServerFailure, Response> response = await repo.ratePlace(model!.id,
-          comment: commentTEC.text.trim(), rate: rateCount);
+          comment: commentTEC.text.trim(), rate: rateCount,rateMedia:rateMedia );
       response.fold((fail) {
         isRatePlaceLoading = false;
         CustomSnackBar.showSnackBar(
@@ -177,6 +191,7 @@ class PlaceDetailsProvider extends ChangeNotifier {
         notifyListeners();
       }, (success) {
         commentTEC.clear();
+        rateMedia=[];
         CustomSnackBar.showSnackBar(
             notification: AppNotification(
                 message: "تم تقيم ${model!.name}",

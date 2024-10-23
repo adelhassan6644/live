@@ -11,7 +11,8 @@ import 'imagegalleryOverlay.dart';
 
 class PlaceDetailsImagesWidget extends StatelessWidget {
   final List<String> images;
-  const PlaceDetailsImagesWidget({Key? key, required this.images})
+  final double? height;
+  const PlaceDetailsImagesWidget({Key? key, required this.images,  this.height})
       : super(key: key);
 
   @override
@@ -25,7 +26,7 @@ class PlaceDetailsImagesWidget extends StatelessWidget {
         ? CustomNetworkImage.containerNewWorkImage(
             image: "",
             width: context.width,
-            height: context.height,
+            height:height?? context.height,
             fit: BoxFit.fitWidth,
             radius: 0)
         : Consumer<PlaceDetailsProvider>(builder: (context, provider, child) {
@@ -58,7 +59,7 @@ class PlaceDetailsImagesWidget extends StatelessWidget {
                 options: CarouselOptions(
                   viewportFraction: 1,
                   autoPlay: images.length > 1 ? true : false,
-                  height: context.height * .8,
+                  height:height?? context.height * .8,
                   enlargeCenterPage: false,
                   disableCenter: true,
                   pageSnapping: true,

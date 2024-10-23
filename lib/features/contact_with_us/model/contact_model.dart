@@ -5,6 +5,7 @@ import '../../home/widgets/home_categories.dart';
 import '../../home/widgets/home_news.dart';
 import '../../home/widgets/home_offers.dart';
 import '../../home/widgets/home_places.dart';
+import '../../home/widgets/home_reviews.dart';
 import '../../home/widgets/home_search.dart';
 import '../../home/widgets/homestatistics.dart';
 
@@ -72,6 +73,8 @@ class ContactModel {
           return HomeBanner();
           case 'HomeStatistics()':
           return HomeStatistics();
+          case 'HomeReviews()':
+          return   HomeReviews();
         default:
           return Container(); // Return a default widget if the type is unknown
       }

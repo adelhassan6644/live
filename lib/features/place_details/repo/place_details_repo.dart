@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -66,15 +68,24 @@ class PlaceDetailsRepo {
   }
 
   Future<Either<ServerFailure, Response>> ratePlace(id,
-      {double? rate, String? comment}) async {
+      {double? rate, String? comment,  List<File?>? rateMedia}) async {
     try {
-      Response response =
-          await dioClient.post(uri: EndPoints.postFeedback, data: {
+
+      List <MultipartFile> files=[];
+      for (var file in rateMedia!) {
+        files.add( MultipartFile.fromFileSync(file!.path, ),);
+
+      }
+      var data = FormData.fromMap({
+        'photos[]': files,
         "client_id": sharedPreferences.getString(AppStorageKey.userId),
         "place_id": id,
         "rating": rate,
-        "comment": comment
+        "comment": comment,
       });
+
+      Response response =
+          await dioClient.post(uri: EndPoints.postFeedback, data: data);
       if (response.statusCode == 200) {
         return Right(response);
       } else {

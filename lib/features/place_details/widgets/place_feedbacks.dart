@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
+import 'package:live/features/place_details/widgets/place_details_images_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../app/core/utils/color_resources.dart';
+import '../../../app/core/utils/images.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../components/custom_network_image.dart';
 import '../provider/place_details_provider.dart';
@@ -28,7 +30,7 @@ class PlaceFeedBacks extends StatelessWidget {
                   provider.feedBacks?.data != null &&
                   provider.feedBacks!.data!.isNotEmpty),
               child: Text(
-                "التقيمات السابقة",
+                "اخر التقييمات",
                 style: AppTextStyles.semiBold
                     .copyWith(fontSize: 24, color: ColorResources.HEADER),
               ),
@@ -62,77 +64,171 @@ class PlaceFeedBacks extends StatelessWidget {
                                       spreadRadius: 5,
                                       blurRadius: 10)
                                 ]),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                            child: Column(
                               children: [
-                                CustomNetworkImage.circleNewWorkImage(
-                                  radius: 30,
-                                  backGroundColor:
-                                      ColorResources.SECOUND_PRIMARY_COLOR,
-                                  image: provider
-                                      .feedBacks!.data![index].clientImage,
-                                ),
-                                SizedBox(width: 8.w),
-                                Expanded(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        provider.feedBacks!.data![index]
-                                                .clientName ??
-                                            "",
-                                        style: AppTextStyles.semiBold
-                                            .copyWith(fontSize: 16),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    CustomNetworkImage.circleNewWorkImage(
+                                      radius: 30,
+                                      placholder: Images.userAvtar,
+                                      backGroundColor:
+                                          ColorResources.SECOUND_PRIMARY_COLOR,
+                                      image: provider
+                                          .feedBacks!.data![index].clientImage,
+                                    ),
+                                    SizedBox(width: 8.w),
+                                    Expanded(
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            provider.feedBacks!.data![index]
+                                                    .clientName ??
+                                                "",
+                                            style: AppTextStyles.semiBold
+                                                .copyWith(fontSize: 16),
+                                          ),
+                                          Text(
+                                            provider.feedBacks!.data![index]
+                                                    .comment ??
+                                                "",
+                                            style: AppTextStyles.regular
+                                                .copyWith(fontSize: 14),
+                                          ),
+                                        ],
                                       ),
-                                      Text(
-                                        provider.feedBacks!.data![index]
-                                                .comment ??
-                                            "",
-                                        style: AppTextStyles.regular
-                                            .copyWith(fontSize: 14),
+                                    ),
+                                    SizedBox(width: 8.w),
+                                    Text(
+                                      provider.feedBacks!.data![index].rating
+                                          .toString(),
+                                      style: AppTextStyles.semiBold.copyWith(),
+                                    ),
+                                    Visibility(
+                                      visible: (provider
+                                              .feedBacks!.data![index].rating ==
+                                          1),
+                                      child: const Icon(
+                                        Icons.sentiment_very_dissatisfied,
+                                        color: Colors.red,
+                                        size: 35,
                                       ),
-                                    ],
+                                    ),
+                                    Visibility(
+                                      visible: (provider
+                                              .feedBacks!.data![index].rating ==
+                                          2),
+                                      child: const Icon(
+                                        Icons.sentiment_satisfied,
+                                        color: Colors.lightGreen,
+                                        size: 35,
+                                      ),
+                                    ),
+                                    Visibility(
+                                      visible: (provider
+                                              .feedBacks!.data![index].rating ==
+                                          3),
+                                      child: const Icon(
+                                        Icons.sentiment_very_satisfied,
+                                        color: Colors.green,
+                                        size: 35,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                if (provider
+                                    .feedBacks!.data![index].images!.isNotEmpty)
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: PlaceDetailsImagesWidget(
+                                        height: context.width * .40,
+                                        images: provider
+                                            .feedBacks!.data![index].images!),
                                   ),
-                                ),
-                                SizedBox(width: 8.w),
-                                Text(
-                                  provider.feedBacks!.data![index].rating
-                                      .toString(),
-                                  style: AppTextStyles.semiBold.copyWith(),
-                                ),
-                                Visibility(
-                                  visible: (provider
-                                          .feedBacks!.data![index].rating ==
-                                      1),
-                                  child: const Icon(
-                                    Icons.sentiment_very_dissatisfied,
-                                    color: Colors.red,
-                                    size: 35,
-                                  ),
-                                ),
-                                Visibility(
-                                  visible: (provider
-                                          .feedBacks!.data![index].rating ==
-                                      2),
-                                  child: const Icon(
-                                    Icons.sentiment_satisfied,
-                                    color: Colors.lightGreen,
-                                    size: 35,
-                                  ),
-                                ),
-                                Visibility(
-                                  visible: (provider
-                                          .feedBacks!.data![index].rating ==
-                                      3),
-                                  child: const Icon(
-                                    Icons.sentiment_very_satisfied,
-                                    color: Colors.green,
-                                    size: 35,
-                                  ),
-                                ),
+                                if(provider
+                                    .feedBacks!.data![index].replies!.isNotEmpty)
+                                Column(
+                                  children: [
+                                     Divider(
+                                      color: ColorResources.BORDER_COLOR,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "الردود",
+                                          style: AppTextStyles.semiBold
+                                              .copyWith(
+                                                  fontSize: 20,
+                                                  color: ColorResources
+                                                      .BORDER_COLOR),
+                                        ),
+                                      ],
+                                    ),SizedBox(
+                                      height: 3,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                                      child: ListView.builder(
+                                        shrinkWrap: true,
+                                      padding: EdgeInsets.zero,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      itemCount:provider
+                                          .feedBacks!.data![index].replies?.length,
+                                        itemBuilder: (context,index)=>SizedBox(
+                                          // height: 100.h,
+                                          child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            CustomNetworkImage.circleNewWorkImage(
+                                              radius: 25,
+                                              placholder: Images.userAvtar,
+                                              backGroundColor:
+                                              ColorResources.SECOUND_PRIMARY_COLOR,
+                                              image: provider
+                                                  .feedBacks!.data![index].replies![index].agentImage,
+                                            ),
+                                            SizedBox(width: 8.w),
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    provider
+                                                        .feedBacks!.data![index].replies![index].agentName??
+                                                        "",
+                                                    style: AppTextStyles.semiBold
+                                                        .copyWith(fontSize: 14),
+                                                  ),
+                                                  Text(
+                                                    provider
+                                                        .feedBacks!.data![index].replies![index]
+                                                        .comment ??
+                                                        "",
+                                                    style: AppTextStyles.regular
+                                                        .copyWith(fontSize: 12),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+
+                                          ],
+                                                                              ),
+                                        ),),
+                                    )
+                                  ],
+                                )
                               ],
                             ),
                           );

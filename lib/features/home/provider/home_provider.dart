@@ -11,6 +11,7 @@ import '../../../main_models/offers_model.dart';
 import '../models/categories_model.dart';
 import '../models/news_model.dart';
 import '../../../main_models/places_model.dart';
+import '../models/reviews_model.dart';
 import '../repo/home_repo.dart';
 import 'package:flutter/rendering.dart';
 
@@ -33,7 +34,7 @@ class HomeProvider extends ChangeNotifier {
 
   bool get isLogin => homeRepo.isLoggedIn();
 
-  CarouselController bannerController = CarouselController();
+  CarouselSliderController bannerController = CarouselSliderController();
   late int _placesIndex = 0;
   int get bannerIndex => _placesIndex;
   void setPlacesIndex(int index) {
@@ -210,6 +211,39 @@ class HomeProvider extends ChangeNotifier {
       });
     } catch (e) {
       isGetOffers = false;
+      CustomSnackBar.showSnackBar(
+          notification: AppNotification(
+              message: e.toString(),
+              isFloating: true,
+              backgroundColor: ColorResources.IN_ACTIVE,
+              borderColor: Colors.transparent));
+      notifyListeners();
+    }
+  }
+
+  ReviewsModel? reviewsModel;
+  bool isGetReviews = false;
+  getReviews() async {
+    try {
+      isGetReviews = true;
+      notifyListeners();
+      Either<ServerFailure, Response> response = await homeRepo.getHomeReviews();
+      response.fold((fail) {
+        isGetReviews = false;
+        CustomSnackBar.showSnackBar(
+            notification: AppNotification(
+                message: ApiErrorHandler.getMessage(fail),
+                isFloating: true,
+                backgroundColor: ColorResources.IN_ACTIVE,
+                borderColor: Colors.transparent));
+        notifyListeners();
+      }, (success) {
+        reviewsModel = ReviewsModel.fromJson(success.data);
+        isGetReviews = false;
+        notifyListeners();
+      });
+    } catch (e) {
+      isGetReviews = false;
       CustomSnackBar.showSnackBar(
           notification: AppNotification(
               message: e.toString(),

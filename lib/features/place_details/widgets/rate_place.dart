@@ -1,14 +1,19 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:live/app/core/utils/app_snack_bar.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/components/custom_text_form_field.dart';
+import 'package:photo_manager/src/types/entity.dart';
 import 'package:provider/provider.dart';
 import '../../../app/core/utils/color_resources.dart';
+import '../../../app/core/utils/file_picker_helper.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../app/core/utils/text_styles.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_button.dart';
+import '../../../main_widgets/video_player_widget.dart';
 import '../provider/place_details_provider.dart';
 
 class RatePlace extends StatelessWidget {
@@ -39,7 +44,7 @@ class RatePlace extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              " قيم تجربتك مع المكان",
+              "شاركنا تقييمك، رأيك مهم",
               textAlign: TextAlign.center,
               style: AppTextStyles.semiBold.copyWith(
                 fontSize: 20,
@@ -88,10 +93,54 @@ class RatePlace extends StatelessWidget {
               height: 24.h,
             ),
             CustomTextFormField(
-              minLine: 3,
-              maxLine: 3,
+              minLine: 4,
+              maxLine: 6,
               controller: provider.commentTEC,
               hint: "أخبرنا بالمزيد. . . ",
+              sufWidget: IconButton(
+                onPressed: () async {
+                  await FilePickerHelper.pickMedia(
+                      context: context,
+                      onSelectedMulti: (v) => provider.setRateMedia(v));
+                },
+                icon: Icon(
+                  Icons.attach_file,
+                  color: ColorResources.SECOUND_PRIMARY_COLOR,
+                ),
+              ),
+            ),
+            if(provider.rateMedia!=null)
+            SizedBox(
+              height: 130.h,
+              child: ListView.builder(
+                itemCount: provider.rateMedia?.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: !provider.rateMedia![index]!.path.contains(".mp4")
+                              ? Image.file(
+                                  provider.rateMedia![index]!,
+                                  width: 100.w,
+                                  height: 100.h,
+                                  fit: BoxFit.cover,
+                                )
+                              : VideoPlayerWidget(
+                                  filePath: provider.rateMedia![index]!.path,
+                                ),
+                        ),
+                      ),
+                      IconButton(onPressed: (){
+                        provider.removeRateMedia(index);
+                      }, icon: Icon(Icons.delete,color: Colors.red,))
+                    ],
+                  ),
+                ),
+              ),
             ),
             SizedBox(
               height: 24.h,

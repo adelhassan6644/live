@@ -1,7 +1,7 @@
 import 'dart:io';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:live/app/core/utils/app_snack_bar.dart';
 import 'package:live/navigation/custom_navigation.dart';
-import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/localization/localization/language_constant.dart';
@@ -11,18 +11,18 @@ class NetworkInfo {
   NetworkInfo(this.connectivity);
 
   Future<bool> get isConnected async {
-    ConnectivityResult result = await connectivity.checkConnectivity();
-    return result != ConnectivityResult.none;
+    final result = await connectivity.checkConnectivity();
+    return result.first != ConnectivityResult.none;
   }
 
   static void checkConnectivity({Function()? onVisible}) {
     bool firstTime = true;
     Connectivity()
         .onConnectivityChanged
-        .listen((ConnectivityResult result) async {
+        .listen(( result) async {
       if (!firstTime) {
         bool isNotConnected;
-        if (result == ConnectivityResult.none) {
+        if (result.first == ConnectivityResult.none) {
           isNotConnected = true;
         } else {
           isNotConnected = !await _updateConnectivityStatus();

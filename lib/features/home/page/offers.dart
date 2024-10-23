@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:live/app/core/utils/extensions.dart';
 import 'package:live/features/home/provider/home_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../app/core/utils/color_resources.dart';
 import '../../../../app/core/utils/dimensions.dart';
-import '../../../../app/core/utils/svg_images.dart';
 import '../../../../app/core/utils/text_styles.dart';
 import '../../../../components/animated_widget.dart';
 import '../../../../components/custom_app_bar.dart';
-import '../../../../components/custom_images.dart';
-import '../../../../components/custom_network_image.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../main_widgets/offer_card.dart';
 

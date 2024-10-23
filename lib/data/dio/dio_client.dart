@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../api/end_points.dart';
@@ -31,11 +32,14 @@ class DioClient extends ApiClient {
         // if (sharedPreferences.getString(AppStorageKey.apiToken) != null)
         //   'x-api-key': sharedPreferences.getString(AppStorageKey.apiToken)
       };
-    dio.interceptors.add(PrettyDioLogger(
+    if(kDebugMode) {
+      dio.interceptors.add(PrettyDioLogger(
         request: true,
+
         responseBody: true,
         requestBody: true,
         requestHeader: true));
+    }
   }
 
   // Future<void> updateHeader({required String token}) async {

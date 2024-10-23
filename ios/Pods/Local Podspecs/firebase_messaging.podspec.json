@@ -24,7 +24,7 @@
 
     ],
     "Firebase/Messaging": [
-      "11.0.0"
+      "11.2.0"
     ]
   },
   "resource_bundles": {
