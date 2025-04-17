@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9972C9CC43A34349C035FE6C913368BF"
-               BuildableName = "Toast.bundle"
-               BlueprintName = "Toast-Toast"
+               BlueprintIdentifier = "FC6F2FF8BE88A18590C0CC9A51127451"
+               BuildableName = "flutter_inappwebview_ios_privacy.bundle"
+               BlueprintName = "flutter_inappwebview_ios-flutter_inappwebview_ios_privacy"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

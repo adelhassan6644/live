@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9972C9CC43A34349C035FE6C913368BF"
-               BuildableName = "Toast.bundle"
-               BlueprintName = "Toast-Toast"
+               BlueprintIdentifier = "C1A1BC268F51E1704AFD453C627635B3"
+               BuildableName = "OrderedSet_privacy.bundle"
+               BlueprintName = "OrderedSet-OrderedSet_privacy"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/app/core/utils/extensions.dart';
@@ -8,6 +10,7 @@ import 'package:live/navigation/custom_navigation.dart';
 import 'package:live/navigation/routes.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/svg_images.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../data/config/di.dart';
@@ -16,6 +19,7 @@ import '../../../main_widgets/software_copyRight.dart';
 import '../../auth/provider/auth_provider.dart';
 import '../widgets/more_button.dart';
 import '../widgets/profile_card.dart';
+import 'in_app_web_view_page.dart';
 
 class More extends StatelessWidget {
   const More({
@@ -97,9 +101,25 @@ class More extends StatelessWidget {
             MoreButton(
               title: getTranslated("register_your_store", context),
               icon: SvgImages.login,
-              onTap: () {
-                launchUrl(Uri.parse("${EndPoints.imageUrl}login"),
-                    mode: LaunchMode.externalApplication);
+              onTap: () async {
+                await MyInAppBrowser().openUrlRequest(
+                  urlRequest:
+                  URLRequest(url: WebUri("${EndPoints.imageUrl}login")),
+                  settings: InAppBrowserClassSettings(
+                    browserSettings: InAppBrowserSettings(
+                        toolbarTopBackgroundColor: ColorResources.WHITE_COLOR,
+                        presentationStyle: ModalPresentationStyle.POPOVER),
+                    webViewSettings: InAppWebViewSettings(
+                      isInspectable: kDebugMode,
+                      useShouldOverrideUrlLoading: true,
+                      useOnLoadResource: true,
+                    ),
+                  ),
+                );
+                // CustomNavigator.push(Routes.InAppWebViewPage, );
+                // print(Uri.parse("${EndPoints.imageUrl}login"));
+                // launchUrl(Uri.parse("${EndPoints.imageUrl}login"),
+                //     mode: LaunchMode.externalApplication);
               },
             ),
             Visibility(

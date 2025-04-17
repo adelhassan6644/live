@@ -15,6 +15,7 @@ import '../features/home/page/latest_places.dart';
 import '../features/home/page/news.dart';
 import '../features/home/page/offers.dart';
 import '../features/maps/page/map_page.dart';
+import '../features/more/page/in_app_web_view_page.dart';
 import '../features/notifications/page/notifications_page.dart';
 import '../features/offer_details/page/offer_details.dart';
 import '../features/on_boarding/pages/on_boarding.dart';
@@ -77,6 +78,9 @@ abstract class CustomNavigator {
 
       case Routes.CATEGORY_DETAILS:
         return _pageRoute(CategoryDetails(id: settings.arguments as int));
+
+        case Routes.InAppWebViewPage:
+        return _pageRoute(InAppBrowserScreen());
 
       case Routes.PLACE_DETAILS:
         return _pageRoute(PlaceDetails(id: settings.arguments as int));
