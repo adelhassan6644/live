@@ -28,6 +28,7 @@ class MapPlaces extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.separated(
+                  controller:provider.scrollController,
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (_, index) =>  CustomShimmerContainer(height:220.h ,width: 210.w,),
@@ -54,6 +55,7 @@ class MapPlaces extends StatelessWidget {
               Expanded(
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
+                      controller: provider.scrollController,
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (_, index) => PlaceCard(place: provider.placesModel!.data![index]),
                     separatorBuilder: (_, index) => SizedBox(

@@ -29,246 +29,217 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: context.width,
-        height: context.height,
-        padding: EdgeInsets.symmetric(
-            horizontal: Dimensions.PADDING_SIZE_EXTRA_LARGE.w),
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage(
-            Images.signUpImage,
-          ),
-          fit: BoxFit.fitWidth,
-        )),
-        child: Column(
-          children: [
-            SafeArea(
-              child: customImageIcon(
-                  imageName: Images.logo, height: 140, width: 160).animate()
-                  .slideX(duration: 500.ms )
-                  .then(delay: 300.ms)
-                  .shimmer(duration: 500.ms),
+      backgroundColor: ColorResources.BACKGROUND_COLOR,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: Dimensions.PADDING_SIZE_EXTRA_LARGE.w,
+              vertical: 40.h,
             ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Stack(
-                        alignment: Alignment.topCenter,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 0.h),
-                            child: ClipRRect(
-                              clipBehavior: Clip.antiAlias,
-                              borderRadius: BorderRadius.circular(25),
-                              child: BackdropFilter(
-                                filter: ui.ImageFilter.blur(
-                                    sigmaX: 0.0, sigmaY: 0.0),
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          Dimensions.PADDING_SIZE_DEFAULT.w,
-                                      vertical: 30.h),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(25)),
-                                  child: Consumer<AuthProvider>(
-                                      builder: (_, provider, child) {
-                                    return Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          getTranslated(
-                                              "signup_header", context),
-                                          textAlign: TextAlign.center,
-                                          style: AppTextStyles.semiBold
-                                              .copyWith(
-                                                  fontSize: 28,
-                                                  color: ColorResources.HEADER),
+          child: Column(
+            children: [
+              Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 0.h),
+                    child: ClipRRect(
+                      clipBehavior: Clip.antiAlias,
+                      borderRadius: BorderRadius.circular(25),
+                      child: BackdropFilter(
+                        filter: ui.ImageFilter.blur(
+                            sigmaX: 0.0, sigmaY: 0.0),
+                        child: Consumer<AuthProvider>(
+                            builder: (_, provider, child) {
+                          return Column(
+                            crossAxisAlignment:
+                                CrossAxisAlignment.center,
+                            mainAxisAlignment:
+                                MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                getTranslated(
+                                    "signup_header", context),
+                                textAlign: TextAlign.center,
+                                style: AppTextStyles.semiBold
+                                    .copyWith(
+                                        fontSize: 28,
+                                        color: ColorResources.HEADER),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(bottom: 24.h),
+                                child: Text(
+                                  getTranslated(
+                                      "signup_description", context),
+                                  textAlign: TextAlign.center,
+                                  style: AppTextStyles.medium
+                                      .copyWith(
+                                          fontSize: 14,
+                                          color: ColorResources
+                                              .HINT_COLOR),
+                                ),
+                              ),
+                              Form(
+                                  key: _formKey,
+                                  child: Column(
+                                    children: [
+                                      CustomTextFormField(
+                                        controller: provider.nameTEC,
+                                        hint: getTranslated(
+                                            "name", context),
+                                        inputType: TextInputType.name,
+                                        valid: Validations.name,
+                                        pSvgIcon: SvgImages.userIcon,
+                                      ),
+                                      CustomTextFormField(
+                                        controller: provider.phoneTEC,
+                                        hint: getTranslated(
+                                            "phone_number", context),
+                                        inputType:
+                                            TextInputType.phone,
+                                        valid: Validations.phone,
+                                        pSvgIcon: SvgImages.phoneIcon,
+                                      ),
+                                      CustomTextFormField(
+                                        controller: provider.mailTEC,
+                                        hint: getTranslated(
+                                            "mail", context),
+                                        inputType: TextInputType
+                                            .emailAddress,
+                                        valid: Validations.mail,
+                                        pSvgIcon: SvgImages.mailIcon,
+                                      ),
+                                      CustomTextFormField(
+                                        keyboardAction:
+                                            TextInputAction.done,
+                                        controller:
+                                            provider.passwordTEC,
+                                        hint: getTranslated(
+                                            "password", context),
+                                        inputType: TextInputType
+                                            .visiblePassword,
+                                        valid:
+                                            Validations.firstPassword,
+                                        pSvgIcon: SvgImages.lockIcon,
+                                        isPassword: true,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          vertical: 24.h,
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsets.only(bottom: 24.h),
+                                        child: CustomButton(
+                                            text: getTranslated(
+                                                "signup", context),
+                                            onTap: () {
+                                              if (_formKey
+                                                  .currentState!
+                                                  .validate()) {
+                                                provider.register();
+                                              }
+                                            },
+                                            isLoading:
+                                                provider.isRegister),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              getTranslated(
+                                                  "have_acc",
+                                                  context),
+                                              textAlign:
+                                                  TextAlign.end,
+                                              style: AppTextStyles
+                                                  .medium
+                                                  .copyWith(
+                                                      color:
+                                                          ColorResources
+                                                              .TITLE,
+                                                      fontSize: 16,
+                                                      overflow:
+                                                          TextOverflow
+                                                              .ellipsis),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: InkWell(
+                                              onTap: () {
+                                                CustomNavigator.push(
+                                                    Routes.LOGIN,
+                                                    clean: true);
+                                                provider.clear();
+                                              },
+                                              child: Text(
+                                                getTranslated(
+                                                    "login_now",
+                                                    context),
+                                                style: AppTextStyles
+                                                    .medium
+                                                    .copyWith(
+                                                  color:
+                                                      ColorResources
+                                                          .HEADER,
+                                                  overflow:
+                                                      TextOverflow
+                                                          .ellipsis,
+                                                  fontSize: 16,
+                                                  decorationColor:
+                                                      ColorResources
+                                                          .HEADER,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          CustomNavigator.push(
+                                              Routes.MAIN_PAGE,clean: true);
+                                          provider.clear();
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 12.h),
                                           child: Text(
                                             getTranslated(
-                                                "signup_description", context),
-                                            textAlign: TextAlign.center,
-                                            style: AppTextStyles.medium
+                                                "login_as_a_guest",
+                                                context),
+                                            textAlign:
+                                                TextAlign.center,
+                                            style: AppTextStyles
+                                                .semiBold
                                                 .copyWith(
                                                     fontSize: 14,
                                                     color: ColorResources
                                                         .HINT_COLOR),
                                           ),
                                         ),
-                                        Form(
-                                            key: _formKey,
-                                            child: Column(
-                                              children: [
-                                                CustomTextFormField(
-                                                  controller: provider.nameTEC,
-                                                  hint: getTranslated(
-                                                      "name", context),
-                                                  inputType: TextInputType.name,
-                                                  valid: Validations.name,
-                                                  pSvgIcon: SvgImages.userIcon,
-                                                ),
-                                                CustomTextFormField(
-                                                  controller: provider.phoneTEC,
-                                                  hint: getTranslated(
-                                                      "phone_number", context),
-                                                  inputType:
-                                                      TextInputType.phone,
-                                                  valid: Validations.phone,
-                                                  pSvgIcon: SvgImages.phoneIcon,
-                                                ),
-                                                CustomTextFormField(
-                                                  controller: provider.mailTEC,
-                                                  hint: getTranslated(
-                                                      "mail", context),
-                                                  inputType: TextInputType
-                                                      .emailAddress,
-                                                  valid: Validations.mail,
-                                                  pSvgIcon: SvgImages.mailIcon,
-                                                ),
-                                                CustomTextFormField(
-                                                  keyboardAction:
-                                                      TextInputAction.done,
-                                                  controller:
-                                                      provider.passwordTEC,
-                                                  hint: getTranslated(
-                                                      "password", context),
-                                                  inputType: TextInputType
-                                                      .visiblePassword,
-                                                  valid:
-                                                      Validations.firstPassword,
-                                                  pSvgIcon: SvgImages.lockIcon,
-                                                  isPassword: true,
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: 24.h,
-                                                  ),
-                                                  child: CustomButton(
-                                                      text: getTranslated(
-                                                          "signup", context),
-                                                      onTap: () {
-                                                        if (_formKey
-                                                            .currentState!
-                                                            .validate()) {
-                                                          provider.register();
-                                                        }
-                                                      },
-                                                      isLoading:
-                                                          provider.isRegister),
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Expanded(
-                                                      child: Text(
-                                                        getTranslated(
-                                                            "have_acc",
-                                                            context),
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                        style: AppTextStyles
-                                                            .medium
-                                                            .copyWith(
-                                                                color:
-                                                                    ColorResources
-                                                                        .TITLE,
-                                                                fontSize: 16,
-                                                                overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis),
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      child: InkWell(
-                                                        onTap: () {
-                                                          CustomNavigator.push(
-                                                              Routes.LOGIN,
-                                                              clean: true);
-                                                          provider.clear();
-                                                        },
-                                                        child: Text(
-                                                          getTranslated(
-                                                              "login_now",
-                                                              context),
-                                                          style: AppTextStyles
-                                                              .medium
-                                                              .copyWith(
-                                                            color:
-                                                                ColorResources
-                                                                    .HEADER,
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis,
-                                                            fontSize: 16,
-                                                            decorationColor:
-                                                                ColorResources
-                                                                    .HEADER,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                InkWell(
-                                                  onTap: () {
-                                                    CustomNavigator.push(
-                                                        Routes.MAIN_PAGE,clean: true);
-                                                    provider.clear();
-                                                  },
-                                                  child: Padding(
-                                                    padding: EdgeInsets.only(
-                                                        top: 12.h),
-                                                    child: Text(
-                                                      getTranslated(
-                                                          "login_as_a_guest",
-                                                          context),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: AppTextStyles
-                                                          .semiBold
-                                                          .copyWith(
-                                                              fontSize: 14,
-                                                              color: ColorResources
-                                                                  .HINT_COLOR),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            )),
-                                      ],
-                                    );
-                                  }),
-                                ),
-                              ),
-                            ),
-                          ),
-                          // customImageIcon(
-                          //     imageName: Images.logo, height: 140, width: 160),
-                        ],
+                                      ),
+                                    ],
+                                  )),
+                            ],
+                          );
+                        }),
                       ),
-                      SizedBox(
-                        height: Dimensions.PADDING_SIZE_DEFAULT.h,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  // customImageIcon(
+                  //     imageName: Images.logo, height: 140, width: 160),
+                ],
               ),
-            ),
-          ],
+              SizedBox(
+                height: Dimensions.PADDING_SIZE_DEFAULT.h,
+              ),
+            ],
+          ),
         ),
+                ),
       ),
     );
   }

@@ -77,6 +77,16 @@ class More extends StatelessWidget {
                 controller.toggle!();
               },
             ),
+            Visibility(
+              visible: provider.isLogin && provider.isAgent,
+              child: MoreButton(
+                title: getTranslated("qr_scanner", context),
+                icon: SvgImages.search,
+                onTap: () {
+                  CustomNavigator.push(Routes.QR_SCANNER);
+                },
+              ),
+            ),
             // MoreButton(
             //   title: getTranslated("contact_with_us", context),
             //   icon: SvgImages.mailIcon,
@@ -98,6 +108,7 @@ class More extends StatelessWidget {
                 CustomNavigator.push(Routes.ABOUT_US);
               },
             ),
+
             MoreButton(
               title: getTranslated("register_your_store", context),
               icon: SvgImages.login,
@@ -119,6 +130,7 @@ class More extends StatelessWidget {
                 // CustomNavigator.push(Routes.InAppWebViewPage, );
                 // print(Uri.parse("${EndPoints.imageUrl}login"));
                 // launchUrl(Uri.parse("${EndPoints.imageUrl}login"),
+
                 //     mode: LaunchMode.externalApplication);
               },
             ),

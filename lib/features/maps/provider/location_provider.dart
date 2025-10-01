@@ -20,6 +20,7 @@ class LocationProvider extends ChangeNotifier {
   LocationProvider({
     required this.locationRepo,
   });
+  final ScrollController scrollController = ScrollController();
 
   List<PredictionModel> _predictionList = [];
   bool isLoading = false;
@@ -118,7 +119,7 @@ class LocationProvider extends ChangeNotifier {
     mapController.animateCamera(CameraUpdate.newCameraPosition(
       CameraPosition(
           target: LatLng(_myPosition!.latitude, _myPosition!.longitude),
-          zoom: 18),
+          zoom: 0),
     ));
 
     // await decodeLatLong(
@@ -187,6 +188,26 @@ class LocationProvider extends ChangeNotifier {
     }
   }
 
+  int selectedPlaceIndex = 0;
+
+  void setSelectedPlaceIndex(int index) {
+    selectedPlaceIndex = index;
+    final place = placesModel!.data![index];
+    zoomToLocation(LatLng(place.lat!, place.long!)); // ← تحريك الكاميرا
+    notifyListeners();
+  }
+
+  void scrollToIndex(int index) {
+    final position = index * 230.0;
+
+    scrollController.animateTo(
+      position,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
+  }
+
+
   PlacesModel? placesModel;
   bool isGetPlaces = false;
   getPlaces({required LatLng position}) async {
@@ -207,21 +228,28 @@ class LocationProvider extends ChangeNotifier {
       }, (success) {
         placesModel = PlacesModel.fromJson(success.data);
         if (placesModel!.data!.isNotEmpty) {
-          for (var place in placesModel!.data!) {
-            {
-              gMapMarkers.add(
-                Marker(
-                  markerId: MarkerId(place.id.toString()),
-                  position: LatLng(
-                    place.lat!,
-                    place.long!,
-                  ),
-                  icon: BitmapDescriptor.defaultMarker,
-                  anchor: Offset(0.5, 0.5),
+          gMapMarkers.clear(); // clear old markers before adding new
+
+          for (var i = 0; i < placesModel!.data!.length; i++) {
+            var place = placesModel!.data![i];
+            gMapMarkers.add(
+              Marker(
+                markerId: MarkerId(place.id.toString()),
+                position: LatLng(place.lat!, place.long!),
+                icon: BitmapDescriptor.defaultMarker,
+                onTap: (){
+                  scrollToIndex(i);
+                },
+                infoWindow: InfoWindow(
+                  title: place.name ?? 'Place',
+                  onTap: () {
+                   // ✅ Scroll to item when marker tapped
+                  },
                 ),
-              );
-            }
+              ),
+            );
           }
+
           zoomToLocation(LatLng(
               placesModel!.data!.first.lat!, placesModel!.data!.first.long!));
         }

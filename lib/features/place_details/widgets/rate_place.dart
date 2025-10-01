@@ -5,7 +5,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:live/app/core/utils/app_snack_bar.dart';
 import 'package:live/app/core/utils/dimensions.dart';
 import 'package:live/components/custom_text_form_field.dart';
-import 'package:photo_manager/src/types/entity.dart';
 import 'package:provider/provider.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../app/core/utils/file_picker_helper.dart';

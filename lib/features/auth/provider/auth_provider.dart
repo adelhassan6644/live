@@ -20,7 +20,7 @@ class AuthProvider extends ChangeNotifier {
     required this.authRepo,
   }) {
     _mailTEC = TextEditingController(
-        text: kDebugMode ? "adel@gmail.com" : authRepo.getMail());
+        text: kDebugMode ? "moahmedelbaz1311@gmail.com" : authRepo.getMail());
   }
   late final TextEditingController _mailTEC;
   TextEditingController get mailTEC => _mailTEC;
@@ -63,6 +63,8 @@ class AuthProvider extends ChangeNotifier {
     try {
       _isLogin = true;
       notifyListeners();
+      authRepo.clearSharedData();
+
       Either<ServerFailure, Response> response = await authRepo.logIn(
           mail: _mailTEC.text.trim(), password: passwordTEC.text.trim());
       response.fold((fail) {
@@ -81,6 +83,7 @@ class AuthProvider extends ChangeNotifier {
         }
         authRepo.saveUserId(success.data['data']["id"]);
         authRepo.saveUserToken(success.data['data']["api_token"]);
+        authRepo.saveUseType(success.data['data']["agent"]);
         if (success.data['data']["email_verified_at"] != null) {
           authRepo.setLoggedIn();
           Provider.of<ProfileProvider>(

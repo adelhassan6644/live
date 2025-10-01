@@ -21,6 +21,7 @@ class ProfileProvider extends ChangeNotifier {
   }
 
   bool get isLogin => profileRepo.isLoggedIn();
+  bool get isAgent => profileRepo.isAgent();
 
   ProfileModel? profileModel;
   TextEditingController nameTEC = TextEditingController();

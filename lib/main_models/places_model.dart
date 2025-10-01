@@ -51,6 +51,7 @@ class PlaceItem {
   String? video;
   bool? isFollow;
   int? mostViewed;
+  String? couponCode;
 
   PlaceItem(
       {this.id,
@@ -77,6 +78,8 @@ class PlaceItem {
       this.isFollow,
       this.mostViewed,
       this.video,
+        this.couponCode,
+
       this.createdAt,
       this.updatedAt});
 
@@ -93,6 +96,9 @@ class PlaceItem {
     status = json['status'];
     agentId = json['agent_id'];
     categoryId = json['category_id'];
+    if(json['coupon']!=null) {
+      couponCode=json['coupon']['code'];
+    }
     image = json['image'];
     video = json['video'];
     if (json['images'] != null) {

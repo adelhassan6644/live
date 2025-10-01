@@ -61,14 +61,14 @@ class _MapPageState extends State<MapPage> {
         return Stack(alignment: Alignment.bottomCenter, children: [
           GoogleMap(
             initialCameraPosition: CameraPosition(
-              bearing: 192,
+              bearing: 0,
               target: LatLng(
                 double.parse(AppStrings.defaultLat),
                 double.parse(AppStrings.defaultLong),
               ),
-              zoom: 14,
+              zoom: 0,
             ),
-            minMaxZoomPreference: const MinMaxZoomPreference(0, 100),
+            minMaxZoomPreference: const MinMaxZoomPreference(0, 10),
             myLocationButtonEnabled: false,
             onMapCreated: (GoogleMapController mapController) {
               _mapController = mapController;

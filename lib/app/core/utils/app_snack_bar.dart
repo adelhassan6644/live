@@ -39,7 +39,7 @@ class AppNotification {
 class CustomSnackBar {
   static showSnackBar({required AppNotification notification}) {
     Timer(Duration.zero, () {
-      CustomNavigator.scaffoldState.currentState!.showSnackBar(
+      CustomNavigator.scaffoldState.currentState?.showSnackBar(
         SnackBar(
           padding: const EdgeInsets.all(0),
           duration: const Duration(seconds: 2),
@@ -112,9 +112,9 @@ successMotionToast(msg,
     ),
     height: 70.h,
     width: CustomNavigator.navigatorState.currentContext!.width - 60.w,
-    layoutOrientation: ToastOrientation.ltr,
-    animationType: animationType ?? AnimationType.fromTop,
-    position: position ?? MotionToastPosition.top,
+    layoutOrientation: TextDirection.ltr,
+    animationType: animationType ?? AnimationType.slideInFromTop
+    // position: position ?? MotionToastPosition.top,
   ).show(CustomNavigator.navigatorState.currentContext!);
 }
 
@@ -133,8 +133,8 @@ errorMotionToast(msg,
     ),
     height: 70.h,
     width: CustomNavigator.navigatorState.currentContext!.width - 60.w,
-    layoutOrientation: ToastOrientation.ltr,
-    animationType: animationType ?? AnimationType.fromTop,
-    position: position ?? MotionToastPosition.top,
+    layoutOrientation: TextDirection.ltr,
+    animationType: animationType ?? AnimationType.slideInFromTop,
+    // position: position ?? MotionToastPosition.top,
   ).show(CustomNavigator.navigatorState.currentContext!);
 }

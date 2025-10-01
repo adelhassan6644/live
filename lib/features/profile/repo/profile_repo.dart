@@ -17,6 +17,9 @@ class ProfileRepo {
   bool isLoggedIn() {
     return sharedPreferences.containsKey(AppStorageKey.isLogin);
   }
+ bool isAgent() {
+    return sharedPreferences.getBool(AppStorageKey.isAgent)==true;
+  }
 
   Future<Either<ServerFailure, Response>> updateProfile(
       {required dynamic body}) async {

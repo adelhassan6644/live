@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:live/app/core/utils/color_resources.dart';
 import 'package:live/app/core/utils/extensions.dart';
@@ -15,6 +14,7 @@ import '../../../components/custom_button.dart';
 import '../../../components/empty_widget.dart';
 import '../../../components/shimmer/custom_shimmer.dart';
 import '../../../data/config/di.dart';
+import '../../profile/provider/profile_provider.dart';
 import '../provider/notifications_provider.dart';
 import '../repo/notifications_repo.dart';
 import '../widgets/notification_card.dart';
@@ -25,14 +25,15 @@ class NotificationsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => NotificationsProvider(notificationsRepo: sl<NotificationsRepo>())..getNotifications(),
+      create: (_) => sl.get<ProfileProvider>().isLogin
+          ? (NotificationsProvider(notificationsRepo: sl<NotificationsRepo>())
+            ..getNotifications())
+          : NotificationsProvider(notificationsRepo: sl<NotificationsRepo>()),
       child: Scaffold(
-
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(
-            ),
+            CustomAppBar(),
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
@@ -43,7 +44,6 @@ class NotificationsPage extends StatelessWidget {
             Expanded(child:
                 Consumer<NotificationsProvider>(builder: (_, provider, child) {
               return Container(
-
                   margin: const EdgeInsets.symmetric(
                     horizontal: Dimensions.PADDING_SIZE_DEFAULT,
                     vertical: Dimensions.PADDING_SIZE_DEFAULT,
@@ -84,7 +84,8 @@ class NotificationsPage extends StatelessWidget {
                                             (index) => Dismissible(
                                                   background: Row(
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment.center,
+                                                        CrossAxisAlignment
+                                                            .center,
                                                     children: [
                                                       CustomButton(
                                                         width: 100.w,
@@ -94,12 +95,16 @@ class NotificationsPage extends StatelessWidget {
                                                         svgIcon: SvgImages.card,
                                                         iconSize: 12,
                                                         iconColor:
-                                                        ColorResources.IN_ACTIVE,
+                                                            ColorResources
+                                                                .IN_ACTIVE,
                                                         textColor:
-                                                        ColorResources.IN_ACTIVE,
-                                                        backgroundColor: ColorResources
-                                                            .IN_ACTIVE
-                                                            .withOpacity(0.12),
+                                                            ColorResources
+                                                                .IN_ACTIVE,
+                                                        backgroundColor:
+                                                            ColorResources
+                                                                .IN_ACTIVE
+                                                                .withOpacity(
+                                                                    0.12),
                                                       ),
                                                     ],
                                                   ),
@@ -128,16 +133,18 @@ class NotificationsPage extends StatelessWidget {
                           : RefreshIndicator(
                               color: ColorResources.PRIMARY_COLOR,
                               onRefresh: () async {
-                                sl<NotificationsProvider>().getNotifications();
+                                if(sl.get<ProfileProvider>().isLogin) {
+                                  sl<NotificationsProvider>().getNotifications();
+                                }
                               },
-                              child:  Column(
+                              child: Column(
                                 children: [
                                   Expanded(
                                     child: ListAnimator(data: [
                                       EmptyState(
-                                        txt: getTranslated("no_notifications", context),
-                                        txtColor:
-                                        ColorResources.DISABLED,
+                                        txt: getTranslated(
+                                            "no_notifications", context),
+                                        txtColor: ColorResources.DISABLED,
                                         imgHeight: 250,
                                         imgWidth: 250,
                                         img: Images.emptyNotifcations,

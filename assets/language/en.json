@@ -60,7 +60,7 @@
   "submit": "submit",
   "confirm": "confirm",
   "proceed_to_check_out": "proceed to check out",
-  "verify_header": "Please enter the code sent to the e-mail",
+  "verify_header": "Please enter the code ",
   "required": "This field is Required",
   "please_enter_valid_number": "Oops! please enter valid phone number",
   "please_enter_valid_code": "Oops! please enter valid code",
@@ -102,5 +102,19 @@
 
   "check_location_on_map": "Check location on map",
   "cobone_code": "Coupons code",
-  "whatsapp": "Whatsapp"
+  "whatsapp": "Whatsapp",
+  "get_copoun":"Get a coupon",
+  "qr_scanner": "QR Scanner",
+  "qr_scanner_instruction": "Position the QR code within the frame to scan",
+  "scanned_result": "Scanned Result",
+  "copy": "Copy",
+  "open": "Open",
+  "scan_again": "Scan Again",
+  "scan_qr_code": "Scan QR Code",
+  "copied_to_clipboard": "Copied to clipboard",
+  "qr_code_applied_success": "QR Code applied successfully!",
+  "ok": "OK",
+  "business": "Business",
+  "individuals": "Individuals"
+
 }

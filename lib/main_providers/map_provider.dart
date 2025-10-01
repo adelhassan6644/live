@@ -72,24 +72,30 @@ class MapProvider extends ChangeNotifier {
       ),
     );
     //load the ploylines
-    PolylineResult polylineResult =
-        await polylinePoints.getRouteBetweenCoordinates(
-      AppStrings.googleApiKey,
-      PointLatLng(double.parse(pickupLocation!.latitude!),
-          double.parse(pickupLocation!.longitude!)),
-      PointLatLng(double.parse(dropOffLocation!.latitude!),
-          double.parse(dropOffLocation!.longitude!)),
-    );
-    //get the points from the result
-    List<PointLatLng> result = polylineResult.points;
+    PolylineResult polylineResult ;
+    // =
+    //     await polylinePoints.getRouteBetweenCoordinates(
+    //  googleApiKey:  AppStrings.googleApiKey
+    //   , request:PolylineRequest(
     //
-    if (result.isNotEmpty) {
-      // loop through all PointLatLng points and convert them
-      // to a list of LatLng, required by the Polyline
-      result.forEach((PointLatLng point) {
-        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
-      });
-    }
+    //
+    //     )
+    //
+    //     PointLatLng(double.parse(pickupLocation!.latitude!),
+    //     double.parse(pickupLocation!.longitude!)),
+    // PointLatLng(double.parse(dropOffLocation!.latitude!),
+    // double.parse(dropOffLocation!.longitude!)),
+    // );
+    //get the points from the result
+    // List<PointLatLng> result = polylineResult!.points;
+    //
+    // if (result.isNotEmpty) {
+    //   // loop through all PointLatLng points and convert them
+    //   // to a list of LatLng, required by the Polyline
+    //   result.forEach((PointLatLng point) {
+    //     polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+    //   });
+    // }
 
     // with an id, an RGB color and the list of LatLng pairs
     Polyline polyline = Polyline(

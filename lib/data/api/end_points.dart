@@ -21,6 +21,7 @@ class EndPoints {
   static const String postFavourite = 'favorite';
   static const String search = 'place/search';
   static const String banners = 'banner';
+  static const String couponCheck = 'coupon/check';
   static const String news = 'news';
   static const String places = 'place';
   static String placeDetails(id) => 'place/$id';

@@ -6,6 +6,7 @@ class MainPageProvider extends ChangeNotifier {
   MainPageProvider({required this.repo});
 
   bool get isLogin => repo.isLoggedIn();
+  bool get isAgent => repo.isAgent();
 
   bool? isOpen;
   updateIsOpen(v) {

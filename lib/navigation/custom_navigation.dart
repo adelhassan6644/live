@@ -23,21 +23,21 @@ import '../features/place_details/page/place_details.dart';
 import '../features/search/page/serach_screen.dart';
 import '../features/setting/pages/about_us.dart';
 import '../features/splash/page/splash.dart';
+import '../features/qr_scanner/page/qr_scanner_page.dart';
 import '../main.dart';
 import 'routes.dart';
 
 abstract class CustomNavigator {
-  static final GlobalKey<NavigatorState> navigatorState =
+  static  final navigatorState =
       GlobalKey<NavigatorState>();
-  static final RouteObserver<PageRoute> routeObserver =
+  static final routeObserver =
       RouteObserver<PageRoute>();
-  static final GlobalKey<ScaffoldMessengerState> scaffoldState =
-      GlobalKey<ScaffoldMessengerState>();
+  static final scaffoldState = GlobalKey<ScaffoldMessengerState>();
+
 
   static Route<dynamic> onCreateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.APP:
-        return _pageRoute(const MyApp());
+
       case Routes.SPLASH:
         return _pageRoute(const Splash());
       case Routes.ON_BOARDING:
@@ -103,8 +103,11 @@ abstract class CustomNavigator {
       case Routes.NOTIFICATIONS:
         return _pageRoute(const NotificationsPage());
 
+      case Routes.QR_SCANNER:
+        return _pageRoute(const QrScannerPage());
+
       default:
-        return MaterialPageRoute(builder: (_) => const MyApp());
+        return MaterialPageRoute(builder: (_) => const Splash());
     }
   }
 

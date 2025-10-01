@@ -27,6 +27,8 @@ import '../../features/search/provider/search_provider.dart';
 import '../../features/search/repo/search_repo.dart';
 import '../../features/setting/provider/setting_provider.dart';
 import '../../features/setting/repo/setting_repo.dart';
+import '../../features/qr_scanner/repo/qr_scanner_repo.dart';
+import '../../features/qr_scanner/provider/qr_scanner_provider.dart';
 import '../../main_page/provider/main_page_provider.dart';
 import '../../main_providers/map_provider.dart';
 import '../api/end_points.dart';
@@ -77,6 +79,8 @@ Future<void> init() async {
 
   sl.registerLazySingleton(
       () => SearchRepo(sharedPreferences: sl(), dioClient: sl()));
+  sl.registerLazySingleton(
+      () => QrScannerRepo(sharedPreferences: sl(), dioClient: sl()));
   //provider
   sl.registerLazySingleton(() => LocalizationProvider(sharedPreferences: sl()));
 
@@ -97,6 +101,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => LocationProvider(locationRepo: sl()));
   sl.registerLazySingleton(() => SettingProvider(repo: sl()));
   sl.registerLazySingleton(() => ContactProvider(contactRepo: sl()));
+  sl.registerLazySingleton(() => QrScannerProvider(qrScannerRepo: sl()));
 
   // External
   final sharedPreferences = await SharedPreferences.getInstance();

@@ -18,12 +18,18 @@ class SplashProvider extends ChangeNotifier {
       await sl<ContactProvider>().getContact();
       if (splashRepo.isFirstTime()) {
        CustomNavigator.push(Routes.ON_BOARDING, clean: true);
+       splashRepo.setFirstTime();
+
+       return;
       } else if (!splashRepo.isLogin() ) {
         CustomNavigator.push(Routes.MAIN_PAGE, clean: true);
+        return;
+
       } else {
         CustomNavigator.push(Routes.MAIN_PAGE, clean: true, arguments: 0);
+        return;
+
       }
-      splashRepo.setFirstTime();
     });
 
   }

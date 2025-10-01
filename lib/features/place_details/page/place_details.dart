@@ -6,13 +6,17 @@ import 'package:live/components/custom_network_image.dart';
 import 'package:live/features/place_details/provider/place_details_provider.dart';
 import 'package:live/features/place_details/widgets/place_details_images_widget.dart';
 import 'package:map_launcher/map_launcher.dart';
+import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:provider/provider.dart';
+import 'package:sliding_action_button/sliding_action_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/core/utils/dimensions.dart';
+import '../../../app/core/utils/images.dart';
 import '../../../app/localization/localization/language_constant.dart';
 import '../../../components/custom_app_bar.dart';
 import '../../../components/custom_button.dart';
+import '../../../components/custom_simple_dialog.dart';
 import '../../../components/empty_widget.dart';
 import '../../../data/config/di.dart';
 import '../../../main_widgets/maps_sheet.dart';
@@ -198,27 +202,86 @@ class _PlaceDetailsState extends State<PlaceDetails> {
                         );
             }),
           ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat,
-          floatingActionButton: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: CustomButton(
-              text: getTranslated("location", context),
-              onTap: () async {
-                final placeItem = provider2.model;
-                MapsSheet.show(
-                  context: context,
-                  onMapTap: (map) {
-                    Navigator.pop(context);
-                    map.showMarker(
-                      coords: Coords(placeItem!.lat!, placeItem!.long!),
-                      title: placeItem.name!,
-                    );
-                  },
-                );
-              },
-            ),
+
+          floatingActionButton: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            spacing: 10,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child:FloatingActionButton(onPressed: () async {
+                      final placeItem = provider2.model;
+                      MapsSheet.show(
+                        context: context,
+                        onMapTap: (map) {
+                          Navigator.pop(context);
+                          map.showMarker(
+                            coords: Coords(placeItem!.lat!, placeItem!.long!),
+                            title: placeItem.name!,
+                          );
+                        },
+                      );
+                    },
+                    child: Icon(Icons.location_on, color: ColorResources.WHITE_COLOR),)
+
+                  ),
+                ],
+              ),
+            Visibility(
+              visible: provider2.model?.couponCode != null,
+              child: Center(
+                child: Container(
+                  color: Colors.white,
+                  child: CircleSlideToActionButton(
+                  width:context.width*.85,
+                  parentBoxRadiusValue: 50,
+                  initialSlidingActionLabel: getTranslated("get_copoun", context),
+                  finalSlidingActionLabel: '',
+                    circleSlidingButtonIcon: ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: const Icon(
+                    Icons.arrow_back,
+                    color: ColorResources.PRIMARY_COLOR,
+                    ),
+                  ),
+                  circleSlidingButtonBackgroundColor: Colors.white,
+                  parentBoxGradientBackgroundColor: LinearGradient(
+                  colors: [ColorResources.PRIMARY_COLOR, Colors.grey.withOpacity(0.05)]),
+                  parentBoxDisableGradientBackgroundColor: LinearGradient(colors: [
+                    ColorResources.SECOUND_PRIMARY_COLOR
+                  ]),
+                  leftEdgeSpacing: 12,
+                  rightEdgeSpacing: 12,
+                  onSlideActionCompleted: () async {
+                    setState(() {
+
+                    });
+                    final placeItem = provider2.model;
+
+                    await CustomSimpleDialog.parentSimpleDialog(customListWidget: [
+                      PrettyQrView.data(
+                        data: placeItem?.couponCode??"",
+                      )
+                    ]);
+
+                    return;
+                  }, onSlideActionCanceled: () {  },
+
+                  ),
+                ),
+              ),
+            )
+
+            ],
           ),
+
+
+
+
         );
       }),
     );

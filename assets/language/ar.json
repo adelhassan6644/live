@@ -63,7 +63,7 @@
   "confirm": "تأكيد",
   "verify_the_mail": "التحقق من البريد الإلكتروني",
   "resend_code": "أعد إرسال الرمز",
-  "verify_header": "الرجاء إدخال الرمز المرسل الي البريد الإلكتروني",
+  "verify_header": "الرجاء إدخال الرمز المرسل ",
   "proceed_to_check_out": "انتقل الي الدفع",
   "required": "هذا الحقل مطلوب",
   "current": "حالية",
@@ -106,5 +106,18 @@
   "discount_value": "قيمة التوفير في هذا العرض",
   "address": "العنوان",
   "check_location_on_map": "تفقد الموقع علي الخريطة",
-  "whatsapp": "واتس اب"
+  "whatsapp": "واتس اب",
+  "get_copoun": "الحصول على كوبون",
+  "qr_scanner": "قارئ QR",
+  "qr_scanner_instruction": "ضع رمز QR داخل الإطار للمسح",
+  "scanned_result": "نتيجة المسح",
+  "copy": "نسخ",
+  "open": "فتح",
+  "scan_again": "امسح مرة أخرى",
+  "scan_qr_code": "امسح رمز QR",
+  "copied_to_clipboard": "تم النسخ للحافظة",
+  "qr_code_applied_success": "تم تطبيق رمز QR بنجاح!",
+  "ok": "موافق",
+  "business": "اعمال",
+  "individuals": "أفراد"
 }

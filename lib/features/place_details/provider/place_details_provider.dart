@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:live/features/place_details/repo/place_details_repo.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 import '../../../app/core/utils/app_snack_bar.dart';
 import '../../../app/core/utils/color_resources.dart';
 import '../../../data/error/api_error_handler.dart';

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/core/utils/app_storage_keys.dart';
 import '../../../data/api/end_points.dart';
@@ -26,6 +27,9 @@ class AuthRepo {
 
   saveUserId(id) {
     sharedPreferences.setString(AppStorageKey.userId, id.toString());
+  }
+  saveUseType(id) {
+    sharedPreferences.setBool(AppStorageKey.isAgent, id==1);
   }
 
   saveUserToken(apiToken) {
@@ -93,6 +97,7 @@ class AuthRepo {
       Response response = await dioClient.post(uri: EndPoints.logIn, data: {
         "email": mail,
         "password": password,
+        if(kReleaseMode)
         "fcm_token": await saveDeviceToken()
       });
 
@@ -236,6 +241,7 @@ class AuthRepo {
 
   Future<bool> clearSharedData() async {
     await sharedPreferences.remove(AppStorageKey.userId);
+    await sharedPreferences.remove(AppStorageKey.isAgent);
     await sharedPreferences.remove(AppStorageKey.isLogin);
     return true;
   }

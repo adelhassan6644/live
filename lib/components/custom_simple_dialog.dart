@@ -3,7 +3,7 @@ import '../../navigation/custom_navigation.dart';
 
 abstract class CustomSimpleDialog {
 
-  static parentSimpleDialog({@required List<Widget>? customListWidget}){
+  static parentSimpleDialog({required List<Widget>? customListWidget}){
     return showGeneralDialog(
         barrierColor: Colors.black.withOpacity(0.5),
         transitionBuilder: (context, a1, a2, widget) {

@@ -26,5 +26,6 @@ class Routes {
   static const TERMS = "TERMS";
   static const NOTIFICATIONS = "NOTIFICATIONS";
   static const InAppWebViewPage = "InAppWebViewPage";
+  static const QR_SCANNER = "QR_SCANNER";
 
 }

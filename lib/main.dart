@@ -20,7 +20,7 @@ import 'package:live/data/config/di.dart' as di;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await di.init();
   await Firebase.initializeApp(
 
     options: DefaultFirebaseOptions.currentPlatform,
@@ -28,7 +28,7 @@ Future<void> main() async {
 
   await FirebaseNotifications.setUpFirebase();
 
-  await di.init();
+
   runApp(MultiProvider(providers: ProviderList.providers, child: const MyApp()));
 
 }
@@ -65,26 +65,32 @@ class _MyAppState extends State<MyApp> {
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.light));
 
-    return MaterialApp(
-      builder: (context, child) => MediaQuery(
-          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-          child: UnFocus(child: child!)),
-      initialRoute: Routes.SPLASH,
-      navigatorKey: CustomNavigator.navigatorState,
-      onGenerateRoute: CustomNavigator.onCreateRoute,
-      navigatorObservers: [CustomNavigator.routeObserver],
-      title: AppStrings.appName,
-      scaffoldMessengerKey: CustomNavigator.scaffoldState,
-      debugShowCheckedModeBanner: false,
-      theme: Provider.of<ThemeProvider>(context,).darkTheme ? dark : light,
-      supportedLocales: locals,
-      locale: Provider.of<LocalizationProvider>(context,).locale,
-      localizationsDelegates: const [
-        AppLocalization.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
+    return Consumer2<ThemeProvider, LocalizationProvider>(
+      builder: (context, themeProvider, localeProvider, child) {
+        return MaterialApp(
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            child: child!,
+          ),
+          initialRoute: Routes.SPLASH,
+          navigatorKey: CustomNavigator.navigatorState,
+          onGenerateRoute: CustomNavigator.onCreateRoute,
+          navigatorObservers: [CustomNavigator.routeObserver],
+          title: AppStrings.appName,
+          scaffoldMessengerKey: CustomNavigator.scaffoldState,
+          debugShowCheckedModeBanner: false,
+          theme: themeProvider.darkTheme ? dark : light,
+          supportedLocales: locals,
+          locale: localeProvider.locale,
+          localizationsDelegates: const [
+            AppLocalization.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+        );
+      },
     );
+
   }
 }
