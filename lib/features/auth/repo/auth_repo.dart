@@ -92,11 +92,11 @@ class AuthRepo {
   // }
 
   Future<Either<ServerFailure, Response>> logIn(
-      {required String mail, required String password}) async {
+      {required String phone, required String password}) async {
     try {
-      Response response = await dioClient.post(uri: EndPoints.logIn, data: {
-        "email": mail,
-        "password": password,
+      Response response = await dioClient.post(uri: EndPoints.phoneLogIn, data: {
+        "phone": phone,
+        // "password": password,
         if(kReleaseMode)
         "fcm_token": await saveDeviceToken()
       });
@@ -176,13 +176,12 @@ class AuthRepo {
       {required String phone,
       required String name,
       required String mail,
-      required String password}) async {
+    }) async {
     try {
       Response response = await dioClient.post(uri: EndPoints.register, data: {
         "name": name,
         "phone": phone,
         "email": mail,
-        "password": password,
         "fcm_token": await saveDeviceToken()
       });
 
@@ -200,9 +199,9 @@ class AuthRepo {
       {required String mail, required bool fromRegister}) async {
     try {
       Response response = await dioClient.post(
-          uri: fromRegister ? EndPoints.resend : EndPoints.forgetPassword,
+          uri:  EndPoints.phoneLogIn ,
           data: {
-            "email": mail,
+            "phone": mail,
           });
 
       if (response.statusCode == 200) {
@@ -215,8 +214,8 @@ class AuthRepo {
     }
   }
 
-  Future<Either<ServerFailure, Response>> verifyMail(
-      {required String mail,
+  Future<Either<ServerFailure, Response>> verifyOtp(
+      {required String phone,
       required String code,
       required bool fromRegister,
       bool updateHeader = false}) async {
@@ -225,7 +224,10 @@ class AuthRepo {
           uri: fromRegister
               ? EndPoints.verifyEmail
               : EndPoints.checkMailForResetPassword,
-          data: {"code": code, "email": mail});
+          data: {"code": code, "phone": phone,
+            "fcm_token": "await saveDeviceToken()"
+
+          });
       if (response.statusCode == 200) {
         // if(updateHeader) {
         //   dioClient.updateHeader(token: response.data['data']["api_token"]);

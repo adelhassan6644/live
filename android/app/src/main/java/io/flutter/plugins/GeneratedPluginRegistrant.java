@@ -131,9 +131,14 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin photo_manager, com.fluttercandies.photo_manager.PhotoManagerPlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new io.flutter.plugins.share.SharePlugin());
+      flutterEngine.getPlugins().add(new net.touchcapture.qr.flutterqrplus.FlutterQrPlusPlugin());
     } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin share, io.flutter.plugins.share.SharePlugin", e);
+      Log.e(TAG, "Error registering plugin qr_code_scanner_plus, net.touchcapture.qr.flutterqrplus.FlutterQrPlusPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new dev.fluttercommunity.plus.share.SharePlusPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin share_plus, dev.fluttercommunity.plus.share.SharePlusPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin());
@@ -143,7 +148,7 @@ public final class GeneratedPluginRegistrant {
     try {
       flutterEngine.getPlugins().add(new com.tekartik.sqflite.SqflitePlugin());
     } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin sqflite, com.tekartik.sqflite.SqflitePlugin", e);
+      Log.e(TAG, "Error registering plugin sqflite_android, com.tekartik.sqflite.SqflitePlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.urllauncher.UrlLauncherPlugin());

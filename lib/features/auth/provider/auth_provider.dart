@@ -18,15 +18,11 @@ class AuthProvider extends ChangeNotifier {
   final AuthRepo authRepo;
   AuthProvider({
     required this.authRepo,
-  }) {
-    _mailTEC = TextEditingController(
-        text: kDebugMode ? "moahmedelbaz1311@gmail.com" : authRepo.getMail());
-  }
-  late final TextEditingController _mailTEC;
-  TextEditingController get mailTEC => _mailTEC;
+  });
 
   final TextEditingController nameTEC = TextEditingController();
   final TextEditingController phoneTEC = TextEditingController();
+  final TextEditingController mailTEC = TextEditingController();
   final TextEditingController currentPasswordTEC = TextEditingController();
   final TextEditingController passwordTEC = TextEditingController();
   final TextEditingController confirmPasswordTEC = TextEditingController();
@@ -66,43 +62,45 @@ class AuthProvider extends ChangeNotifier {
       authRepo.clearSharedData();
 
       Either<ServerFailure, Response> response = await authRepo.logIn(
-          mail: _mailTEC.text.trim(), password: passwordTEC.text.trim());
+          phone: phoneTEC.text.trim(), password: passwordTEC.text.trim());
       response.fold((fail) {
         CustomSnackBar.showSnackBar(
             notification: AppNotification(
-                message: getTranslated("invalid_credentials",
-                    CustomNavigator.navigatorState.currentContext!),
+                message: fail.error,
                 isFloating: true,
                 backgroundColor: ColorResources.IN_ACTIVE,
                 borderColor: Colors.transparent));
       }, (success) {
-        if (_isRememberMe) {
-          authRepo.remember(_mailTEC.text.trim());
-        } else {
-          authRepo.forget();
-        }
-        authRepo.saveUserId(success.data['data']["id"]);
-        authRepo.saveUserToken(success.data['data']["api_token"]);
-        authRepo.saveUseType(success.data['data']["agent"]);
-        if (success.data['data']["email_verified_at"] != null) {
-          authRepo.setLoggedIn();
-          Provider.of<ProfileProvider>(
-                  CustomNavigator.navigatorState.currentContext!,
-                  listen: false)
-              .getProfile();
-          Provider.of<FavouriteProvider>(
-                  CustomNavigator.navigatorState.currentContext!,
-                  listen: false)
-              .getFavourites();
-          CustomNavigator.push(Routes.MAIN_PAGE, clean: true);
-          clear();
-        } else {
-          CustomNavigator.push(Routes.VERIFICATION, arguments: true);
-        }
+        CustomNavigator.push(Routes.VERIFICATION, arguments: true);
+
+        // if (_isRememberMe) {
+        //   authRepo.remember(_phoneTEC.text.trim());
+        // } else {
+        //   authRepo.forget();
+        // }
+        // authRepo.saveUserId(success.data['data']["id"]);
+        // authRepo.saveUserToken(success.data['data']["api_token"]);
+        // authRepo.saveUseType(success.data['data']["agent"]);
+        // if (success.data['data']["email_verified_at"] != null) {
+        //   authRepo.setLoggedIn();
+        //   Provider.of<ProfileProvider>(
+        //           CustomNavigator.navigatorState.currentContext!,
+        //           listen: false)
+        //       .getProfile();
+        //   Provider.of<FavouriteProvider>(
+        //           CustomNavigator.navigatorState.currentContext!,
+        //           listen: false)
+        //       .getFavourites();
+        //   CustomNavigator.push(Routes.MAIN_PAGE, clean: true);
+        //   clear();
+        // } else {
+        //   CustomNavigator.push(Routes.VERIFICATION, arguments: true);
+        // }
       });
       _isLogin = false;
       notifyListeners();
     } catch (e) {
+
       CustomSnackBar.showSnackBar(
           notification: AppNotification(
               message: ApiErrorHandler.getMessage(e),
@@ -208,7 +206,6 @@ class AuthProvider extends ChangeNotifier {
       Either<ServerFailure, Response> response = await authRepo.register(
         name: nameTEC.text.trim(),
         mail: mailTEC.text.trim(),
-        password: passwordTEC.text.trim(),
         phone: phoneTEC.text.trim(),
       );
       response.fold((fail) {
@@ -245,7 +242,7 @@ class AuthProvider extends ChangeNotifier {
 
   resend(fromRegister) async {
     await authRepo.resendCode(
-      mail: mailTEC.text.trim(),
+      mail: phoneTEC.text.trim(),
       fromRegister: fromRegister,
     );
   }
@@ -293,8 +290,8 @@ class AuthProvider extends ChangeNotifier {
     try {
       _isVerify = true;
       notifyListeners();
-      Either<ServerFailure, Response> response = await authRepo.verifyMail(
-          mail: mailTEC.text.trim(),
+      Either<ServerFailure, Response> response = await authRepo.verifyOtp(
+          phone: phoneTEC.text.trim(),
           code: codeTEC.text.trim(),
           fromRegister: fromRegister,
           updateHeader: fromRegister);
@@ -307,6 +304,9 @@ class AuthProvider extends ChangeNotifier {
                 borderColor: Colors.transparent));
         notifyListeners();
       }, (success) {
+        authRepo.saveUserId(success.data['data']["id"]);
+        authRepo.saveUseType(success.data['data']["agent"]);
+        authRepo.saveUserToken(success.data['data']["api_token"]);
         if (fromRegister) {
           Provider.of<ProfileProvider>(
                   CustomNavigator.navigatorState.currentContext!,
@@ -321,13 +321,7 @@ class AuthProvider extends ChangeNotifier {
             Routes.MAIN_PAGE,
             clean: true,
           );
-          CustomSnackBar.showSnackBar(
-              notification: AppNotification(
-                  message: getTranslated("register_successfully",
-                      CustomNavigator.navigatorState.currentContext!),
-                  isFloating: true,
-                  backgroundColor: ColorResources.ACTIVE,
-                  borderColor: Colors.transparent));
+
         } else {
           CustomNavigator.push(
             Routes.RESET_PASSWORD,

@@ -9,24 +9,22 @@
     "file": "../LICENSE"
   },
   "authors": {
-    "Michael Bui": "michael@dexterx.dev"
+    "Michael Bui": "borromini_eeckhout@simplelogin.com"
   },
   "source": {
     "path": "."
   },
-  "source_files": "Classes/**/*",
-  "public_header_files": "Classes/**/*.h",
+  "source_files": "flutter_local_notifications/Sources/flutter_local_notifications/**/*.{h,m}",
+  "public_header_files": "flutter_local_notifications/Sources/flutter_local_notifications/include/**/*.h",
   "dependencies": {
-    "Flutter": [
-
-    ]
+    "Flutter": []
   },
   "resource_bundles": {
     "flutter_local_notifications_privacy": [
-      "Resources/PrivacyInfo.xcprivacy"
+      "flutter_local_notifications/Sources/flutter_local_notifications/PrivacyInfo.xcprivacy"
     ]
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "11.0"
   }
 }

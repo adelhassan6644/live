@@ -8,6 +8,7 @@ class EndPoints {
   static const String topic = 'live';
   static const String softwarecloud2 = 'https://www.softwarecloud2.com/';
   static const String logIn = 'login';
+  static const String phoneLogIn = 'send-otp';
   static const String forgetPassword = 'resetPassword/email';
   static const String checkMailForResetPassword = 'resetPassword/checkCode';
   static const String resetPassword = 'resetPassword/newPassword';

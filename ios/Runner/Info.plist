@@ -81,7 +81,7 @@
 	<key>NSAppTransportSecurity</key>
 	<dict/>
 	<key>NSCameraUsageDescription</key>
-	<string>We need access to your camera for profile photo update.</string>
+	<string>We need access to your camera to scan QR codes and update profile photos.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>This app requires contacts access to select parcel order contact info.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

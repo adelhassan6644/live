@@ -163,12 +163,12 @@ class _LoginState extends State<Login> {
                                       children: [
                                         CustomTextFormField(
                                           controller:
-                                          provider.mailTEC,
+                                          provider.phoneTEC,
                                           hint: getTranslated(
                                               "phone_number", context),
                                           inputType: TextInputType
                                               .phone,
-                                          valid: Validations.mail,
+                                          valid: Validations.phone,
                                           pSvgIcon:
                                           SvgImages.phoneCallIcon,
                                         ),

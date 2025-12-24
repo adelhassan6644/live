@@ -16,13 +16,16 @@
   "source_files": "Classes/**/*",
   "public_header_files": "Classes/**/*.h",
   "dependencies": {
-    "Flutter": [
-
-    ]
+    "Flutter": []
   },
   "swift_versions": "4.2",
   "platforms": {
     "ios": "8.0"
+  },
+  "resource_bundles": {
+    "map_launcher_privacy": [
+      "Resources/PrivacyInfo.xcprivacy"
+    ]
   },
   "swift_version": "4.2"
 }

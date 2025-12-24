@@ -112,20 +112,20 @@ class _RegisterState extends State<Register> {
                                         valid: Validations.mail,
                                         pSvgIcon: SvgImages.mailIcon,
                                       ),
-                                      CustomTextFormField(
-                                        keyboardAction:
-                                            TextInputAction.done,
-                                        controller:
-                                            provider.passwordTEC,
-                                        hint: getTranslated(
-                                            "password", context),
-                                        inputType: TextInputType
-                                            .visiblePassword,
-                                        valid:
-                                            Validations.firstPassword,
-                                        pSvgIcon: SvgImages.lockIcon,
-                                        isPassword: true,
-                                      ),
+                                      // CustomTextFormField(
+                                      //   keyboardAction:
+                                      //       TextInputAction.done,
+                                      //   controller:
+                                      //       provider.passwordTEC,
+                                      //   hint: getTranslated(
+                                      //       "password", context),
+                                      //   inputType: TextInputType
+                                      //       .visiblePassword,
+                                      //   valid:
+                                      //       Validations.firstPassword,
+                                      //   pSvgIcon: SvgImages.lockIcon,
+                                      //   isPassword: true,
+                                      // ),
                                       Padding(
                                         padding: EdgeInsets.symmetric(
                                           vertical: 24.h,
